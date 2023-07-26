@@ -2,7 +2,7 @@ import pytest
 
 import seb
 
-all_tasks = seb.tasks.get_all()
+all_tasks = seb.tasks.get_all()  # type: ignore
 
 
 @pytest.mark.parametrize("task_name", all_tasks.keys())

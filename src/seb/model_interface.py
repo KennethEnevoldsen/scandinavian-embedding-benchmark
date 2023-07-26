@@ -25,21 +25,26 @@ class ModelInterface(Protocol):
 
 
 class ModelMeta(BaseModel):
-    model_name: str
-    model_description: Optional[str] = None
+    name: str
+    description: Optional[str] = None
     huggingface_name: Optional[str] = None
-    model_reference: Optional[str] = None
+    reference: Optional[str] = None
     languages: List[str] = []
 
     def get_path_name(self):
         if self.huggingface_name is None:
-            return name_to_path(self.model_name)
+            return name_to_path(self.name)
         return name_to_path(self.huggingface_name)
+
+    def get_huggingface_url(self) -> str:
+        if self.huggingface_name is None:
+            raise ValueError("This model does not have an associated huggingface name.")
+        return f"https://huggingface.co/{self.huggingface_name}"
 
 
 class SebModel(BaseModel):
-    model_meta: ModelMeta
-    model_loader: Callable[[], ModelInterface]
+    meta: ModelMeta
+    loader: Callable[[], ModelInterface]
     _model: Optional[ModelInterface] = None
 
     @property
@@ -48,7 +53,7 @@ class SebModel(BaseModel):
         Dynimically load the model.
         """
         if self._model is None:
-            self._model = self.model_loader()
+            self._model = self.loader()
         return self._model
 
     @property

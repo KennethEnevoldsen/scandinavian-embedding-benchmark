@@ -33,5 +33,5 @@ class TaskResult(BaseModel):
 
 
 class BenchmarkResults(BaseModel):
-    model_meta: ModelMeta
+    meta: ModelMeta
     task_results: List[TaskResult]

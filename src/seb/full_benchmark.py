@@ -2,14 +2,20 @@
 This is the specification for the full benchmark. Running the code here will reproduce the results.
 """
 
-import seb
+from typing import List
+
+from seb.model_interface import SebModel
+
+from .benchmark import Benchmark
+from .registries import models as seb_models
+from .results import BenchmarkResults
 
 
-def run_seb(use_cache: bool = True) -> dict[str, seb.BenchmarkResults]:
+def run_seb(use_cache: bool = True) -> dict[str, BenchmarkResults]:
     """
     Run the full benchmark.
     """
-    models = seb.models.get_all().values()
+    models: List[SebModel] = list(seb_models.get_all().values())
 
     subsets = {
         "Full": ["da", "no", "sv", "nn", "nb"],
@@ -19,7 +25,7 @@ def run_seb(use_cache: bool = True) -> dict[str, seb.BenchmarkResults]:
     }
     results = {}
     for subset, langs in subsets.items():
-        benchmark = seb.Benchmark(languages=langs)
+        benchmark = Benchmark(languages=langs)
         bm_results = benchmark.evaluate(models=models, use_cache=use_cache)
 
         results[subset] = bm_results

@@ -1,5 +1,6 @@
-from seb.tasks import MTEBTask, Task
 from seb.registries import tasks
+from seb.tasks_interface import MTEBTask, Task
+
 
 @tasks.register("Angry Tweets")
 def create_angry_tweets() -> Task:

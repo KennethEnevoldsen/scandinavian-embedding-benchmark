@@ -5,40 +5,36 @@ The test specifications for the benchmark.
 from typing import List, Optional
 
 import pytest
-from sentence_transformers import SentenceTransformer
 
 import seb
 
 
 @pytest.mark.parametrize(
-    "model_names, languages, tasks, categories",
+    "model_names, languages, tasks",
     [
-        (["Maltehb/aelaectra-danish-electra-small-cased"], ["da"], None, None),
+        (["Maltehb/aelaectra-danish-electra-small-cased"], ["da"], None),
         (
             ["sentence-transformers/all-mpnet-base-v2"],
-            None,
             ["LccSentimentClassification", "DKHateClassification"],
             None,
         ),
-        (["sentence-transformers/all-mpnet-base-v2"], None, None, ["sentiment"]),
-        (["sentence-transformers/all-mpnet-base-v2"], None, None, ["retrieval"]),
+        (["sentence-transformers/all-mpnet-base-v2"], None, None),
+        (["sentence-transformers/all-mpnet-base-v2"], None, None),
     ],
 )
 def test_run_benchmark(
     model_names: List[str],
     languages: Optional[List[str]],
     tasks: Optional[List[str]],
-    categories: Optional[List[str]] = None,
 ):
     """
     Test that the benchmark runs without errors.
     """
-    models = [SentenceTransformer(model_name) for model_name in model_names]
+    models = [seb.get_model(model_name) for model_name in model_names]
 
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=languages,
         tasks=tasks,
-        categories=categories,
     )
     bm_results: List[seb.benchmarkResults] = benchmark.evaluate(
         models=models, use_cache=False
@@ -66,13 +62,12 @@ def ensure_correct_task_result(task_result: seb.TaskResult):
 
 
 @pytest.mark.parametrize(
-    "model_name, languages, tasks, categories",
+    "model_name, languages, tasks",
     [
         (
             "Maltehb/aelaectra-danish-electra-small-cased",
             None,
             ["DKHateClassification"],
-            None,
         ),
     ],
 )
@@ -80,7 +75,6 @@ def check_cache_dir_is_reused(
     model_name: str,
     languages: Optional[List[str]],
     tasks: Optional[List[str]],
-    categories: Optional[List[str]] = None,
 ):
     """
     Check that the cache dir is reused.
@@ -89,7 +83,6 @@ def check_cache_dir_is_reused(
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=languages,
         tasks=tasks,
-        categories=categories,
     )
 
     bm_result: seb.BenchmarkResult = benchmark.evaluate_model(model, use_cache=False)

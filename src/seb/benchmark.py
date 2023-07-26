@@ -6,7 +6,7 @@ from .model_interface import SebModel
 from .registries import get_task
 from .registries import tasks as sebtasks
 from .results import BenchmarkResults, TaskResult
-from .tasks import Task
+from .tasks_interface import Task
 from .utils import get_cache_dir, name_to_path
 
 
@@ -32,7 +32,7 @@ def get_cache_path(task: Task, model: SebModel) -> Path:
     Get the cache path for a task and model.
     """
     cache_path = get_cache_dir()
-    mdl_path_name = model.model_meta.get_path_name()
+    mdl_path_name = model.meta.get_path_name()
     task_path_name = name_to_path(task.name) + ".json"
     task_cache_path = cache_path / mdl_path_name / task_path_name
     return task_cache_path
@@ -74,7 +74,7 @@ class Benchmark:
         if self.tasks_names is not None:
             tasks: List[Task] = [get_task(task_name) for task_name in self.tasks_names]
         else:
-            tasks: List[Task] = sebtasksget_all().values()  # type: ignore
+            tasks: List[Task] = sebtasks.get_all().values()  # type: ignore
 
         if self.languages is not None:
             langs = set(self.languages)
@@ -94,7 +94,7 @@ class Benchmark:
             task_result = run_task(task, model, use_cache)
             task_results.append(task_result)
 
-        return BenchmarkResults(model_meta=model.model_meta, task_results=task_results)
+        return BenchmarkResults(meta=model.meta, task_results=task_results)
 
     def evaluate(self, models: List[SebModel], use_cache: bool = True):
         """

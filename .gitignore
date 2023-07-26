@@ -9,8 +9,6 @@ __pycache__/
 _build/
 .tox
 
-#
-
 # VSCode
 .vscode/
 

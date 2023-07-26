@@ -19,14 +19,14 @@ def get_sentence_transformer(model_name):
 def create_all_mini_lm_l6_v2() -> SebModel:
     hf_name = "sentence-transformers/all-MiniLM-L6-v2"
     meta = ModelMeta(
-        model_name=hf_name.split("/")[-1],
+        name=hf_name.split("/")[-1],
         huggingface_name=f"hf_name",
-        model_reference="https://huggingface.co/{hf_name}",
+        reference="https://huggingface.co/{hf_name}",
         languages=[],
     )
     return SebModel(
-        model_loader=partial(get_sentence_transformer, model_name=hf_name),
-        model_meta=meta,
+        loader=partial(get_sentence_transformer, model_name=hf_name),
+        meta=meta,
     )
 
 

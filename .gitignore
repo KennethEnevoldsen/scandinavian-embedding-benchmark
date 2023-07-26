@@ -22,3 +22,7 @@ table.csv
 # development
 tmp.py
 run_mteb.py
+error_logs.txt
+
+# tmp tests files
+tests/tmpfiles/*

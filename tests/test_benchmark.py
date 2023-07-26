@@ -2,9 +2,11 @@
 The test specifications for the benchmark.
 """
 
+from datetime import datetime
 from typing import List, Optional
 
 import pytest
+from test_model import create_test_model  # noqa: F401
 
 import seb
 
@@ -12,14 +14,20 @@ import seb
 @pytest.mark.parametrize(
     "model_names, languages, tasks",
     [
-        (["Maltehb/aelaectra-danish-electra-small-cased"], ["da"], None),
         (
-            ["sentence-transformers/all-mpnet-base-v2"],
-            ["LccSentimentClassification", "DKHateClassification"],
+            ["sentence-transformers/all-MiniLM-L6-v2"],
+            ["LCC", "DKHate"],
             None,
         ),
-        (["sentence-transformers/all-mpnet-base-v2"], None, None),
-        (["sentence-transformers/all-mpnet-base-v2"], None, None),
+        (["sentence-transformers/all-MiniLM-L6-v2"], None, None),
+        (
+            [
+                "test_model",
+                "sentence-transformers/all-MiniLM-L6-v2",
+            ],
+            ["da"],
+            None,
+        ),
     ],
 )
 def test_run_benchmark(
@@ -36,11 +44,15 @@ def test_run_benchmark(
         languages=languages,
         tasks=tasks,
     )
-    bm_results: List[seb.benchmarkResults] = benchmark.evaluate(
+    bm_results: List[seb.BenchmarkResults] = benchmark.evaluate(
         models=models, use_cache=False
     )
 
+    assert len(bm_results) == len(models)
+
+    n_tasks = len(benchmark.tasks)
     for bm_result in bm_results:
+        assert len(bm_result) == n_tasks
         for task_result in bm_result:
             ensure_correct_task_result(task_result)
 
@@ -54,9 +66,6 @@ def ensure_correct_task_result(task_result: seb.TaskResult):
     assert isinstance(task_result.task_name, str)
     assert isinstance(task_result.languages, list)
 
-    json = task_result.to_json()
-    assert isinstance(json, dict)
-
     main_score = task_result.get_main_score()
     assert isinstance(main_score, float)
 
@@ -65,13 +74,13 @@ def ensure_correct_task_result(task_result: seb.TaskResult):
     "model_name, languages, tasks",
     [
         (
-            "Maltehb/aelaectra-danish-electra-small-cased",
+            "sentence-transformers/all-MiniLM-L6-v2",
             None,
-            ["DKHateClassification"],
+            ["DKHate"],
         ),
     ],
 )
-def check_cache_dir_is_reused(
+def test_cache_dir_is_reused(
     model_name: str,
     languages: Optional[List[str]],
     tasks: Optional[List[str]],
@@ -79,23 +88,29 @@ def check_cache_dir_is_reused(
     """
     Check that the cache dir is reused.
     """
-    models = seb.get_model(model_name)
+    model = seb.get_model(model_name)
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=languages,
         tasks=tasks,
     )
 
-    bm_result: seb.BenchmarkResult = benchmark.evaluate_model(model, use_cache=False)
+    before_run = datetime.now()
+    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(model, use_cache=False)
+    after_run = datetime.now()
 
     assert len(bm_result) == 1
     task_result_1 = bm_result[0]
-    assert bm_result.loaded_from_cache == False
+    not_used_cache = before_run < task_result_1.time_of_run < after_run
+    assert not_used_cache
 
-    bm_result: seb.BenchmarkResult = benchmark.evaluate_model(
-        models=models, use_cache=True
+    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
+        model=model, use_cache=True
     )
-    task_result_2 = bm_result[0]
-    assert bm_result.loaded_from_cache == True
 
-    assert task_result_1.time_of_run == task_result_2.time_of_run
+    assert isinstance(bm_result, seb.BenchmarkResults)
+
+    task_result_2 = bm_result[0]
+
+    used_cache = task_result_1.time_of_run == task_result_2.time_of_run
+    assert used_cache
     assert task_result_1 == task_result_2, "The two task results should be equal"

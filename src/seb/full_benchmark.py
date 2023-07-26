@@ -7,7 +7,7 @@ from typing import List
 from seb.model_interface import SebModel
 
 from .benchmark import Benchmark
-from .registries import models as seb_models
+from .registries import get_all_models
 from .results import BenchmarkResults
 
 
@@ -15,7 +15,7 @@ def run_seb(use_cache: bool = True) -> dict[str, BenchmarkResults]:
     """
     Run the full benchmark.
     """
-    models: List[SebModel] = list(seb_models.get_all().values())
+    models: List[SebModel] = get_all_models()
 
     subsets = {
         "Full": ["da", "no", "sv", "nn", "nb"],

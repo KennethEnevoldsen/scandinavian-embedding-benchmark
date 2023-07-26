@@ -1,4 +1,4 @@
-from typing import Callable, List, Optional, Protocol, Union
+from typing import Callable, List, Optional, Protocol, Union, runtime_checkable
 
 from numpy import ndarray
 from pydantic import BaseModel
@@ -9,6 +9,7 @@ from .utils import name_to_path
 ArrayLike = Union[ndarray, Tensor]
 
 
+@runtime_checkable
 class ModelInterface(Protocol):
     def encode(
         self, sentences: List[str], batch_size: int = 32, **kwargs

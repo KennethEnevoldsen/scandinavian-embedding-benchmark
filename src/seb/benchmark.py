@@ -1,30 +1,11 @@
-import json
 from pathlib import Path
 from typing import List, Optional
 
 from .model_interface import SebModel
-from .registries import get_task
-from .registries import tasks as sebtasks
+from .registries import get_all_tasks, get_task
 from .results import BenchmarkResults, TaskResult
 from .tasks_interface import Task
 from .utils import get_cache_dir, name_to_path
-
-
-def load_task_results(path) -> TaskResult:
-    """
-    Load task results from a path.
-    """
-    with open(path, "r") as f:
-        task_results = json.load(f)
-    return TaskResult(**task_results)
-
-
-def write_task_results(path, task_result: TaskResult):
-    """
-    Write task results to a path.
-    """
-    with open(path, "w") as f:
-        json.dump(task_result.to_json(), f)
 
 
 def get_cache_path(task: Task, model: SebModel) -> Path:
@@ -44,11 +25,12 @@ def run_task(task: Task, model: SebModel, use_cache: bool) -> TaskResult:
     """
     cache_path = get_cache_path(task, model)
     if cache_path.exists() and use_cache:
-        task_result = load_task_results(cache_path)
+        task_result = TaskResult.from_disk(cache_path)
         return task_result
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     task_result = task.evaluate(model)
+    task_result.to_disk(cache_path)
     return task_result
 
 
@@ -74,7 +56,7 @@ class Benchmark:
         if self.tasks_names is not None:
             tasks: List[Task] = [get_task(task_name) for task_name in self.tasks_names]
         else:
-            tasks: List[Task] = sebtasks.get_all().values()  # type: ignore
+            tasks: List[Task] = get_all_tasks()
 
         if self.languages is not None:
             langs = set(self.languages)

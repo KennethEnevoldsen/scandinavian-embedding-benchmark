@@ -1,12 +1,15 @@
 from datetime import datetime
-from typing import List, Protocol
+from typing import List, Protocol, runtime_checkable
 
 from mteb import AbsTask
+from mteb import __version__ as mteb_version
 
 from .model_interface import ModelInterface
 from .results import TaskResult
 
 
+# make checkable with
+@runtime_checkable
 class Task(Protocol):
     name: str
     main_score: str
@@ -32,27 +35,35 @@ class MTEBTask(Task):
     def __init__(self, mteb_task: AbsTask) -> None:
         self.mteb_task = mteb_task
         mteb_desc = self.mteb_task.description
-        self.main_score = mteb_desc.main_score
-        self.name = mteb_desc.name
-        self.description = mteb_desc.description
-        self.version = f"{mteb_desc.dataset_revision}_{mteb_desc.mteb_version}"
-        self.reference = mteb_desc.reference
-        self.languages = mteb_desc.languages
+        self.main_score = mteb_desc["main_score"]
+        self.name = mteb_desc["name"]
+        self.description = mteb_desc["description"]
+        self.version = f"{mteb_desc['revision']}_{mteb_version}"
+        self.reference = mteb_desc["reference"]
+        self.languages = mteb_desc["eval_langs"]
 
     def evaluate(self, model: ModelInterface) -> TaskResult:
-        scores = self.mteb_task.evaluate(model)
+        split = self.mteb_task.description["eval_splits"][0]
+        scores = self.mteb_task.evaluate(model, split=split)
         if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
-        split = self.mteb_task.description.split[0]
+
+        # there is only one split in all MTEB tasks in SEB
 
         time_of_run: datetime = datetime.now()
+
+        scores = scores.get(split, scores)
+        score_is_nested = isinstance(scores[list(scores.keys())[0]], dict)
+        if not score_is_nested:
+            _scores = {lang: scores for lang in self.languages}
+            scores = _scores
 
         task_result = TaskResult(
             task_name=self.name,
             task_description=self.description,
             task_version=self.version,
             time_of_run=time_of_run,
-            scores=scores[split],
+            scores=scores,
             main_score=self.main_score,
         )
 

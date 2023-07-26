@@ -15,12 +15,12 @@ def get_sentence_transformer(model_name):
 
 
 # Relevant multilingual models
-@models.register("all-MiniLM-L6-v2")
+@models.register("sentence-transformers/all-MiniLM-L6-v2")
 def create_all_mini_lm_l6_v2() -> SebModel:
     hf_name = "sentence-transformers/all-MiniLM-L6-v2"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
-        huggingface_name=f"hf_name",
+        huggingface_name=hf_name,
         reference="https://huggingface.co/{hf_name}",
         languages=[],
     )
@@ -30,7 +30,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
     )
 
 
-# @models.register("sentence-bert-swedish-cased")
+# @models.register("KBLab/sentence-bert-swedish-cased")
 # def create_sentence_swedish_cased() -> SebModel:
 #     from sentence_transformers import SentenceTransformer
 

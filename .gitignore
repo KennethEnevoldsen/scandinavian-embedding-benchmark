@@ -1,0 +1,26 @@
+# Python
+/.python-version
+/.pytype/
+/dist/
+/docs/_build/
+/src/*.egg-info/
+__pycache__/
+.*venv*
+_build/
+.tox
+
+#
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# data
+results
+table.csv
+
+# development
+tmp.py
+run_mteb.py

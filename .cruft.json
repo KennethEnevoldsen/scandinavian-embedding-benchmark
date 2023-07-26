@@ -1,0 +1,23 @@
+{
+  "template": "https://github.com/MartinBernstorff/swift-python-cookiecutter",
+  "commit": "b130271de614ebeef8ea0604cf44fa4767832109",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "scandinavian-embedding-benchmark",
+      "package_name": "seb",
+      "friendly_name": "Scandinavian Embedding Benchmark",
+      "author": "Kenneth Enevoldsen",
+      "email": "Kennethcenevoldsen@gmail.com",
+      "github_user": "KennethEnevoldsen",
+      "version": "0.0.0",
+      "copyright_year": "2023",
+      "license": "MIT",
+      "_copy_without_render": [
+        "*.github"
+      ],
+      "_template": "https://github.com/MartinBernstorff/swift-python-cookiecutter"
+    }
+  },
+  "directory": null
+}

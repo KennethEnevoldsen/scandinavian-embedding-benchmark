@@ -1,0 +1,1630 @@
+2023-07-25 14:06:14.408799 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 14:15:08.622483 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 14:15:11.078903 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 14:31:53.105134 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 14:31:55.279313 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 14:31:57.728391 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 14:43:17.712279 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 14:51:23.475237 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 14:51:26.767415 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 15:16:38.480837 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 15:16:55.487017 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 15:23:04.640016 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 15:23:09.727435 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 15:23:17.024363 >>> SwerecClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 15:33:58.303409 >>> DanishPoliticalCommentsClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 15:34:01.301351 >>> DKHateClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 15:37:35.234697 >>> NorwegianParliament
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 211, in __call__
+    X_train = np.asarray(model.encode(self.sentences_train, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 15:38:13.396945 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 15:38:21.762076 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 17:40:34.276163 >>> NoRecClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 234, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTask.py", line 31, in load_data
+    self.dataset = datasets.load_dataset(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 2106, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1792, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1492, in dataset_module_factory
+    raise e1 from None
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1448, in dataset_module_factory
+    raise ConnectionError(f"Couldn't reach '{path}' on the Hub ({type(e).__name__})")
+ConnectionError: Couldn't reach 'ScandEval/norec-mini' on the Hub (ConnectionError)
+
+
+2023-07-25 17:40:34.432717 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:04:00.544647 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 18:04:04.017835 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:04:07.061035 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 18:04:08.774276 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:04:12.825496 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 18:04:14.594820 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:04:20.533201 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 18:04:29.223923 >>> SwerecClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 18:04:33.420693 >>> DanishPoliticalCommentsClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 18:04:37.694616 >>> DKHateClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 18:04:40.726562 >>> NorwegianParliament
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 211, in __call__
+    X_train = np.asarray(model.encode(self.sentences_train, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-25 18:04:42.405635 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:04:50.855944 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 18:06:29.063999 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-25 18:10:46.288144 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-25 19:30:19.332930 >>> ScalaNbClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 234, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/tasks/Classification/ScalaClassification.py", line 69, in load_data
+    self.dataset = datasets.load_dataset(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 2106, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1792, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1492, in dataset_module_factory
+    raise e1 from None
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1448, in dataset_module_factory
+    raise ConnectionError(f"Couldn't reach '{path}' on the Hub ({type(e).__name__})")
+ConnectionError: Couldn't reach 'ScandEval/scala-nb' on the Hub (ConnectionError)
+
+
+2023-07-25 19:30:19.366935 >>> ScalaNbClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 234, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/tasks/Classification/ScalaClassification.py", line 107, in load_data
+    self.dataset = datasets.load_dataset(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 2106, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1792, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1492, in dataset_module_factory
+    raise e1 from None
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1448, in dataset_module_factory
+    raise ConnectionError(f"Couldn't reach '{path}' on the Hub ({type(e).__name__})")
+ConnectionError: Couldn't reach 'ScandEval/scala-nn' on the Hub (ConnectionError)
+
+
+2023-07-25 19:30:19.374762 >>> ScalaSvClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 234, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/tasks/Classification/ScalaClassification.py", line 144, in load_data
+    self.dataset = datasets.load_dataset(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 2106, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1792, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1492, in dataset_module_factory
+    raise e1 from None
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/load.py", line 1448, in dataset_module_factory
+    raise ConnectionError(f"Couldn't reach '{path}' on the Hub ({type(e).__name__})")
+ConnectionError: Couldn't reach 'ScandEval/scala-sv' on the Hub (ConnectionError)
+
+
+2023-07-26 11:08:42.193632 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:08:42.856922 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:08:44.605988 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:08:45.161392 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:08:57.823206 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:08:58.337731 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:09:01.670577 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:09:08.904464 >>> SwerecClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:09:10.525570 >>> DanishPoliticalCommentsClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:09:14.837479 >>> DKHateClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:09:16.721899 >>> NorwegianParliament
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 211, in __call__
+    X_train = np.asarray(model.encode(self.sentences_train, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:09:17.498578 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:09:23.635613 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:09:24.392845 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:09:30.057828 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:37:49.013896 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:17.826039 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:45:19.702308 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:22.135783 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:45:23.339930 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:25.803309 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:45:26.770434 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:30.422591 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:45:37.952334 >>> SwerecClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:45:40.201020 >>> DanishPoliticalCommentsClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:45:43.120006 >>> DKHateClassification
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 214, in __call__
+    X_test = np.asarray(model.encode(self.sentences_test, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:45:45.825921 >>> NorwegianParliament
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 55, in evaluate
+    scores = self._evaluate_monolingual(model, self.dataset, eval_split, train_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskClassification.py", line 90, in _evaluate_monolingual
+    scores_exp, test_cache = evaluator(model, test_cache=test_cache)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/evaluators/ClassificationEvaluator.py", line 211, in __call__
+    X_train = np.asarray(model.encode(self.sentences_train, batch_size=self.batch_size))
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 165, in encode
+    out_features = self.forward(features)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 66, in forward
+    output_states = self.auto_model(**trans_features, return_dict=False)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 839, in forward
+    embedding_output = self.embeddings(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py", line 131, in forward
+    position_embeddings = self.position_embeddings(position_ids)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+
+
+2023-07-26 11:45:46.817073 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:53.191221 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:45:54.324234 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:45:59.789938 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 11:46:00.727952 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 11:47:34.561469 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 12:22:05.265470 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 12:22:37.233232 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 12:50:08.513932 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2023-07-26 12:50:16.757506 >>> BornholmBitextMining
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 22, in evaluate
+    scores = self._evaluate_split(model, data_split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskBitextMining.py", line 27, in _evaluate_split
+    if len(data_split["sentence1"]) == 1:
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2803, in __getitem__
+    return self._getitem(key)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2787, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices if self._indices is not None else None)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 580, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/Users/au561649/.virtualenvs/mteb/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 520, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column sentence1 not in the dataset. Current columns in the dataset: ['id', 'da_bornholm', 'da']"
+
+
+2023-07-26 12:58:49.858858 >>> SweFAQRetrieval
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 54, in evaluate
+    from beir.retrieval.evaluation import EvaluateRetrieval
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/au561649/Github/mteb-chcaa/mteb/evaluation/MTEB.py", line 244, in run
+    results = task.evaluate(model, split, **kwargs)
+  File "/Users/au561649/Github/mteb-chcaa/mteb/abstasks/AbsTaskRetrieval.py", line 56, in evaluate
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+

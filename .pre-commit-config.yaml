@@ -1,0 +1,31 @@
+default_stages: [commit]
+
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.254
+    hooks:
+      - id: ruff
+        args:
+          [
+            "--extend-select",
+            "F401",
+            "--extend-select",
+            "F841",
+            "--fix",
+            "--exit-non-zero-on-fix",
+          ]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+
+  - repo: https://github.com/repo-helper/pyproject-parser
+    rev: v0.7.0
+    hooks:
+      - id: check-pyproject

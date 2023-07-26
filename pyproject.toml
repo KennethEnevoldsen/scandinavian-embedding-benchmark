@@ -1,0 +1,186 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seb"
+version = "0.0.0"
+authors = [
+  { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
+]
+description = "Scandinavian Embedding Benchmark"
+classifiers = [
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.9"
+
+dependencies = [
+  "mteb==1.0.2",      # is kept static to ensure reproducibility
+  "typer>=0.7.0",
+  "pydantic>=2.1.0",
+  "catalogue>=2.0.8",
+]
+
+[project.license]
+file = "LICENSE"
+name = "MIT"
+
+[project.optional-dependencies]
+dev = [
+  "cruft>=2.0.0",
+  "pyright==1.1.305",
+  "pyright-polite>=0.0.1",
+  "pre-commit>=2.20.0",
+  "ruff>=0.0.254",
+  "black[jupyter]>=22.8.0",
+  "pandas-stubs>=0.0.0",    # type stubs for pandas
+  "invoke==2.1.1",
+]
+tests = [
+  "pytest>=7.1.3",
+  "pytest-cov>=3.0.0",
+  "pytest-xdist>=3.0.0",
+  "pytest-sugar>=0.9.4",
+  "tox>=4.5.0",
+]
+docs = [
+  "sphinx>=5.3.0",
+  "furo>=2022.12.7",            # theme
+  "sphinx-copybutton>=0.5.1",
+  "sphinxext-opengraph>=0.7.3",
+  "sphinx_design>=0.3.0",
+  "sphinx_togglebutton>=0.2.3",
+  "myst-nb>=0.6.0",             # for rendering notebooks
+  "jupyter>=1.0.0",             # for tutorials
+]
+
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.urls]
+homepage = "https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark"
+repository = "https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark"
+documentation = "https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/"
+
+[tool.pyright]
+exclude = [".*venv*", ".tox"]
+pythonPlatform = "Darwin"
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = [
+  "A",
+  "ANN",
+  "ARG",
+  "B",
+  "C4",
+  "COM",
+  "D417",
+  "E",
+  "ERA",
+  "F",
+  "I",
+  "ICN",
+  "NPY001",
+  "PD002",
+  "PIE",
+  "PLE",
+  "PLW",
+  "PT",
+  "UP",
+  "Q",
+  "PTH",
+  "RSE",
+  "RET",
+  "RUF",
+  "SIM",
+  "W",
+]
+ignore = ["ANN101", "ANN401", "E402", "E501", "F401", "F841", "RET504"]
+ignore-init-module-imports = true
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+unfixable = ["ERA"]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".hg",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
+  "__init__.py",
+  "docs/conf.py",
+]
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+target-version = "py39"
+
+[tool.ruff.flake8-annotations]
+mypy-init-return = true
+suppress-none-returning = true
+
+[tool.ruff.isort]
+known-third-party = ["wandb"]
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.semantic_release]
+branch = "main"
+version_variable = ["pyproject.toml:version"]
+upload_to_pypi = false
+upload_to_release = false
+build_command = "python -m pip install build; python -m build"
+
+[tool.setuptools]
+include-package-data = true
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py{39,310}
+
+[testenv]
+description: run unit tests
+extras = tests
+use_develop = true
+commands =
+  pytest -n auto {posargs:test}
+
+[testenv:type]
+description: run type checks
+extras = tests, dev
+basepython = py39 # Setting these explicitly avoid recreating env if your shell is set to a different version
+use_develop = true
+commands =
+  pyright .
+
+[testenv:docs]
+description: build docs
+extras = docs
+basepython = py39 # Setting these explicitly avoid recreating env if your shell is set to a different version
+use_develop = true
+commands =
+  sphinx-build -b html docs docs/_build/html
+"""

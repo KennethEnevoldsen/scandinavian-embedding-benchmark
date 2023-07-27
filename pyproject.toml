@@ -51,14 +51,7 @@ docs = [
   "mkdocs-jupyter>=0.24.2",
   "mkdocs-material>=9.1.21",
   "mkdocstrings>=0.22.0",
-  "sphinx>=5.3.0",
-  "furo>=2022.12.7",            # theme
-  "sphinx-copybutton>=0.5.1",
-  "sphinxext-opengraph>=0.7.3",
-  "sphinx_design>=0.3.0",
-  "sphinx_togglebutton>=0.2.3",
-  "myst-nb>=0.6.0",             # for rendering notebooks
-  "jupyter>=1.0.0",             # for tutorials
+  "jupyter>=1.0.0",          # for tutorials
 ]
 
 

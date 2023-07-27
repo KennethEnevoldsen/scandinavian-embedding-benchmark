@@ -6,7 +6,7 @@ import pytest
 import seb
 
 all_tasks = seb.get_all_tasks()
-all_tasks_names = [task.name for task in all_tasks]
+all_tasks_names = [task.name for task in all_tasks if task.name != "test raise error task"]
 
 
 @pytest.fixture

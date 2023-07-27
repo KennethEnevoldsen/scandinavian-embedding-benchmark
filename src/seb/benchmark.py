@@ -1,9 +1,9 @@
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from .model_interface import SebModel
 from .registries import get_all_tasks, get_task
-from .results import BenchmarkResults, TaskResult
+from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .tasks_interface import Task
 from .utils import get_cache_dir, name_to_path
 
@@ -19,10 +19,19 @@ def get_cache_path(task: Task, model: SebModel) -> Path:
     return task_cache_path
 
 
-def run_task(task: Task, model: SebModel, use_cache: bool) -> TaskResult:
+def run_task(
+    task: Task, model: SebModel, use_cache: bool, raise_errors: bool
+) -> Union[TaskResult, TaskError]:
     """
     Tests a model on a task
     """
+
+    if not raise_errors:
+        try:
+            return run_task(task, model, use_cache, raise_errors=True)
+        except Exception as e:
+            return TaskError(task_name=task.name, error=str(e))
+
     cache_path = get_cache_path(task, model)
     if cache_path.exists() and use_cache:
         task_result = TaskResult.from_disk(cache_path)
@@ -65,7 +74,7 @@ class Benchmark:
         return tasks
 
     def evaluate_model(
-        self, model: SebModel, use_cache: bool = True
+        self, model: SebModel, use_cache: bool = True, raise_errors: bool = True
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
@@ -73,16 +82,22 @@ class Benchmark:
         tasks = self.get_tasks()
         task_results = []
         for task in tasks:
-            task_result = run_task(task, model, use_cache)
+            task_result = run_task(task, model, use_cache, raise_errors)
             task_results.append(task_result)
 
         return BenchmarkResults(meta=model.meta, task_results=task_results)
 
-    def evaluate(self, models: List[SebModel], use_cache: bool = True):
+    def evaluate_models(
+        self, models: List[SebModel], use_cache: bool = True, raise_errors: bool = True
+    ) -> List[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
         """
         results = []
         for model in models:
-            results.append(self.evaluate_model(model, use_cache=use_cache))
+            results.append(
+                self.evaluate_model(
+                    model, use_cache=use_cache, raise_errors=raise_errors
+                )
+            )
         return results

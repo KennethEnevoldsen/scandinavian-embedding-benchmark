@@ -5,7 +5,7 @@ from mteb import AbsTask
 from mteb import __version__ as mteb_version
 
 from .model_interface import ModelInterface
-from .results import TaskResult
+from .result_dataclasses import TaskResult
 
 
 # make checkable with

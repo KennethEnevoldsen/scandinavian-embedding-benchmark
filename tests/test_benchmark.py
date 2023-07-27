@@ -6,7 +6,9 @@ from datetime import datetime
 from typing import List, Optional
 
 import pytest
-from test_model import create_test_model  # noqa: F401
+from dummy_model import create_test_model  # noqa: F401
+from dummy_task import create_test_task  # noqa: F401
+from test_tasks import all_tasks_names
 
 import seb
 
@@ -16,7 +18,7 @@ import seb
     [
         (
             ["sentence-transformers/all-MiniLM-L6-v2"],
-            ["LCC", "DKHate"],
+            ["test task", "DKHate"],
             None,
         ),
         (["sentence-transformers/all-MiniLM-L6-v2"], None, None),
@@ -40,11 +42,14 @@ def test_run_benchmark(
     """
     models = [seb.get_model(model_name) for model_name in model_names]
 
+    if tasks is None:
+        tasks = all_tasks_names  # to avoid test tasks that raise errors
+
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=languages,
         tasks=tasks,
     )
-    bm_results: List[seb.BenchmarkResults] = benchmark.evaluate(
+    bm_results: List[seb.BenchmarkResults] = benchmark.evaluate_models(
         models=models, use_cache=False
     )
 
@@ -114,3 +119,27 @@ def test_cache_dir_is_reused(
     used_cache = task_result_1.time_of_run == task_result_2.time_of_run
     assert used_cache
     assert task_result_1 == task_result_2, "The two task results should be equal"
+
+
+def test_benchmark_skip_on_error_raised():
+    """
+    Test that the benchmark skips a model if an error is raised.
+    """
+    model = seb.get_model("test_model")
+    benchmark: seb.Benchmark = seb.Benchmark(
+        languages=None,
+        tasks=["test raise error task"],
+    )
+
+    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
+        model, use_cache=False, raise_errors=False
+    )
+
+    assert len(bm_result) == 1
+    task_result = bm_result[0]
+    assert task_result.task_name == "test raise error task"
+    assert isinstance(task_result, seb.TaskError)
+
+    # test that the benchmark raises an error if raise_errors is True
+    with pytest.raises(ValueError):
+        benchmark.evaluate_model(model, use_cache=False, raise_errors=True)

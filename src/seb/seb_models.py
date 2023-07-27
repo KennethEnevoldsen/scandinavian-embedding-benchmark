@@ -129,39 +129,50 @@ def create_nb_bert_base() -> SebModel:
     )
 
 
-@models.register("ltg/norbert3-large")
-def create_norbert3_large() -> SebModel:
-    hf_name = "ltg/norbert3-large"
-    meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
-        languages=["nb", "no", "nn"],
-    )
-    return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
-        meta=meta,
-    )
+# excluded due to loading issues: https://huggingface.co/ltg/norbert3-base/discussions/1
+# I could create a custom encoder for this model
+
+# @models.register("ltg/norbert3-large")
+# def create_norbert3_large() -> SebModel:
+#     hf_name = "ltg/norbert3-large"
+#     meta = ModelMeta(
+#         name=hf_name.split("/")[-1],
+#         huggingface_name=hf_name,
+#         reference="https://huggingface.co/{hf_name}",
+#         languages=["nb", "no", "nn"],
+#     )
+#     return SebModel(
+#         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+#         meta=meta,
+#     )
 
 
-@models.register("ltg/norbert3-base")
-def create_norbert3_base() -> SebModel:
-    hf_name = "ltg/norbert3-base"
-    meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
-        languages=["nb", "no", "nn"],
-    )
-    return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
-        meta=meta,
-    )
+# @models.register("ltg/norbert3-base")
+# def create_norbert3_base() -> SebModel:
+#     hf_name = "ltg/norbert3-base"
+#     meta = ModelMeta(
+#         name=hf_name.split("/")[-1],
+#         huggingface_name=hf_name,
+#         reference="https://huggingface.co/{hf_name}",
+#         languages=["nb", "no", "nn"],
+#     )
+#     return SebModel(
+#         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+#         meta=meta,
+#     )
 
 
 @models.register("KB/bert-base-swedish-cased")
 def create_bert_base_swedish_cased() -> SebModel:
     hf_name = "KB/bert-base-swedish-cased"
+
+    def load_mdl():
+        from sentence_transformers import SentenceTransformer
+
+        mdl = SentenceTransformer(hf_name)
+        mdl.max_seq_length = 512
+        return mdl
+
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
@@ -169,7 +180,7 @@ def create_bert_base_swedish_cased() -> SebModel:
         languages=["sv"],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=load_mdl,  # type: ignore
         meta=meta,
     )
 
@@ -198,8 +209,16 @@ def create_xlm_roberta_base() -> SebModel:
         huggingface_name=hf_name,
         reference="https://huggingface.co/{hf_name}",
     )
+
+    def load_mdl():
+        from sentence_transformers import SentenceTransformer
+
+        mdl = SentenceTransformer(hf_name)
+        mdl.max_seq_length = 512
+        return mdl
+
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=load_mdl,  # type: ignore
         meta=meta,
     )
 

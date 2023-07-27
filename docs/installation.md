@@ -1,9 +1,9 @@
 # Installation
 
-You can install `scandinavian-embedding-benchmark` via pip from [PyPI]:
+You can install the `seb` via pip from [PyPI]:
 
 ```bash
-pip install scandinavian-embedding-benchmark
+pip install seb
 ```
 
 or from [GitHub] using:

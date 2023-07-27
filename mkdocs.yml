@@ -1,0 +1,44 @@
+site_name: Scandinavian Embedding Benchmark
+docs_dir: "docs/"
+
+theme:
+  name: material
+  favicon: _static/logo.png
+  logo: _static/logo.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  palette:
+    primary: white
+    accent: light blue
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: Copyright &copy; 2023 Kenneth Enevoldsen
+
+nav:
+  - Benchmark: index.md
+  - Package:
+      - Installation: installation.md
+      - Getting Started: getting_started.ipynb
+      # - API: api.md
+
+plugins:
+  - mkdocs-jupyter
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          type: python
+          root_package: seb
+          docstring_style: google

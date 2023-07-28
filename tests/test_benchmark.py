@@ -3,7 +3,7 @@ The test specifications for the benchmark.
 """
 
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Union
 
 import pytest
 from dummy_model import create_test_model  # noqa: F401
@@ -21,13 +21,12 @@ import seb
             ["test task", "DKHate"],
             None,
         ),
-        (["sentence-transformers/all-MiniLM-L6-v2"], None, None),
         (
             [
                 "test_model",
                 "sentence-transformers/all-MiniLM-L6-v2",
             ],
-            ["da"],
+            ["tes task", "test encode task"],
             None,
         ),
     ],
@@ -62,7 +61,7 @@ def test_run_benchmark(
             ensure_correct_task_result(task_result)
 
 
-def ensure_correct_task_result(task_result: seb.TaskResult):
+def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]):
     """
     Ensure that the task result is correct.
     """

@@ -43,7 +43,7 @@ def benchmark_result_to_row(result: seb.BenchmarkResults) -> pd.DataFrame:
     scores = [t.get_main_score() for t in result]
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
-    df["Average"] = np.mean(scores)
+    df["Average"] = np.mean(scores)  # type: ignore
     return df
 
 

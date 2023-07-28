@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Union
 
@@ -30,7 +31,9 @@ def run_task(
         try:
             return run_task(task, model, use_cache, raise_errors=True)
         except Exception as e:
-            return TaskError(task_name=task.name, error=str(e))
+            return TaskError(
+                task_name=task.name, error=str(e), time_of_run=datetime.now()
+            )
 
     cache_path = get_cache_path(task, model)
     if cache_path.exists() and use_cache:

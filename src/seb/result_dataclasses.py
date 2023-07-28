@@ -54,6 +54,7 @@ class TaskResult(BaseModel):
 class TaskError(BaseModel):
     task_name: str
     error: str
+    time_of_run: datetime
 
     def to_disk(self, path: Path) -> None:
         """

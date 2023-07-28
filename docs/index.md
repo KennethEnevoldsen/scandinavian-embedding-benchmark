@@ -4,8 +4,6 @@ hide:
   - toc
 ---
 
-# The Benchmark
-
 This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is intended to evaluate the sentence/documents embeddings of large language models.
 
 Intended uses for this benchmark:
@@ -34,7 +32,7 @@ Intended uses for this benchmark:
 
 ## Comparison to other benchmarks
 
-If you use this benchmark for a relative ranking of language models you should also take a look at ScandEval, which as opposed the this benchmark fully fine-tunes the models. It also includes structures predictions tasks such as named entity recognition. 
+If you use this benchmark for a relative ranking of language models you should also take a look at [ScandEval](https://scandeval.github.io), which as opposed the this benchmark fully fine-tunes the models. It also includes structured predictions tasks such as named entity recognition. Many of the tasks in this embeddings benchmark is also included in ScandEval.
 
-This tasks within this benchmark is also included in the MTEB leaderboard, though the aggregations methods very slightly. The MTEB is primarily an English benchmark, with a few multilingual tasks along with a few additional languages. As a part of this project the tasks was also added to the MTEB leaderboard.
+The tasks within this benchmark is also included in the [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaderboard, though the aggregations methods very slightly. The MTEB is primarily an English embedding benchmark, with a few multilingual tasks along with a few additional languages. As a part of this project the tasks was also added to the MTEB leaderboard.
 

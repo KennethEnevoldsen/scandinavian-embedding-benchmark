@@ -28,7 +28,7 @@ markdown_extensions:
 copyright: Copyright &copy; 2023 Kenneth Enevoldsen
 
 nav:
-  - Benchmark: index.md
+  - The Benchmark: index.md
   - Package:
       - Installation: installation.md
       - Getting Started: getting_started.ipynb

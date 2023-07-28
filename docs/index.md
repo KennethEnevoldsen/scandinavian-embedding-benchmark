@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # The Benchmark
 
 This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is an extention to the MTEB benchmarks for the mainland Scandinavian languages. It is intended to evaluate the sentence/documents embeddings of large language models.

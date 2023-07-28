@@ -1,5 +1,6 @@
-site_name: Scandinavian Embedding Benchmark
+site_name: The Scandinavian Embedding Benchmark
 docs_dir: "docs/"
+repo_url: https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark
 
 theme:
   name: material
@@ -42,3 +43,8 @@ plugins:
           type: python
           root_package: seb
           docstring_style: google
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark

@@ -17,7 +17,7 @@
 
 <!-- start short-description -->
 
-TODO: Add a short description of the project.
+A benchmark for evaluating sentence/document embeddings of Scandinavian language models.
 
 <!-- end short-description -->
 
@@ -26,15 +26,12 @@ TODO: Add a short description of the project.
 You can install `scandinavian-embedding-benchmark` via [pip] from [PyPI]:
 
 ```bash
-pip install scandinavian-embedding-benchmark
+pip install seb
 ```
 
 [pip]: https://pip.pypa.io/en/stable/installing/
 [PyPI]: https://pypi.org/project/cuecy/
 
-## Usage
-
-TODO: Add minimal usage example
 
 To see more examples, see the [documentation].
 
@@ -43,27 +40,22 @@ To see more examples, see the [documentation].
 | Documentation         |                                                          |
 | --------------------- | -------------------------------------------------------- |
 | 🔧 **[Installation]**  | Installation instructions on how to install this package |
+| 👩‍💻 **[Usage]**         | Introduction on how to use the package                   |
 | 📖 **[Documentation]** | A minimal and developing documentation                   |
-| 👩‍💻 **[Tutorials]**     | Tutorials for using this package                         |
-| 🎛️ **[API Reference]** | API reference for this package                           |
-| 📚 **[FAQ]**           | Frequently asked questions                               |
 
 
 # 💬 Where to ask questions
 
 | Type                           |                        |
 | ------------------------------ | ---------------------- |
-| 📚 **FAQ**                      | [FAQ]                  |
 | 🚨 **Bug Reports**              | [GitHub Issue Tracker] |
 | 🎁 **Feature Requests & Ideas** | [GitHub Issue Tracker] |
 | 👩‍💻 **Usage Questions**          | [GitHub Discussions]   |
 | 🗯 **General Discussion**       | [GitHub Discussions]   |
 
+[Usage]: https://kennethenevoldsen.github.io/scandinavian-embedding-benchmark/getting_started/
 [Documentation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/index.html
 [Installation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/installation.html
-[Tutorials]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/tutorials.html
-[API Reference]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/references.html
-[FAQ]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/faq.html
 [github issue tracker]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/issues
 [github discussions]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/discussions
 

@@ -38,7 +38,7 @@ dev = [
   "ruff>=0.0.254",
   "black[jupyter]>=22.8.0",
   "pandas-stubs>=0.0.0",    # type stubs for pandas
-  "invoke==2.1.1",
+  "invoke==2.2.0",
 ]
 tests = [
   "pytest>=7.1.3",

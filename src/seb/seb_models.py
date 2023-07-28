@@ -313,9 +313,9 @@ def create_multilingual_e5_large() -> SebModel:
 
 
 # Scandinavian sentence encoders
-@models.register("dfm-sentence-encoder-large-1")
+@models.register("KennethEnevoldsen/dfm-sentence-encoder-large-1")
 def create_dfm_sentence_encoder_large() -> SebModel:
-    hf_name = "dfm/sentence-encoder-large-1"
+    hf_name = "KennethEnevoldsen/dfm-sentence-encoder-large-1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,

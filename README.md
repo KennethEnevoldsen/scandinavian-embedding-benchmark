@@ -1,4 +1,4 @@
-<a href="https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark"><img src="https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/blob/main/docs/_static/icon.png?raw=true" width="100" align="right"/></a>
+<a href="https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark"><img src="https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/blob/main/docs/_static/logo.png?raw=true" width="100" align="right"/></a>
 
 # Scandinavian Embedding Benchmark
 

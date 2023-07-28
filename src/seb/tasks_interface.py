@@ -38,7 +38,7 @@ class MTEBTask(Task):
         self.main_score = mteb_desc["main_score"]
         self.name = mteb_desc["name"]
         self.description = mteb_desc["description"]
-        self.version = f"{mteb_desc['revision']}_{mteb_version}"
+        self.version = f"{mteb_version}"
         self.reference = mteb_desc["reference"]
         self.languages = mteb_desc["eval_langs"]
 

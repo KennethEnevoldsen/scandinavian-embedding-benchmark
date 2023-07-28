@@ -32,13 +32,13 @@ name = "MIT"
 [project.optional-dependencies]
 dev = [
   "cruft>=2.0.0",
-  "pyright==1.1.305",
+  "pyright==1.1.318",
   "pyright-polite>=0.0.1",
   "pre-commit>=2.20.0",
   "ruff>=0.0.254",
   "black[jupyter]>=22.8.0",
   "pandas-stubs>=0.0.0",    # type stubs for pandas
-  "invoke==2.1.1",
+  "invoke==2.2.0",
 ]
 tests = [
   "pytest>=7.1.3",

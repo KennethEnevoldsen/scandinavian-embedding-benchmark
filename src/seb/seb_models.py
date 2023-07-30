@@ -1,17 +1,29 @@
 """
 All the models registered in the benchmark, along with their metadata.
 """
-
+import logging
 from functools import partial
+
+from sentence_transformers import SentenceTransformer
 
 from .model_interface import ModelMeta, SebModel
 from .registries import models
 
 
-def get_sentence_transformer(model_name):
-    from sentence_transformers import SentenceTransformer
+def silence_warnings_from_sentence_transformers():
+    from sentence_transformers.SentenceTransformer import logger
 
-    return SentenceTransformer(model_name)
+    logger.setLevel(logging.ERROR)
+
+
+def get_sentence_transformer(
+    model_name: str, max_seq_length=None
+) -> SentenceTransformer:
+    silence_warnings_from_sentence_transformers()
+    mdl = SentenceTransformer(model_name)
+    if max_seq_length is not None:
+        mdl.max_seq_length = max_seq_length
+    return mdl
 
 
 # Relevant multilingual models
@@ -70,16 +82,9 @@ def create_dansk_bert() -> SebModel:
         languages=["da"],
     )
 
-    def load_danskbert():
-        from sentence_transformers import SentenceTransformer
-
-        mdl = SentenceTransformer(hf_name)
-        # see https://huggingface.co/vesteinn/DanskBERT/discussions/3
-        mdl.max_seq_length = 512
-        return mdl
-
     return SebModel(
-        loader=load_danskbert,  # type: ignore
+        # see https://huggingface.co/vesteinn/DanskBERT/discussions/3
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 
@@ -166,13 +171,6 @@ def create_nb_bert_base() -> SebModel:
 def create_bert_base_swedish_cased() -> SebModel:
     hf_name = "KB/bert-base-swedish-cased"
 
-    def load_mdl():
-        from sentence_transformers import SentenceTransformer
-
-        mdl = SentenceTransformer(hf_name)
-        mdl.max_seq_length = 512
-        return mdl
-
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
@@ -180,7 +178,7 @@ def create_bert_base_swedish_cased() -> SebModel:
         languages=["sv"],
     )
     return SebModel(
-        loader=load_mdl,  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 
@@ -210,15 +208,8 @@ def create_xlm_roberta_base() -> SebModel:
         reference="https://huggingface.co/{hf_name}",
     )
 
-    def load_mdl():
-        from sentence_transformers import SentenceTransformer
-
-        mdl = SentenceTransformer(hf_name)
-        mdl.max_seq_length = 512
-        return mdl
-
     return SebModel(
-        loader=load_mdl,  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 

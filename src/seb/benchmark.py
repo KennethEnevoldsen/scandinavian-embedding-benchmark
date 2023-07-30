@@ -1,12 +1,17 @@
+import logging
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Union
+
+from tqdm import tqdm
 
 from .model_interface import SebModel
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .tasks_interface import Task
-from .utils import get_cache_dir, name_to_path
+from .utils import WarningIgnoreContextManager, get_cache_dir, name_to_path
+
+logger = logging.getLogger(__name__)
 
 
 def get_cache_path(task: Task, model: SebModel) -> Path:
@@ -21,7 +26,10 @@ def get_cache_path(task: Task, model: SebModel) -> Path:
 
 
 def run_task(
-    task: Task, model: SebModel, use_cache: bool, raise_errors: bool
+    task: Task,
+    model: SebModel,
+    use_cache: bool,
+    raise_errors: bool,
 ) -> Union[TaskResult, TaskError]:
     """
     Tests a model on a task
@@ -31,17 +39,20 @@ def run_task(
         try:
             return run_task(task, model, use_cache, raise_errors=True)
         except Exception as e:
+            logger.error(f"Error when running {task.name} on {model.meta.name}: {e}")
             return TaskError(
                 task_name=task.name, error=str(e), time_of_run=datetime.now()
             )
 
     cache_path = get_cache_path(task, model)
     if cache_path.exists() and use_cache:
+        logger.info(f"Loading cached result for {model.meta.name} on {task.name}")
         task_result = TaskResult.from_disk(cache_path)
         return task_result
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    task_result = task.evaluate(model)
+    with WarningIgnoreContextManager():
+        task_result = task.evaluate(model)
     task_result.to_disk(cache_path)
     return task_result
 
@@ -84,7 +95,8 @@ class Benchmark:
         """
         tasks = self.get_tasks()
         task_results = []
-        for task in tasks:
+        pbar = tqdm(tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
+        for task in pbar:
             task_result = run_task(task, model, use_cache, raise_errors)
             task_results.append(task_result)
 
@@ -97,10 +109,14 @@ class Benchmark:
         Evaluate a list of models on the benchmark.
         """
         results = []
-        for model in models:
+        pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True)
+
+        for model in pbar:
             results.append(
                 self.evaluate_model(
                     model, use_cache=use_cache, raise_errors=raise_errors
                 )
             )
         return results
+
+

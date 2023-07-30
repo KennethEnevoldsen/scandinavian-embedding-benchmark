@@ -64,7 +64,7 @@ def create_electra_small_nordic() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference="https://huggingface.co/{hf_name}",
-        languages=["da", "no", "sv"],
+        languages=["da", "nb", "sv", "nn"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -111,7 +111,7 @@ def create_nb_bert_large() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference="https://huggingface.co/{hf_name}",
-        languages=["nb", "no", "nn"],
+        languages=["nb", "nn"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -126,7 +126,7 @@ def create_nb_bert_base() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference="https://huggingface.co/{hf_name}",
-        languages=["nb", "no", "nn"],
+        languages=["nb", "nn"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -144,7 +144,7 @@ def create_nb_bert_base() -> SebModel:
 #         name=hf_name.split("/")[-1],
 #         huggingface_name=hf_name,
 #         reference="https://huggingface.co/{hf_name}",
-#         languages=["nb", "no", "nn"],
+#         languages=["nb", "nn"],
 #     )
 #     return SebModel(
 #         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -159,7 +159,7 @@ def create_nb_bert_base() -> SebModel:
 #         name=hf_name.split("/")[-1],
 #         huggingface_name=hf_name,
 #         reference="https://huggingface.co/{hf_name}",
-#         languages=["nb", "no", "nn"],
+#         languages=["nb", "nn"],
 #     )
 #     return SebModel(
 #         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore

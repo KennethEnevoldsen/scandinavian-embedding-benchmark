@@ -33,7 +33,7 @@ Intended uses for this benchmark:
 
 ## Comparison to other benchmarks
 
-If you use this benchmark for a relative ranking of language models you should also take a look at [ScandEval](https://scandeval.github.io), which as opposed the this benchmark fully fine-tunes the models. It also includes structured predictions tasks such as named entity recognition. Many of the tasks in this embeddings benchmark is also included in ScandEval.
+If you use this benchmark for a relative ranking of language models you should also take a look at [ScandEval](https://scandeval.github.io), which as opposed the this benchmark fully fine-tunes the models. It also includes structured predictions tasks such as named entity recognition. Many of the tasks in this embeddings benchmark is also included in ScandEval. A notable difference between the ScandEval and this benchmark is that it does not include machine translated tasks.
 
 The tasks within this benchmark is also included in the [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaderboard, though the aggregations methods very slightly. The MTEB is primarily an English embedding benchmark, with a few multilingual tasks along with a few additional languages. As a part of this project the tasks was also added to the MTEB leaderboard.
 

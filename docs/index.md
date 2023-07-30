@@ -14,20 +14,21 @@ Intended uses for this benchmark:
 
 
 === "All"
-
-    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
+    
+    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=3" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
 
 === "Danish"
 
-    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
+
+    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/us1YK/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/us1YK/full.png" alt="" /></noscript></div>
 
 === "Norwegian"
 
-    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
+    <div style="min-height:327px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/pV87q/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/pV87q/full.png" alt="" /></noscript></div>
 
 === "Swedish"
 
-    <div style="min-height:329px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
+    <div style="min-height:327px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/aL23t/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/aL23t/full.png" alt="" /></noscript></div>
 
 
 ## Comparison to other benchmarks
@@ -35,4 +36,6 @@ Intended uses for this benchmark:
 If you use this benchmark for a relative ranking of language models you should also take a look at [ScandEval](https://scandeval.github.io), which as opposed the this benchmark fully fine-tunes the models. It also includes structured predictions tasks such as named entity recognition. Many of the tasks in this embeddings benchmark is also included in ScandEval.
 
 The tasks within this benchmark is also included in the [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaderboard, though the aggregations methods very slightly. The MTEB is primarily an English embedding benchmark, with a few multilingual tasks along with a few additional languages. As a part of this project the tasks was also added to the MTEB leaderboard.
+
+
 

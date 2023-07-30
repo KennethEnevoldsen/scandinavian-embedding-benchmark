@@ -1,8 +1,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
-from turtle import st
-from typing import Any, Dict, Iterable, Iterator, List, Optional, Union
+from typing import Dict, Iterable, Iterator, List, Optional, Union
 
 from pydantic import BaseModel
 
@@ -17,7 +16,7 @@ class TaskResult(BaseModel):
     scores: Dict[str, Dict[str, float]]  # {language: {"metric": value}}.
     main_score: str
 
-    def get_main_score(self, lang: Optional[Iterable[str]] = None):
+    def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
         main_scores = []
         if lang is None:
             lang = self.scores.keys()

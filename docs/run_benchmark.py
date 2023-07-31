@@ -32,7 +32,7 @@ datawrapper_lang_codes = {
 
 def get_main_score(task: seb.TaskResult, langs: List[str]) -> float:
     _langs = set(langs) & set(task.languages)
-    return task.get_main_score(_langs)
+    return task.get_main_score(_langs) * 100
 
 
 def create_mdl_name(mdl: seb.ModelMeta):
@@ -61,8 +61,11 @@ def benchmark_result_to_row(
     result: seb.BenchmarkResults, langs: List[str]
 ) -> pd.DataFrame:
     mdl_name = create_mdl_name(result.meta)
-    task_names = sorted([t.task_name for t in result])
-    scores = [get_main_score(t, langs) for t in result]
+    # sort by task name
+    task_results = result.task_results
+    sorted_tasks = sorted(task_results, key=lambda t: t.task_name)
+    task_names = [t.task_name for t in sorted_tasks]
+    scores = [get_main_score(t, langs) for t in sorted_tasks]
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
     df["Average"] = np.mean(scores)  # type: ignore
@@ -93,6 +96,7 @@ def push_to_datawrapper(df: pd.DataFrame, chart_id: str, token: str):
     assert 200 <= resp.status_code < 300, "Could not add data to Datawrapper"
     iframe_html = dw.publish_chart(chart_id)
     assert iframe_html, "Could not publish chart"
+
 
 def main(data_wrapper_api_token: str):
     results = seb.run_benchmark(use_cache=True)

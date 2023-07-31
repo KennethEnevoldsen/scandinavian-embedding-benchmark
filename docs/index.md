@@ -4,6 +4,8 @@ hide:
   - toc
 ---
 
+# Scandinavian Embedding Benchmark
+
 This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is intended to evaluate the sentence/documents embeddings of large language models.
 
 Intended uses for this benchmark:

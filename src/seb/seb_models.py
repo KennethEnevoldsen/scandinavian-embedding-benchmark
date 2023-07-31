@@ -33,7 +33,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=[],
     )
     return SebModel(
@@ -48,7 +48,7 @@ def create_sentence_swedish_cased() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
     )
     return SebModel(
@@ -63,7 +63,7 @@ def create_electra_small_nordic() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["da", "nb", "sv", "nn"],
     )
     return SebModel(
@@ -78,7 +78,7 @@ def create_dansk_bert() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
     )
 
@@ -95,7 +95,7 @@ def create_dfm_encoder_large_v1() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
     )
     return SebModel(
@@ -110,7 +110,7 @@ def create_nb_bert_large() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["nb", "nn"],
     )
     return SebModel(
@@ -125,7 +125,7 @@ def create_nb_bert_base() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["nb", "nn"],
     )
     return SebModel(
@@ -143,7 +143,7 @@ def create_nb_bert_base() -> SebModel:
 #     meta = ModelMeta(
 #         name=hf_name.split("/")[-1],
 #         huggingface_name=hf_name,
-#         reference="https://huggingface.co/{hf_name}",
+#         reference=f"https://huggingface.co/{hf_name}",
 #         languages=["nb", "nn"],
 #     )
 #     return SebModel(
@@ -158,7 +158,7 @@ def create_nb_bert_base() -> SebModel:
 #     meta = ModelMeta(
 #         name=hf_name.split("/")[-1],
 #         huggingface_name=hf_name,
-#         reference="https://huggingface.co/{hf_name}",
+#         reference=f"https://huggingface.co/{hf_name}",
 #         languages=["nb", "nn"],
 #     )
 #     return SebModel(
@@ -174,7 +174,7 @@ def create_bert_base_swedish_cased() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
     )
     return SebModel(
@@ -189,7 +189,7 @@ def create_electra_small_swedish_cased_discriminator() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
     )
     return SebModel(
@@ -205,7 +205,7 @@ def create_xlm_roberta_base() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
     )
 
     return SebModel(
@@ -221,7 +221,7 @@ def create_e5_small() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -235,7 +235,7 @@ def create_e5_base() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -249,7 +249,7 @@ def create_e5_large() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -264,7 +264,7 @@ def create_multilingual_e5_small() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=[],
     )
     return SebModel(
@@ -279,7 +279,7 @@ def create_multilingual_e5_base() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=[],
     )
     return SebModel(
@@ -294,7 +294,7 @@ def create_multilingual_e5_large() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=[],
     )
     return SebModel(
@@ -310,7 +310,7 @@ def create_dfm_sentence_encoder_large() -> SebModel:
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
-        reference="https://huggingface.co/{hf_name}",
+        reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
     )
     return SebModel(

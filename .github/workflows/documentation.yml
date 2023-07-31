@@ -27,8 +27,7 @@ jobs:
       
       - name: Dependencies
         run: |
-          pip install invoke
-          inv install
+          pip install -e .[docs]
 
       - name: Build
         run: mkdocs gh-deploy --force

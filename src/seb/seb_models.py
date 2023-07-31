@@ -34,7 +34,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
-        languages=[],
+        languages=["en"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -222,6 +222,7 @@ def create_e5_small() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
+        languages=["en"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -236,6 +237,7 @@ def create_e5_base() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
+        languages=["en"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -250,6 +252,7 @@ def create_e5_large() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
+        languages=["en"],
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore

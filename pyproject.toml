@@ -50,6 +50,7 @@ docs = [
   "mkdocs-jupyter>=0.24.2",
   "mkdocs-material>=9.1.21",
   "mkdocstrings>=0.22.0",
+  "datawrapper>=0.5.3",
   "jupyter>=1.0.0",          # for tutorials
 ]
 

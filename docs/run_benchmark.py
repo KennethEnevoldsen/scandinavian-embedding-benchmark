@@ -94,8 +94,8 @@ def push_to_datawrapper(df: pd.DataFrame, chart_id: str, token: str):
     assert dw.account_info(), "Could not connect to Datawrapper"
     resp = dw.add_data(chart_id, data=df)
     assert 200 <= resp.status_code < 300, "Could not add data to Datawrapper"
-    iframe_html = dw.publish_chart(chart_id)
-    assert iframe_html, "Could not publish chart"
+    # iframe_html = dw.publish_chart(chart_id)
+    # assert iframe_html, "Could not publish chart"
 
 
 def main(data_wrapper_api_token: str):

@@ -17,19 +17,19 @@ Intended uses for this benchmark:
 
 === "All"
 
-    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=11" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
+    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7Nwjx/embed.js?v=13" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/7Nwjx/full.png" alt="" /></noscript></div>
 
 === "Danish"
 
-    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/us1YK/embed.js?v=8" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/us1YK/full.png" alt="" /></noscript></div>    
+    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/us1YK/embed.js?v=10" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/us1YK/full.png" alt="" /></noscript></div>    
 
 === "Norwegian"
 
-    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/pV87q/embed.js?v=8" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/pV87q/full.png" alt="" /></noscript></div>
+    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/pV87q/embed.js?v=10" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/pV87q/full.png" alt="" /></noscript></div>
 
 === "Swedish"
 
-    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/aL23t/embed.js?v=8" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/aL23t/full.png" alt="" /></noscript></div>
+    <div style="min-height:652px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/aL23t/embed.js?v=10" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/aL23t/full.png" alt="" /></noscript></div>
 
 
 ## Comparison to other benchmarks

@@ -420,9 +420,4 @@ def docs(c: Context, view: bool = False, view_only: bool = False):
         c.run("tox -e docs")
 
     if view or view_only:
-        echo_header(f"{msg_type.EXAMINE}: Opening docs in browser")
-        # check the OS and open the docs in the browser
-        if platform.system() == "Windows":
-            c.run("start docs/_build/html/index.html")
-        else:
-            c.run("open docs/_build/html/index.html")
+        c.run("mkdocs serve")

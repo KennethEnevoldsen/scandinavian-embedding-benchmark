@@ -177,5 +177,5 @@ extras = docs
 basepython = py39 # Setting these explicitly avoid recreating env if your shell is set to a different version
 use_develop = true
 commands =
-  sphinx-build -b html docs docs/_build/html
+  mkdocs build
 """

@@ -43,6 +43,8 @@ plugins:
           type: python
           root_package: seb
           docstring_style: google
+  - social:
+      cards_dir: _static/social
 
 extra:
   social:

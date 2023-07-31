@@ -2,7 +2,9 @@
 The test specifications for the benchmark.
 """
 
+import os
 from datetime import datetime
+from pathlib import Path
 from typing import List, Optional, Union
 
 import pytest
@@ -120,10 +122,17 @@ def test_cache_dir_is_reused(
     assert task_result_1 == task_result_2, "The two task results should be equal"
 
 
+def set_cache_dir():
+    new_cache_dir = Path(__file__).parent / "tmp_cache"
+    os.environ["SEB_CACHE_DIR"] = str(new_cache_dir)
+    new_cache_dir.mkdir(exist_ok=True)
+
+
 def test_benchmark_skip_on_error_raised():
     """
     Test that the benchmark skips a model if an error is raised.
     """
+    set_cache_dir()
     model = seb.get_model("test_model")
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=None,

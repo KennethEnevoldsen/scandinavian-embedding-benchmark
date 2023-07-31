@@ -41,6 +41,19 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         meta=meta,
     )
 
+@models.register("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+def create_multilingual_mini_lm_l12_v2() -> SebModel:
+    hf_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+    )
+    return SebModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        meta=meta,
+    )
 
 @models.register("KBLab/sentence-bert-swedish-cased")
 def create_sentence_swedish_cased() -> SebModel:

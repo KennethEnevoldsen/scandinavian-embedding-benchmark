@@ -22,7 +22,7 @@ import shutil
 from pathlib import Path
 from typing import List, Optional
 
-from invoke import Context, Result, task
+from invoke import Context, Result, task  # type: ignore
 
 # Extract supported python versions from the pyproject.toml classifiers key
 SUPPORTED_PYTHON_VERSIONS = [
@@ -135,7 +135,7 @@ def _add_commit(c: Context, msg: Optional[str] = None):
 
 
 def is_uncommitted_changes(c: Context) -> bool:
-    git_status_result: Result = c.run(
+    git_status_result: Result = c.run(  # type: ignore
         "git status --porcelain",
         pty=NOT_WINDOWS,
         hide=True,
@@ -152,7 +152,7 @@ def add_and_commit(c: Context, msg: Optional[str] = None):
             "git status --porcelain",
             pty=NOT_WINDOWS,
             hide=True,
-        ).stdout
+        ).stdout  # type: ignore
 
         echo_header(
             f"{msg_type.WARN} Uncommitted changes detected",
@@ -167,7 +167,7 @@ def add_and_commit(c: Context, msg: Optional[str] = None):
 def branch_exists_on_remote(c: Context) -> bool:
     branch_name = Path(".git/HEAD").read_text().split("/")[-1].strip()
 
-    branch_exists_result: Result = c.run(
+    branch_exists_result: Result = c.run(  # type: ignore
         f"git ls-remote --heads origin {branch_name}",
         hide=True,
     )
@@ -198,7 +198,7 @@ def update_pr(c: Context):
     echo_header(f"{msg_type.COMMUNICATE} Syncing PR")
     # Get current branch name
     branch_name = Path(".git/HEAD").read_text().split("/")[-1].strip()
-    pr_result: Result = c.run(
+    pr_result: Result = c.run(  # type: ignore
         "gh pr list --state OPEN",
         pty=False,
         hide=True,
@@ -238,16 +238,16 @@ def pre_commit(c: Context, auto_fix: bool):
     pre_commit_cmd = "pre-commit run --all-files"
     result = c.run(pre_commit_cmd, pty=NOT_WINDOWS, warn=True)
 
-    exit_if_error_in_stdout(result)
+    exit_if_error_in_stdout(result)  # type: ignore
 
-    if ("fixed" in result.stdout or "reformatted" in result.stdout) and auto_fix:
+    if ("fixed" in result.stdout or "reformatted" in result.stdout) and auto_fix:  # type: ignore
         _add_commit(c, msg="style: Auto-fixes from pre-commit")
 
         print(f"{msg_type.DOING} Fixed errors, re-running pre-commit checks")
         second_result = c.run(pre_commit_cmd, pty=NOT_WINDOWS, warn=True)
-        exit_if_error_in_stdout(second_result)
+        exit_if_error_in_stdout(second_result)  # type: ignore
     else:
-        if result.return_code != 0:
+        if result.return_code != 0:  # type: ignore
             print(f"{msg_type.FAIL} Pre-commit checks failed")
             exit(1)
 
@@ -274,7 +274,9 @@ def install(
 
     if venv_path is not None and NOT_WINDOWS:
         with c.prefix(f"source {venv_path}/bin/activate"):
-            c.run("pip install git+https://github.com/embeddings-benchmark/mteb") # TODO: remove after merge of https://github.com/embeddings-benchmark/mteb/pull/128
+            c.run(
+                "pip install git+https://github.com/embeddings-benchmark/mteb"
+            )  # TODO: remove after merge of https://github.com/embeddings-benchmark/mteb/pull/128
             c.run(install_cmd)
             return
 
@@ -354,7 +356,7 @@ def test(
 
     pytest_arg_str = " ".join(pytest_args)
 
-    test_result: Result = c.run(
+    test_result: Result = c.run(  # type: ignore
         f"tox -e {python_version_arg_string} -- {pytest_arg_str}",
         warn=True,
         pty=NOT_WINDOWS,

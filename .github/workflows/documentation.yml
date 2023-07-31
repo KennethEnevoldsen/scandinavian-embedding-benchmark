@@ -24,6 +24,12 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install -e ".[docs]"
-      - run: mkdocs gh-deploy --force
+      
+      - name: Dependencies
+        run: |
+          pip install invoke
+          inv install
+
+      - name: Build
+        run: mkdocs gh-deploy --force
           

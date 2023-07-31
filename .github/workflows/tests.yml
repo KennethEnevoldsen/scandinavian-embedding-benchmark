@@ -47,6 +47,8 @@ jobs:
         shell: bash
         run: |
           pip install invoke tox
+          pip install git+https://github.com/embeddings-benchmark/mteb/pull/128    
+        # ^TODO: remove
 
       - name: Run and write pytest
         shell: bash

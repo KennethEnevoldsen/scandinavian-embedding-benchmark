@@ -274,6 +274,7 @@ def install(
 
     if venv_path is not None and NOT_WINDOWS:
         with c.prefix(f"source {venv_path}/bin/activate"):
+            c.run("pip install git+https://github.com/embeddings-benchmark/mteb") # TODO: remove after merge of https://github.com/embeddings-benchmark/mteb/pull/128
             c.run(install_cmd)
             return
 

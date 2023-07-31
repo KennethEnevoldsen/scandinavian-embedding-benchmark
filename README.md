@@ -15,8 +15,6 @@
 [black]: https://github.com/psf/black
 
 
-> **Note**: Tests currently don't work as it requires an update on the MTEB dataset ([PR](https://github.com/embeddings-benchmark/mteb/pull/128) is pending)
-
 <!-- start short-description -->
 
 A benchmark for evaluating sentence/document embeddings of Scandinavian language models.

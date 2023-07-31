@@ -56,6 +56,9 @@ def test_task_result_main_score(task_result: seb.TaskResult):
     assert task_result.get_main_score(["da", "en"]) - 0.3 < 0.0001
 
 
+@pytest.mark.skip(
+    reason="This test downloads all datasets. It takes a long time to test and often fails due to errors on HF's side."
+)
 @pytest.mark.parametrize("task_name", all_tasks_names)
 @pytest.mark.parametrize("model_name", ["sentence-transformers/all-MiniLM-L6-v2"])
 def test_all_tasks(task_name: str, model_name: str):

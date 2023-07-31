@@ -14,7 +14,7 @@ all_models = seb.get_all_models()
     reason="This test loads in all models. It is too heavy to have running as a CI"
 )
 @pytest.mark.parametrize("model", all_models)
-@pytest.mark.parametrize("task", [seb.get_task("test encode model")])
+@pytest.mark.parametrize("task", [seb.get_task("test encode task")])
 def test_model(model: seb.SebModel, task: seb.Task):
     """
     Test if the models encodes as expected

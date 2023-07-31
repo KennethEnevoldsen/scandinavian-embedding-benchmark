@@ -82,7 +82,7 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
         (
             "sentence-transformers/all-MiniLM-L6-v2",
             None,
-            ["DKHate"],
+            ["test encode task"],
         ),
     ],
 )

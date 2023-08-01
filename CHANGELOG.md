@@ -2,6 +2,29 @@
 
 
 
+## v0.1.5 (2023-08-01)
+
+### Ci
+
+* ci: fixed version pointer ([`4af85d1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4af85d11af1b22e41ee53119235a5184c80ce951))
+
+### Documentation
+
+* docs: test social card ([`2460524`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2460524a96235305e4462184ed9a66e3194b0664))
+
+* docs: re-add social card ([`ff46543`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ff465430d5c807cb4050b6364f6f7abe7ece389b))
+
+### Fix
+
+* fix: pyproject.toml version reference ([`5968bd7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5968bd7df7dbba3b84373de397e277ddb966c1f7))
+
+### Unknown
+
+* fix:empty commit for ci ([`db43d77`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/db43d7774c539f0803916d89cc1ad55f36345ad6))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`68ed93d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/68ed93db75bccfabebef3c24f36f9c603786106d))
+
+
 ## v0.1.4 (2023-08-01)
 
 ### Documentation

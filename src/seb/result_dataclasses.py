@@ -9,6 +9,18 @@ from .model_interface import ModelMeta
 
 
 class TaskResult(BaseModel):
+    """
+    Dataclass for storing task results.
+
+    Attributes:
+        task_name: Name of the task.
+        task_description: Description of the task.
+        task_version: Version of the task.
+        time_of_run: Time of the run.
+        scores: Dictionary of scores on the form {language: {"metric": value}}.
+        main_score: Name of the main score.
+    """
+
     task_name: str
     task_description: str
     task_version: str
@@ -17,6 +29,15 @@ class TaskResult(BaseModel):
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
+        """
+        Returns the main score for a given set of languages.
+
+        Args:
+            lang: List of languages to get the main score for.
+
+        Returns:
+            The main score.
+        """
         main_scores = []
         if lang is None:
             lang = self.scores.keys()
@@ -28,6 +49,9 @@ class TaskResult(BaseModel):
 
     @property
     def languages(self) -> List[str]:
+        """
+        Returns the languages of the task.
+        """
         return list(self.scores.keys())
 
     @classmethod
@@ -80,6 +104,14 @@ class TaskError(BaseModel):
 
 
 class BenchmarkResults(BaseModel):
+    """
+    Dataclass for storing benchmark results.
+
+    Attributes:
+        meta: ModelMeta object.
+        task_results: List of TaskResult objects.
+    """
+
     meta: ModelMeta
     task_results: List[Union[TaskResult, TaskError]]
 

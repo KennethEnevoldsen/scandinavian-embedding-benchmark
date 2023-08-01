@@ -20,7 +20,7 @@ BENCHMARKS = {
 
 def run_benchmark(use_cache: bool = True) -> dict[str, List[BenchmarkResults]]:
     """
-    Run the full benchmark.
+    Run the full SEB benchmark.
     """
     models: List[SebModel] = get_all_models()
 

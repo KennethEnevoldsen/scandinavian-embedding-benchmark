@@ -1,7 +1,7 @@
 site_name: The Scandinavian Embedding Benchmark
 docs_dir: "docs/"
 repo_url: https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark
-
+watch: [src/, docs/]
 theme:
   name: material
   favicon: _static/logo.png
@@ -32,21 +32,27 @@ nav:
   - Package:
       - Installation: installation.md
       - Getting Started: getting_started.ipynb
-      # - API: api.md
-
+      - API: api.md
 plugins:
   - mkdocs-jupyter
   - search
   - mkdocstrings:
       handlers:
         python:
+          preload_modules: [pydantic]
+          paths: [src]
           type: python
           root_package: seb
           docstring_style: google
-  - social:
-      cards_layout: default/only/image
-      cards_layout_options:
-        background_image: _static/social.png
+          options:
+            heading_level: 3
+            show_source: true
+            show_root_heading: true
+
+  # - social:
+  #     cards_layout: default/only/image
+  #     cards_layout_options:
+  #       background_image: _static/social.png
 
 extra:
   social:

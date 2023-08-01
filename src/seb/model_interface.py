@@ -11,6 +11,10 @@ ArrayLike = Union[ndarray, Tensor]
 
 @runtime_checkable
 class ModelInterface(Protocol):
+    """
+    Interface which all models must implement.
+    """
+
     def encode(
         self, sentences: List[str], batch_size: int = 32, **kwargs
     ) -> List[ArrayLike]:

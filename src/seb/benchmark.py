@@ -58,6 +58,10 @@ def run_task(
 
 
 class Benchmark:
+    """
+    Benchmark is the main orchestrator of the SEB benchmark.
+    """
+
     def __init__(
         self,
         languages: Optional[List[str]] = None,
@@ -65,6 +69,10 @@ class Benchmark:
     ) -> None:
         """
         Initialize the benchmark.
+
+        Args:
+            languages: A list of languages to run the benchmark on. If None, all languages are used.
+            tasks: A list of tasks to run the benchmark on. If None, all tasks are used.
         """
         self.languages = languages
         self.tasks_names = tasks
@@ -73,6 +81,9 @@ class Benchmark:
     def get_tasks(self) -> List[Task]:
         """
         Get the tasks for the benchmark.
+
+        Returns:
+            A list of tasks.
         """
         tasks = []
 
@@ -92,6 +103,14 @@ class Benchmark:
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
+
+        Args:
+            model: The model to evaluate.
+            use_cache: Whether to use the cache.
+            raise_errors: Whether to raise errors.
+
+        Returns:
+            The results of the benchmark.
         """
         tasks = self.get_tasks()
         task_results = []
@@ -107,6 +126,14 @@ class Benchmark:
     ) -> List[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
+
+        Args:
+            models: The models to evaluate.
+            use_cache: Whether to use the cache.
+            raise_errors: Whether to raise errors.
+
+        Returns:
+            The results of the benchmark, once for each model.
         """
         results = []
         pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True)
@@ -118,5 +145,3 @@ class Benchmark:
                 )
             )
         return results
-
-

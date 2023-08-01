@@ -8,9 +8,20 @@ from .model_interface import ModelInterface
 from .result_dataclasses import TaskResult
 
 
-# make checkable with
 @runtime_checkable
 class Task(Protocol):
+    """
+    A task is a specific evaluation task for a sentence embedding model.
+
+    Attributes:
+        name: The name of the task.
+        main_score: The main score of the task.
+        description: A description of the task.
+        reference: A reference to the task.
+        version: The version of the task.
+        languages: The languages of the task.
+        
+    """
     name: str
     main_score: str
     description: str

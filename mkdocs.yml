@@ -44,7 +44,9 @@ plugins:
           root_package: seb
           docstring_style: google
   - social:
-      cards_dir: _static/social
+      cards_layout: default/only/image
+      cards_layout_options:
+        background_image: _static/social.png
 
 extra:
   social:

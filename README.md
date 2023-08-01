@@ -2,13 +2,13 @@
 
 # Scandinavian Embedding Benchmark
 
-[![PyPI](https://img.shields.io/pypi/v/scandinavian-embedding-benchmark.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/scandinavian-embedding-benchmark)][pypi status]
+[![PyPI](https://img.shields.io/pypi/v/seb.svg)][pypi status]
+[![Python Version](https://img.shields.io/pypi/pyversions/seb)][pypi status]
 [![documentation](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/documentation.yml/badge.svg)][documentation]
 [![Tests](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/tests.yml/badge.svg)][tests]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
-[pypi status]: https://pypi.org/project/scandinavian-embedding-benchmark/
+[pypi status]: https://pypi.org/project/seb/
 [documentation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/
 [tests]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions?workflow=Tests
 [black]: https://github.com/psf/black

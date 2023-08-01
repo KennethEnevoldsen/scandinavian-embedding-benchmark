@@ -148,7 +148,7 @@ max-complexity = 10
 
 [tool.semantic_release]
 branch = "main"
-version_variable = ["pyproject.toml:version"]
+version_toml = ["pyproject.toml:version"]
 build_command = "python -m pip install build; python -m build"
 
 [tool.setuptools]

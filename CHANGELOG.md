@@ -2,6 +2,21 @@
 
 
 
+## v0.1.3 (2023-08-01)
+
+### Ci
+
+* ci: Added permissions ([`51de97a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/51de97a2af8d43318d6c0e08a51614459fa858b5))
+
+### Fix
+
+* fix: rerun ci ([`94362a9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/94362a97999b17516bdad2bb241675c038ea7350))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`7301671`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/73016713ca2b4c253f8211e3ee4db5351bd27fa9))
+
+
 ## v0.1.2 (2023-08-01)
 
 ### Ci
@@ -9,6 +24,12 @@
 * ci: re-added gh token ([`a280ee6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a280ee6315c43c8603363d5408065747d0767644))
 
 * ci: Updated release ci to use pypi trusted publishing ([`e5cec02`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e5cec024bce8e907d1edbbf74509360d359e732c))
+
+### Fix
+
+* fix: empty commit ([`73db296`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/73db296636c7cc929cf8bb8e4fde2073241a0873))
+
+* fix: Empty commit ([`cc1dfd7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cc1dfd73c2f011d8ece541effa112b52362e1cc6))
 
 ### Unknown
 

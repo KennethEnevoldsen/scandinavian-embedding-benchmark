@@ -48,11 +48,7 @@ plugins:
             heading_level: 3
             show_source: true
             show_root_heading: true
-
-  - social:
-      cards_layout: default/only/image
-      cards_layout_options:
-        background_image: _static/social.png
+  - social
 
 extra:
   social:

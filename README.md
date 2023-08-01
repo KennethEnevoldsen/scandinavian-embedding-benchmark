@@ -22,14 +22,14 @@ A benchmark for evaluating sentence/document embeddings of Scandinavian language
 
 ## Installation
 
-You can install `scandinavian-embedding-benchmark` via [pip] from [PyPI]:
+You can install the Scandinavian Embedding Benchmark (`seb`) via [pip] from [PyPI]:
 
 ```bash
 pip install seb
 ```
 
 [pip]: https://pip.pypa.io/en/stable/installing/
-[PyPI]: https://pypi.org/project/cuecy/
+[PyPI]: https://pypi.org/project/seb/
 
 
 To see more examples, see the [documentation].

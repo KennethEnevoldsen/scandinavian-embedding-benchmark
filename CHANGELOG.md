@@ -10,12 +10,6 @@
 
 * ci: Updated release ci to use pypi trusted publishing ([`e5cec02`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e5cec024bce8e907d1edbbf74509360d359e732c))
 
-### Fix
-
-* fix: empty commit ([`73db296`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/73db296636c7cc929cf8bb8e4fde2073241a0873))
-
-* fix: Empty commit ([`cc1dfd7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cc1dfd73c2f011d8ece541effa112b52362e1cc6))
-
 ### Unknown
 
 * Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`66bfdf0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/66bfdf0e9107f00758ae14377885e7fe7e2d9220))

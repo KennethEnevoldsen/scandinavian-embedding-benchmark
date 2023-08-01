@@ -6,7 +6,6 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/scandinavian-embedding-benchmark)][pypi status]
 [![documentation](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/documentation.yml/badge.svg)][documentation]
 [![Tests](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/tests.yml/badge.svg)][tests]
-
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
 [pypi status]: https://pypi.org/project/scandinavian-embedding-benchmark/

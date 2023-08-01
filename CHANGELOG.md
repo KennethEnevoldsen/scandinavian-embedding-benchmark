@@ -2,6 +2,17 @@
 
 
 
+## v0.1.1 (2023-08-01)
+
+### Fix
+
+* fix: Added documentation to all outward facing functions ([`ac96fc1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ac96fc15fadb7e96306b5479c053f9fb229b2019))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`1464b68`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1464b6887dc0c421a8a9c74ae5cf3dd5f9e82920))
+
+
 ## v0.1.0 (2023-08-01)
 
 ### Build

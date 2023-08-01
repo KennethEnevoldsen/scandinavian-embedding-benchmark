@@ -2,6 +2,21 @@
 
 
 
+## v0.1.4 (2023-08-01)
+
+### Documentation
+
+* docs: Updated links in badge ([`8e3ab16`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8e3ab168b518e095d6f8cd8bf5d8afb2f82de0ba))
+
+### Fix
+
+* fix: ci: removed outdated variables from pyproject.toml ([`b43edd8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b43edd86701704d25323feb61b5140b5f1059217))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`84244d2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/84244d2117ddf11da2eaf37c4bab1dbef03807d2))
+
+
 ## v0.1.3 (2023-08-01)
 
 ### Ci

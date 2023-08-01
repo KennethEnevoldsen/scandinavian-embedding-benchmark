@@ -48,7 +48,6 @@ plugins:
             heading_level: 3
             show_source: true
             show_root_heading: true
-  - social
 
 extra:
   social:

@@ -28,7 +28,7 @@ def create_massive_scenario() -> Task:
     return task
 
 
-@tasks.register("Scala")
+@tasks.register("ScaLA")
 def create_scala() -> Task:
     from mteb import (
         ScalaDaClassification,

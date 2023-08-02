@@ -26,4 +26,5 @@ def create_dalaj() -> Task:
 
     task = MTEBTask(SweFaqRetrieval())
     task.name = "SweFAQ"
+    task.version = "0.0.1"
     return task

@@ -22,11 +22,7 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
     def load_data(self, **kwargs):
         """
-        Load dataset from HuggingFace hub and transform to a retrieval datset.
-
-        self.corpus = Dict[id, Dict[str, str]] #id => dict with document datas like title and text
-        self.queries = Dict[id, str] #id => query
-        self.relevant_docs = List[id, id, score]
+        Load dataset from HuggingFace hub
         """
         if self.data_loaded:
             return
@@ -41,6 +37,13 @@ class SweFaqRetrieval(AbsTaskRetrieval):
         self.data_loaded = True
 
     def dataset_transform(self) -> None:
+        """
+        and transform to a retrieval datset, which have the following attributes
+
+        self.corpus = Dict[doc_id, Dict[str, str]] #id => dict with document datas like title and text
+        self.queries = Dict[query_id, str] #id => query
+        self.relevant_docs = Dict[query_id, Dict[[doc_id, score]]
+        """
         self.corpus = {}
         self.relevant_docs = {}
         self.queries = {}

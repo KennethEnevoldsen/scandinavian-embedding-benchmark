@@ -1,4 +1,5 @@
 from collections.abc import Sequence
+from functools import partial
 from pathlib import Path
 from typing import Union
 
@@ -16,7 +17,8 @@ from sonar.models.sonar_text import (
 )
 
 from seb.model_interface import ModelInterface
-
+from seb.model_interface import ModelMeta, SebModel
+from seb.registries import models
 
 def truncate_seq_length(
     sequence_batch: SequenceBatch, max_seq_len: int = 514,
@@ -31,13 +33,16 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         self,
         encoder: Union[str, SonarEncoderModel],
         tokenizer: Union[str, TextTokenizer],
+        source_lang: str,
         device: Device = torch.device("cpu"),
     ) -> None:
         """
         Args:
             encoder (Union[str, SonarEncoderModel]): either cart name or model object
             tokenizer (Union[str, TextTokenizer]): either cart name or tokenizer object
-            device (device, optional): . Defaults to cpu.
+            device (device, optional): . Defaults to cpu
+            Set source_lang to '[dan|swe|nno|nob|]_Latn' for Danish, Swedish,
+            Norwegian Nynorsk, and Norwegian Bokmål, respectively.
         """
         super().__init__()
         if isinstance(encoder, str):
@@ -50,14 +55,14 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         self.tokenizer = tokenizer
         self.model = encoder.to(device).eval()
         self.device = device
+        self.source_lang = source_lang
 
     @torch.inference_mode()
     def encode(
-        self, input: Union[Path, Sequence[str]], source_lang: str, batch_size: int,
+        self, input: Union[Path, Sequence[str]], batch_size: int,
     ) -> torch.Tensor:
-        """Set source_lang to '[dan|swe|nno|nob|]_Latn' for Danish, Swedish,
-        Norwegian Nynorsk, and Norwegian Bokmål, respectively."""
-        tokenizer_encoder = self.tokenizer.create_encoder(lang=source_lang)
+    
+        tokenizer_encoder = self.tokenizer.create_encoder(lang=self.source_lang)
 
         pipeline = (
             (
@@ -80,15 +85,67 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         return sentence_embeddings
 
 
-def get_sonar_model() -> SonarTextToEmbeddingModelPipeline:
+def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
     return SonarTextToEmbeddingModelPipeline(
-        encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder",
+        encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder", source_lang=source_lang
     )
 
 
-if __name__ == "__main__":
-    pipe = get_sonar_model()
 
-    sents = ["meget lang sætning" * 512] + ["hej"]
+@models.register("facebook/SONAR_da")
+def create_sonar_da() -> SebModel:
+    hf_name = "facebook/SONAR"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["da"],
+    )
+    return SebModel(
+        loader=partial(get_sonar_model, source_lang="dan_Latn"),
+        meta=meta,
+    )
 
-    x = pipe.encode(sents, source_lang="dan_Latn", batch_size=32)
+
+@models.register("facebook/SONAR_sv")
+def create_sonar_sv() -> SebModel:
+    hf_name = "facebook/SONAR"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["sv"],
+    )
+    return SebModel(
+        loader=partial(get_sonar_model, source_lang="swe_Latn"),
+        meta=meta,
+    )
+
+@models.register("facebook/SONAR_nb")
+def create_sonar_nb() -> SebModel:
+    hf_name = "facebook/SONAR"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["nb"],
+    )
+    return SebModel(
+        loader=partial(get_sonar_model, source_lang="nob_Latn"),
+        meta=meta,
+    )
+
+
+@models.register("facebook/SONAR_nn")
+def create_sonar_nn() -> SebModel:
+    hf_name = "facebook/SONAR"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["nn"],
+    )
+    return SebModel(
+        loader=partial(get_sonar_model, source_lang="nno_Latn"),
+        meta=meta,
+    )

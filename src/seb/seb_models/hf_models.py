@@ -6,10 +6,8 @@ from functools import partial
 
 from sentence_transformers import SentenceTransformer
 
-from seb.non_hf_models.sonar_model import get_sonar_model
-
-from .model_interface import ModelMeta, SebModel
-from .registries import models
+from seb.model_interface import ModelMeta, SebModel
+from seb.registries import models
 
 
 def silence_warnings_from_sentence_transformers():
@@ -19,7 +17,7 @@ def silence_warnings_from_sentence_transformers():
 
 
 def get_sentence_transformer(
-    model_name: str, max_seq_length=None
+    model_name: str, max_seq_length=None,
 ) -> SentenceTransformer:
     silence_warnings_from_sentence_transformers()
     mdl = SentenceTransformer(model_name)
@@ -43,6 +41,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         meta=meta,
     )
 
+
 @models.register("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 def create_multilingual_mini_lm_l12_v2() -> SebModel:
     hf_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -57,6 +56,7 @@ def create_multilingual_mini_lm_l12_v2() -> SebModel:
         meta=meta,
     )
 
+
 @models.register("KBLab/sentence-bert-swedish-cased")
 def create_sentence_swedish_cased() -> SebModel:
     hf_name = "KBLab/sentence-bert-swedish-cased"
@@ -70,6 +70,7 @@ def create_sentence_swedish_cased() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
+
 
 @models.register("jonfd/electra-small-nordic")
 def create_electra_small_nordic() -> SebModel:
@@ -318,22 +319,6 @@ def create_multilingual_e5_large() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
-
-
-@models.register("facebook/SONAR")
-def create_SONAR() -> SebModel:
-    hf_name = "facebook/SONAR"
-    meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=["da", "sw", "nb", "nn"],
-    )
-    return SebModel(
-        loader=get_sonar_model,
-        meta=meta,
-    )
-
 
 
 

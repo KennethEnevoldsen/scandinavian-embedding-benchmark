@@ -23,6 +23,8 @@ dependencies = [
   "typer>=0.7.0",
   "pydantic>=2.1.0",
   "catalogue>=2.0.8",
+  "sonar-space>=0.1.0",
+  "fairseq2@git+https://github.com/facebookresearch/fairseq2.git", # change when fairseq2 hits pypi
 ]
 
 [project.license]

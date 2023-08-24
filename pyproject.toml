@@ -23,8 +23,6 @@ dependencies = [
   "typer>=0.7.0",
   "pydantic>=2.1.0",
   "catalogue>=2.0.8",
-  "fairseq2", 
-  "sonar-space>=0.1.0",
 ]
 
 [project.license]
@@ -58,6 +56,11 @@ docs = [
   # for tutorials
   "jupyter>=1.0.0",
 ]
+sonar = [
+  "fairseq2", 
+  "sonar-space>=0.1.0",
+]
+
 
 [project.readme]
 file = "README.md"

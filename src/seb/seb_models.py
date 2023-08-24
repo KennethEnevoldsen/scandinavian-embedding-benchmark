@@ -6,6 +6,8 @@ from functools import partial
 
 from sentence_transformers import SentenceTransformer
 
+from seb.non_hf_models.sonar_model import get_sonar_model
+
 from .model_interface import ModelMeta, SebModel
 from .registries import models
 
@@ -68,7 +70,6 @@ def create_sentence_swedish_cased() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
-
 
 @models.register("jonfd/electra-small-nordic")
 def create_electra_small_nordic() -> SebModel:
@@ -317,6 +318,23 @@ def create_multilingual_e5_large() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
+
+
+@models.register("facebook/SONAR")
+def create_SONAR() -> SebModel:
+    hf_name = "facebook/SONAR"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+    )
+    return SebModel(
+        loader=get_sonar_model,
+        meta=meta,
+    )
+
+
 
 
 # Scandinavian sentence encoders

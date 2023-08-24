@@ -82,7 +82,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         results: list[SonarEncoderOutput] = list(iter(pipeline))
 
         sentence_embeddings = torch.cat([x.sentence_embeddings for x in results], dim=0)
-        return sentence_embeddings
+        return sentence_embeddings.numpy()
 
 
 def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
@@ -145,3 +145,21 @@ def create_sonar_nn() -> SebModel:
         loader=partial(get_sonar_model, source_lang="nno_Latn"),
         meta=meta,
     )
+
+
+
+if __name__ == "__main__":
+    from seb.seb_models.hf_models import create_all_mini_lm_l6_v2
+
+
+    sonar = create_sonar_da()
+    st = create_all_mini_lm_l6_v2()
+
+    sents = ["Hej "* 60]
+
+    sonar_out = sonar.encode(sents)
+    st_out = st.encode(sents)
+
+    print(sonar_out.shape)
+    print(st_out.shape)
+    pass

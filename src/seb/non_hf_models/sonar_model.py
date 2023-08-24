@@ -1,8 +1,7 @@
 from pathlib import Path
 from typing import List, Sequence, Union
-from sonar.inference_pipelines.text import TextToEmbeddingModelPipeline
 
-from seb.model_interface import ArrayLike, ModelInterface
+from seb.model_interface import ModelInterface
 from sonar.models.sonar_text import load_sonar_text_encoder_model, load_sonar_tokenizer
 import torch
 from fairseq2.data import Collater
@@ -79,7 +78,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         sentence_embeddings = torch.cat([x.sentence_embeddings for x in results], dim=0)
         return sentence_embeddings
 
-def get_sonar_model():
+def get_sonar_model() -> SonarTextToEmbeddingModelPipeline:
     return SonarTextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder",
                                     tokenizer="text_sonar_basic_encoder")
 

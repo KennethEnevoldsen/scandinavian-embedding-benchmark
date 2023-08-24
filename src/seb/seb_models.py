@@ -327,7 +327,7 @@ def create_SONAR() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
-        languages=[],
+        languages=["da", "sw", "nb", "nn"],
     )
     return SebModel(
         loader=get_sonar_model,

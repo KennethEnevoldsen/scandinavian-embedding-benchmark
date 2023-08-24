@@ -1,15 +1,13 @@
+from collections.abc import Sequence
 from pathlib import Path
-from typing import List, Sequence, Union
+from typing import Union
 
-from seb.model_interface import ModelInterface
-from sonar.models.sonar_text import load_sonar_text_encoder_model, load_sonar_tokenizer
 import torch
 from fairseq2.data import Collater
 from fairseq2.data.data_pipeline import read_sequence
 from fairseq2.data.text import TextTokenizer, read_text
-from fairseq2.typing import Device
 from fairseq2.models.sequence import SequenceBatch
-
+from fairseq2.typing import Device
 from sonar.inference_pipelines.utils import extract_sequence_batch
 from sonar.models import SonarEncoderModel, SonarEncoderOutput
 from sonar.models.sonar_text import (
@@ -17,13 +15,16 @@ from sonar.models.sonar_text import (
     load_sonar_tokenizer,
 )
 
+from seb.model_interface import ModelInterface
 
 
-
-def truncate_seq_length(sequence_batch: SequenceBatch, max_seq_len: int = 514) -> SequenceBatch:
+def truncate_seq_length(
+    sequence_batch: SequenceBatch, max_seq_len: int = 514,
+) -> SequenceBatch:
     sequence_batch.seqs = sequence_batch.seqs[:, :max_seq_len]
-    sequence_batch.seq_lens = torch.clamp(sequence_batch.seq_lens, max=max_seq_len) # type: ignore
+    sequence_batch.seq_lens = torch.clamp(sequence_batch.seq_lens, max=max_seq_len)  # type: ignore
     return sequence_batch
+
 
 class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
     def __init__(
@@ -41,7 +42,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         super().__init__()
         if isinstance(encoder, str):
             encoder = load_sonar_text_encoder_model(
-                encoder, device=device, progress=False
+                encoder, device=device, progress=False,
             )
         if isinstance(tokenizer, str):
             tokenizer = load_sonar_tokenizer(tokenizer, progress=False)
@@ -52,12 +53,12 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
 
     @torch.inference_mode()
     def encode(
-            self, input: Union[Path, Sequence[str]], source_lang: str, batch_size: int
+        self, input: Union[Path, Sequence[str]], source_lang: str, batch_size: int,
     ) -> torch.Tensor:
         """Set source_lang to '[dan|swe|nno|nob|]_Latn' for Danish, Swedish,
-         Norwegian Nynorsk, and Norwegian Bokmål, respectively."""
+        Norwegian Nynorsk, and Norwegian Bokmål, respectively."""
         tokenizer_encoder = self.tokenizer.create_encoder(lang=source_lang)
-        
+
         pipeline = (
             (
                 read_text(input)
@@ -73,19 +74,20 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
             .and_return()
         )
 
-        results: List[SonarEncoderOutput] = list(iter(pipeline))
+        results: list[SonarEncoderOutput] = list(iter(pipeline))
 
         sentence_embeddings = torch.cat([x.sentence_embeddings for x in results], dim=0)
         return sentence_embeddings
 
+
 def get_sonar_model() -> SonarTextToEmbeddingModelPipeline:
-    return SonarTextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder",
-                                    tokenizer="text_sonar_basic_encoder")
+    return SonarTextToEmbeddingModelPipeline(
+        encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder",
+    )
 
 
 if __name__ == "__main__":
     pipe = get_sonar_model()
-    
 
     sents = ["meget lang sætning" * 512] + ["hej"]
 

@@ -94,11 +94,10 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
 
 @models.register("facebook/SONAR_da")
 def create_sonar_da() -> SebModel:
-    hf_name = "facebook/SONAR"
     meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
+        name="sonar_dan",
+        huggingface_name=None,
+        reference="https://github.com/facebookresearch/SONAR",
         languages=["da"],
     )
     return SebModel(
@@ -109,11 +108,10 @@ def create_sonar_da() -> SebModel:
 
 @models.register("facebook/SONAR_sv")
 def create_sonar_sv() -> SebModel:
-    hf_name = "facebook/SONAR"
     meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
+        name="sonar_swe",
+        huggingface_name=None,
+        reference="https://github.com/facebookresearch/SONAR",
         languages=["sv"],
     )
     return SebModel(
@@ -123,11 +121,10 @@ def create_sonar_sv() -> SebModel:
 
 @models.register("facebook/SONAR_nb")
 def create_sonar_nb() -> SebModel:
-    hf_name = "facebook/SONAR"
     meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
+        name="sonar_nob",
+        huggingface_name=None,
+        reference="https://github.com/facebookresearch/SONAR",
         languages=["nb"],
     )
     return SebModel(
@@ -138,11 +135,10 @@ def create_sonar_nb() -> SebModel:
 
 @models.register("facebook/SONAR_nn")
 def create_sonar_nn() -> SebModel:
-    hf_name = "facebook/SONAR"
     meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
+        name="sonar_nno",
+        huggingface_name=None,
+        reference="https://github.com/facebookresearch/SONAR",
         languages=["nn"],
     )
     return SebModel(

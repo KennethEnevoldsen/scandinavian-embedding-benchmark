@@ -47,7 +47,7 @@ def create_scala() -> Task:
                 "nn": ScalaNnClassification(),
             }
             self.main_score = "accuracy"
-            self.name = "Scala"
+            self.name = "ScaLA"
             self.description = "A linguistic acceptability task for Danish, Norwegian Bokmål Norwegian Nynorsk and Swedish."
             self.version = __version__
             self.reference = "https://aclanthology.org/2023.nodalida-1.20/"

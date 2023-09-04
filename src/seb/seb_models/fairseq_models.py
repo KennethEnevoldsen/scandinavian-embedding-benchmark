@@ -146,20 +146,3 @@ def create_sonar_nn() -> SebModel:
         meta=meta,
     )
 
-
-
-if __name__ == "__main__":
-    from seb.seb_models.hf_models import create_all_mini_lm_l6_v2
-
-
-    sonar = create_sonar_da()
-    st = create_all_mini_lm_l6_v2()
-
-    sents = ["Hej "* 60]
-
-    sonar_out = sonar.encode(sents)
-    st_out = st.encode(sents)
-
-    print(sonar_out.shape)
-    print(st_out.shape)
-    pass

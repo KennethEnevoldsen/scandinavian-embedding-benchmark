@@ -6,8 +6,8 @@ from functools import partial
 
 from sentence_transformers import SentenceTransformer
 
-from .model_interface import ModelMeta, SebModel
-from .registries import models
+from seb.model_interface import ModelMeta, SebModel
+from seb.registries import models
 
 
 def silence_warnings_from_sentence_transformers():
@@ -17,7 +17,7 @@ def silence_warnings_from_sentence_transformers():
 
 
 def get_sentence_transformer(
-    model_name: str, max_seq_length=None
+    model_name: str, max_seq_length=None,
 ) -> SentenceTransformer:
     silence_warnings_from_sentence_transformers()
     mdl = SentenceTransformer(model_name)
@@ -41,6 +41,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         meta=meta,
     )
 
+
 @models.register("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 def create_multilingual_mini_lm_l12_v2() -> SebModel:
     hf_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -54,6 +55,7 @@ def create_multilingual_mini_lm_l12_v2() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
+
 
 @models.register("KBLab/sentence-bert-swedish-cased")
 def create_sentence_swedish_cased() -> SebModel:
@@ -317,6 +319,7 @@ def create_multilingual_e5_large() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
+
 
 
 # Scandinavian sentence encoders

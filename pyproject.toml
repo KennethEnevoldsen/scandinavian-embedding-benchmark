@@ -32,7 +32,7 @@ name = "MIT"
 [project.optional-dependencies]
 dev = [
   "cruft>=2.0.0",
-  "pyright==1.1.318",
+  "pyright==1.1.324",
   "pyright-polite>=0.0.1",
   "pre-commit>=2.20.0",
   "ruff>=0.0.254",
@@ -56,6 +56,11 @@ docs = [
   # for tutorials
   "jupyter>=1.0.0",
 ]
+sonar = [
+  "fairseq2", 
+  "sonar-space>=0.1.0",
+]
+
 
 [project.readme]
 file = "README.md"

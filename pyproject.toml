@@ -56,6 +56,11 @@ docs = [
   # for tutorials
   "jupyter>=1.0.0",
 ]
+sonar = [
+  "fairseq2", 
+  "sonar-space>=0.1.0",
+]
+
 
 [project.readme]
 file = "README.md"

@@ -3,6 +3,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Union
 
+import numpy as np
 from pydantic import BaseModel
 
 from .model_interface import ModelMeta
@@ -78,6 +79,7 @@ class TaskError(BaseModel):
     task_name: str
     error: str
     time_of_run: datetime
+    languages: List[str] = []
 
     def to_disk(self, path: Path) -> None:
         """
@@ -99,8 +101,8 @@ class TaskError(BaseModel):
         return cls(**task_results)
 
     @staticmethod
-    def get_main_score(lang: Optional[Iterable[str]] = None) -> None:
-        return None
+    def get_main_score(lang: Optional[Iterable[str]] = None) -> float:
+        return np.nan
 
 
 class BenchmarkResults(BaseModel):

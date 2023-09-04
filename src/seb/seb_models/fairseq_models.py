@@ -106,7 +106,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
 @models.register("facebook/SONAR_da")
 def create_sonar_da() -> SebModel:
     meta = ModelMeta(
-        name="sonar_dan",
+        name="sonar-dan",
         huggingface_name=None,
         reference="https://github.com/facebookresearch/SONAR",
         languages=["da"],
@@ -120,7 +120,7 @@ def create_sonar_da() -> SebModel:
 @models.register("facebook/SONAR_sv")
 def create_sonar_sv() -> SebModel:
     meta = ModelMeta(
-        name="sonar_swe",
+        name="sonar-swe",
         huggingface_name=None,
         reference="https://github.com/facebookresearch/SONAR",
         languages=["sv"],
@@ -134,7 +134,7 @@ def create_sonar_sv() -> SebModel:
 @models.register("facebook/SONAR_nb")
 def create_sonar_nb() -> SebModel:
     meta = ModelMeta(
-        name="sonar_nob",
+        name="sonar-nob",
         huggingface_name=None,
         reference="https://github.com/facebookresearch/SONAR",
         languages=["nb"],
@@ -148,7 +148,7 @@ def create_sonar_nb() -> SebModel:
 @models.register("facebook/SONAR_nn")
 def create_sonar_nn() -> SebModel:
     meta = ModelMeta(
-        name="sonar_nno",
+        name="sonar-nno",
         huggingface_name=None,
         reference="https://github.com/facebookresearch/SONAR",
         languages=["nn"],

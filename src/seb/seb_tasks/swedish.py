@@ -21,7 +21,7 @@ def create_dalaj() -> Task:
 
 
 @tasks.register("SweFAQ")
-def create_dalaj() -> Task:
+def create_swefaq() -> Task:
     from seb.mteb_tasks import SweFaqRetrieval
 
     task = MTEBTask(SweFaqRetrieval())

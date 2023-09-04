@@ -32,7 +32,7 @@ name = "MIT"
 [project.optional-dependencies]
 dev = [
   "cruft>=2.0.0",
-  "pyright==1.1.324",
+  "pyright==1.1.325",
   "pyright-polite>=0.0.1",
   "pre-commit>=2.20.0",
   "ruff>=0.0.254",
@@ -57,9 +57,9 @@ docs = [
   "jupyter>=1.0.0",
 ]
 sonar = [
-  "fairseq2", 
+  "fairseq2",
   "sonar-space>=0.1.0",
-]
+] # fairseq2 only works for linux at the moment
 
 
 [project.readme]

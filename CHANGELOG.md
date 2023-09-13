@@ -2,6 +2,149 @@
 
 
 
+## v0.2.0 (2023-09-04)
+
+### Build
+
+* build: only import fairseq models if fairseq2 is installed ([`07dc22e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/07dc22ecf4cf51335a145736ab4c8cfda160391d))
+
+* build: move fairseq and sonar to optional dependencies ([`0969f57`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0969f57f3dc6e042dee7f8be3b046e2fc8f8dd8e))
+
+* build: change to pypi version of fairseq2 ([`58a62c9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/58a62c93bb8010dd64c418ad39fc4d5ab403f698))
+
+* build: add sonar and fairseq2 dependencies ([`03d3971`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/03d3971584295a8b36c17301999c0753d4c45d73))
+
+### Documentation
+
+* docs: human translated != machine translated ([`0d8f86a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0d8f86a688fd164eb88fff170fd2f076f40c535f))
+
+* docs: Updated docs ([`423fd4e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/423fd4ebf25a21dd9f24d1d5612dd923401f1664))
+
+* docs: removed requirements for social card ([`fb37b26`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fb37b26d4e33d6f76a4b93591726a7459a77a3fb))
+
+### Feature
+
+* feat: add sonar model ([`da45fca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/da45fca623d1146a0ef0d1cc2e92b3e330df0045))
+
+* feat: Added SweFAQ ([`c56fdb7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c56fdb7439b5eff0542521e1d1faab12936107f5))
+
+### Fix
+
+* fix: Overwriting task creator ([`5da1aed`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5da1aeda4500b3bf1e13b6758f73bcd5c5f90e71))
+
+* fix: Updated such that sonar model will get registrered, but not run ([`28d151f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/28d151ff1864ea799c1ee04076730d85d6332827))
+
+* fix: Updated pyright ([`6fe494f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6fe494fadcb9a63fb3e78eef0a5b5fdda4f33f53))
+
+* fix: Updated task name ([`f81266a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f81266ac715639561606c0f9fa27aefc9d8e752a))
+
+* fix: make sonar return numpy.ndarray ([`b1db630`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1db63081d2a5a7dd2f6ec493c3824a0fc8b7bf2))
+
+* fix: unique names for sonar models ([`d7f353d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d7f353d5a7c79e1111aefaa7451bf5ec46b2f325))
+
+* fix: add model imports to init ([`267fb0b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/267fb0bcb1b6886c4b72a556df250ec6230d08e5))
+
+* fix: change folder structure, add sonar model per language ([`94a293c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/94a293c7f6be548bed6baed136185ddb844458d6))
+
+* fix: add languages to sonar model ([`f1d81a1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f1d81a1534967f56fffdd64097fea9d49d425a1f))
+
+* fix: Added beir requirement for retrieval tasks ([`2a614ba`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2a614ba30afcca3eb4fb950697d4793798868f5e))
+
+* fix: Updated metadata for SweFAQ ([`cc2d6c3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cc2d6c324e2825dea04d67c36e3538865c78dc2a))
+
+* fix: Updated dataset name ([`48db87e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/48db87e9bdbd9a4c6fda244cafcde00454442405))
+
+### Style
+
+* style: lint ([`d9790ad`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d9790ad2336da3a6d307fa332e1b2f8ac98bd22a))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`9f0b422`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9f0b4229c52ab2b60e6d7ace89e681d5e30fda78))
+
+* Merge pull request #14 from HLasse/sonar
+
+feat: add sonar model ([`082c157`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/082c1579789a3cb5887b7e7746d6fb18b25a21d5))
+
+* Merge pull request #15 from KennethEnevoldsen/dependabot/pip/pyright-1.1.324
+
+deps:(deps-dev): bump pyright from 1.1.323 to 1.1.324 ([`7cfd512`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7cfd512fa70696c5599ecfb597e3c39357b1e59d))
+
+* deps:(deps-dev): bump pyright from 1.1.323 to 1.1.324
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.323 to 1.1.324.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.323...v1.1.324)
+
+---
+updated-dependencies:
+- dependency-name: pyright
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7774c60`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7774c60efc2d201940f8683086d89d815edf0411))
+
+* Merge pull request #13 from KennethEnevoldsen/dependabot/pip/pyright-1.1.323
+
+deps:(deps-dev): bump pyright from 1.1.322 to 1.1.323 ([`48142d3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/48142d3cc4b8779060ba81e4eed3cf0168748f64))
+
+* deps:(deps-dev): bump pyright from 1.1.322 to 1.1.323
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.322 to 1.1.323.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.322...v1.1.323)
+
+---
+updated-dependencies:
+- dependency-name: pyright
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`99e112d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/99e112da63ebcee8e8acccfbd954b22fe12fb657))
+
+* Merge pull request #12 from KennethEnevoldsen/dependabot/pip/pyright-1.1.322
+
+deps:(deps-dev): bump pyright from 1.1.320 to 1.1.322 ([`8086b5a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8086b5af2e099bd139bdcc1cf42c3a6a8bee7b62))
+
+* deps:(deps-dev): bump pyright from 1.1.320 to 1.1.322
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.320 to 1.1.322.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.320...v1.1.322)
+
+---
+updated-dependencies:
+- dependency-name: pyright
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2bd7736`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2bd773665cae37e2597bf3e1f3a165e7737af7bd))
+
+* Merge pull request #11 from KennethEnevoldsen/dependabot/pip/pyright-1.1.320
+
+deps:(deps-dev): bump pyright from 1.1.318 to 1.1.320 ([`be26f91`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/be26f9125b960764a2ba7af5113a257a30fbb227))
+
+* deps:(deps-dev): bump pyright from 1.1.318 to 1.1.320
+
+Bumps [pyright](https://github.com/RobertCraigie/pyright-python) from 1.1.318 to 1.1.320.
+- [Release notes](https://github.com/RobertCraigie/pyright-python/releases)
+- [Commits](https://github.com/RobertCraigie/pyright-python/compare/v1.1.318...v1.1.320)
+
+---
+updated-dependencies:
+- dependency-name: pyright
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2032c84`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2032c845424c34ed883c108d4a1924a2fd4f04f4))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`a50ee2c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a50ee2cb583d64c9ac76838639f6cc0369b27214))
+
+
 ## v0.1.5 (2023-08-01)
 
 ### Ci

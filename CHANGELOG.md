@@ -2,6 +2,19 @@
 
 
 
+## v0.2.1 (2023-09-13)
+
+### Fix
+
+* fix: Updated benchmark to handle errors ([`bdceba6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bdceba6caf188a61d863f3170bb4f693f54fe7a3))
+
+* fix: Updated names and table sizes ([`7257d82`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7257d82ac954a0fb562880f36059b25429b425ae))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`8809741`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8809741183db99ece420803a2f16331e4277284c))
+
+
 ## v0.2.0 (2023-09-04)
 
 ### Build

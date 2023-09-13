@@ -28,7 +28,7 @@ def run_benchmark(use_cache: bool = True) -> dict[str, List[BenchmarkResults]]:
     for subset, langs in BENCHMARKS.items():
         benchmark = Benchmark(languages=langs)
         bm_results = benchmark.evaluate_models(
-            models=models, use_cache=use_cache, raise_errors=True
+            models=models, use_cache=use_cache, raise_errors=False
         )
 
         results[subset] = bm_results

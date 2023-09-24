@@ -54,7 +54,8 @@ def create_mdl_name(mdl: seb.ModelMeta):
 
 
 def benchmark_result_to_row(
-    result: seb.BenchmarkResults, langs: list[str],
+    result: seb.BenchmarkResults,
+    langs: list[str],
 ) -> pd.DataFrame:
     mdl_name = create_mdl_name(result.meta)
     # sort by task name

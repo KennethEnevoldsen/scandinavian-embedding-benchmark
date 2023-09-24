@@ -50,7 +50,8 @@ def test_run_benchmark(
         tasks=tasks,
     )
     bm_results: list[seb.BenchmarkResults] = benchmark.evaluate_models(
-        models=models, use_cache=False,
+        models=models,
+        use_cache=False,
     )
 
     assert len(bm_results) == len(models)
@@ -109,7 +110,8 @@ def test_cache_dir_is_reused(
     assert not_used_cache
 
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
-        model=model, use_cache=True,
+        model=model,
+        use_cache=True,
     )
 
     assert isinstance(bm_result, seb.BenchmarkResults)
@@ -139,7 +141,9 @@ def test_benchmark_skip_on_error_raised():
     )
 
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
-        model, use_cache=False, raise_errors=False,
+        model,
+        use_cache=False,
+        raise_errors=False,
     )
 
     assert len(bm_result) == 1

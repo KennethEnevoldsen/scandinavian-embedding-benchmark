@@ -1,4 +1,3 @@
-
 import numpy as np
 import seb
 from seb.registries import models
@@ -8,7 +7,10 @@ from seb.registries import models
 def create_test_model() -> seb.SebModel:
     class TestEncoder:
         def encode(
-            self, sentences: list[str], batch_size: int, **kwargs,
+            self,
+            sentences: list[str],
+            batch_size: int,
+            **kwargs,
         ) -> list[np.ndarray]:
             # create random array of 100, pr text
             return [np.random.rand(100) for _ in sentences]

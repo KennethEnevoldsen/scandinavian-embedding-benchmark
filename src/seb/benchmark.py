@@ -41,7 +41,9 @@ def run_task(
         except Exception as e:
             logger.error(f"Error when running {task.name} on {model.meta.name}: {e}")
             return TaskError(
-                task_name=task.name, error=str(e), time_of_run=datetime.now(),
+                task_name=task.name,
+                error=str(e),
+                time_of_run=datetime.now(),
             )
 
     cache_path = get_cache_path(task, model)
@@ -99,7 +101,10 @@ class Benchmark:
         return tasks
 
     def evaluate_model(
-        self, model: SebModel, use_cache: bool = True, raise_errors: bool = True,
+        self,
+        model: SebModel,
+        use_cache: bool = True,
+        raise_errors: bool = True,
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
@@ -122,7 +127,10 @@ class Benchmark:
         return BenchmarkResults(meta=model.meta, task_results=task_results)
 
     def evaluate_models(
-        self, models: list[SebModel], use_cache: bool = True, raise_errors: bool = True,
+        self,
+        models: list[SebModel],
+        use_cache: bool = True,
+        raise_errors: bool = True,
     ) -> list[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
@@ -141,7 +149,9 @@ class Benchmark:
         for model in pbar:
             results.append(
                 self.evaluate_model(
-                    model, use_cache=use_cache, raise_errors=raise_errors,
+                    model,
+                    use_cache=use_cache,
+                    raise_errors=raise_errors,
                 ),
             )
         return results

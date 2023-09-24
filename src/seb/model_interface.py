@@ -16,7 +16,10 @@ class ModelInterface(Protocol):
     """
 
     def encode(
-        self, sentences: list[str], batch_size: int = 32, **kwargs,
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs,
     ) -> list[ArrayLike]:
         """Returns a list of embeddings for the given sentences.
         Args:
@@ -72,7 +75,10 @@ class SebModel(BaseModel):
             return None
 
     def encode(
-        self, sentences: list[str], batch_size: int = 32, **kwargs,
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs,
     ) -> list[ArrayLike]:
         """
         Returns a list of embeddings for the given sentences.

@@ -1,4 +1,3 @@
-
 import catalogue
 
 from .model_interface import SebModel

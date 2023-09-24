@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 from tqdm import tqdm
 
@@ -41,7 +41,7 @@ def run_task(
         except Exception as e:
             logger.error(f"Error when running {task.name} on {model.meta.name}: {e}")
             return TaskError(
-                task_name=task.name, error=str(e), time_of_run=datetime.now()
+                task_name=task.name, error=str(e), time_of_run=datetime.now(),
             )
 
     cache_path = get_cache_path(task, model)
@@ -64,8 +64,8 @@ class Benchmark:
 
     def __init__(
         self,
-        languages: Optional[List[str]] = None,
-        tasks: Optional[List[str]] = None,
+        languages: Optional[list[str]] = None,
+        tasks: Optional[list[str]] = None,
     ) -> None:
         """
         Initialize the benchmark.
@@ -78,7 +78,7 @@ class Benchmark:
         self.tasks_names = tasks
         self.tasks = self.get_tasks()
 
-    def get_tasks(self) -> List[Task]:
+    def get_tasks(self) -> list[Task]:
         """
         Get the tasks for the benchmark.
 
@@ -88,9 +88,9 @@ class Benchmark:
         tasks = []
 
         if self.tasks_names is not None:
-            tasks: List[Task] = [get_task(task_name) for task_name in self.tasks_names]
+            tasks: list[Task] = [get_task(task_name) for task_name in self.tasks_names]
         else:
-            tasks: List[Task] = get_all_tasks()
+            tasks: list[Task] = get_all_tasks()
 
         if self.languages is not None:
             langs = set(self.languages)
@@ -99,7 +99,7 @@ class Benchmark:
         return tasks
 
     def evaluate_model(
-        self, model: SebModel, use_cache: bool = True, raise_errors: bool = True
+        self, model: SebModel, use_cache: bool = True, raise_errors: bool = True,
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
@@ -122,8 +122,8 @@ class Benchmark:
         return BenchmarkResults(meta=model.meta, task_results=task_results)
 
     def evaluate_models(
-        self, models: List[SebModel], use_cache: bool = True, raise_errors: bool = True
-    ) -> List[BenchmarkResults]:
+        self, models: list[SebModel], use_cache: bool = True, raise_errors: bool = True,
+    ) -> list[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
 
@@ -141,7 +141,7 @@ class Benchmark:
         for model in pbar:
             results.append(
                 self.evaluate_model(
-                    model, use_cache=use_cache, raise_errors=raise_errors
-                )
+                    model, use_cache=use_cache, raise_errors=raise_errors,
+                ),
             )
         return results

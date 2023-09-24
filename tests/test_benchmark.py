@@ -5,18 +5,17 @@ The test specifications for the benchmark.
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 import pytest
+import seb
 from dummy_model import create_test_model  # noqa: F401
 from dummy_task import create_test_task  # noqa: F401
 from test_tasks import all_tasks_names
 
-import seb
-
 
 @pytest.mark.parametrize(
-    "model_names, languages, tasks",
+    ("model_names", "languages", "tasks"),
     [
         (
             ["sentence-transformers/all-MiniLM-L6-v2"],
@@ -34,9 +33,9 @@ import seb
     ],
 )
 def test_run_benchmark(
-    model_names: List[str],
-    languages: Optional[List[str]],
-    tasks: Optional[List[str]],
+    model_names: list[str],
+    languages: Optional[list[str]],
+    tasks: Optional[list[str]],
 ):
     """
     Test that the benchmark runs without errors.
@@ -50,8 +49,8 @@ def test_run_benchmark(
         languages=languages,
         tasks=tasks,
     )
-    bm_results: List[seb.BenchmarkResults] = benchmark.evaluate_models(
-        models=models, use_cache=False
+    bm_results: list[seb.BenchmarkResults] = benchmark.evaluate_models(
+        models=models, use_cache=False,
     )
 
     assert len(bm_results) == len(models)
@@ -77,7 +76,7 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
 
 
 @pytest.mark.parametrize(
-    "model_name, languages, tasks",
+    ("model_name", "languages", "tasks"),
     [
         (
             "sentence-transformers/all-MiniLM-L6-v2",
@@ -88,8 +87,8 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
 )
 def test_cache_dir_is_reused(
     model_name: str,
-    languages: Optional[List[str]],
-    tasks: Optional[List[str]],
+    languages: Optional[list[str]],
+    tasks: Optional[list[str]],
 ):
     """
     Check that the cache dir is reused.
@@ -110,7 +109,7 @@ def test_cache_dir_is_reused(
     assert not_used_cache
 
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
-        model=model, use_cache=True
+        model=model, use_cache=True,
     )
 
     assert isinstance(bm_result, seb.BenchmarkResults)
@@ -140,7 +139,7 @@ def test_benchmark_skip_on_error_raised():
     )
 
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
-        model, use_cache=False, raise_errors=False
+        model, use_cache=False, raise_errors=False,
     )
 
     assert len(bm_result) == 1

@@ -3,7 +3,6 @@ The openai embedding api's evaluated on the SEB benchmark.
 """
 
 from functools import partial
-from typing import List
 
 import torch
 
@@ -15,7 +14,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
     def __init__(self, api_name: str):
         self.api_name = api_name
 
-    def encode(self, sentences: List[str], batch_size: int = 32) -> torch.Tensor:
+    def encode(self, sentences: list[str], batch_size: int = 32) -> torch.Tensor:
         import openai
 
         sentences = [t.replace("\n", " ") for t in sentences]
@@ -31,7 +30,7 @@ def create_openai_ada_002() -> SebModel:
     meta = ModelMeta(
         name=api_name,
         huggingface_name=None,
-        reference=f"https://openai.com/blog/new-and-improved-embedding-model",
+        reference="https://openai.com/blog/new-and-improved-embedding-model",
         languages=[],
     )
     return SebModel(

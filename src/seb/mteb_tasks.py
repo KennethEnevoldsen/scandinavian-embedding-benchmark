@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any
 
 import datasets
 from mteb.abstasks.AbsTaskRetrieval import AbsTaskRetrieval
@@ -6,7 +6,7 @@ from mteb.abstasks.AbsTaskRetrieval import AbsTaskRetrieval
 
 class SweFaqRetrieval(AbsTaskRetrieval):
     @property
-    def description(self) -> Dict[str, Any]:
+    def description(self) -> dict[str, Any]:
         return {
             "name": "swefaq",
             "hf_hub_name": "AI-Sweden/SuperLim",
@@ -75,5 +75,5 @@ class SweFaqRetrieval(AbsTaskRetrieval):
                 cor_n = text2id[co]
 
                 self.relevant_docs[split][str(q_n)] = {
-                    str(cor_n): 1
+                    str(cor_n): 1,
                 }  # only one correct match

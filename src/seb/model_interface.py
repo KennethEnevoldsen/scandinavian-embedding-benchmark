@@ -1,4 +1,4 @@
-from typing import Callable, List, Optional, Protocol, Union, runtime_checkable
+from typing import Callable, Optional, Protocol, Union, runtime_checkable
 
 from numpy import ndarray
 from pydantic import BaseModel
@@ -16,8 +16,8 @@ class ModelInterface(Protocol):
     """
 
     def encode(
-        self, sentences: List[str], batch_size: int = 32, **kwargs
-    ) -> List[ArrayLike]:
+        self, sentences: list[str], batch_size: int = 32, **kwargs,
+    ) -> list[ArrayLike]:
         """Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
@@ -34,7 +34,7 @@ class ModelMeta(BaseModel):
     description: Optional[str] = None
     huggingface_name: Optional[str] = None
     reference: Optional[str] = None
-    languages: List[str] = []
+    languages: list[str] = []
 
     def get_path_name(self):
         if self.huggingface_name is None:
@@ -72,8 +72,8 @@ class SebModel(BaseModel):
             return None
 
     def encode(
-        self, sentences: List[str], batch_size: int = 32, **kwargs
-    ) -> List[ArrayLike]:
+        self, sentences: list[str], batch_size: int = 32, **kwargs,
+    ) -> list[ArrayLike]:
         """
         Returns a list of embeddings for the given sentences.
         Args:

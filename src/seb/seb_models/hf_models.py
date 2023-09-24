@@ -17,7 +17,8 @@ def silence_warnings_from_sentence_transformers():
 
 
 def get_sentence_transformer(
-    model_name: str, max_seq_length=None,
+    model_name: str,
+    max_seq_length=None,
 ) -> SentenceTransformer:
     silence_warnings_from_sentence_transformers()
     mdl = SentenceTransformer(model_name)
@@ -319,7 +320,6 @@ def create_multilingual_e5_large() -> SebModel:
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
-
 
 
 # Scandinavian sentence encoders

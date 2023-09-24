@@ -1,4 +1,3 @@
-from typing import List
 
 import catalogue
 
@@ -35,7 +34,7 @@ def get_task(name: str) -> Task:
     return tasks.get(name)()
 
 
-def get_all_tasks() -> List[Task]:
+def get_all_tasks() -> list[Task]:
     """
     Returns all tasks implemented in SEB.
 
@@ -45,7 +44,7 @@ def get_all_tasks() -> List[Task]:
     return [get_task(task_name) for task_name in tasks.get_all()]
 
 
-def get_all_models() -> List[SebModel]:
+def get_all_models() -> list[SebModel]:
     """
     Get all the models implemented in SEB.
 

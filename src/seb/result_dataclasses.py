@@ -1,7 +1,8 @@
 import json
+from collections.abc import Iterable, Iterator
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, Iterator, List, Optional, Union
+from typing import Optional, Union
 
 import numpy as np
 from pydantic import BaseModel
@@ -26,7 +27,7 @@ class TaskResult(BaseModel):
     task_description: str
     task_version: str
     time_of_run: datetime
-    scores: Dict[str, Dict[str, float]]  # {language: {"metric": value}}.
+    scores: dict[str, dict[str, float]]  # {language: {"metric": value}}.
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
@@ -49,7 +50,7 @@ class TaskResult(BaseModel):
         return sum(main_scores) / len(main_scores)
 
     @property
-    def languages(self) -> List[str]:
+    def languages(self) -> list[str]:
         """
         Returns the languages of the task.
         """
@@ -60,7 +61,7 @@ class TaskResult(BaseModel):
         """
         Load task results from a path.
         """
-        with open(path, "r") as f:
+        with open(path) as f:
             task_results = json.load(f)
         return cls(**task_results)
 
@@ -79,7 +80,7 @@ class TaskError(BaseModel):
     task_name: str
     error: str
     time_of_run: datetime
-    languages: List[str] = []
+    languages: list[str] = []
 
     def to_disk(self, path: Path) -> None:
         """
@@ -96,7 +97,7 @@ class TaskError(BaseModel):
         """
         Load task results from a path.
         """
-        with open(path, "r") as f:
+        with open(path) as f:
             task_results = json.load(f)
         return cls(**task_results)
 
@@ -115,7 +116,7 @@ class BenchmarkResults(BaseModel):
     """
 
     meta: ModelMeta
-    task_results: List[Union[TaskResult, TaskError]]
+    task_results: list[Union[TaskResult, TaskError]]
 
     def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:
         return iter(self.task_results)

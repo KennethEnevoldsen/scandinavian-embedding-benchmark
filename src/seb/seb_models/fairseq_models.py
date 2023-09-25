@@ -61,7 +61,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         self,
         input: Union[Path, Sequence[str]],  # noqa: A002
         batch_size: int,
-        **kwargs,
+        **kwargs: dict,  # noqa: ARG002
     ) -> torch.Tensor:
         from fairseq2.data import Collater  # type: ignore
         from fairseq2.data.data_pipeline import read_sequence  # type: ignore

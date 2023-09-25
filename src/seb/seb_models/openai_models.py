@@ -4,8 +4,8 @@ The openai embedding api's evaluated on the SEB benchmark.
 
 
 import logging
+from collections.abc import Sequence
 from functools import partial
-from typing import Sequence
 
 import torch
 
@@ -26,7 +26,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
     @staticmethod
     def create_sentence_blocks(
-        sentences: Sequence[str], block_size: int
+        sentences: Sequence[str], block_size: int,
     ) -> list[Sequence[str]]:
         sent_blocks: list[Sequence[str]] = []
         for i in range(0, len(sentences), block_size):
@@ -44,7 +44,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
         try:
             emb = openai.Embedding.create(
-                input=sentences, model="text-embedding-ada-002"
+                input=sentences, model="text-embedding-ada-002",
             )
         except InvalidRequestError as e:
             if "Please reduce your prompt" in e._message:  # type: ignore
@@ -60,7 +60,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
                     [
                         OpenaiTextEmbeddingModel.embed(sentences[:half]),
                         OpenaiTextEmbeddingModel.embed(sentences[half:]),
-                    ]
+                    ],
                 )
             else:
                 raise e
@@ -74,7 +74,6 @@ class OpenaiTextEmbeddingModel(ModelInterface):
         batch_size: int = 32,  # noqa: ARG002
         **kwargs: dict,  # noqa: ARG002
     ) -> torch.Tensor:
-        import openai
 
         sentences = self.preprocess(sentences)
         sent_blocks = self.create_sentence_blocks(sentences, self.input_sentences)

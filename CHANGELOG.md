@@ -2,6 +2,23 @@
 
 
 
+## v0.2.3 (2023-09-25)
+
+### Ci
+
+* ci: Remove dependabot ([`24ca03f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/24ca03f6ce8454cbc13ad4549feb9fa17deb0542))
+
+### Fix
+
+* fix: type hint ([`abeb2a7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/abeb2a7319c4facb19787352eb7a0e7a96dd32f7))
+
+* fix: Added handling of long text for openai ([`20b087c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/20b087c888f405a50b1f09fb919ecdb3c95dc91c))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`9e9e624`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9e9e624fcc2aaa4aceee098cbb04bdad795e2251))
+
+
 ## v0.2.2 (2023-09-25)
 
 ### Fix

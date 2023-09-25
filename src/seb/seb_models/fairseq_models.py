@@ -1,7 +1,7 @@
 from collections.abc import Sequence
 from functools import partial
 from pathlib import Path
-from typing import Union
+from typing import Optional, Union
 
 import torch
 
@@ -9,8 +9,8 @@ from seb.model_interface import ModelInterface, ModelMeta, SebModel
 from seb.registries import models
 
 
-def truncate_seq_length(
-    sequence_batch,  # SequenceBatch ,
+def truncate_seq_length(  # noqa: ANN201
+    sequence_batch,  # SequenceBatch ,  # noqa: ANN001
     max_seq_len: int = 514,
 ):  # -> SequenceBatch:
     sequence_batch.seqs = sequence_batch.seqs[:, :max_seq_len]
@@ -24,7 +24,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         encoder_name: str,
         tokenizer_name: str,
         source_lang: str,
-        device: torch.device = torch.device("cpu"),
+        device: Optional[torch.device] = None,
     ) -> None:
         """
         Args:
@@ -40,6 +40,10 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         )
 
         super().__init__()
+
+        if device is None:
+            device = torch.device("cpu")
+
         _encoder = load_sonar_text_encoder_model(
             encoder_name,
             device=device,
@@ -55,7 +59,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
     @torch.inference_mode()
     def encode(
         self,
-        input: Union[Path, Sequence[str]],
+        input: Union[Path, Sequence[str]],  # noqa: A002
         batch_size: int,
     ) -> torch.Tensor:
         from fairseq2.data import Collater  # type: ignore
@@ -100,7 +104,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
             + "fairseq2 installed. This is currently only supported for "
             + "Linux."
         )
-        raise ImportError(msg)
+        raise ImportError(msg)  # noqa B904
 
 
 @models.register("facebook/SONAR_da")

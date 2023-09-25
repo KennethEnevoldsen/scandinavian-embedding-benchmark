@@ -2,6 +2,42 @@
 
 
 
+## v0.2.2 (2023-09-25)
+
+### Fix
+
+* fix: ruff ([`51a0002`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/51a00020d3cb970b2f4065bab3a3a718a05d0ec7))
+
+* fix: run on ucloud ([`aebaa4e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/aebaa4e59afc0620358f94174724e9e867c2ced0))
+
+* fix: Add missing dependency ([`ae9571e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ae9571ea5da3e8ee364f4aabda2c5e0c2ee36569))
+
+* fix: ran pyright ([`3f95827`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3f958275050a7bd7325c728921faf16417eaaa72))
+
+* fix: Type hints ([`ccef58d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ccef58dbe5a5e23947ac7af68ef411713170597f))
+
+* fix: ruff ([`3c2d922`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3c2d922a0ae5dcdf955c8071ad3127b3ca651995))
+
+### Style
+
+* style: linting ([`ab11cde`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ab11cde10cf70a96c2b9a66a5f1dda29aa1ee37b))
+
+* style: linting ([`6467c42`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6467c4217cbdfea708dd95a69c3940b23c998b17))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark ([`2e7bb7e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2e7bb7eb9cad1753a4d7cdfe633e1a62d4c6724c))
+
+* Merge pull request #19 from KennethEnevoldsen/KennethEnevoldsen/issue-Add-OpenAI-embeddings
+
+Add OpenAI embeddings ([`0ef4b34`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0ef4b34a4d999c7b3e71874726476cac4adfafba))
+
+* merge ([`3612afa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3612afa6f7d9b834f9a5cbaf9bb350990900aff4))
+
+* Add OpenAI embeddings
+Fixes #7 ([`0ab8418`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0ab84185a697420d61cc8e7e15095d856bd4470e))
+
+
 ## v0.2.1 (2023-09-13)
 
 ### Fix

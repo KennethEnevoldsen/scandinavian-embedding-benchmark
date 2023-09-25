@@ -5,7 +5,6 @@ Example:
     
     python run_benchmark.py --data-wrapper-api-token <token>
 """
-
 import argparse
 from typing import List
 
@@ -67,6 +66,7 @@ def benchmark_result_to_row(
     sorted_tasks = sorted(task_results, key=lambda t: t.task_name)
     task_names = [t.task_name for t in sorted_tasks]
     scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
+
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
     df["Average"] = np.mean(scores)  # type: ignore

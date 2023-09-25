@@ -283,6 +283,42 @@ def install(
     c.run(install_cmd)
 
 
+@task
+def install_ucloud(
+    c: Context,
+    pip_args: str = "",
+    msg: bool = True,
+    venv_path: Optional[str] = None,
+):
+    """Install the project in editable mode using pip install for ucloud
+    tested using application: Coder Python 1.80.2
+    """
+    if msg:
+        echo_header(f"{msg_type.DOING} Installing project")
+
+    extras = ".[dev,tests,docs,sonar]"
+    install_cmd = f"pip install -e {extras} {pip_args}"
+
+    if venv_path is not None and NOT_WINDOWS:
+        with c.prefix(f"source {venv_path}/bin/activate"):
+            c.run(
+                "pip install git+https://github.com/embeddings-benchmark/mteb"
+            )  # TODO: remove after merge of https://github.com/embeddings-benchmark/mteb/pull/128
+            c.run(install_cmd)
+            return
+
+    c.run(install_cmd)
+
+    cache_dir = Path(__file__).parent / "seb_cache"
+    print(f"--- Settting SEB Cache Dir. to: ---")
+    print(f"\t{cache_dir.resolve()}")
+    c.run(f'echo "export SEB_CACHE_DIR={cache_dir.resolve()}" >> ~/.bashrc')
+
+    print("-- Installing required dependencies for FairSeq2 using apt --")
+    c.run("sudo apt update")
+    c.run("sudo apt install libsndfile1 -y")
+
+
 def get_python_path(preferred_version: str) -> Optional[str]:
     """Get path to python executable."""
     preferred_version_path = shutil.which(f"python{preferred_version}")

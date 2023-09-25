@@ -1,7 +1,8 @@
 import json
+from collections.abc import Iterable, Iterator
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, Iterator, List, Optional, Union
+from typing import Optional, Union
 
 import numpy as np
 from pydantic import BaseModel
@@ -26,7 +27,7 @@ class TaskResult(BaseModel):
     task_description: str
     task_version: str
     time_of_run: datetime
-    scores: Dict[str, Dict[str, float]]  # {language: {"metric": value}}.
+    scores: dict[str, dict[str, float]]  # {language: {"metric": value}}.
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
@@ -49,18 +50,18 @@ class TaskResult(BaseModel):
         return sum(main_scores) / len(main_scores)
 
     @property
-    def languages(self) -> List[str]:
+    def languages(self) -> list[str]:
         """
         Returns the languages of the task.
         """
         return list(self.scores.keys())
 
     @classmethod
-    def from_disk(cls, path: Path) -> "TaskResult":
+    def from_disk(cls, path: Path) -> "TaskResult":  # noqa: ANN102
         """
         Load task results from a path.
         """
-        with open(path, "r") as f:
+        with path.open() as f:
             task_results = json.load(f)
         return cls(**task_results)
 
@@ -71,7 +72,7 @@ class TaskResult(BaseModel):
         path.parent.mkdir(parents=True, exist_ok=True)
         json_str: str = self.model_dump_json()
 
-        with open(path, "w") as f:
+        with path.open("w") as f:
             f.write(json_str)
 
 
@@ -79,7 +80,7 @@ class TaskError(BaseModel):
     task_name: str
     error: str
     time_of_run: datetime
-    languages: List[str] = []
+    languages: list[str] = []
 
     def to_disk(self, path: Path) -> None:
         """
@@ -88,20 +89,20 @@ class TaskError(BaseModel):
         path.parent.mkdir(parents=True, exist_ok=True)
         json_str: str = self.model_dump_json()
 
-        with open(path, "w") as f:
+        with path.open("w") as f:
             f.write(json_str)
 
     @classmethod
-    def from_disk(cls, path: Path) -> "TaskError":
+    def from_disk(cls, path: Path) -> "TaskError":  # noqa: ANN102
         """
         Load task results from a path.
         """
-        with open(path, "r") as f:
+        with path.open() as f:
             task_results = json.load(f)
         return cls(**task_results)
 
     @staticmethod
-    def get_main_score(lang: Optional[Iterable[str]] = None) -> float:
+    def get_main_score(lang: Optional[Iterable[str]] = None) -> float:  # noqa: ARG004
         return np.nan
 
 
@@ -115,7 +116,7 @@ class BenchmarkResults(BaseModel):
     """
 
     meta: ModelMeta
-    task_results: List[Union[TaskResult, TaskError]]
+    task_results: list[Union[TaskResult, TaskError]]
 
     def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:
         return iter(self.task_results)

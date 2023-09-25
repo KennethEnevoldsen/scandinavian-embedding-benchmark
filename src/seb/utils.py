@@ -34,7 +34,7 @@ class WarningIgnoreContextManager:
         self.ignore_tokenizers_parallelism_warning()
         self.ignore_convergence_warnings()
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type, exc_value, traceback):  # noqa: ANN001
         self.restore_original_states()
 
     def restore_original_states(self) -> None:

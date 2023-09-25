@@ -2,6 +2,32 @@
 
 
 
+## v0.2.4 (2023-09-25)
+
+### Fix
+
+* fix: Converted e5 embedding to the one specified by the docs ([`796a8dc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/796a8dcf614f14023457bd3f5180bd5d72d41bf0))
+
+* fix: ran ruff ([`172ad9a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/172ad9a3646a354567414d98b588782e6be5fba7))
+
+### Style
+
+* style: linting ([`44e3005`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/44e30055245914df854de90daf11a4f07d9aad31))
+
+* style: linting ([`75a2edb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/75a2edbe86acba0ee56ddf82bf2fa4829e963155))
+
+### Unknown
+
+* Merge pull request #21 from KennethEnevoldsen/KennethEnevoldsen/issue-Allow-custom-embeddings-based-on-the-task
+
+Fix e5 models ([`af8cb17`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/af8cb17bdd5447565db035bd3de83904cd0eef30))
+
+* Merge branch &#39;KennethEnevoldsen/issue-Allow-custom-embeddings-based-on-the-task&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into KennethEnevoldsen/issue-Allow-custom-embeddings-based-on-the-task ([`76cf49e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/76cf49ee930f85355e00a360e65220a0d5030ba3))
+
+* Allow custom embeddings based on the task
+Fixes #18 ([`135e546`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/135e54640a75139b547166d45353ed415ea2ee43))
+
+
 ## v0.2.3 (2023-09-25)
 
 ### Ci

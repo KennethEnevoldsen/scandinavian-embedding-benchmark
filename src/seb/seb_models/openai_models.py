@@ -5,9 +5,9 @@ The openai embedding api's evaluated on the SEB benchmark.
 
 import logging
 from functools import partial
+from typing import Sequence
 
 import torch
-from git import Sequence
 
 from seb.model_interface import ModelInterface, ModelMeta, SebModel
 from seb.registries import models

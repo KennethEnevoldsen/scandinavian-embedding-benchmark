@@ -20,7 +20,10 @@ class E5Wrapper(ModelInterface):
         return sentences
 
     def encode(
-        self, sentences: list[str], batch_size: int = 32, **kwargs: dict,
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs: dict,
     ) -> list[ArrayLike]:
         sentences = self.preprocess(sentences)
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore

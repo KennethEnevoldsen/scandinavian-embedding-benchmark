@@ -23,7 +23,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
         sentences = [t.replace("\n", " ") for t in sentences]
         emb = openai.Embedding.create(input=sentences, model=self.api_name)
-        data = emb["data"]
+        data = emb["data"]  # type: ignore
         vectors = [embedding.embedding for embedding in data]
         return torch.tensor(vectors)
 

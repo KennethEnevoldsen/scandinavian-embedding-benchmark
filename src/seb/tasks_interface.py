@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Protocol, runtime_checkable
+from typing import Protocol, runtime_checkable
 
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
@@ -20,14 +20,15 @@ class Task(Protocol):
         reference: A reference to the task.
         version: The version of the task.
         languages: The languages of the task.
-        
+
     """
+
     name: str
     main_score: str
     description: str
     reference: str
     version: str
-    languages: List[str]
+    languages: list[str]
 
     def evaluate(self, model: ModelInterface) -> TaskResult:
         """

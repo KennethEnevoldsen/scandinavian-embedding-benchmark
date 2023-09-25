@@ -2,7 +2,6 @@
 This is the specification for the full benchmark. Running the code here will reproduce the results.
 """
 
-from typing import List
 
 from seb.model_interface import SebModel
 
@@ -22,7 +21,7 @@ def run_benchmark(use_cache: bool = True, raise_errors: bool=True) -> dict[str, 
     """
     Run the full SEB benchmark.
     """
-    models: List[SebModel] = get_all_models()
+    models: list[SebModel] = get_all_models()
 
     results = {}
     for subset, langs in BENCHMARKS.items():

@@ -2,17 +2,15 @@
 Script for running the benchmark and pushing the results to Datawrapper.
 
 Example:
-    
+
     python run_benchmark.py --data-wrapper-api-token <token>
 """
 import argparse
-from typing import List
 
 import numpy as np
 import pandas as pd
-from datawrapper import Datawrapper
-
 import seb
+from datawrapper import Datawrapper
 from seb.full_benchmark import BENCHMARKS
 
 subset_to_chart_id = {
@@ -30,19 +28,16 @@ datawrapper_lang_codes = {
 }
 
 
-def get_main_score(task: seb.TaskResult, langs: List[str]) -> float:
+def get_main_score(task: seb.TaskResult, langs: list[str]) -> float:
     _langs = set(langs) & set(task.languages)
     return task.get_main_score(_langs) * 100
 
 
-def create_mdl_name(mdl: seb.ModelMeta):
+def create_mdl_name(mdl: seb.ModelMeta) -> str:
     reference = mdl.reference
     name = mdl.name
 
-    if reference:
-        mdl_name = f"[{name}]({reference})"
-    else:
-        mdl_name = name
+    mdl_name = f"[{name}]({reference})" if reference else name
 
     if mdl.languages:
         lang_code = " ".join(
@@ -50,7 +45,7 @@ def create_mdl_name(mdl: seb.ModelMeta):
                 f":{datawrapper_lang_codes[l]}:"
                 for l in mdl.languages
                 if l in datawrapper_lang_codes
-            ]
+            ],
         )
         mdl_name = f"{mdl_name} {lang_code}"
 
@@ -58,7 +53,8 @@ def create_mdl_name(mdl: seb.ModelMeta):
 
 
 def benchmark_result_to_row(
-    result: seb.BenchmarkResults, langs: List[str]
+    result: seb.BenchmarkResults,
+    langs: list[str],
 ) -> pd.DataFrame:
     mdl_name = create_mdl_name(result.meta)
     # sort by task name
@@ -73,7 +69,10 @@ def benchmark_result_to_row(
     return df
 
 
-def convert_to_table(results: List[seb.BenchmarkResults], langs: List[str]):
+def convert_to_table(
+    results: list[seb.BenchmarkResults],
+    langs: list[str],
+) -> pd.DataFrame:
     rows = [benchmark_result_to_row(result, langs) for result in results]
     df = pd.concat(rows)
     df = df.sort_values(by="Average", ascending=False)

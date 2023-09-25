@@ -1,4 +1,4 @@
-from typing import Callable, List, Optional, Protocol, Union, runtime_checkable
+from typing import Callable, Optional, Protocol, Union, runtime_checkable
 
 from numpy import ndarray
 from pydantic import BaseModel
@@ -16,12 +16,16 @@ class ModelInterface(Protocol):
     """
 
     def encode(
-        self, sentences: List[str], batch_size: int = 32, **kwargs
-    ) -> List[ArrayLike]:
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs: dict,
+    ) -> list[ArrayLike]:
         """Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
             batch_size: Batch size for the encoding
+            kwargs: arguments to pass to the models encode method
 
         Returns:
             List of embeddings for the given sentences
@@ -34,9 +38,9 @@ class ModelMeta(BaseModel):
     description: Optional[str] = None
     huggingface_name: Optional[str] = None
     reference: Optional[str] = None
-    languages: List[str] = []
+    languages: list[str] = []
 
-    def get_path_name(self):
+    def get_path_name(self) -> str:
         if self.huggingface_name is None:
             return name_to_path(self.name)
         return name_to_path(self.huggingface_name)
@@ -68,17 +72,20 @@ class SebModel(BaseModel):
         """
         if hasattr(self.model, "num_parameters"):
             return sum(p.numel() for p in self.model.parameters() if p.requires_grad)  # type: ignore
-        else:
-            return None
+        return None
 
     def encode(
-        self, sentences: List[str], batch_size: int = 32, **kwargs
-    ) -> List[ArrayLike]:
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs: dict,
+    ) -> list[ArrayLike]:
         """
         Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
             batch_size: Batch size for the encoding
+            kwargs: arguments to pass to the models encode method
 
         Returns:
             List of embeddings for the given sentences

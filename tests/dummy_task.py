@@ -14,7 +14,7 @@ def create_test_task() -> seb.Task:
         version = "NA"
         languages = []
 
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:
+        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa: ARG002
             return seb.TaskResult(
                 task_name="test task",
                 task_description="NA",
@@ -62,7 +62,7 @@ def create_test_raise_error_task() -> seb.Task:
         version = "NA"
         languages = []
 
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:
+        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa ARG002
             raise ValueError("Test raised error. This error should be handled.")
 
     return DummyTask()

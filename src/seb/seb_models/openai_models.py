@@ -26,7 +26,8 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
     @staticmethod
     def create_sentence_blocks(
-        sentences: Sequence[str], block_size: int,
+        sentences: Sequence[str],
+        block_size: int,
     ) -> list[Sequence[str]]:
         sent_blocks: list[Sequence[str]] = []
         for i in range(0, len(sentences), block_size):
@@ -44,7 +45,8 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
         try:
             emb = openai.Embedding.create(
-                input=sentences, model="text-embedding-ada-002",
+                input=sentences,
+                model="text-embedding-ada-002",
             )
         except InvalidRequestError as e:
             if "Please reduce your prompt" in e._message:  # type: ignore
@@ -62,8 +64,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
                         OpenaiTextEmbeddingModel.embed(sentences[half:]),
                     ],
                 )
-            else:
-                raise e
+            raise e
         data = emb["data"]  # type: ignore
         vectors = [embedding.embedding for embedding in data]
         return torch.tensor(vectors)

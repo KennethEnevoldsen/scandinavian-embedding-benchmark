@@ -3,6 +3,7 @@ All the models registered in the benchmark, along with their metadata.
 """
 import logging
 from functools import partial
+from typing import Optional
 
 from sentence_transformers import SentenceTransformer
 
@@ -18,7 +19,7 @@ def silence_warnings_from_sentence_transformers():
 
 def get_sentence_transformer(
     model_name: str,
-    max_seq_length: int | None = None,
+    max_seq_length: Optional[int] = None,
 ) -> SentenceTransformer:
     silence_warnings_from_sentence_transformers()
     mdl = SentenceTransformer(model_name)

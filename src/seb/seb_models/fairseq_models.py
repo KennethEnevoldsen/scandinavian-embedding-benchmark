@@ -1,7 +1,7 @@
 from collections.abc import Sequence
 from functools import partial
 from pathlib import Path
-from typing import Union
+from typing import Optional, Union
 
 import torch
 
@@ -24,7 +24,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         encoder_name: str,
         tokenizer_name: str,
         source_lang: str,
-        device: torch.device | None = None,
+        device: Optional[torch.device] = None,
     ) -> None:
         """
         Args:

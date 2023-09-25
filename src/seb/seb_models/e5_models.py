@@ -1,4 +1,3 @@
-import stat
 from functools import partial
 
 from seb import ModelInterface, ModelMeta, SebModel, models
@@ -8,20 +7,23 @@ from .hf_models import get_sentence_transformer
 
 
 class E5Wrapper(ModelInterface):
-    def __init__(self, model_name):
+    def __init__(self, model_name: str):
         self.model_name = model_name
         self.mdl = get_sentence_transformer(model_name)
 
     @staticmethod
     def preprocess(sentences: list[str]) -> list[str]:
         # following the documentation it is better to generally do this:
-        # return ["query: " + sentence for sentence in sentences]  # noqa
-        # but it does not work notably better
-        # so we do this instead:
-        return sentences
+        return ["query: " + sentence for sentence in sentences]
+
+    # but it does not work slightly better than this:
+    # return sentences # noqa
 
     def encode(
-        self, sentences: list[str], batch_size: int = 32, **kwargs: dict
+        self,
+        sentences: list[str],
+        batch_size: int = 32,
+        **kwargs: dict,
     ) -> list[ArrayLike]:
         sentences = self.preprocess(sentences)
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
@@ -38,7 +40,7 @@ def create_e5_small() -> SebModel:
         languages=["en"],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
@@ -53,7 +55,7 @@ def create_e5_base() -> SebModel:
         languages=["en"],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
@@ -68,7 +70,7 @@ def create_e5_large() -> SebModel:
         languages=["en"],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
@@ -84,7 +86,7 @@ def create_multilingual_e5_small() -> SebModel:
         languages=[],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
@@ -99,7 +101,7 @@ def create_multilingual_e5_base() -> SebModel:
         languages=[],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
@@ -114,6 +116,6 @@ def create_multilingual_e5_large() -> SebModel:
         languages=[],
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )

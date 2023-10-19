@@ -456,7 +456,7 @@ def docs(c: Context, view: bool = False, view_only: bool = False):
     """
     if not view_only:
         echo_header(f"{msg_type.DOING}: Building docs")
-        c.run("tox -e docs")
+        c.run("mkdocs build")
 
     if view or view_only:
         c.run("mkdocs serve")

@@ -50,7 +50,7 @@ def run_benchmark(model_name_or_path: str) -> seb.BenchmarkResults:
     )
     model = seb.SebModel(
         meta=meta,
-        loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),
+        loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
     )
     benchmark = seb.Benchmark()
     res = benchmark.evaluate_model(model)

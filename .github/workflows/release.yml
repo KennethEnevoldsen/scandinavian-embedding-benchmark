@@ -1,8 +1,9 @@
 # This workflow will
-# 1) Update the version number in pyproject.toml based on the commit history
-# 2) Create a git tag
-# 3) Create a release on GitHub
-# 4) Upload the package to PyPI
+# - Find the latest version tag based on the commit history
+#   - Create a git tag for the new version
+#   - Update the version number in pyproject.toml based on the commit history
+# - Upload the package to PyPI
+# - Create a release on GitHub
 
 name: Release
 on:
@@ -15,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: release
     permissions:
-      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
-
+      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing using PyPI 
+      # a guide on how to set it up is available here: https://blog.pypi.org/posts/2023-04-20-introducing-trusted-publishers/
 
     if: ${{ github.ref == 'refs/heads/main' && github.event.workflow_run.conclusion == 'success'}}
     steps:
@@ -27,7 +28,7 @@ jobs:
 
       - name: Python Semantic Release
         id: release
-        uses: python-semantic-release/python-semantic-release@v8.0.0
+        uses: python-semantic-release/python-semantic-release@v8.0.4
         with:
           github_token: ${{ secrets.PAT }}
 

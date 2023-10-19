@@ -53,23 +53,12 @@ jobs:
         run: |
           # Specifying two sets of "--pytest-args" is required for invoke to parse it as a list
           inv test --pytest-args="--durations=0" --pytest-args="--junitxml=pytest.xml --cov-report=term-missing --cov=src/"
-          
-
-      - name: Test report on failures
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        id: test_report_with_annotations
-        if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.9' &&  github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && (success() || failure()) }} # Do not run for dependabot, run whether tests failed or succeeded
-        with:
-          comment_mode: "failures"
-          files: |
-            pytest.xml
 
       - name: Pytest coverage comment
         id: coverage-comment
-        uses: MishaKav/pytest-coverage-comment@main
+        uses: MishaKav/pytest-coverage-comment@v1.1.48
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.9' &&  github.actor != 'dependabot[bot]' && github.event_name == 'pull_request' && (success() || failure()) }}
         with:
           create-new-comment: false
           report-only-changed-files: false
-          pytest-coverage-path: pytest-coverage.txt
           junitxml-path: ./pytest.xml

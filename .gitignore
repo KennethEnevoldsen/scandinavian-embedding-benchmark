@@ -28,3 +28,6 @@ error_logs.txt
 tests/tmpfiles/*
 results.zip
 seb_cache/
+
+# website
+site/

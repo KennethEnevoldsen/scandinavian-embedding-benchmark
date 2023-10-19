@@ -51,9 +51,9 @@ tests = [
   "tox>=4.5.0",
 ]
 docs = [
-  "mkdocs-jupyter>=0.24.2",
-  "mkdocs-material>=9.1.21",
-  "mkdocstrings[python]>=0.22.0",
+  "mkdocs-jupyter==0.24.2",
+  "mkdocs-material==9.1.21",
+  "mkdocstrings[python]==0.22.0",
   # for managing tables
   "datawrapper>=0.5.3",
   # for tutorials

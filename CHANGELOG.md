@@ -2,6 +2,13 @@
 
 
 
+## v0.2.5 (2023-10-19)
+
+### Fix
+
+* fix: update ci based on cruft template ([`32ea08d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/32ea08d427b2d5ae7d14d416cc38dcac0c956151))
+
+
 ## v0.2.4 (2023-09-25)
 
 ### Fix

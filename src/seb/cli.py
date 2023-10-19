@@ -39,7 +39,7 @@ def pretty_print(results: seb.BenchmarkResults, langs: list[str]):
             table,
             headers=[BOLD + "Task" + END, BOLD + "Score" + END],
             tablefmt="simple",
-        )
+        ),
     )
 
 
@@ -74,7 +74,8 @@ def main():
     logging.info(f"Running benchmark with {args.model_name_or_path}...")
     results = run_benchmark(args.model_name_or_path)
     logging.info("Saving results...")
-    with open(args.save_path, "w") as save_file:
+    save_path = Path(args.save_path)
+    with save_path.open("w") as save_file:
         save_file.write(results.model_dump_json())
     print("Benchmark Results:")
     pretty_print(results, langs=["da", "no", "se"])

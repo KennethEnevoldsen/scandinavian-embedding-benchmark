@@ -2,11 +2,36 @@
 
 
 
+## v0.2.6 (2023-10-19)
+
+### Fix
+
+* fix: ran pyright ([`fed9f84`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fed9f8456c3c8a293ff5214ec8d9bd22824018e8))
+
+* fix: ran pyright and pre-commit ([`04dacf5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/04dacf5dd5462f155d84c20edf714d13c4d756d8))
+
+### Unknown
+
+* Merge pull request #23 from KennethEnevoldsen/marton_changes
+
+Fixes for #22 ([`0905a51`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0905a51ee1a19c2c18a3e5e673262143b61bd036))
+
+* updated from cruft ([`7891730`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/789173026c4c60de91ecc68dee6cf8ba8bcab3e5))
+
+
 ## v0.2.5 (2023-10-19)
 
 ### Fix
 
 * fix: update ci based on cruft template ([`32ea08d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/32ea08d427b2d5ae7d14d416cc38dcac0c956151))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/x-tabdeveloping/scandinavian-embedding-benchmark into marton_changes ([`3bf2688`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3bf2688c16c122c7d1e10b81ce4dbdb16d8fbfad))
+
+* Added tabulate to dependencies ([`ca94dde`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ca94dde46b286abb9121170dedf793cda55ae728))
+
+* Added main CLI for running benchmark. ([`fa92d35`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fa92d35d408350639c536670cedbdb303015de1c))
 
 
 ## v0.2.4 (2023-09-25)

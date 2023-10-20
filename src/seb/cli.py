@@ -4,6 +4,7 @@ import logging
 from functools import partial
 from pathlib import Path
 from statistics import mean
+from typing import Optional
 
 import tabulate
 from sentence_transformers import SentenceTransformer
@@ -42,8 +43,11 @@ def pretty_print(results: seb.BenchmarkResults):
     )
 
 
-def run_benchmark(model_name_or_path: str) -> seb.BenchmarkResults:
-    """Runs benchmark on a given model."""
+def run_benchmark(
+    model_name_or_path: str,
+    languages: Optional[list[str]],
+) -> seb.BenchmarkResults:
+    """Runs benchmark on a given model and languages."""
     meta = seb.ModelMeta(
         name=Path(model_name_or_path).stem,
     )
@@ -51,7 +55,7 @@ def run_benchmark(model_name_or_path: str) -> seb.BenchmarkResults:
         meta=meta,
         loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
     )
-    benchmark = seb.Benchmark()
+    benchmark = seb.Benchmark(languages)
     res = benchmark.evaluate_model(model, raise_errors=False)
     return res
 
@@ -64,14 +68,22 @@ def main():
         help="Name of the model on HuggingFace hub, or path to the model.",
     )
     parser.add_argument(
+        "languages",
+        nargs="*",
+        help="List of language codes to evaluate the model on.",
+    )
+    parser.add_argument(
         "--save_path",
+        "-o",
         default="benchmark_results.json",
         help="File to store benchmark results in.",
     )
 
     args = parser.parse_args()
     logging.info(f"Running benchmark with {args.model_name_or_path}...")
-    results = run_benchmark(args.model_name_or_path)
+    if not args.languages:
+        args.languages = None
+    results = run_benchmark(args.model_name_or_path, args.languages)
     logging.info("Saving results...")
     save_path = Path(args.save_path)
     with save_path.open("w") as save_file:

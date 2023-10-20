@@ -44,7 +44,8 @@ def pretty_print(results: seb.BenchmarkResults):
 
 
 def run_benchmark(
-    model_name_or_path: str, languages: Optional[list[str]]
+    model_name_or_path: str,
+    languages: Optional[list[str]],
 ) -> seb.BenchmarkResults:
     """Runs benchmark on a given model and languages."""
     meta = seb.ModelMeta(

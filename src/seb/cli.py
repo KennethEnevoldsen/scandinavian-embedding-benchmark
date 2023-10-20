@@ -25,11 +25,16 @@ END = "\033[0m"
 def pretty_print(results: seb.BenchmarkResults, langs: list[str]):
     """Pretty prints benchmark results in a table along with the average."""
     sorted_tasks = sorted(results.task_results, key=lambda t: t.task_name)
-    task_names = [t.task_name for t in sorted_tasks]
-    scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
     table = []
-    for task, score in zip(task_names, scores):
-        table.append([task, score])
+    scores = []
+    for task_or_error in sorted_tasks:
+        name = task_or_error.task_name
+        if isinstance(task_or_error, seb.TaskError):
+            score = "NA"
+        else:
+            score = get_main_score(task_or_error, langs)
+            scores.append(score)
+        table.append([name, score])
     # Adding empty line before average, so it is highlighted
     table.append(["", ""])
     mean_score = str(mean(scores))
@@ -53,7 +58,7 @@ def run_benchmark(model_name_or_path: str) -> seb.BenchmarkResults:
         loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
     )
     benchmark = seb.Benchmark()
-    res = benchmark.evaluate_model(model)
+    res = benchmark.evaluate_model(model, raise_errors=False)
     return res
 
 
@@ -76,6 +81,6 @@ def main():
     logging.info("Saving results...")
     save_path = Path(args.save_path)
     with save_path.open("w") as save_file:
-        save_file.write(results.model_dump_json())
+        save_file.write(results.model_dump_json())  # type: ignore
     print("Benchmark Results:")
     pretty_print(results, langs=["da", "no", "se"])

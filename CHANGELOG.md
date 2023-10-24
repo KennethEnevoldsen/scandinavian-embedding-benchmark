@@ -2,6 +2,41 @@
 
 
 
+## v0.2.7 (2023-10-24)
+
+### Fix
+
+* fix: ran precommit ([`cf42195`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cf4219502c32720204ae1ba79cf7d664066f8821))
+
+### Unknown
+
+* Merge pull request #27 from timpal0l/patch-1
+
+Update hf_models.py ([`a72ac2f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a72ac2f4d19888fc46c4f0094a49381407d7da42))
+
+* Update hf_models.py
+
+Added `sentence-transformers/paraphrase-multilingual-mpnet-base-v2` ([`c4d5886`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c4d5886642b71f3fb965ba0ecbcf796345d4b229))
+
+* Merge pull request #25 from x-tabdeveloping/main
+
+Language selection in CLI ([`4cb3f7e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4cb3f7e4ed0f745b46a0c8a8af812580c71d3389))
+
+* Merge branch &#39;KennethEnevoldsen:main&#39; into main ([`9054c0a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9054c0a1d449a68ebf1b62c5b23c8ad2a1f8e7f6))
+
+* Corrected pre-commit errors ([`33c71ab`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/33c71ab8628d247b65b169777d00849f201841aa))
+
+* CLI now accepts a list of languages as its input if none are passed the benchmark will be run on all languages ([`975418e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/975418ee3ef5263461152fa0b4244163f7791070))
+
+* Merge pull request #24 from x-tabdeveloping/main
+
+CLI is error tolerant now. ([`0bcfa98`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0bcfa981246abfe359bfe909f702ce0f886ed902))
+
+* Fixed issue with mean calculation in DaLAJ. ([`b5d2f6b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b5d2f6ba27af3264f9e3e205c49344500e93356d))
+
+* CLI made error tolerant prints NA for unobtainable benchmark results ([`69be78a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/69be78aa0f94c85c2302bcd29d5490def35cac79))
+
+
 ## v0.2.6 (2023-10-19)
 
 ### Fix

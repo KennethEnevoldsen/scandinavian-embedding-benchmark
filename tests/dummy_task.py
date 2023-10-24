@@ -12,7 +12,7 @@ def create_test_task() -> seb.Task:
         description = "NA"
         reference = "NA"
         version = "NA"
-        languages = []
+        languages = []  # noqa: RUF012
 
         def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa: ARG002
             return seb.TaskResult(
@@ -35,7 +35,7 @@ def create_test_encode_task() -> seb.Task:
         description = "NA"
         reference = "NA"
         version = "NA"
-        languages = []
+        languages = []  # noqa: RUF012
 
         def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:
             model.encode(["a test sentence"])
@@ -60,7 +60,7 @@ def create_test_raise_error_task() -> seb.Task:
         description = "NA"
         reference = "NA"
         version = "NA"
-        languages = []
+        languages = []  # noqa: RUF012
 
         def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa ARG002
             raise ValueError("Test raised error. This error should be handled.")

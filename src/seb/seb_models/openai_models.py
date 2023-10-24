@@ -75,7 +75,6 @@ class OpenaiTextEmbeddingModel(ModelInterface):
         batch_size: int = 32,  # noqa: ARG002
         **kwargs: dict,  # noqa: ARG002
     ) -> torch.Tensor:
-
         sentences = self.preprocess(sentences)
         sent_blocks = self.create_sentence_blocks(sentences, self.input_sentences)
 

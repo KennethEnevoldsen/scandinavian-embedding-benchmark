@@ -28,7 +28,7 @@ class WarningIgnoreContextManager:
     A context manager for ignoring warnings. When running a task
     """
 
-    original_states = {}
+    original_states = {}  # noqa: RUF012
 
     def __enter__(self):
         self.ignore_tokenizers_parallelism_warning()

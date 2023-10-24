@@ -65,7 +65,7 @@ class MTEBTask(Task):
         time_of_run: datetime = datetime.now()
 
         scores = scores.get(split, scores)
-        score_is_nested = isinstance(scores[list(scores.keys())[0]], dict)
+        score_is_nested = isinstance(scores[next(iter(scores.keys()))], dict)
         if not score_is_nested:
             _scores = {lang: scores for lang in self.languages}
             scores = _scores

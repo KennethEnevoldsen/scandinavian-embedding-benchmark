@@ -1,5 +1,3 @@
----
----
 
 # Scandinavian Embedding Benchmark
 

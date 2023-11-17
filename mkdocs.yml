@@ -41,7 +41,7 @@ copyright: Copyright &copy; 2023 Kenneth Enevoldsen
 
 nav:
   - The Benchmark:
-      - Benckmark: index.md
+      - Benchmark: index.md
       - Datasets: datasets.md
   - Package:
       - Installation: installation.md

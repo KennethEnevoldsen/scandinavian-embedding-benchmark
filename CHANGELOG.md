@@ -2,6 +2,25 @@
 
 
 
+## v0.2.8 (2023-11-17)
+
+### Documentation
+
+* docs: fix missing line ([`06dd1ed`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/06dd1ed489551f9176ae8466842c9bdd8dc2b0b5))
+
+### Fix
+
+* fix: ran pyrigt ([`e470a71`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e470a719ab39f59eb4000b9cb5a3b95ae6380c09))
+
+* fix: remove openai and cohere out of main dependencies ([`b023a88`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b023a882f4b6cf4ba15bbbb07dd413ee49936344))
+
+### Unknown
+
+* Add cohere library and update task domains ([`ca4f8b8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ca4f8b8b58135aeca8eeabd42d6326d14570722a))
+
+* adding desc stats script ([`197c0d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/197c0d584ac23cc8bd5f307e97a089b9b9e423f6))
+
+
 ## v0.2.7 (2023-10-24)
 
 ### Fix

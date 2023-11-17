@@ -25,8 +25,6 @@ dependencies = [
   "typer>=0.7.0",
   "pydantic>=2.1.0",
   "catalogue>=2.0.8",
-  "openai>=0.27.4",
-  "cohere>=4.34"
 ]
 
 [project.license]
@@ -60,6 +58,8 @@ docs = [
   # for tutorials
   "jupyter>=1.0.0",
 ]
+openai = ["openai>=0.27.4"]
+cohere = ["cohere>=4.34"]
 sonar = [
   "fairseq2",
   "sonar-space>=0.1.0",

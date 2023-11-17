@@ -40,7 +40,7 @@ class CohereTextEmbeddingModel(ModelInterface):
         embed_type: str = "classification",
         **kwargs: dict,  # noqa: ARG002
     ) -> torch.Tensor:
-        import cohere
+        import cohere  # type: ignore
 
         client = cohere.Client()
         response = client.embed(

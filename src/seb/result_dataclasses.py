@@ -70,7 +70,7 @@ class TaskResult(BaseModel):
         Write task results to a path.
         """
         path.parent.mkdir(parents=True, exist_ok=True)
-        json_str: str = self.model_dump_json()
+        json_str: str = self.model_dump_json()  # type: ignore
 
         with path.open("w") as f:
             f.write(json_str)
@@ -87,7 +87,7 @@ class TaskError(BaseModel):
         Write task results to a path.
         """
         path.parent.mkdir(parents=True, exist_ok=True)
-        json_str: str = self.model_dump_json()
+        json_str: str = self.model_dump_json()  # type: ignore
 
         with path.open("w") as f:
             f.write(json_str)

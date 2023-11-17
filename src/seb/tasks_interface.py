@@ -1,6 +1,8 @@
 from datetime import datetime
-from typing import Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
+import numpy as np
+from datasets import DatasetDict, concatenate_datasets
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
 
@@ -20,6 +22,7 @@ class Task(Protocol):
         reference: A reference to the task.
         version: The version of the task.
         languages: The languages of the task.
+        domain: The domains of the task. Should be one of the categories listed on https://universaldependencies.org
 
     """
 
@@ -29,6 +32,7 @@ class Task(Protocol):
     reference: str
     version: str
     languages: list[str]
+    domain: list[str]
 
     def evaluate(self, model: ModelInterface) -> TaskResult:
         """
@@ -42,6 +46,9 @@ class Task(Protocol):
         """
         ...
 
+    def get_descriptive_stats(self) -> dict[str, Any]:
+        ...
+
 
 class MTEBTask(Task):
     def __init__(self, mteb_task: AbsTask) -> None:
@@ -53,6 +60,48 @@ class MTEBTask(Task):
         self.version = f"{mteb_version}"
         self.reference = mteb_desc["reference"]
         self.languages = mteb_desc["eval_langs"]
+        self.type = mteb_desc["type"]
+        self.domain = []
+        self._text_columns = ["text"]
+
+    def load_data(self) -> DatasetDict:
+        self.mteb_task.load_data()
+        ds = {}
+        # check if it is split into dataset[lang][split] or to dataset[split]
+        keys = list(self.mteb_task.dataset.keys())  # type: ignore
+        contains_lang = isinstance(self.mteb_task.dataset[keys[0]], DatasetDict)  # type: ignore
+
+        if not contains_lang:  # it is split into dataset[split]
+            for split in self.mteb_task.description["eval_splits"]:
+                ds[split] = self.mteb_task.dataset[split]  # type: ignore
+        else:  # it is split into dataset[lang][split] and we convert to dataset[split]
+            for lang in self.languages:
+                for split in self.mteb_task.description["eval_splits"]:
+                    if split not in ds:
+                        ds[split] = self.mteb_task.dataset[lang][split]  # type: ignore
+                    else:
+                        ds[split] = concatenate_datasets(
+                            [ds[split], self.mteb_task.dataset[lang][split]],  # type: ignore
+                        )
+
+        return DatasetDict(ds)
+
+    def get_descriptive_stats(self) -> dict[str, Any]:
+        ds = self.load_data()
+        texts = []
+        for split in ds:
+            for text_column in self._text_columns:
+                texts += ds[split][text_column]
+
+        document_lengths = [len(text) for text in texts]
+
+        mean = np.mean(document_lengths)
+        std = np.std(document_lengths)
+        return {
+            "mean_document_length": mean,
+            "std_document_length": std,
+            "num_documents": len(document_lengths),
+        }
 
     def evaluate(self, model: ModelInterface) -> TaskResult:
         split = self.mteb_task.description["eval_splits"][0]

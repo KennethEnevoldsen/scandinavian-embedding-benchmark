@@ -2,6 +2,7 @@ site_name: The Scandinavian Embedding Benchmark
 docs_dir: "docs/"
 repo_url: https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark
 watch: [src/, docs/]
+edit_uri: "blob/main/docs/"
 theme:
   name: material
   favicon: _static/logo.png
@@ -39,7 +40,9 @@ markdown_extensions:
 copyright: Copyright &copy; 2023 Kenneth Enevoldsen
 
 nav:
-  - The Benchmark: index.md
+  - The Benchmark:
+      - Benckmark: index.md
+      - Datasets: datasets.md
   - Package:
       - Installation: installation.md
       - Getting Started: getting_started.ipynb

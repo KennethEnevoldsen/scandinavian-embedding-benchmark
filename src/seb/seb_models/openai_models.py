@@ -38,15 +38,14 @@ class OpenaiTextEmbeddingModel(ModelInterface):
         v = self.embed(["get emb dim"])
         return v.shape[1]
 
-    @staticmethod
-    def embed(sentences: Sequence[str]) -> torch.Tensor:
+    def embed(self, sentences: Sequence[str]) -> torch.Tensor:
         import openai
         from openai.error import InvalidRequestError
 
         try:
             emb = openai.Embedding.create(
                 input=sentences,
-                model="text-embedding-ada-002",
+                model=self.api_name,
             )
         except InvalidRequestError as e:
             if "Please reduce your prompt" in e._message:  # type: ignore
@@ -55,13 +54,13 @@ class OpenaiTextEmbeddingModel(ModelInterface):
                     max_size_in_str_text = sentences[0][:50_000]
                     half = len(max_size_in_str_text) // 2
                     first_half = max_size_in_str_text[:half]
-                    return OpenaiTextEmbeddingModel.embed([first_half])
+                    return self.embed([first_half])
 
                 half = len(sentences) // 2
                 return torch.cat(
                     [
-                        OpenaiTextEmbeddingModel.embed(sentences[:half]),
-                        OpenaiTextEmbeddingModel.embed(sentences[half:]),
+                        self.embed(sentences[:half]),
+                        self.embed(sentences[half:]),
                     ],
                 )
             raise e
@@ -94,6 +93,7 @@ def create_openai_ada_002() -> SebModel:
         huggingface_name=None,
         reference="https://openai.com/blog/new-and-improved-embedding-model",
         languages=[],
+        open_source=False,
     )
     return SebModel(
         loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),

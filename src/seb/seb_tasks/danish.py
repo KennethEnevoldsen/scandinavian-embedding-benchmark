@@ -8,6 +8,7 @@ def create_angry_tweets() -> Task:
 
     task = MTEBTask(AngryTweetsClassification())
     task.name = "Angry Tweets"
+    task.domain = ["social"]
     return task
 
 
@@ -17,6 +18,15 @@ def create_lcc() -> Task:
 
     task = MTEBTask(LccSentimentClassification())
     task.name = "LCC"  # type: ignore
+    task.domain = [
+        "legal",
+        "web",
+        "news",
+        "social",
+        "fiction",
+        "non-fiction",
+        "academic",
+    ]
     return task
 
 
@@ -26,6 +36,8 @@ def create_bornholm_parallel() -> Task:
 
     task = MTEBTask(BornholmBitextMining())
     task.name = "Bornholm Parallel"
+    task.domain = ["poetry", "wiki", "fiction", "web", "social"]
+    task._text_columns = ["sentence1", "sentence2"]
     return task
 
 
@@ -35,6 +47,7 @@ def create_dkhate() -> Task:
 
     task = MTEBTask(DKHateClassification())
     task.name = "DKHate"
+    task.domain = ["social"]
     return task
 
 
@@ -44,4 +57,6 @@ def create_da_political_comments() -> Task:
 
     task = MTEBTask(DanishPoliticalCommentsClassification())
     task.name = "Da Political Comments"
+    task.domain = ["social"]
+    task.reference = "https://huggingface.co/datasets/danish_political_comments"  # TODO: Make a PR for MTEB to add this reference
     return task

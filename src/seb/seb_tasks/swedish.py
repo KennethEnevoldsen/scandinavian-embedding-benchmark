@@ -8,6 +8,7 @@ def create_swerec() -> Task:
 
     task = MTEBTask(SweRecClassification())
     task.name = "SweReC"
+    task.domain = ["reviews"]
     return task
 
 
@@ -17,6 +18,7 @@ def create_dalaj() -> Task:
 
     task = MTEBTask(DalajClassification())
     task.name = "DaLAJ"
+    task.domain = ["fiction", "non-fiction"]
     return task
 
 
@@ -27,4 +29,6 @@ def create_swefaq() -> Task:
     task = MTEBTask(SweFaqRetrieval())
     task.name = "SweFAQ"
     task.version = "0.0.1"
+    task.domain = ["non-fiction", "web"]
+    task._text_columns = ["question", "candidate_answer", "correct_answer"]
     return task

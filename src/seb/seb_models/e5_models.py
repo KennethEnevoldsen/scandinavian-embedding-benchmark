@@ -38,6 +38,7 @@ def create_e5_small() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -53,6 +54,7 @@ def create_e5_base() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -68,6 +70,7 @@ def create_e5_large() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -84,6 +87,7 @@ def create_multilingual_e5_small() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -99,6 +103,7 @@ def create_multilingual_e5_base() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -114,6 +119,7 @@ def create_multilingual_e5_large() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
+        open_source=True,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore

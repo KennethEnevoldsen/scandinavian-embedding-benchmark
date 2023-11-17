@@ -1,7 +1,4 @@
 ---
-hide:
-  - navigation
-  - toc
 ---
 
 # Scandinavian Embedding Benchmark

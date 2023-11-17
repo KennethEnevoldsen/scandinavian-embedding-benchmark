@@ -39,6 +39,7 @@ class ModelMeta(BaseModel):
     huggingface_name: Optional[str] = None
     reference: Optional[str] = None
     languages: list[str] = []
+    open_source: bool = False
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:

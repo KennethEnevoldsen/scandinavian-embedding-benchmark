@@ -8,6 +8,7 @@ def create_norec() -> Task:
 
     task = MTEBTask(NoRecClassification())
     task.name = "NoReC"
+    task.domain = ["reviews"]
     return task
 
 
@@ -17,4 +18,5 @@ def create_norwegian_parliament() -> Task:
 
     task = MTEBTask(NorwegianParliamentClassification())
     task.name = "Norwegian parliament"
+    task.domain = ["spoken"]
     return task

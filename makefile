@@ -1,10 +1,7 @@
 install:
 	pip install -e ".[dev, docs, openai, cohere, tests]" 
 
-update_benchmark:
-	python docs/run_benchmark.py --data-wrapper-api-token MISSING
-
-static_type_check:
+static-type-check:
 	pyright src/
 
 lint:
@@ -13,8 +10,14 @@ lint:
 test:
 	pytest tests/
 
-make pr:
+pr:
 	make lint
-	make static_type_check
+	make static-type-check
 	make test
 	echo "Ready to make a PR"
+
+docs-serve:
+	mkdocs serve
+
+update-benchmark:
+	python docs/run_benchmark.py --data-wrapper-api-token MISSING

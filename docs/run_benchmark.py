@@ -88,8 +88,9 @@ def convert_to_table(
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    cols = cols[-2:] + cols[:-2]
-    df = df[cols]
+    first_columns = ["Average", "Open Source"]
+    other_cols = sorted(c for c in cols if c not in first_columns)
+    df = df[first_columns + other_cols]
 
     # convert name to column
     df = df.reset_index()

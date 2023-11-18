@@ -46,6 +46,10 @@ def get_flag(languages: Sequence[str]) -> str:
     return "🌐"
 
 
+def open_source_to_string(open_source: bool) -> str:
+    return "✓" if open_source else "✗"
+
+
 def create_mdl_name(mdl: seb.ModelMeta) -> str:
     reference = mdl.reference
     name: str = mdl.name
@@ -70,6 +74,7 @@ def benchmark_result_to_row(
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
     df["Average"] = np.mean(scores)  # type: ignore
+    df["Open Source"] = open_source_to_string(result.meta.open_source)
     return df
 
 
@@ -81,9 +86,9 @@ def convert_to_table(
     df = pd.concat(rows)
     df = df.sort_values(by="Average", ascending=False)
 
-    # ensure that the average first column
+    # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    cols = cols[-1:] + cols[:-1]
+    cols = cols[-2:] + cols[:-2]
     df = df[cols]
 
     # convert name to column

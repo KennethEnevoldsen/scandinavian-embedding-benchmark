@@ -39,8 +39,8 @@ class OpenaiTextEmbeddingModel(ModelInterface):
         return v.shape[1]
 
     def embed(self, sentences: Sequence[str]) -> torch.Tensor:
-        import openai
-        from openai.error import InvalidRequestError
+        import openai  # type: ignore
+        from openai.error import InvalidRequestError  # type: ignore
 
         try:
             emb = openai.Embedding.create(

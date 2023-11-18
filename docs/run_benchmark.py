@@ -6,6 +6,7 @@ Example:
     python run_benchmark.py --data-wrapper-api-token <token>
 """
 import argparse
+from collections.abc import Sequence
 
 import numpy as np
 import pandas as pd
@@ -23,6 +24,7 @@ subset_to_chart_id = {
 datawrapper_lang_codes = {
     "da": "dk",
     "nb": "no",
+    "nn": "no",
     "sv": "se",
     "en": "us",
 }
@@ -33,21 +35,24 @@ def get_main_score(task: seb.TaskResult, langs: list[str]) -> float:
     return task.get_main_score(_langs) * 100
 
 
+def get_flag(languages: Sequence[str]) -> str:
+    if languages:
+        flags = []
+        for l in languages:
+            if l in datawrapper_lang_codes:
+                flags.append(datawrapper_lang_codes[l])
+        flags = list(set(flags))  # remove duplicates (e.g. nb and nn)
+        return " ".join([f":{f}:" for f in flags])
+    return "🌐"
+
+
 def create_mdl_name(mdl: seb.ModelMeta) -> str:
     reference = mdl.reference
-    name = mdl.name
+    name: str = mdl.name
 
     mdl_name = f"[{name}]({reference})" if reference else name
-
-    if mdl.languages:
-        lang_code = " ".join(
-            [
-                f":{datawrapper_lang_codes[l]}:"
-                for l in mdl.languages
-                if l in datawrapper_lang_codes
-            ],
-        )
-        mdl_name = f"{mdl_name} {lang_code}"
+    lang_flag = get_flag(mdl.languages)
+    mdl_name = f"{mdl_name} {lang_flag}"
 
     return mdl_name
 

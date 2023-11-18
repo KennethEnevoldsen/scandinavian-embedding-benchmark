@@ -2,6 +2,31 @@
 
 
 
+## v0.2.9 (2023-11-18)
+
+### Build
+
+* build: Updated dependencies for mteb ([`f300ac5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f300ac53146edd3201388f6948b5fd25ff1b705d))
+
+### Ci
+
+* ci: Updated makefile ([`892d72d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/892d72d6ac727706da82e1dc5211be2d9eaaa94a))
+
+### Fix
+
+* fix: added type ignore to optional imports ([`febfffb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/febfffb11edfe736400d37db4f5e74fa2bd5a5e9))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`7d792e7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7d792e74ae132c27b375a8bbfe0ac24bcd47b709))
+
+* benhcmark: Fixed ordering of columns ([`ba64303`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ba643036933a08fb0001512a6f8d3ea8e108de13))
+
+* benchmark: Added open-source column ([`621377b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/621377b33acc3c4d95e7f247ef4964b93f614c0b))
+
+* benchmark: Added globe for multilingual models ([`1a53419`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1a53419792b02c67fd3f7702f1dcbb5101d22cfe))
+
+
 ## v0.2.8 (2023-11-17)
 
 ### Documentation

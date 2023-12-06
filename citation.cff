@@ -10,6 +10,13 @@ authors:
     email: kenneth.enevoldsen@cas.au.dk
     affiliation: Center for Humanities Computing
     orcid: 'https://orcid.org/0000-0001-8733-0966'
+  - given-names: Lasse
+    family-names: Hansen
+    affiliation: Center for Humanities Computing
+    orcid: 'https://orcid.org/0000-0003-1113-4779'
+  - given-names: Márton
+    family-names: Kardos
+    affiliation: Center for Humanities Computing
 keywords:
   - benchmark
   - mteb

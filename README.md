@@ -7,6 +7,7 @@
 [![documentation](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/documentation.yml/badge.svg)][documentation]
 [![Tests](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/tests.yml/badge.svg)][tests]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
+[![DOI](https://zenodo.org/badge/671737258.svg)](https://zenodo.org/doi/10.5281/zenodo.10078411)
 
 [pypi status]: https://pypi.org/project/seb/
 [documentation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/

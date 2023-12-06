@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: Scandinavian Embedding Benchmark
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Kenneth
+    family-names: Enevoldsen
+    email: kenneth.enevoldsen@cas.au.dk
+    affiliation: Center for Humanities Computing
+    orcid: 'https://orcid.org/0000-0001-8733-0966'
+keywords:
+  - benchmark
+  - mteb
+  - scandinavian nlp
+  - embedding
+  - nlp
+date-released: '2023-06-01'

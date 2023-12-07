@@ -4,7 +4,8 @@ This section contains big tests which are too heavy to run as part of the CI, bu
 
 import pytest
 import seb
-from dummy_task import create_test_encode_task  # noqa: F401
+
+from .dummy_task import create_test_encode_task
 
 all_models = seb.get_all_models()
 openai_models = []

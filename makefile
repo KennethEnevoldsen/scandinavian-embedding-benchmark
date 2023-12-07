@@ -1,23 +1,40 @@
 install:
+	@echo "--- 🚀 Installing project ---"
 	pip install -e ".[dev, docs, openai, cohere, tests]" 
 
 static-type-check:
+	@echo "--- 🔍 Running static type check ---"
 	pyright src/
 
 lint:
-	pre-commit run --all-files
+	@echo "--- 🧹 Running linters ---"
+	ruff format .  								# running ruff formatting
+	ruff **/*.py --fix 						    # running ruff linting
 
 test:
+	@echo "--- 🧪 Running tests ---"
 	pytest tests/
 
 pr:
+	@echo "--- 🚀 Running PR checks ---"
 	make lint
 	make static-type-check
 	make test
-	echo "Ready to make a PR"
+	@echo "Ready to make a PR"
 
-docs-serve:
+build-docs:
+	@echo "--- 📚 Building docs ---"
+	@echo "Builds the docs and puts them in the 'site' folder"
+	mkdocs build
+
+view-docs:
+	@echo "--- 👀 Viewing docs ---"
 	mkdocs serve
+	
+update-from-template:
+	@echo "--- 🔄 Updating from template ---"
+	@echo "This will update the project from the template, make sure to resolve any .rej files"
+	cruft update --skip-apply-ask
 
 update-benchmark:
 	python docs/run_benchmark.py --data-wrapper-api-token MISSING

@@ -9,9 +9,10 @@ from typing import Optional, Union
 
 import pytest
 import seb
-from dummy_model import create_test_model  # noqa: F401
-from dummy_task import create_test_task  # noqa: F401
-from test_tasks import all_tasks_names
+
+from .dummy_model import create_test_model
+from .dummy_task import create_test_task
+from .test_tasks import all_tasks_names
 
 
 @pytest.mark.parametrize(

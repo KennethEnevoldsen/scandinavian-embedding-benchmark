@@ -121,7 +121,9 @@ def create_dansk_bert() -> SebModel:
 
     return SebModel(
         # see https://huggingface.co/vesteinn/DanskBERT/discussions/3
-        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
+        loader=partial(
+            get_sentence_transformer, model_name=hf_name, max_seq_length=512
+        ),  # type: ignore
         meta=meta,
     )
 
@@ -221,7 +223,9 @@ def create_bert_base_swedish_cased() -> SebModel:
         open_source=True,
     )
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
+        loader=partial(
+            get_sentence_transformer, model_name=hf_name, max_seq_length=512
+        ),  # type: ignore
         meta=meta,
     )
 
@@ -254,7 +258,9 @@ def create_xlm_roberta_base() -> SebModel:
     )
 
     return SebModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
+        loader=partial(
+            get_sentence_transformer, model_name=hf_name, max_seq_length=512
+        ),  # type: ignore
         meta=meta,
     )
 

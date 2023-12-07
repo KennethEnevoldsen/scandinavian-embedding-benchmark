@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: |
-          pip install -e ".[tests]"
+          make install
 
       - name: Run tests
         shell: bash

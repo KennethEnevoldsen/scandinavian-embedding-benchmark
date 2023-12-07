@@ -2,6 +2,67 @@
 
 
 
+## v0.2.10 (2023-12-07)
+
+### Ci
+
+* ci: ensure full install in test ci ([`6144791`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/614479197ffba5951d49501e5f0be8902fec7adb))
+
+* ci: updated docs ci ([`4e3b89f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4e3b89f5d0966dcfa7ada288a4c6246f0a30b825))
+
+* ci: fix python version ([`dec0de6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/dec0de69eda4d0805b591084d6e36a4820d7130b))
+
+* ci: remove cache from docs ([`b53fa67`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b53fa67c9dc4334ac1a7610cd2d24af9ee43d77e))
+
+* ci: lock python version ([`f00d8e8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f00d8e8877b06cf28c035ada2455c27f1af35b69))
+
+* ci: Update pip and invalidate cache for doc ci ([`7c507a4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7c507a41b3977d17d31eee191389bd6714cbe872))
+
+### Documentation
+
+* docs: fixed size of tables ([`f889199`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f889199df5b7e01220036ae8054ed5c38b9a5b28))
+
+### Fix
+
+* fix: ran ruff formatter ([`1d2341c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1d2341c5b9bf4df95bd6513acb21516a3d5f45fc))
+
+* fix: change to relative import for tests ([`3ec0673`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3ec0673f33a1270bff0b4ba8ccdcfb79784d838b))
+
+* fix: Update from cruft template ([`5e055da`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5e055daa2c7c9c8dfbd80aedebb881f24511643d))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`07c5edc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/07c5edc87338da24982d98ed58242e72d489bd35))
+
+* remove invoke from repo ([`90d7b0b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/90d7b0b68bdc5d4dbf19945691e86b7d4a52ba37))
+
+* Merge pull request #39 from KennethEnevoldsen/update-cruft
+
+Update cruft and fix cruft template ([`c2bf0cf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2bf0cf515e838f236627b1c343c7965aa9d62b0))
+
+* ignore type error ([`eb0b647`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/eb0b6476e3f1b5c7c02e2567a6d9e62d492469e7))
+
+* add missing updated to the makefile ([`ec857ab`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ec857ab924ebf1a4efff7b58630607cd013810e1))
+
+* Update cruft ([`8016bd5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8016bd5f31f760ca5def957fffe822706b29de9e))
+
+* Merge pull request #38 from HLasse/patch-3
+
+Update citation.cff ([`0b099be`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0b099be3de7d85b5819ef3190c8bada05fbfadc6))
+
+* Update citation.cff ([`b7fad4e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b7fad4e6a146dd05e370b33ee4d02c24270766f7))
+
+* Merge pull request #36 from KennethEnevoldsen/KennethEnevoldsen-patch-1
+
+Update README.md ([`8f3f9f9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8f3f9f975d931e50f001b7c13e5e067b668a09e9))
+
+* added citation cff ([`e76f244`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e76f2440e5b7d9c702c1f726f5a76e76d300f147))
+
+* Update README.md ([`0730366`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0730366b6a6667bbceb72a5e53b96bd1a584fc4f))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`9176011`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9176011968e633d65ce0c6f6d3cdecd1fd0ad091))
+
+
 ## v0.2.9 (2023-11-18)
 
 ### Build

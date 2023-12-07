@@ -6,13 +6,13 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/seb)][pypi status]
 [![documentation](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/documentation.yml/badge.svg)][documentation]
 [![Tests](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions/workflows/tests.yml/badge.svg)][tests]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)]([ruff])
 [![DOI](https://zenodo.org/badge/671737258.svg)](https://zenodo.org/doi/10.5281/zenodo.10078411)
 
 [pypi status]: https://pypi.org/project/seb/
 [documentation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/
 [tests]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/actions?workflow=Tests
-[black]: https://github.com/psf/black
+[ruff]: https://github.com/astral-sh/ruff
 
 
 <!-- start short-description -->

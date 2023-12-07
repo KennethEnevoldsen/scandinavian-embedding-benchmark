@@ -43,7 +43,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
         from openai.error import InvalidRequestError  # type: ignore
 
         try:
-            emb = openai.Embedding.create(
+            emb = openai.Embedding.create(  # type: ignore
                 input=sentences,
                 model=self.api_name,
             )

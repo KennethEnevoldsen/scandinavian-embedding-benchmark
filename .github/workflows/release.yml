@@ -5,6 +5,10 @@
 # - Upload the package to PyPI
 # - Create a release on GitHub
 
+# This workflow required the following secrets to be set:
+# - a GitHub personal access token with the `repo` scope called `PAT`
+# - and that you setup trusted publishing using PyPI as described here: https://blog.pypi.org/posts/2023-04-20-introducing-trusted-publishers/
+
 name: Release
 on:
   workflow_run:

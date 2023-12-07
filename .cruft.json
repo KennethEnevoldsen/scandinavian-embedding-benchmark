@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/KennethEnevoldsen/swift-python-cookiecutter",
-  "commit": "7fdb02999e8596c525377c208ca902645d134f97",
+  "commit": "c5698bd37fe84cdc5f5f411a56a49c2f5db77dab",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -12,7 +12,6 @@
       "github_user": "KennethEnevoldsen",
       "version": "0.0.0",
       "copyright_year": "2023",
-      "license": "MIT",
       "_copy_without_render": [
         "*.github"
       ],

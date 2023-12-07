@@ -8,7 +8,6 @@
     "email": "Kennethcenevoldsen@gmail.com",
     "friendly_name": "Scandinavian Embedding Benchmark",
     "github_user": "KennethEnevoldsen",
-    "license": "MIT",
     "package_name": "seb",
     "project_name": "scandinavian-embedding-benchmark",
     "version": "0.0.0"

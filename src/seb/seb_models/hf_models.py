@@ -117,6 +117,7 @@ def create_dansk_bert() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
+        open_source=True,
     )
 
     return SebModel(

@@ -43,6 +43,9 @@ docs = [
   # for tutorials
   "jupyter>=1.0.0",
 ]
+mistral = [
+  "transformers>=4.31.0", # lower bound required for mistral models (could potentially be lowered)
+]
 openai = ["openai>=0.27.4"]
 cohere = ["cohere>=4.34"]
 sonar = [

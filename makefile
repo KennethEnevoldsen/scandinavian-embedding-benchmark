@@ -1,6 +1,6 @@
 install:
 	@echo "--- 🚀 Installing project ---"
-	pip install -e ".[dev, docs, openai, cohere, tests]" 
+	pip install -e ".[dev, docs, openai, cohere, tests, mistral]" 
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"

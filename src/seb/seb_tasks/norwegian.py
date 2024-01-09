@@ -1,3 +1,4 @@
+from seb.mteb_tasks import NorwegianParliamentClassification
 from seb.registries import tasks
 from seb.tasks_interface import MTEBTask, Task
 
@@ -14,8 +15,6 @@ def create_norec() -> Task:
 
 @tasks.register("Norwegian parliament")
 def create_norwegian_parliament() -> Task:
-    from mteb import NorwegianParliamentClassification
-
     task = MTEBTask(NorwegianParliamentClassification())
     task.name = "Norwegian parliament"
     task.domain = ["spoken"]

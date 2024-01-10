@@ -29,15 +29,18 @@ def run_task(
     task: Task,
     model: SebModel,
     use_cache: bool,
+    run_model: bool,
     raise_errors: bool,
 ) -> Union[TaskResult, TaskError]:
     """
     Tests a model on a task
     """
+    if run_model is False and use_cache is False:
+        raise ValueError("run_model and use_cache cannot both be False")
 
     if not raise_errors:
         try:
-            return run_task(task, model, use_cache, raise_errors=True)
+            return run_task(task, model, use_cache, run_model, raise_errors=True)
         except Exception as e:
             logger.error(f"Error when running {task.name} on {model.meta.name}: {e}")
             return TaskError(
@@ -53,6 +56,12 @@ def run_task(
         return task_result
 
     cache_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if not run_model:
+        raise ValueError(
+            f"Cache for {model.meta.name} on {task.name} does not exist. "
+            "Set run_model=True to run the model.",
+        )
     with WarningIgnoreContextManager():
         task_result = task.evaluate(model)
     task_result.to_disk(cache_path)
@@ -104,6 +113,7 @@ class Benchmark:
         self,
         model: SebModel,
         use_cache: bool = True,
+        run_model: bool = True,
         raise_errors: bool = True,
     ) -> BenchmarkResults:
         """
@@ -112,6 +122,7 @@ class Benchmark:
         Args:
             model: The model to evaluate.
             use_cache: Whether to use the cache.
+            run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
 
         Returns:
@@ -121,7 +132,13 @@ class Benchmark:
         task_results = []
         pbar = tqdm(tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
         for task in pbar:
-            task_result = run_task(task, model, use_cache, raise_errors)
+            task_result = run_task(
+                task,
+                model,
+                use_cache=use_cache,
+                run_model=run_model,
+                raise_errors=raise_errors,
+            )
             task_results.append(task_result)
 
         return BenchmarkResults(meta=model.meta, task_results=task_results)
@@ -130,6 +147,7 @@ class Benchmark:
         self,
         models: list[SebModel],
         use_cache: bool = True,
+        run_models: bool = True,
         raise_errors: bool = True,
     ) -> list[BenchmarkResults]:
         """
@@ -138,6 +156,7 @@ class Benchmark:
         Args:
             models: The models to evaluate.
             use_cache: Whether to use the cache.
+            run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
 
         Returns:
@@ -151,6 +170,7 @@ class Benchmark:
                 self.evaluate_model(
                     model,
                     use_cache=use_cache,
+                    run_model=run_models,
                     raise_errors=raise_errors,
                 ),
             )

@@ -19,6 +19,7 @@ BENCHMARKS = {
 
 def run_benchmark(
     use_cache: bool = True,
+    run_models: bool = True,
     raise_errors: bool = True,
 ) -> dict[str, list[BenchmarkResults]]:
     """
@@ -32,6 +33,7 @@ def run_benchmark(
         bm_results = benchmark.evaluate_models(
             models=models,
             use_cache=use_cache,
+            run_models=run_models,
             raise_errors=raise_errors,
         )
 

@@ -14,11 +14,13 @@ from .utils import WarningIgnoreContextManager, get_cache_dir, name_to_path
 logger = logging.getLogger(__name__)
 
 
-def get_cache_path(task: Task, model: SebModel) -> Path:
+def get_cache_path(
+    task: Task, model: SebModel, cache_dir: Optional[Path] = None
+) -> Path:
     """
     Get the cache path for a task and model.
     """
-    cache_path = get_cache_dir()
+    cache_path = cache_dir if cache_dir is not None else get_cache_dir()
     mdl_path_name = model.meta.get_path_name()
     task_path_name = name_to_path(task.name) + ".json"
     task_cache_path = cache_path / mdl_path_name / task_path_name
@@ -31,16 +33,26 @@ def run_task(
     use_cache: bool,
     run_model: bool,
     raise_errors: bool,
+    cache_dir: Optional[Path] = None,
 ) -> Union[TaskResult, TaskError]:
     """
     Tests a model on a task
     """
     if run_model is False and use_cache is False:
         raise ValueError("run_model and use_cache cannot both be False")
+    if not raise_errors and run_model is False:
+        raise ValueError("raise_errors cannot be False when run_model is False")
 
     if not raise_errors:
         try:
-            return run_task(task, model, use_cache, run_model, raise_errors=True)
+            return run_task(
+                task=task,
+                model=model,
+                use_cache=use_cache,
+                run_model=run_model,
+                raise_errors=True,
+                cache_dir=cache_dir,
+            )
         except Exception as e:
             logger.error(f"Error when running {task.name} on {model.meta.name}: {e}")
             return TaskError(
@@ -49,7 +61,7 @@ def run_task(
                 time_of_run=datetime.now(),
             )
 
-    cache_path = get_cache_path(task, model)
+    cache_path = get_cache_path(task, model, cache_dir)
     if cache_path.exists() and use_cache:
         logger.info(f"Loading cached result for {model.meta.name} on {task.name}")
         task_result = TaskResult.from_disk(cache_path)
@@ -115,6 +127,7 @@ class Benchmark:
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,
+        cache_dir: Optional[Path] = None,
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
@@ -124,6 +137,7 @@ class Benchmark:
             use_cache: Whether to use the cache.
             run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
+            cache_dir: The cache directory to use. If None, the default cache directory is used.
 
         Returns:
             The results of the benchmark.
@@ -138,6 +152,7 @@ class Benchmark:
                 use_cache=use_cache,
                 run_model=run_model,
                 raise_errors=raise_errors,
+                cache_dir=cache_dir,
             )
             task_results.append(task_result)
 
@@ -147,8 +162,9 @@ class Benchmark:
         self,
         models: list[SebModel],
         use_cache: bool = True,
-        run_models: bool = True,
+        run_model: bool = True,
         raise_errors: bool = True,
+        cache_dir: Optional[Path] = None,
     ) -> list[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
@@ -158,6 +174,7 @@ class Benchmark:
             use_cache: Whether to use the cache.
             run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
+            cache_dir: The cache directory to use. If None, the default cache directory is used.
 
         Returns:
             The results of the benchmark, once for each model.
@@ -170,8 +187,9 @@ class Benchmark:
                 self.evaluate_model(
                     model,
                     use_cache=use_cache,
-                    run_model=run_models,
+                    run_model=run_model,
                     raise_errors=raise_errors,
+                    cache_dir=cache_dir,
                 ),
             )
         return results

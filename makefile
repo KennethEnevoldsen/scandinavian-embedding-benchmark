@@ -52,6 +52,5 @@ update-benchmark-on-ucloud:
 
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"
-	@echo "This will check that the benchmark is up to date, if not it will fail"
 
 	python src/scripts/check_benchmark_is_up_to_date.py

@@ -31,3 +31,5 @@ seb_cache/
 
 # website
 site/
+datawrapper_api_key.txt
+hf_api_key.txt

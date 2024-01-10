@@ -73,7 +73,7 @@ def benchmark_result_to_row(
     scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
-    df["Average"] = np.mean(scores)  # type: ignore
+    df["Average Score"] = np.mean(scores)  # type: ignore
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
     return df
@@ -85,11 +85,12 @@ def convert_to_table(
 ) -> pd.DataFrame:
     rows = [benchmark_result_to_row(result, langs) for result in results]
     df = pd.concat(rows)
-    df = df.sort_values(by="Average", ascending=False)
+    df = df.sort_values(by="Average Score", ascending=False)
+    df["Average Rank"] = compute_avg_rank(df)
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    first_columns = ["Average", "Open Source", "Embedding Size"]
+    first_columns = ["Average Score", "Average Rank", "Open Source", "Embedding Size"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 
@@ -107,6 +108,17 @@ def push_to_datawrapper(df: pd.DataFrame, chart_id: str, token: str):
     assert 200 <= resp.status_code < 300, "Could not add data to Datawrapper"
     iframe_html = dw.publish_chart(chart_id)
     assert iframe_html, "Could not publish chart"
+
+
+def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
+    """
+    For each model in the dataset, for each task, compute the rank of the model and then compute the average rank.
+    """
+    df = df.drop(columns=["Average Score", "Open Source", "Embedding Size"])
+
+    ranks = df.rank(axis=0, ascending=False)
+    avg_ranks = ranks.mean(axis=1)
+    return avg_ranks
 
 
 def main(data_wrapper_api_token: str):

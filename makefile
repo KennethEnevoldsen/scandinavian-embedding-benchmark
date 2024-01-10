@@ -37,18 +37,14 @@ update-from-template:
 	cruft update --skip-apply-ask
 
 update-benchmark:
-	datawrapper_api_key=$(cat datawrapper_api_key.txt)
-	python docs/run_benchmark.py --data-wrapper-api-token $datawrapper_api_key
-
-update-benchmark-on-ucloud:
 	# set environment variables
 	hf_api_key=$(cat hf_api_key.txt)
 	export HF_TOKEN=hf_api_key
-	export SEB_CACHE_DIR=./seb_cache
 
 	# run benchmark
 	datawrapper_api_key=$(cat datawrapper_api_key.txt)
 	python docs/run_benchmark.py --data-wrapper-api-token $datawrapper_api_key
+
 
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"

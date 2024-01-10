@@ -46,6 +46,9 @@ def pretty_print(results: seb.BenchmarkResults):
 def run_benchmark(
     model_name_or_path: str,
     languages: Optional[list[str]],
+    use_cache: bool = True,
+    raise_errors: bool = True,
+    cache_dir: Optional[str] = None,
 ) -> seb.BenchmarkResults:
     """Runs benchmark on a given model and languages."""
     meta = seb.ModelMeta(
@@ -56,7 +59,11 @@ def run_benchmark(
         loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
     )
     benchmark = seb.Benchmark(languages)
-    res = benchmark.evaluate_model(model, raise_errors=False)
+
+    cache_dir_path = Path(cache_dir) if cache_dir else None
+    res = benchmark.evaluate_model(
+        model, use_cache, raise_errors, cache_dir=cache_dir_path
+    )
     return res
 
 
@@ -68,22 +75,47 @@ def main():
         help="Name of the model on HuggingFace hub, or path to the model.",
     )
     parser.add_argument(
-        "languages",
+        "--languages",
+        "-l",
         nargs="*",
         help="List of language codes to evaluate the model on.",
     )
     parser.add_argument(
-        "--save_path",
+        "--output_path",
         "-o",
         default="benchmark_results.json",
         help="File to store benchmark results in.",
+    )
+    parser.add_argument(
+        "--ignore_cache",
+        action="store_true",
+        default=False,
+        help="Ignore cached results.",
+    )
+    parser.add_argument(
+        "--ignore_errors",
+        action="store_true",
+        default=False,
+        help="Ignore errors on specific tasks during evaluation.",
+    )
+    parser.add_argument(
+        "--cache_dir",
+        default=None,
+        help="Directory to store cached results in.",
     )
 
     args = parser.parse_args()
     logging.info(f"Running benchmark with {args.model_name_or_path}...")
     if not args.languages:
         args.languages = None
-    results = run_benchmark(args.model_name_or_path, args.languages)
+
+    results = run_benchmark(
+        args.model_name_or_path,
+        args.languages,
+        use_cache=not args.ignore_cache,
+        raise_errors=not args.ignore_errors,
+        cache_dir=args.cache_dir,
+    )
     logging.info("Saving results...")
     save_path = Path(args.save_path)
     with save_path.open("w") as save_file:

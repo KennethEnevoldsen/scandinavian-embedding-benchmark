@@ -1,0 +1,1 @@
+{"task_name":"LCC","task_description":"The leipzig corpora collection, annotated for sentiment","task_version":"1.1.1.dev0","time_of_run":"2023-09-25T17:58:52.979095","scores":{"da":{"accuracy":0.6166666666666666,"f1":0.6164836495996562,"accuracy_stderr":0.04716401641553062,"f1_stderr":0.04790241759343871,"main_score":0.6166666666666666}},"main_score":"accuracy"}

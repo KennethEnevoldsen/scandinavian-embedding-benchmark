@@ -1,0 +1,1 @@
+{"task_name":"SweReC","task_description":"A Swedish dataset for sentiment classification on review","task_version":"1.1.1.dev0","time_of_run":"2023-11-15T14:37:21.852283","scores":{"sv":{"accuracy":0.6634765625,"f1":0.6013475160327366,"accuracy_stderr":0.020989052234931978,"f1_stderr":0.01742307859040556,"main_score":0.6634765625}},"main_score":"accuracy"}

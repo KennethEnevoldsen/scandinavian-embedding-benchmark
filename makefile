@@ -22,9 +22,14 @@ pr:
 	make test
 	@echo "Ready to make a PR"
 
+update-table-in-docs:
+	@echo "--- 🔄 Updating table in docs ---"
+	python src/scripts/create_desc_stats.py
+
 build-docs:
 	@echo "--- 📚 Building docs ---"
 	@echo "Builds the docs and puts them in the 'site' folder"
+	@echo "You might need to also update the table with the desc. stats you can do this by running 'make update-table-in-docs'"
 	mkdocs build
 
 view-docs:

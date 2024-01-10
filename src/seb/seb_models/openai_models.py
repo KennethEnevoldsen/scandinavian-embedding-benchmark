@@ -94,6 +94,7 @@ def create_openai_ada_002() -> SebModel:
         reference="https://openai.com/blog/new-and-improved-embedding-model",
         languages=[],
         open_source=False,
+        embedding_size=1536,
     )
     return SebModel(
         loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),

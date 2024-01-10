@@ -75,6 +75,7 @@ def benchmark_result_to_row(
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
     df["Average"] = np.mean(scores)  # type: ignore
     df["Open Source"] = open_source_to_string(result.meta.open_source)
+    df["Embedding Size"] = result.meta.embedding_size
     return df
 
 
@@ -88,7 +89,7 @@ def convert_to_table(
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    first_columns = ["Average", "Open Source"]
+    first_columns = ["Average", "Open Source", "Embedding Size"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 

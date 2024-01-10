@@ -38,6 +38,7 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
+        embedding_size=384,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -54,6 +55,7 @@ def create_multilingual_mini_lm_l12_v2() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=384,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -70,6 +72,7 @@ def create_multilingual_mpnet_base_v2() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -86,6 +89,7 @@ def create_sentence_swedish_cased() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -102,6 +106,7 @@ def create_electra_small_nordic() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da", "nb", "sv", "nn"],
         open_source=True,
+        embedding_size=256,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -118,6 +123,7 @@ def create_dansk_bert() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=768,
     )
 
     return SebModel(
@@ -138,6 +144,7 @@ def create_dfm_encoder_large_v1() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -154,6 +161,7 @@ def create_nb_bert_large() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["nb", "nn"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -170,6 +178,7 @@ def create_nb_bert_base() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["nb", "nn"],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -222,6 +231,7 @@ def create_bert_base_swedish_cased() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(
@@ -240,6 +250,7 @@ def create_electra_small_swedish_cased_discriminator() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["sv"],
         open_source=True,
+        embedding_size=256,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -256,6 +267,7 @@ def create_xlm_roberta_base() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
+        embedding_size=768,
     )
 
     return SebModel(
@@ -276,6 +288,7 @@ def create_dfm_sentence_encoder_large() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -292,6 +305,7 @@ def create_dfm_sentence_encoder_large_exp() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -308,6 +322,7 @@ def create_dfm_sentence_encoder_small() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=256,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -324,6 +339,7 @@ def create_dfm_sentence_encoder_medium() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
@@ -340,6 +356,7 @@ def create_dfm_sentence_encoder_large_exp2() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["da"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore

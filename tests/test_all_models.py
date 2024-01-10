@@ -23,6 +23,20 @@ def test_model(model: seb.SebModel, task: seb.Task):
     task.evaluate(model)
 
 
+
+@pytest.mark.skip(
+    reason="This test loads in all models. It is too heavy to have running as a CI",
+)
+@pytest.mark.parametrize("model", all_models)
+def test_embedding_match_what_is_stated(model: seb.SebModel):
+    """
+    This test checks if the embedding size matches what is stated in the ModelMeta
+    """
+    output = model.encode(["test"])
+    output_embedding_size = output.shape[1]
+    assert output_embedding_size == model.meta.embedding_size
+
+
 @pytest.mark.skip(
     reason="This test applied the openai embedding models. It is too expensive to have running as a CI",
 )

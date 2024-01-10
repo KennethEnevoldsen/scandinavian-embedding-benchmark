@@ -20,7 +20,7 @@ class ModelInterface(Protocol):
         sentences: list[str],
         batch_size: int = 32,
         **kwargs: dict,
-    ) -> list[ArrayLike]:
+    ) -> ArrayLike:
         """Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
@@ -28,7 +28,7 @@ class ModelInterface(Protocol):
             kwargs: arguments to pass to the models encode method
 
         Returns:
-            List of embeddings for the given sentences
+            Embeddings for the given documents
         """
         ...
 
@@ -40,6 +40,7 @@ class ModelMeta(BaseModel):
     reference: Optional[str] = None
     languages: list[str] = []
     open_source: bool = False
+    embedding_size: int
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:
@@ -80,7 +81,7 @@ class SebModel(BaseModel):
         sentences: list[str],
         batch_size: int = 32,
         **kwargs: dict,
-    ) -> list[ArrayLike]:
+    ) -> ArrayLike:
         """
         Returns a list of embeddings for the given sentences.
         Args:
@@ -89,6 +90,6 @@ class SebModel(BaseModel):
             kwargs: arguments to pass to the models encode method
 
         Returns:
-            List of embeddings for the given sentences
+            Embeddings for the given documents
         """
         return self.model.encode(sentences, batch_size=batch_size, **kwargs)

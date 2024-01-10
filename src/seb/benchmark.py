@@ -38,6 +38,7 @@ def run_task(
     """
     Tests a model on a task
     """
+
     if run_model is False and use_cache is False:
         raise ValueError("run_model and use_cache cannot both be False")
     if not raise_errors and run_model is False:
@@ -146,6 +147,7 @@ class Benchmark:
         task_results = []
         pbar = tqdm(tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
         for task in pbar:
+            pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(
                 task,
                 model,
@@ -183,6 +185,7 @@ class Benchmark:
         pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True)
 
         for model in pbar:
+            pbar.set_description(f"Running {model.meta.name}")
             results.append(
                 self.evaluate_model(
                     model,

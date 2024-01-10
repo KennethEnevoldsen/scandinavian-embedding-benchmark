@@ -49,3 +49,9 @@ update-benchmark-on-ucloud:
 	# run benchmark
 	datawrapper_api_key=$(cat datawrapper_api_key.txt)
 	python docs/run_benchmark.py --data-wrapper-api-token $datawrapper_api_key
+
+check-benchmark-is-up-to-date:
+	@echo "--- 🔄 Checking benchmark is up to date ---"
+	@echo "This will check that the benchmark is up to date, if not it will fail"
+
+	python src/scripts/check_benchmark_is_up_to_date.py

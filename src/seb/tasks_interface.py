@@ -49,6 +49,13 @@ class Task(Protocol):
     def get_descriptive_stats(self) -> dict[str, Any]:
         ...
 
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.name.replace("/", "__").replace(" ", "_")
+        return name
+
 
 class MTEBTask(Task):
     def __init__(self, mteb_task: AbsTask) -> None:

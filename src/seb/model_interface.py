@@ -4,8 +4,6 @@ from numpy import ndarray
 from pydantic import BaseModel
 from torch import Tensor
 
-from .utils import name_to_path
-
 ArrayLike = Union[ndarray, Tensor]
 
 
@@ -44,8 +42,12 @@ class ModelMeta(BaseModel):
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:
-            return name_to_path(self.name)
-        return name_to_path(self.huggingface_name)
+            return self._name_to_path(self.name)
+        return self._name_to_path(self.huggingface_name)
+
+    @staticmethod
+    def _name_to_path(name: str) -> str:
+        return name.replace("/", "__").replace(" ", "_")
 
     def get_huggingface_url(self) -> str:
         if self.huggingface_name is None:

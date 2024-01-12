@@ -133,7 +133,7 @@ def create_multilingual_e5_large() -> SebModel:
     )
 
 
-@models.register("intfloat/e5-mistral-7b-instruct")
+# @models.register("intfloat/e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(

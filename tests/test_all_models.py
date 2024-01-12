@@ -23,11 +23,11 @@ def test_model(model: seb.SebModel, task: seb.Task):
     task.evaluate(model)
 
 
-
-@pytest.mark.skip(
-    reason="This test loads in all models. It is too heavy to have running as a CI",
-)
-@pytest.mark.parametrize("model", all_models)
+# @pytest.mark.skip(
+#     reason="This test loads in all models. It is too heavy to have running as a CI",
+# )
+# @pytest.mark.parametrize("model", all_models)
+@pytest.mark.parametrize("model", [seb.get_model("intfloat/e5-mistral-7b-instruct")])
 def test_embedding_match_what_is_stated(model: seb.SebModel):
     """
     This test checks if the embedding size matches what is stated in the ModelMeta

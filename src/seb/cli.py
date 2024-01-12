@@ -7,9 +7,11 @@ from statistics import mean
 from typing import Optional
 
 import tabulate
-from sentence_transformers import SentenceTransformer
 
 import seb
+from seb.seb_models.hf_models import get_sentence_transformer
+
+logger = logging.getLogger(__name__)
 
 BOLD = "\033[1m"
 UNDERLINE = "\033[4m"
@@ -43,6 +45,14 @@ def pretty_print(results: seb.BenchmarkResults):
     )
 
 
+def create_model_from_name(name: str) -> seb.SebModel:
+    meta = seb.ModelMeta(name=name)
+    return seb.SebModel(
+        meta=meta,
+        loader=partial(get_sentence_transformer, model_name=name),  # type: ignore
+    )
+
+
 def run_benchmark(
     model_name_or_path: str,
     languages: Optional[list[str]],
@@ -51,13 +61,16 @@ def run_benchmark(
     cache_dir: Optional[str] = None,
 ) -> seb.BenchmarkResults:
     """Runs benchmark on a given model and languages."""
-    meta = seb.ModelMeta(
-        name=Path(model_name_or_path).stem,
-    )
-    model = seb.SebModel(
-        meta=meta,
-        loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
-    )
+
+    if model_name_or_path in seb.models:
+        logger.info("Models. Already exists in SEB. Loading model from registry.")
+        model = seb.models.get(model_name_or_path)()
+    else:
+        logger.info(
+            "Model does not exist in SEB. Loading model from using SentenceTransformers."
+        )
+        model = create_model_from_name(model_name_or_path)
+
     benchmark = seb.Benchmark(languages)
 
     cache_dir_path = Path(cache_dir) if cache_dir else None
@@ -105,7 +118,7 @@ def main():
     )
 
     args = parser.parse_args()
-    logging.info(f"Running benchmark with {args.model_name_or_path}...")
+    logger.info(f"Running benchmark with {args.model_name_or_path}...")
     if not args.languages:
         args.languages = None
 
@@ -116,8 +129,8 @@ def main():
         raise_errors=not args.ignore_errors,
         cache_dir=args.cache_dir,
     )
-    logging.info("Saving results...")
-    save_path = Path(args.save_path)
+    logger.info("Saving results...")
+    save_path = Path(args.output_path)
     with save_path.open("w") as save_file:
         save_file.write(results.model_dump_json())  # type: ignore
     print("\n")

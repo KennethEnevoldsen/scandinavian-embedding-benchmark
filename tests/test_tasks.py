@@ -60,6 +60,7 @@ def test_task_result_main_score(task_result: seb.TaskResult):
     reason="This test downloads all datasets. It takes a long time to test and often fails due to errors on HF's side.",
 )
 @pytest.mark.parametrize("task_name", all_tasks_names)
+# @pytest.mark.parametrize("task_name", ["Swedn"])
 @pytest.mark.parametrize("model_name", ["sentence-transformers/all-MiniLM-L6-v2"])
 def test_all_tasks(task_name: str, model_name: str):
     task: seb.Task = seb.get_task(task_name)
@@ -71,3 +72,4 @@ def test_all_tasks(task_name: str, model_name: str):
 
     task_result = task.evaluate(model)
     assert isinstance(task_result, seb.TaskResult)
+    assert isinstance(task_result.get_main_score(), float)

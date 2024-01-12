@@ -32,3 +32,14 @@ def create_swefaq() -> Task:
     task.domain = ["non-fiction", "web"]
     task._text_columns = ["question", "candidate_answer", "correct_answer"]
     return task
+
+
+@tasks.register("Swedn")
+def create_swedn() -> Task:
+    from seb.mteb_tasks import SwednSummarizationSTS
+
+    task = MTEBTask(SwednSummarizationSTS())
+    task.name = "Swedn"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "news"]
+    return task

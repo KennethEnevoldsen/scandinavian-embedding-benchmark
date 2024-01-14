@@ -31,3 +31,6 @@ seb_cache/
 
 # website
 site/
+
+# api keys
+*_api_key.txt

@@ -1,13 +1,13 @@
 import catalogue
 
-from .model_interface import SebModel
+from .model_interface import EmbeddingModel
 from .tasks_interface import Task
 
 models = catalogue.create("seb", "models")
 tasks = catalogue.create("seb", "tasks")
 
 
-def get_model(name: str) -> SebModel:
+def get_model(name: str) -> EmbeddingModel:
     """
     Fetches a model by name.
 
@@ -43,7 +43,7 @@ def get_all_tasks() -> list[Task]:
     return [get_task(task_name) for task_name in tasks.get_all()]
 
 
-def get_all_models() -> list[SebModel]:
+def get_all_models() -> list[EmbeddingModel]:
     """
     Get all the models implemented in SEB.
 

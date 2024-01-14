@@ -63,10 +63,10 @@ def test_task_result_main_score(task_result: seb.TaskResult):
 @pytest.mark.parametrize("model_name", ["sentence-transformers/all-MiniLM-L6-v2"])
 def test_all_tasks(task_name: str, model_name: str):
     task: seb.Task = seb.get_task(task_name)
-    model: seb.SebModel = seb.get_model(model_name)
+    model: seb.EmbeddingModel = seb.get_model(model_name)
 
     assert isinstance(task, seb.Task)
-    assert isinstance(model, seb.SebModel)
+    assert isinstance(model, seb.EmbeddingModel)
     assert isinstance(model.model, seb.ModelInterface)
 
     task_result = task.evaluate(model)

@@ -116,6 +116,7 @@ def create_sonar_da() -> SebModel:
         reference="https://github.com/facebookresearch/SONAR",
         languages=["da"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sonar_model, source_lang="dan_Latn"),
@@ -131,6 +132,7 @@ def create_sonar_sv() -> SebModel:
         reference="https://github.com/facebookresearch/SONAR",
         languages=["sv"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sonar_model, source_lang="swe_Latn"),
@@ -145,6 +147,8 @@ def create_sonar_nb() -> SebModel:
         huggingface_name=None,
         reference="https://github.com/facebookresearch/SONAR",
         languages=["nb"],
+        open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sonar_model, source_lang="nob_Latn"),
@@ -160,6 +164,7 @@ def create_sonar_nn() -> SebModel:
         reference="https://github.com/facebookresearch/SONAR",
         languages=["nn"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(get_sonar_model, source_lang="nno_Latn"),

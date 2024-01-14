@@ -39,6 +39,7 @@ def create_e5_small() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
+        embedding_size=384,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -55,6 +56,7 @@ def create_e5_base() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -71,6 +73,7 @@ def create_e5_large() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -88,6 +91,7 @@ def create_multilingual_e5_small() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=384,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -104,6 +108,7 @@ def create_multilingual_e5_base() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=768,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -120,6 +125,7 @@ def create_multilingual_e5_large() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
@@ -136,6 +142,7 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
+        embedding_size=4096,
     )
     return SebModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore

@@ -11,13 +11,16 @@ def create_test_model() -> seb.SebModel:
             sentences: list[str],
             batch_size: int,  # noqa: ARG002
             **kwargs: dict,  # noqa: ARG002
-        ) -> list[np.ndarray]:
+        ) -> np.ndarray:
             # create random array of 100, pr text
-            return [np.random.rand(100) for _ in sentences]
+            return np.array([np.random.rand(100) for _ in sentences])
 
     def load_test_model() -> TestEncoder:
         return TestEncoder()
 
     assert isinstance(TestEncoder, seb.ModelInterface)
 
-    return seb.SebModel(meta=seb.ModelMeta(name="test_model"), loader=load_test_model)  # type: ignore
+    return seb.SebModel(
+        meta=seb.ModelMeta(name="test_model", embedding_size=100),
+        loader=load_test_model,
+    )  # type: ignore

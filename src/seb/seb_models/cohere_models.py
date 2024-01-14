@@ -61,6 +61,7 @@ def create_embed_multilingual_v3() -> SebModel:
         reference="https://huggingface.co/Cohere/Cohere-embed-multilingual-v3.0",
         languages=[],
         open_source=False,
+        embedding_size=1024,
     )
     return SebModel(
         loader=partial(CohereTextEmbeddingModel, model_name=model_name),

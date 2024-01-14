@@ -40,7 +40,7 @@ class ModelMeta(BaseModel):
     reference: Optional[str] = None
     languages: list[str] = []
     open_source: bool = False
-    embedding_size: int
+    embedding_size: Optional[int] = None
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:

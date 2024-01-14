@@ -4,7 +4,7 @@ from seb.registries import models
 
 
 @models.register("test_model")
-def create_test_model() -> seb.SebModel:
+def create_test_model() -> seb.EmbeddingModel:
     class TestEncoder:
         def encode(
             self,
@@ -20,4 +20,6 @@ def create_test_model() -> seb.SebModel:
 
     assert isinstance(TestEncoder, seb.ModelInterface)
 
-    return seb.SebModel(meta=seb.ModelMeta(name="test_model"), loader=load_test_model)  # type: ignore
+    return seb.EmbeddingModel(
+        meta=seb.ModelMeta(name="test_model"), loader=load_test_model
+    )  # type: ignore

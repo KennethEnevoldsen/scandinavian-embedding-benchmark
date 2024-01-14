@@ -1,6 +1,6 @@
 from .benchmark import Benchmark
 from .full_benchmark import run_benchmark
-from .model_interface import ModelInterface, ModelMeta, SebModel
+from .model_interface import ModelInterface, ModelMeta, EmbeddingModel
 from .registries import (
     get_all_models,
     get_all_tasks,

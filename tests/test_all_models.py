@@ -16,7 +16,7 @@ openai_models = []
 )
 @pytest.mark.parametrize("model", all_models)
 @pytest.mark.parametrize("task", [seb.get_task("test encode task")])
-def test_model(model: seb.SebModel, task: seb.Task):
+def test_model(model: seb.EmbeddingModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """
@@ -28,7 +28,7 @@ def test_model(model: seb.SebModel, task: seb.Task):
 )
 @pytest.mark.parametrize("model", [seb.get_model("text-embedding-ada-002")])
 @pytest.mark.parametrize("task", [seb.get_task("test encode task")])
-def test_openai_model(model: seb.SebModel, task: seb.Task):
+def test_openai_model(model: seb.EmbeddingModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """

@@ -7,7 +7,7 @@ from typing import Optional
 
 from sentence_transformers import SentenceTransformer
 
-from seb.model_interface import ModelMeta, SebModel
+from seb.model_interface import EmbeddingModel, ModelMeta
 from seb.registries import models
 
 
@@ -30,7 +30,7 @@ def get_sentence_transformer(
 
 # Relevant multilingual models
 @models.register("sentence-transformers/all-MiniLM-L6-v2")
-def create_all_mini_lm_l6_v2() -> SebModel:
+def create_all_mini_lm_l6_v2() -> EmbeddingModel:
     hf_name = "sentence-transformers/all-MiniLM-L6-v2"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -39,14 +39,14 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         languages=["en"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
-def create_multilingual_mini_lm_l12_v2() -> SebModel:
+def create_multilingual_mini_lm_l12_v2() -> EmbeddingModel:
     hf_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -55,14 +55,14 @@ def create_multilingual_mini_lm_l12_v2() -> SebModel:
         languages=[],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
-def create_multilingual_mpnet_base_v2() -> SebModel:
+def create_multilingual_mpnet_base_v2() -> EmbeddingModel:
     hf_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -71,14 +71,14 @@ def create_multilingual_mpnet_base_v2() -> SebModel:
         languages=[],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("KBLab/sentence-bert-swedish-cased")
-def create_sentence_swedish_cased() -> SebModel:
+def create_sentence_swedish_cased() -> EmbeddingModel:
     hf_name = "KBLab/sentence-bert-swedish-cased"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -87,14 +87,14 @@ def create_sentence_swedish_cased() -> SebModel:
         languages=["sv"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("jonfd/electra-small-nordic")
-def create_electra_small_nordic() -> SebModel:
+def create_electra_small_nordic() -> EmbeddingModel:
     hf_name = "jonfd/electra-small-nordic"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -103,14 +103,14 @@ def create_electra_small_nordic() -> SebModel:
         languages=["da", "nb", "sv", "nn"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("vesteinn/DanskBERT")
-def create_dansk_bert() -> SebModel:
+def create_dansk_bert() -> EmbeddingModel:
     hf_name = "vesteinn/DanskBERT"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -120,7 +120,7 @@ def create_dansk_bert() -> SebModel:
         open_source=True,
     )
 
-    return SebModel(
+    return EmbeddingModel(
         # see https://huggingface.co/vesteinn/DanskBERT/discussions/3
         loader=partial(
             get_sentence_transformer, model_name=hf_name, max_seq_length=512
@@ -130,7 +130,7 @@ def create_dansk_bert() -> SebModel:
 
 
 @models.register("chcaa/dfm-encoder-large-v1")
-def create_dfm_encoder_large_v1() -> SebModel:
+def create_dfm_encoder_large_v1() -> EmbeddingModel:
     hf_name = "chcaa/dfm-encoder-large-v1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -139,14 +139,14 @@ def create_dfm_encoder_large_v1() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("NbAiLab/nb-bert-large")
-def create_nb_bert_large() -> SebModel:
+def create_nb_bert_large() -> EmbeddingModel:
     hf_name = "NbAiLab/nb-bert-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -155,14 +155,14 @@ def create_nb_bert_large() -> SebModel:
         languages=["nb", "nn"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("NbAiLab/nb-bert-base")
-def create_nb_bert_base() -> SebModel:
+def create_nb_bert_base() -> EmbeddingModel:
     hf_name = "NbAiLab/nb-bert-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -171,7 +171,7 @@ def create_nb_bert_base() -> SebModel:
         languages=["nb", "nn"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
@@ -213,7 +213,7 @@ def create_norbert3_base() -> SebModel:
 
 
 @models.register("KB/bert-base-swedish-cased")
-def create_bert_base_swedish_cased() -> SebModel:
+def create_bert_base_swedish_cased() -> EmbeddingModel:
     hf_name = "KB/bert-base-swedish-cased"
 
     meta = ModelMeta(
@@ -223,7 +223,7 @@ def create_bert_base_swedish_cased() -> SebModel:
         languages=["sv"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(
             get_sentence_transformer, model_name=hf_name, max_seq_length=512
         ),  # type: ignore
@@ -232,7 +232,7 @@ def create_bert_base_swedish_cased() -> SebModel:
 
 
 @models.register("kb/electra-small-swedish-cased-discriminator")
-def create_electra_small_swedish_cased_discriminator() -> SebModel:
+def create_electra_small_swedish_cased_discriminator() -> EmbeddingModel:
     hf_name = "kb/electra-small-swedish-cased-discriminator"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -241,7 +241,7 @@ def create_electra_small_swedish_cased_discriminator() -> SebModel:
         languages=["sv"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
@@ -249,7 +249,7 @@ def create_electra_small_swedish_cased_discriminator() -> SebModel:
 
 # Multilingual baselines
 @models.register("xlm-roberta-base")
-def create_xlm_roberta_base() -> SebModel:
+def create_xlm_roberta_base() -> EmbeddingModel:
     hf_name = "xlm-roberta-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -258,7 +258,7 @@ def create_xlm_roberta_base() -> SebModel:
         open_source=True,
     )
 
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(
             get_sentence_transformer, model_name=hf_name, max_seq_length=512
         ),  # type: ignore
@@ -268,7 +268,7 @@ def create_xlm_roberta_base() -> SebModel:
 
 # Scandinavian sentence encoders
 @models.register("KennethEnevoldsen/dfm-sentence-encoder-large-1")
-def create_dfm_sentence_encoder_large() -> SebModel:
+def create_dfm_sentence_encoder_large() -> EmbeddingModel:
     hf_name = "KennethEnevoldsen/dfm-sentence-encoder-large-1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -277,14 +277,14 @@ def create_dfm_sentence_encoder_large() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("KennethEnevoldsen/dfm-sentence-encoder-large-exp1")
-def create_dfm_sentence_encoder_large_exp() -> SebModel:
+def create_dfm_sentence_encoder_large_exp() -> EmbeddingModel:
     hf_name = "KennethEnevoldsen/dfm-sentence-encoder-large-exp1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -293,14 +293,14 @@ def create_dfm_sentence_encoder_large_exp() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("KennethEnevoldsen/dfm-sentence-encoder-small-v1")
-def create_dfm_sentence_encoder_small() -> SebModel:
+def create_dfm_sentence_encoder_small() -> EmbeddingModel:
     hf_name = "KennethEnevoldsen/dfm-sentence-encoder-small-v1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -309,14 +309,14 @@ def create_dfm_sentence_encoder_small() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("KennethEnevoldsen/dfm-sentence-encoder-medium-v1")
-def create_dfm_sentence_encoder_medium() -> SebModel:
+def create_dfm_sentence_encoder_medium() -> EmbeddingModel:
     hf_name = "KennethEnevoldsen/dfm-sentence-encoder-medium-v1"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -325,14 +325,14 @@ def create_dfm_sentence_encoder_medium() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("KennethEnevoldsen/dfm-sentence-encoder-large-exp2-no-lang-align")
-def create_dfm_sentence_encoder_large_exp2() -> SebModel:
+def create_dfm_sentence_encoder_large_exp2() -> EmbeddingModel:
     hf_name = "KennethEnevoldsen/dfm-sentence-encoder-large-exp2-no-lang-align"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -341,7 +341,7 @@ def create_dfm_sentence_encoder_large_exp2() -> SebModel:
         languages=["da"],
         open_source=True,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )

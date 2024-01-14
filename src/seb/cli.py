@@ -51,7 +51,7 @@ def run_benchmark(
     meta = seb.ModelMeta(
         name=Path(model_name_or_path).stem,
     )
-    model = seb.SebModel(
+    model = seb.EmbeddingModel(
         meta=meta,
         loader=partial(SentenceTransformer, model_name_or_path=model_name_or_path),  # type: ignore
     )

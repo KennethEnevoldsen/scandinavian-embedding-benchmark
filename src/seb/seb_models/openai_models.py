@@ -9,7 +9,7 @@ from functools import partial
 
 import torch
 
-from seb.model_interface import ModelInterface, ModelMeta, SebModel
+from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
@@ -86,7 +86,7 @@ class OpenaiTextEmbeddingModel(ModelInterface):
 
 
 @models.register("text-embedding-ada-002")
-def create_openai_ada_002() -> SebModel:
+def create_openai_ada_002() -> EmbeddingModel:
     api_name = "text-embedding-ada-002"
     meta = ModelMeta(
         name=api_name,
@@ -95,7 +95,7 @@ def create_openai_ada_002() -> SebModel:
         languages=[],
         open_source=False,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
         meta=meta,
     )

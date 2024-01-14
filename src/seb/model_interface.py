@@ -52,7 +52,7 @@ class ModelMeta(BaseModel):
         return f"https://huggingface.co/{self.huggingface_name}"
 
 
-class SebModel(BaseModel):
+class EmbeddingModel(BaseModel):
     meta: ModelMeta
     loader: Callable[[], ModelInterface]
     _model: Optional[ModelInterface] = None

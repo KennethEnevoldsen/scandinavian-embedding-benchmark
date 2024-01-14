@@ -36,5 +36,5 @@ update-from-template:
 	@echo "This will update the project from the template, make sure to resolve any .rej files"
 	cruft update --skip-apply-ask
 
-update-benchmark:
+run-benchmark:
 	python docs/run_benchmark.py --data-wrapper-api-token MISSING

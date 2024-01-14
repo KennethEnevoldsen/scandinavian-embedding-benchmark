@@ -3,6 +3,9 @@ This is the specification for the full benchmark. Running the code here will rep
 """
 
 
+from pathlib import Path
+from typing import Optional
+
 from seb.model_interface import SebModel
 
 from .benchmark import Benchmark
@@ -19,7 +22,9 @@ BENCHMARKS = {
 
 def run_benchmark(
     use_cache: bool = True,
+    run_models: bool = True,
     raise_errors: bool = True,
+    cache_dir: Optional[Path] = None,
 ) -> dict[str, list[BenchmarkResults]]:
     """
     Run the full SEB benchmark.
@@ -32,7 +37,9 @@ def run_benchmark(
         bm_results = benchmark.evaluate_models(
             models=models,
             use_cache=use_cache,
+            run_model=run_models,
             raise_errors=raise_errors,
+            cache_dir=cache_dir,
         )
 
         results[subset] = bm_results

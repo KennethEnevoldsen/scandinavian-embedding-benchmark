@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
 
-CACHE_DIR = Path.home() / ".cache" / "seb"
+package_dir = Path(__file__).parent
+CACHE_DIR = package_dir / "cache"
 
 
 def get_cache_dir() -> Path:

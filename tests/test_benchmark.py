@@ -37,6 +37,7 @@ def test_run_benchmark(
     model_names: list[str],
     languages: Optional[list[str]],
     tasks: Optional[list[str]],
+    tmp_path: Path,
 ):
     """
     Test that the benchmark runs without errors.
@@ -51,8 +52,7 @@ def test_run_benchmark(
         tasks=tasks,
     )
     bm_results: list[seb.BenchmarkResults] = benchmark.evaluate_models(
-        models=models,
-        use_cache=False,
+        models=models, use_cache=False, cache_dir=tmp_path
     )
 
     assert len(bm_results) == len(models)
@@ -91,6 +91,7 @@ def test_cache_dir_is_reused(
     model_name: str,
     languages: Optional[list[str]],
     tasks: Optional[list[str]],
+    tmp_path: Path,
 ):
     """
     Check that the cache dir is reused.
@@ -102,7 +103,9 @@ def test_cache_dir_is_reused(
     )
 
     before_run = datetime.now()
-    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(model, use_cache=False)
+    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
+        model, use_cache=False, cache_dir=tmp_path
+    )
     after_run = datetime.now()
 
     assert len(bm_result) == 1
@@ -113,6 +116,7 @@ def test_cache_dir_is_reused(
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
         model=model,
         use_cache=True,
+        cache_dir=tmp_path,
     )
 
     assert isinstance(bm_result, seb.BenchmarkResults)
@@ -124,17 +128,10 @@ def test_cache_dir_is_reused(
     assert task_result_1 == task_result_2, "The two task results should be equal"
 
 
-def set_cache_dir():
-    new_cache_dir = Path(__file__).parent / "tmp_cache"
-    os.environ["SEB_CACHE_DIR"] = str(new_cache_dir)
-    new_cache_dir.mkdir(exist_ok=True)
-
-
-def test_benchmark_skip_on_error_raised():
+def test_benchmark_skip_on_error_raised(tmp_path: Path):
     """
     Test that the benchmark skips a model if an error is raised.
     """
-    set_cache_dir()
     model = seb.get_model("test_model")
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=None,
@@ -145,6 +142,7 @@ def test_benchmark_skip_on_error_raised():
         model,
         use_cache=False,
         raise_errors=False,
+        cache_dir=tmp_path,
     )
 
     assert len(bm_result) == 1
@@ -154,4 +152,6 @@ def test_benchmark_skip_on_error_raised():
 
     # test that the benchmark raises an error if raise_errors is True
     with pytest.raises(ValueError):  # noqa: PT011
-        benchmark.evaluate_model(model, use_cache=False, raise_errors=True)
+        benchmark.evaluate_model(
+            model, use_cache=False, raise_errors=True, cache_dir=tmp_path
+        )

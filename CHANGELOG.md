@@ -2,6 +2,41 @@
 
 
 
+## v0.4.0 (2024-01-15)
+
+### Feature
+
+* feat: Allow tasks to be passed to benchmark instead of just strings ([`57a9b19`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/57a9b194a741d0416a9289fe11da174835cfdd63))
+
+### Fix
+
+* fix: remove DKHate from tests ([`3192fff`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3192fff27519a48aadcb46e8f126c4894e3ec727))
+
+* fix: Renamed Scala -&gt; ScaLA to ensure cache hit on non osx system ([`d9f7b05`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d9f7b0575dd140d840e9104755408c49c3e22b2e))
+
+* fix: Added intfloat/e5-mistral-7b results to cache ([`93b0086`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/93b008617a9717c8011cb34a3c1949d1d3e2c7df))
+
+### Unknown
+
+* Merge pull request #57 from KennethEnevoldsen/move_cli_to_radicli
+
+fix: Added new and more comprehensive CLI ([`2b0a47a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b0a47aa8ff3e044d15725adf6b20a2bb883aa69))
+
+* tests: Fix ordering of test input ([`971c9ac`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/971c9ac7d0a4640e982fe62ebfd62a0372b8f22e))
+
+* tests: Ensure that dummy tasks are not added to registry ([`affabc8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/affabc8a8aafcb16293079d464ddbd3867ab0f59))
+
+* Fixed type annotation to 3.9 ([`cbb73d6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cbb73d6669d2f127f2a6e874858b1bfa9220f131))
+
+* Merge branch &#39;move_cli_to_radicli&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into move_cli_to_radicli ([`76143d9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/76143d98cb4d39356996e3f2413c35e1a7054ba2))
+
+* Updated cookiecutter reference from Martins to Kenneths swift template
+
+This old one is no longer udated. ([`034b428`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/034b428b5fdd7386ed97bb206aa51213b94093df))
+
+* Updated cookiecutter reference ([`71b7ead`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/71b7eadaf5364ba3eca3cec0ad46bd5ae4c15eb2))
+
+
 ## v0.3.1 (2024-01-15)
 
 ### Documentation
@@ -9,6 +44,10 @@
 * docs: added execute flag ([`ea0e9ca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ea0e9ca6329a062c229d6157005f68cca4b98f15))
 
 ### Fix
+
+* fix: Added new and more comprehensive CLI
+
+Including documentation and tests ([`14ca469`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/14ca469241d6a6b356d567fd888f69b613e5652d))
 
 * fix: SebModel -&gt; EmbeddingModel ([`d2f9efa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d2f9efa1e0a367f6240aef7f0cad5ba4a9b56b11))
 

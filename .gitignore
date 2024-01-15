@@ -37,3 +37,4 @@ hf_api_key.txt
 # Test caches
 test_task.json
 test_encode_task.json
+test-encode-task.json

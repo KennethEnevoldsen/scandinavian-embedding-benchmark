@@ -11,7 +11,11 @@ import pytest
 import seb
 
 from .dummy_model import create_test_model
-from .dummy_task import create_test_task
+from .dummy_task import (
+    create_test_encode_task,
+    create_test_raise_error_task,
+    create_test_task,
+)
 from .test_tasks import all_tasks_names
 
 
@@ -20,7 +24,7 @@ from .test_tasks import all_tasks_names
     [
         (
             ["sentence-transformers/all-MiniLM-L6-v2"],
-            ["test task", "DKHate"],
+            [create_test_task(), "DKHate"],
             None,
         ),
         (
@@ -28,7 +32,7 @@ from .test_tasks import all_tasks_names
                 "test_model",
                 "sentence-transformers/all-MiniLM-L6-v2",
             ],
-            ["tes task", "test encode task"],
+            [create_test_task(), create_test_encode_task()],
             None,
         ),
     ],
@@ -36,7 +40,7 @@ from .test_tasks import all_tasks_names
 def test_run_benchmark(
     model_names: list[str],
     languages: Optional[list[str]],
-    tasks: Optional[list[str]],
+    tasks: Optional[Union[list[str], list[seb.Task]]],
     tmp_path: Path,
 ):
     """
@@ -83,14 +87,14 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
         (
             "sentence-transformers/all-MiniLM-L6-v2",
             None,
-            ["test encode task"],
+            [create_test_encode_task()],
         ),
     ],
 )
 def test_cache_dir_is_reused(
     model_name: str,
     languages: Optional[list[str]],
-    tasks: Optional[list[str]],
+    tasks: Optional[Union[list[str], list[seb.Task]]],
     tmp_path: Path,
 ):
     """
@@ -132,10 +136,11 @@ def test_benchmark_skip_on_error_raised(tmp_path: Path):
     """
     Test that the benchmark skips a model if an error is raised.
     """
+    task = create_test_raise_error_task()
     model = seb.get_model("test_model")
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=None,
-        tasks=["test raise error task"],
+        tasks=[task],
     )
 
     bm_result: seb.BenchmarkResults = benchmark.evaluate_model(

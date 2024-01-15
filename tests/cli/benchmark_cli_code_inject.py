@@ -8,7 +8,7 @@ from seb.registries import tasks
 @tasks.register("test-encode-task")
 def create_test_encode_task() -> seb.Task:
     class DummyTask(seb.Task):
-        name = "test encode task"
+        name = "test-encode-task"
         main_score = "a_metric"
         description = "NA"
         reference = "NA"
@@ -20,7 +20,7 @@ def create_test_encode_task() -> seb.Task:
             model.encode(["a test sentence"])
 
             return seb.TaskResult(
-                task_name="test task",
+                task_name="test-encode-task",
                 task_description="NA",
                 task_version="NA",
                 time_of_run=datetime.now(),

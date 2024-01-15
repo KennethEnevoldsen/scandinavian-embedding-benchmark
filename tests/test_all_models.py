@@ -15,7 +15,7 @@ openai_models = []
     reason="This test loads in all models. It is too heavy to have running as a CI",
 )
 @pytest.mark.parametrize("model", all_models)
-@pytest.mark.parametrize("task", [seb.get_task("test encode task")])
+@pytest.mark.parametrize("task", [create_test_encode_task()])
 def test_model(model: seb.EmbeddingModel, task: seb.Task):
     """
     Test if the models encodes as expected
@@ -40,7 +40,7 @@ def test_embedding_match_what_is_stated(model: seb.EmbeddingModel):
     reason="This test applied the openai embedding models. It is too expensive to have running as a CI",
 )
 @pytest.mark.parametrize("model", [seb.get_model("text-embedding-ada-002")])
-@pytest.mark.parametrize("task", [seb.get_task("test encode task")])
+@pytest.mark.parametrize("task", [create_test_encode_task()])
 def test_openai_model(model: seb.EmbeddingModel, task: seb.Task):
     """
     Test if the models encodes as expected

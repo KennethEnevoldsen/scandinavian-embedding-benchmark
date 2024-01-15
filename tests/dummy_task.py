@@ -4,7 +4,6 @@ import seb
 from seb.registries import tasks
 
 
-@tasks.register("test task")
 def create_test_task() -> seb.Task:
     class DummyTask(seb.Task):
         name = "test task"
@@ -27,7 +26,6 @@ def create_test_task() -> seb.Task:
     return DummyTask()
 
 
-@tasks.register("test encode task")
 def create_test_encode_task() -> seb.Task:
     class DummyTask(seb.Task):
         name = "test encode task"
@@ -52,8 +50,11 @@ def create_test_encode_task() -> seb.Task:
     return DummyTask()
 
 
-@tasks.register("test raise error task")
 def create_test_raise_error_task() -> seb.Task:
+    """
+    Note this task is not registered as it will cause errrors in other tests.
+    """
+
     class DummyTask(seb.Task):
         name = "test raise error task"
         main_score = "a_metric"

@@ -73,7 +73,7 @@ def benchmark_result_to_row(
     scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
-    df["Average Score"] = np.mean(scores)  # type: ignore
+    df["Average Score"] = result.get_mean_score()  # type: ignore
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
     return df

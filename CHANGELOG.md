@@ -2,6 +2,114 @@
 
 
 
+## v0.3.1 (2024-01-15)
+
+### Documentation
+
+* docs: added execute flag ([`ea0e9ca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ea0e9ca6329a062c229d6157005f68cca4b98f15))
+
+### Fix
+
+* fix: SebModel -&gt; EmbeddingModel ([`d2f9efa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d2f9efa1e0a367f6240aef7f0cad5ba4a9b56b11))
+
+* fix: Allow embedding size to be None when using CLI ([`c621a8b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c621a8b328b1f6063cbd29d8a43376a9f587a00e))
+
+### Unknown
+
+* Merge pull request #58 from KennethEnevoldsen/update-cruft
+
+Update cruft ([`870e442`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/870e4424f4448c948a2f14f1d9035276b63e04a0))
+
+* clean: removed pre-commit as it is no longer used ([`f1b5804`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f1b5804b83796694157f282aacb1280986c58d01))
+
+* updated from cruft template ([`bd7b11a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bd7b11a202cca340103163b26e809e9491fea52b))
+
+
+## v0.3.0 (2024-01-14)
+
+### Ci
+
+* ci: Updated some names in the workflow ([`b7c3012`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b7c3012d843d5eaa2017b96479f6ac730cd48087))
+
+### Documentation
+
+* docs: Added avg rank to benchmark table ([`15a821e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/15a821e6ade440fc2a2bba218e0c91d8bbc3c480))
+
+### Feature
+
+* feat: Added option to not run a model ([`55cd023`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/55cd023cd69be59e7444bf19c331ee89b4c5003f))
+
+### Fix
+
+* fix: Added embedding size of models ([`2937099`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/29370992610b78055f27a8c3ad7504147acbff5b))
+
+* fix: Added mistral current scores ([`748d8a9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/748d8a97d7a9f1d5f186cd2d92468167f912e6ac))
+
+* fix: Added prettier prints when running benchmark ([`012bcd9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/012bcd9def66cfbfe203e6e7fd346cd09f7e2594))
+
+* fix: Added option to ignore cache ([`8f36080`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8f360805038ade5b6ba91a9726918b20ac0be6f6))
+
+* fix: removed typer dependency ([`e519917`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e519917331218e993b9cc040851cb8d5d0097fdc))
+
+* fix: removed duplicate on update bnehcmark ([`ef6270c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ef6270c19ff3086da8e6596f7ffc03fdce6a0038))
+
+* fix: Added cache dir to all entry points ([`3fb4280`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3fb42806ffd9d0ccdbdcee45171d20a1390a8e68))
+
+### Unknown
+
+* Merge pull request #52 from KennethEnevoldsen/add-dataset
+
+Add embedding size to benchmark ([`d40a633`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d40a63385db585121cea606b1c0505099855cafa))
+
+* Merge pull request #50 from KennethEnevoldsen/run-using-cache
+
+Add public cache to benchmark ([`67e571c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/67e571c3d0133dde1192c56ee21cb93afa4e2f3e))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark ([`6d9d7c1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d9d7c180208f62532a69e010ac9a6235af20385))
+
+* ignore files ([`a1904ed`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a1904ed2afeb12c2ecb71a66a2b9946303abbaa5))
+
+* Added make command for table in docs ([`0cb3522`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0cb352299cd0ffba6c80edf68158d0157cca58fe))
+
+* Merge pull request #51 from KennethEnevoldsen/run_mistral_on_ucloud
+
+Added command for running on ucloud ([`396f79b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/396f79b79c9461ffb28b2b98ac1d95218a0b65af))
+
+* clean: remove test file from cache ([`89bb78f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/89bb78faa9902822c7d3c4952d1d0e77aa0ec2ca))
+
+* clean: removed test models from cache ([`10413e1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/10413e1dda23bcb7741b6e96edcf871086f1e4e0))
+
+* clean: remove tests from cache ([`af1f52d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/af1f52d540fc6b951e3a2453502b00853420e33b))
+
+* Added test for checking if benchmark is up to date ([`8fa2545`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8fa254579d78e0dd4b1e7a9e857bc9ee87e458d0))
+
+* Moved cache dir to package ([`94d6468`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/94d6468daf6ce2b33a53aa1485818bf38fafcaf2))
+
+* Added command for running on ucloud ([`c48b32e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c48b32ed0b3863c10db06cd96f05bf098eb2a47a))
+
+* Merge pull request #45 from KennethEnevoldsen/updated_norwegian_parl
+
+Updated desc. for norwegian parl. ([`985dd5d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/985dd5db69819a7c865d5094bd63df8e908a7c3d))
+
+* Updated desc. for norwegian parl. ([`c7f1e74`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c7f1e746dfa5596d63666fa994b1a951f3aaa573))
+
+* Merge pull request #43 from KennethEnevoldsen/add-mistral
+
+Added mistral dependencies ([`a4decba`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a4decbae1d6c9f3bf84f0e665449d514cd365779))
+
+* Added mistral dependencies ([`1d39008`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1d39008c744139b788fd43b6426fc517e0355d12))
+
+* Merge pull request #40 from x-tabdeveloping/main
+
+Added E5 Mistral ([`c317ad8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c317ad824e3016bac8cb860f2e8feedfe71bfc65))
+
+* Added E5 Mistral ([`01cfb90`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/01cfb908e592efa5068ff9715dc18e14c767d05f))
+
+* Added open-source flag to danskbertz ([`8ef4e39`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8ef4e39adf9e022ec046a80896f9510c0ec43390))
+
+* Update index.md ([`41e350e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/41e350ef7c3951a3f902188c30e91ecd35ed78eb))
+
+
 ## v0.2.10 (2023-12-07)
 
 ### Ci

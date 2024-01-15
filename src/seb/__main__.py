@@ -1,4 +1,4 @@
-from seb.cli import main
-
 if __name__ == "__main__":
-    main()
+    from seb.cli import setup_cli
+
+    setup_cli()

@@ -46,9 +46,12 @@ nav:
   - Package:
       - Installation: installation.md
       - Getting Started: getting_started.ipynb
+      - CLI: cli.md
       - API: api.md
 plugins:
   - mkdocs-jupyter
+  # - mkdocs-jupyter:
+  #     - execute: true # should be true when mistral results is merged in
   - search
   - mkdocstrings:
       handlers:

@@ -1,12 +1,13 @@
 import logging
 import os
+from collections.abc import Iterable
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .model_interface import SebModel
+from .model_interface import EmbeddingModel
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .tasks_interface import Task
@@ -31,7 +32,7 @@ def get_cache_dir() -> Path:
 
 
 def get_cache_path(
-    task: Task, model: SebModel, cache_dir: Optional[Path] = None
+    task: Task, model: EmbeddingModel, cache_dir: Optional[Path] = None
 ) -> Path:
     """
     Get the cache path for a task and model.
@@ -45,7 +46,7 @@ def get_cache_path(
 
 def run_task(
     task: Task,
-    model: SebModel,
+    model: EmbeddingModel,
     use_cache: bool,
     run_model: bool,
     raise_errors: bool,
@@ -54,7 +55,6 @@ def run_task(
     """
     Tests a model on a task
     """
-
     if run_model is False and use_cache is False:
         raise ValueError("run_model and use_cache cannot both be False")
     if not raise_errors and run_model is False:
@@ -80,7 +80,7 @@ def run_task(
 
     cache_path = get_cache_path(task, model, cache_dir)
     if cache_path.exists() and use_cache:
-        logger.info(f"Loading cached result for {model.meta.name} on {task.name}")
+        logger.debug(f"Loading cached result for {model.meta.name} on {task.name}")
         task_result = TaskResult.from_disk(cache_path)
         return task_result
 
@@ -105,42 +105,53 @@ class Benchmark:
     def __init__(
         self,
         languages: Optional[list[str]] = None,
-        tasks: Optional[list[str]] = None,
+        tasks: Optional[Union[Iterable[str], Iterable[Task]]] = None,
     ) -> None:
         """
         Initialize the benchmark.
 
         Args:
             languages: A list of languages to run the benchmark on. If None, all languages are used.
-            tasks: A list of tasks to run the benchmark on. If None, all tasks are used.
+            tasks: The tasks to run the benchmark on. If None, all tasks are used. Can either be specified as strings or as Task objects.
         """
         self.languages = languages
-        self.tasks_names = tasks
-        self.tasks = self.get_tasks()
 
-    def get_tasks(self) -> list[Task]:
+        self.tasks = self.get_tasks(tasks, languages)
+        self.task_names = [task.name for task in self.tasks]
+
+    @staticmethod
+    def get_tasks(
+        tasks: Optional[Union[Iterable[str], Iterable[Task]]],
+        languages: Optional[list[str]],
+    ) -> list[Task]:
         """
         Get the tasks for the benchmark.
 
         Returns:
             A list of tasks.
         """
-        tasks = []
+        _tasks = []
 
-        if self.tasks_names is not None:
-            tasks: list[Task] = [get_task(task_name) for task_name in self.tasks_names]
-        else:
-            tasks: list[Task] = get_all_tasks()
+        if tasks is None:
+            return get_all_tasks()
 
-        if self.languages is not None:
-            langs = set(self.languages)
-            tasks = [task for task in tasks if set(task.languages) & langs]
+        for task in tasks:
+            if isinstance(task, str):
+                _tasks.append(get_task(task))
+            elif isinstance(task, Task):
+                _tasks.append(task)
+            else:
+                raise ValueError(f"Invalid task type: {type(task)}")
 
-        return tasks
+        if languages is not None:
+            langs = set(languages)
+            tasks = [task for task in _tasks if set(task.languages) & langs]
+
+        return _tasks
 
     def evaluate_model(
         self,
-        model: SebModel,
+        model: EmbeddingModel,
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,
@@ -159,9 +170,10 @@ class Benchmark:
         Returns:
             The results of the benchmark.
         """
-        tasks = self.get_tasks()
         task_results = []
-        pbar = tqdm(tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
+        pbar = tqdm(
+            self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False
+        )
         for task in pbar:
             pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(
@@ -178,7 +190,7 @@ class Benchmark:
 
     def evaluate_models(
         self,
-        models: list[SebModel],
+        models: list[EmbeddingModel],
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,

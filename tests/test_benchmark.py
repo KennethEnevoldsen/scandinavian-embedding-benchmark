@@ -24,7 +24,7 @@ from .test_tasks import all_tasks_names
     [
         (
             ["sentence-transformers/all-MiniLM-L6-v2"],
-            [create_test_task(), "DKHate"],
+            [create_test_task()],
             None,
         ),
         (

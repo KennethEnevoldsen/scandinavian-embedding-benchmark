@@ -1,4 +1,4 @@
-from typing import Callable, Optional, Protocol, Union, runtime_checkable
+from typing import Any, Callable, Optional, Protocol, Union, runtime_checkable
 
 from numpy import ndarray
 from pydantic import BaseModel
@@ -40,7 +40,7 @@ class ModelMeta(BaseModel):
     reference: Optional[str] = None
     languages: list[str] = []
     open_source: bool = False
-    embedding_size: int
+    embedding_size: Optional[int] = None
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:
@@ -53,7 +53,12 @@ class ModelMeta(BaseModel):
         return f"https://huggingface.co/{self.huggingface_name}"
 
 
-class SebModel(BaseModel):
+class EmbeddingModel(BaseModel):
+    """
+    An embedding model as implemented in SEB. It notably dynamically loads models (such that models are not loaded when a cache is hit)
+    and includes metadata pertaining to the specific model.
+    """
+
     meta: ModelMeta
     loader: Callable[[], ModelInterface]
     _model: Optional[ModelInterface] = None
@@ -80,7 +85,7 @@ class SebModel(BaseModel):
         self,
         sentences: list[str],
         batch_size: int = 32,
-        **kwargs: dict,
+        **kwargs: Any,
     ) -> ArrayLike:
         """
         Returns a list of embeddings for the given sentences.

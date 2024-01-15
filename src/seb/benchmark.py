@@ -5,7 +5,7 @@ from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .model_interface import SebModel
+from .model_interface import EmbeddingModel
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .tasks_interface import Task
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_cache_path(
-    task: Task, model: SebModel, cache_dir: Optional[Path] = None
+    task: Task, model: EmbeddingModel, cache_dir: Optional[Path] = None
 ) -> Path:
     """
     Get the cache path for a task and model.
@@ -29,7 +29,7 @@ def get_cache_path(
 
 def run_task(
     task: Task,
-    model: SebModel,
+    model: EmbeddingModel,
     use_cache: bool,
     run_model: bool,
     raise_errors: bool,
@@ -124,7 +124,7 @@ class Benchmark:
 
     def evaluate_model(
         self,
-        model: SebModel,
+        model: EmbeddingModel,
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,
@@ -162,7 +162,7 @@ class Benchmark:
 
     def evaluate_models(
         self,
-        models: list[SebModel],
+        models: list[EmbeddingModel],
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,

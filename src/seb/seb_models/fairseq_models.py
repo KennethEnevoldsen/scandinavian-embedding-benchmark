@@ -5,7 +5,7 @@ from typing import Optional, Union
 
 import torch
 
-from seb.model_interface import ModelInterface, ModelMeta, SebModel
+from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
 from seb.registries import models
 
 
@@ -109,7 +109,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
 
 
 @models.register("facebook/SONAR_da")
-def create_sonar_da() -> SebModel:
+def create_sonar_da() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-dan",
         huggingface_name=None,
@@ -118,14 +118,14 @@ def create_sonar_da() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sonar_model, source_lang="dan_Latn"),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_sv")
-def create_sonar_sv() -> SebModel:
+def create_sonar_sv() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-swe",
         huggingface_name=None,
@@ -134,14 +134,14 @@ def create_sonar_sv() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sonar_model, source_lang="swe_Latn"),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_nb")
-def create_sonar_nb() -> SebModel:
+def create_sonar_nb() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-nob",
         huggingface_name=None,
@@ -150,14 +150,14 @@ def create_sonar_nb() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sonar_model, source_lang="nob_Latn"),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_nn")
-def create_sonar_nn() -> SebModel:
+def create_sonar_nn() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-nno",
         huggingface_name=None,
@@ -166,7 +166,7 @@ def create_sonar_nn() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(get_sonar_model, source_lang="nno_Latn"),
         meta=meta,
     )

@@ -9,7 +9,7 @@ from functools import partial
 
 import torch
 
-from seb.model_interface import ModelInterface, ModelMeta, SebModel
+from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
@@ -53,7 +53,7 @@ class CohereTextEmbeddingModel(ModelInterface):
 
 
 @models.register("embed-multilingual-v3.0")
-def create_embed_multilingual_v3() -> SebModel:
+def create_embed_multilingual_v3() -> EmbeddingModel:
     model_name = "embed-multilingual-v3.0"
     meta = ModelMeta(
         name=model_name,
@@ -63,7 +63,7 @@ def create_embed_multilingual_v3() -> SebModel:
         open_source=False,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(CohereTextEmbeddingModel, model_name=model_name),
         meta=meta,
     )

@@ -6,7 +6,7 @@ This is the specification for the full benchmark. Running the code here will rep
 from pathlib import Path
 from typing import Optional
 
-from seb.model_interface import SebModel
+from seb.model_interface import EmbeddingModel
 
 from .benchmark import Benchmark
 from .registries import get_all_models
@@ -29,7 +29,7 @@ def run_benchmark(
     """
     Run the full SEB benchmark.
     """
-    models: list[SebModel] = get_all_models()
+    models: list[EmbeddingModel] = get_all_models()
 
     results = {}
     for subset, langs in BENCHMARKS.items():

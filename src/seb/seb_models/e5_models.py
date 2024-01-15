@@ -1,6 +1,6 @@
 from functools import partial
 
-from seb import ModelInterface, ModelMeta, SebModel, models
+from seb import EmbeddingModel, ModelInterface, ModelMeta, models
 from seb.model_interface import ArrayLike
 
 from .hf_models import get_sentence_transformer
@@ -31,7 +31,7 @@ class E5Wrapper(ModelInterface):
 
 # English
 @models.register("intfloat/e5-small")
-def create_e5_small() -> SebModel:
+def create_e5_small() -> EmbeddingModel:
     hf_name = "intfloat/e5-small"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -41,14 +41,14 @@ def create_e5_small() -> SebModel:
         open_source=True,
         embedding_size=384,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("intfloat/e5-base")
-def create_e5_base() -> SebModel:
+def create_e5_base() -> EmbeddingModel:
     hf_name = "intfloat/e5-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -58,14 +58,14 @@ def create_e5_base() -> SebModel:
         open_source=True,
         embedding_size=768,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("intfloat/e5-large")
-def create_e5_large() -> SebModel:
+def create_e5_large() -> EmbeddingModel:
     hf_name = "intfloat/e5-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -75,7 +75,7 @@ def create_e5_large() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
@@ -83,7 +83,7 @@ def create_e5_large() -> SebModel:
 
 # Multilingual
 @models.register("intfloat/multilingual-e5-small")
-def create_multilingual_e5_small() -> SebModel:
+def create_multilingual_e5_small() -> EmbeddingModel:
     hf_name = "intfloat/multilingual-e5-small"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -93,14 +93,14 @@ def create_multilingual_e5_small() -> SebModel:
         open_source=True,
         embedding_size=384,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("intfloat/multilingual-e5-base")
-def create_multilingual_e5_base() -> SebModel:
+def create_multilingual_e5_base() -> EmbeddingModel:
     hf_name = "intfloat/multilingual-e5-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -110,14 +110,14 @@ def create_multilingual_e5_base() -> SebModel:
         open_source=True,
         embedding_size=768,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("intfloat/multilingual-e5-large")
-def create_multilingual_e5_large() -> SebModel:
+def create_multilingual_e5_large() -> EmbeddingModel:
     hf_name = "intfloat/multilingual-e5-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -127,14 +127,14 @@ def create_multilingual_e5_large() -> SebModel:
         open_source=True,
         embedding_size=1024,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("intfloat/e5-mistral-7b-instruct")
-def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
+def create_multilingual_e5_mistral_7b_instruct() -> EmbeddingModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -144,7 +144,7 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         open_source=True,
         embedding_size=4096,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )

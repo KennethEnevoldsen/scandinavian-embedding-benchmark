@@ -13,7 +13,7 @@ Here is a list of important resources for contributors:
 
 [MIT license]: https://opensource.org/licenses/MIT
 [source code]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark
-[documentation]: https://scandinavian-embedding-benchmark.readthedocs.io/
+[documentation]: https://KennethEnevoldsen.github.io/scandinavian-embedding-benchmark/index.html
 [issue tracker]: https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/issues
 
 ## How to report a bug

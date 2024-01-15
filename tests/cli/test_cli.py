@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Union
 
 import pytest
 import seb
@@ -12,9 +13,9 @@ test_dir = Path(__file__).parent
 class BenchmarkCliTestInput:
     model_name: str
     mean_score: float
-    tasks: list[str] | None = None
-    languages: list[str] | None = None
-    code_path: Path | None = None
+    tasks: Union[list[str], None] = None
+    languages: Union[list[str], None] = None
+    code_path: Union[Path, None] = None
     ignore_cache: bool = False
 
     def to_command(self, output_path: Path) -> list[str]:

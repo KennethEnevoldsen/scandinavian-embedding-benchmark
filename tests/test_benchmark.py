@@ -24,16 +24,16 @@ from .test_tasks import all_tasks_names
     [
         (
             ["sentence-transformers/all-MiniLM-L6-v2"],
-            [create_test_task()],
             None,
+            [create_test_task()],
         ),
         (
             [
                 "test_model",
                 "sentence-transformers/all-MiniLM-L6-v2",
             ],
-            [create_test_task(), create_test_encode_task()],
             None,
+            [create_test_task(), create_test_encode_task()],
         ),
     ],
 )

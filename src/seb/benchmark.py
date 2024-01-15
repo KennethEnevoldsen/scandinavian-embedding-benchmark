@@ -1,4 +1,5 @@
 import logging
+import os
 from collections.abc import Iterable
 from datetime import datetime
 from pathlib import Path
@@ -10,9 +11,24 @@ from .model_interface import EmbeddingModel
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .tasks_interface import Task
-from .utils import WarningIgnoreContextManager, get_cache_dir, name_to_path
+from .warning_ignore_manager import WarningIgnoreContextManager
 
 logger = logging.getLogger(__name__)
+
+
+package_dir = Path(__file__).parent
+CACHE_DIR = package_dir / "cache"
+
+
+def get_cache_dir() -> Path:
+    """
+    Get the cache directory for SEB. Can be overridden by setting the environment
+    variable SEB_CACHE_DIR.
+    """
+    cache_dir = os.environ.get("SEB_CACHE_DIR")
+    if cache_dir is not None:
+        return Path(cache_dir)
+    return CACHE_DIR
 
 
 def get_cache_path(
@@ -23,7 +39,7 @@ def get_cache_path(
     """
     cache_path = cache_dir if cache_dir is not None else get_cache_dir()
     mdl_path_name = model.meta.get_path_name()
-    task_path_name = name_to_path(task.name) + ".json"
+    task_path_name = task.name_to_path() + ".json"
     task_cache_path = cache_path / mdl_path_name / task_path_name
     return task_cache_path
 

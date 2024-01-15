@@ -26,6 +26,7 @@ def create_lcc() -> Task:
         "fiction",
         "non-fiction",
         "academic",
+        "government",
     ]
     return task
 

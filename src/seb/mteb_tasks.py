@@ -1,8 +1,8 @@
+import random
 from typing import Any
 
 import datasets
-from mteb.abstasks import AbsTaskClassification
-from mteb.abstasks.AbsTaskRetrieval import AbsTaskRetrieval
+from mteb.abstasks import AbsTaskClassification, AbsTaskRetrieval, AbsTaskSTS
 
 
 class SweFaqRetrieval(AbsTaskRetrieval):
@@ -98,4 +98,79 @@ class NorwegianParliamentClassification(AbsTaskClassification):
             "n_experiments": 10,
             "samples_per_label": 16,
             "revision": "f7393532774c66312378d30b197610b43d751972",
+        }
+
+
+def sattolo_cycle(items):
+    for i in range(len(items) - 1, 0, -1):
+        j = random.randint(0, i - 1)
+        items[i], items[j] = items[j], items[i]
+    return items
+
+
+class SwednSummarizationSTS(AbsTaskSTS):
+    def load_data(self, **kwargs: dict):  # noqa: ARG002
+        """
+        Load dataset from HuggingFace hub
+        """
+        if self.data_loaded:
+            return
+
+        self.dataset: datasets.DatasetDict = datasets.load_dataset(
+            self.description["hf_hub_name"],
+            "swedn",  # chose the relevant subset
+            revision=self.description.get("revision"),
+        )  # type: ignore
+
+        self.dataset_transform()
+        self.data_loaded = True
+
+    def dataset_transform(self) -> None:
+        self.dataset = self.dataset.rename_column("summary", "sentence2")
+        self.dataset = self.dataset.rename_column("article", "sentence1")
+        self.dataset = self.dataset.remove_columns(
+            ["id", "headline", "article_category"]
+        )
+        random.seed(42)
+
+        # add score column
+        for split in self.dataset:
+            ds_split = self.dataset[split]
+            ds_split = ds_split.add_column("score", [1] * len(ds_split))  # type: ignore
+            self.dataset[split] = ds_split
+
+            # Add a wrongly mapped examples. To ensure tasks in non-trivial
+            summaries = ds_split["sentence2"]
+            articles = ds_split["sentence1"]
+            scores = ds_split["score"]
+            mismatched_summaries = sattolo_cycle(summaries)
+
+            # add all the mismatched examples as negative examples
+            mismatched_ds = datasets.Dataset.from_dict(
+                {
+                    "sentence1": articles,
+                    "sentence2": mismatched_summaries,
+                    "score": [0] * len(articles),
+                }
+            )
+            self.dataset[split] = datasets.concatenate_datasets(
+                [ds_split, mismatched_ds]
+            )
+
+    @property
+    def description(self) -> dict[str, Any]:
+        return {
+            "name": "Swedn",
+            "hf_hub_name": "sbx/superlim-2",
+            "description": "News Article Summary Semantic Similarity Estimation.",
+            "reference": "https://spraakbanken.gu.se/en/resources/swedn",
+            "type": "STS",
+            "category": "p2p",
+            "eval_splits": ["test"],
+            "eval_langs": ["sv"],
+            "main_score": "spearman",
+            # All pairs are considered to be semantically similar (score=1)
+            "min_score": 0,
+            "max_score": 1,
+            "revision": "ef1661775d746e0844b299164773db733bdc0bf6",
         }

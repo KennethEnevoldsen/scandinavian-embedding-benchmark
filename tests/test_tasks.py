@@ -71,3 +71,4 @@ def test_all_tasks(task_name: str, model_name: str):
 
     task_result = task.evaluate(model)
     assert isinstance(task_result, seb.TaskResult)
+    assert isinstance(task_result.get_main_score(), float)

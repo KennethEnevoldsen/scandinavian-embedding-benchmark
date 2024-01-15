@@ -2,7 +2,7 @@
     "_copy_without_render": [
         "*.github"
     ],
-    "_template": "https://github.com/MartinBernstorff/swift-python-cookiecutter",
+    "_template": "https://github.com/KennethEnevoldsen/swift-python-cookiecutter",
     "author": "Kenneth Enevoldsen",
     "copyright_year": "2023",
     "email": "Kennethcenevoldsen@gmail.com",

@@ -34,7 +34,8 @@ def create_swefaq() -> Task:
     return task
 
 
-@tasks.register("Swedn")
+# temporarily disabled - will be added back in the future (along with the new datasets)
+# @tasks.register("Swedn")
 def create_swedn() -> Task:
     from seb.mteb_tasks import SwednSummarizationSTS
 

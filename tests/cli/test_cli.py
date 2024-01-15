@@ -64,6 +64,7 @@ def is_approximately_equal(a: float, b: float) -> bool:
         return True
     return abs(a - b) < 0.001
 
+
 @cli_command_parametrize
 def test_run_benchmark_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
     tmp_path = tmp_path.with_suffix(".json")
@@ -76,7 +77,9 @@ def test_run_benchmark_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
         ignore_cache=inputs.ignore_cache,
     )
     res = seb.BenchmarkResults.from_disk(tmp_path)
-    res.task_results = [tr for tr in res.task_results if tr.task_name != "test-encode-task"]
+    res.task_results = [
+        tr for tr in res.task_results if tr.task_name != "test-encode-task"
+    ]
     assert is_approximately_equal(res.get_main_score(), inputs.mean_score)
 
 
@@ -86,5 +89,7 @@ def test_run_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
     cli.run(inputs.to_command(tmp_path))
     res = seb.BenchmarkResults.from_disk(tmp_path)
     # filter out test task
-    res.task_results = [tr for tr in res.task_results if tr.task_name != "test-encode-task"]
+    res.task_results = [
+        tr for tr in res.task_results if tr.task_name != "test-encode-task"
+    ]
     assert is_approximately_equal(res.get_main_score(), inputs.mean_score)

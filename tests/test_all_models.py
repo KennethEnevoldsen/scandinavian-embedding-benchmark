@@ -23,7 +23,6 @@ def test_model(model: seb.EmbeddingModel, task: seb.Task):
     task.evaluate(model)
 
 
-
 @pytest.mark.skip(
     reason="This test loads in all models. It is too heavy to have running as a CI",
 )

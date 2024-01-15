@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torch import Tensor
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
-from seb import ModelInterface, ModelMeta, SebModel, models
+from seb import EmbeddingModel, ModelInterface, ModelMeta, models
 from seb.model_interface import ArrayLike
 
 T = TypeVar("T")
@@ -98,7 +98,7 @@ class E5Mistral(ModelInterface):
 
 
 @models.register("intfloat/e5-mistral-7b-instruct")
-def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
+def create_multilingual_e5_mistral_7b_instruct() -> EmbeddingModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -108,7 +108,7 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         open_source=True,
         embedding_size=4096,
     )
-    return SebModel(
+    return EmbeddingModel(
         loader=E5Mistral,
         meta=meta,
     )

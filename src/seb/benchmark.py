@@ -1,5 +1,5 @@
 import logging
-import time
+from collections.abc import Iterable
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union
@@ -89,38 +89,49 @@ class Benchmark:
     def __init__(
         self,
         languages: Optional[list[str]] = None,
-        tasks: Optional[list[str]] = None,
+        tasks: Optional[Union[Iterable[str], Iterable[Task]]] = None,
     ) -> None:
         """
         Initialize the benchmark.
 
         Args:
             languages: A list of languages to run the benchmark on. If None, all languages are used.
-            tasks: A list of tasks to run the benchmark on. If None, all tasks are used.
+            tasks: The tasks to run the benchmark on. If None, all tasks are used. Can either be specified as strings or as Task objects.
         """
         self.languages = languages
-        self.tasks_names = tasks
-        self.tasks = self.get_tasks()
 
-    def get_tasks(self) -> list[Task]:
+        self.tasks = self.get_tasks(tasks, languages)
+        self.task_names = [task.name for task in self.tasks]
+
+    @staticmethod
+    def get_tasks(
+        tasks: Optional[Union[Iterable[str], Iterable[Task]]],
+        languages: Optional[list[str]],
+    ) -> list[Task]:
         """
         Get the tasks for the benchmark.
 
         Returns:
             A list of tasks.
         """
-        tasks = []
+        _tasks = []
 
-        if self.tasks_names is not None:
-            tasks: list[Task] = [get_task(task_name) for task_name in self.tasks_names]
-        else:
-            tasks: list[Task] = get_all_tasks()
+        if tasks is None:
+            return get_all_tasks()
 
-        if self.languages is not None:
-            langs = set(self.languages)
-            tasks = [task for task in tasks if set(task.languages) & langs]
+        for task in tasks:
+            if isinstance(task, str):
+                _tasks.append(get_task(task))
+            elif isinstance(task, Task):
+                _tasks.append(task)
+            else:
+                raise ValueError(f"Invalid task type: {type(task)}")
 
-        return tasks
+        if languages is not None:
+            langs = set(languages)
+            tasks = [task for task in _tasks if set(task.languages) & langs]
+
+        return _tasks
 
     def evaluate_model(
         self,
@@ -143,9 +154,10 @@ class Benchmark:
         Returns:
             The results of the benchmark.
         """
-        tasks = self.get_tasks()
         task_results = []
-        pbar = tqdm(tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
+        pbar = tqdm(
+            self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False
+        )
         for task in pbar:
             pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(

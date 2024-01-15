@@ -2,6 +2,29 @@
 
 
 
+## v0.3.1 (2024-01-15)
+
+### Documentation
+
+* docs: added execute flag ([`ea0e9ca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ea0e9ca6329a062c229d6157005f68cca4b98f15))
+
+### Fix
+
+* fix: SebModel -&gt; EmbeddingModel ([`d2f9efa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d2f9efa1e0a367f6240aef7f0cad5ba4a9b56b11))
+
+* fix: Allow embedding size to be None when using CLI ([`c621a8b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c621a8b328b1f6063cbd29d8a43376a9f587a00e))
+
+### Unknown
+
+* Merge pull request #58 from KennethEnevoldsen/update-cruft
+
+Update cruft ([`870e442`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/870e4424f4448c948a2f14f1d9035276b63e04a0))
+
+* clean: removed pre-commit as it is no longer used ([`f1b5804`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f1b5804b83796694157f282aacb1280986c58d01))
+
+* updated from cruft template ([`bd7b11a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bd7b11a202cca340103163b26e809e9491fea52b))
+
+
 ## v0.3.0 (2024-01-14)
 
 ### Ci

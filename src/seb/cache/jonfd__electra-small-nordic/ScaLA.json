@@ -1,0 +1,45 @@
+{
+    "task_name": "ScaLA",
+    "task_description": "A linguistic acceptability task for Danish, Norwegian Bokmål Norwegian Nynorsk and Swedish.",
+    "task_version": "1.0.3.dev0",
+    "time_of_run": "2023-07-27T20:35:54.008956",
+    "scores": {
+        "da": {
+            "accuracy": 0.704052734375,
+            "f1": 0.7016426788632224,
+            "ap": 0.6489189767992944,
+            "accuracy_stderr": 0.022459292144219167,
+            "f1_stderr": 0.025962579679041423,
+            "ap_stderr": 0.017125658069639487,
+            "main_score": 0.704052734375
+        },
+        "nb": {
+            "accuracy": 0.75283203125,
+            "f1": 0.752373309494691,
+            "ap": 0.6921163261018733,
+            "accuracy_stderr": 0.02621465574176361,
+            "f1_stderr": 0.026451034005481124,
+            "ap_stderr": 0.025567288727820582,
+            "main_score": 0.75283203125
+        },
+        "sv": {
+            "accuracy": 0.719384765625,
+            "f1": 0.7178199229809393,
+            "ap": 0.6569343597290781,
+            "accuracy_stderr": 0.01647187685733988,
+            "f1_stderr": 0.016268252909828418,
+            "ap_stderr": 0.015231690971978113,
+            "main_score": 0.719384765625
+        },
+        "nn": {
+            "accuracy": 0.69345703125,
+            "f1": 0.6925467164872301,
+            "ap": 0.6345195789841289,
+            "accuracy_stderr": 0.01846297234077574,
+            "f1_stderr": 0.0191971625171775,
+            "ap_stderr": 0.01802347858060941,
+            "main_score": 0.69345703125
+        }
+    },
+    "main_score": "accuracy"
+}

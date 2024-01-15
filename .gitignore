@@ -33,3 +33,7 @@ seb_cache/
 site/
 datawrapper_api_key.txt
 hf_api_key.txt
+
+# Test caches
+test_task.json
+test_encode_task.json

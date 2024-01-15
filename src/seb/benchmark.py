@@ -1,4 +1,5 @@
 import logging
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union
@@ -38,7 +39,6 @@ def run_task(
     """
     Tests a model on a task
     """
-
     if run_model is False and use_cache is False:
         raise ValueError("run_model and use_cache cannot both be False")
     if not raise_errors and run_model is False:
@@ -64,7 +64,7 @@ def run_task(
 
     cache_path = get_cache_path(task, model, cache_dir)
     if cache_path.exists() and use_cache:
-        logger.info(f"Loading cached result for {model.meta.name} on {task.name}")
+        logger.debug(f"Loading cached result for {model.meta.name} on {task.name}")
         task_result = TaskResult.from_disk(cache_path)
         return task_result
 

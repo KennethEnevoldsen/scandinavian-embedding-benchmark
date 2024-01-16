@@ -22,9 +22,9 @@ def create_norwegian_parliament() -> Task:
     return task
 
 
-@tasks.register("Norwegian courts")
+# @tasks.register("Norwegian courts") # noqa
 def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
-    task.domain = ["legal"]
+    task.domain = ["legal", "non-ficiton"]
     return task

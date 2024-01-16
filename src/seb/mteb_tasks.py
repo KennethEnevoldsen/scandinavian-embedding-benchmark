@@ -187,7 +187,7 @@ class NorwegianCourtsBitextMining(AbsTaskBitextMining):
             + "Norway has two standardised written languages. "
             + "Bokmål is a variant closer to Danish, while Nynorsk was created to resemble "
             + "regional dialects of Norwegian.",
-            "reference": "https://opus.nlpl.eu/index.php",
+            "reference": "https://opus.nlpl.eu/ELRC-Courts_Norway-v1.php",
             "type": "BitextMining",
             "category": "s2s",
             "eval_splits": ["test"],

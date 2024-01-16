@@ -73,8 +73,8 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     logging_level=Arg("--logging-level", help="Logging level for the benchmark."),
 )
 def run_benchmark_cli(
-    model_name: str,
-    output_path: Path,
+    model_name: Optional[str] = None,
+    output_path: Optional[Path] = None,
     tasks: Optional[list[str]] = None,
     languages: Optional[list[str]] = None,
     ignore_cache: bool = False,
@@ -108,18 +108,23 @@ def run_benchmark_cli(
 
     import_code(code_path)
 
-    model = build_model(model_name=model_name)
+    all_models = get_all_models()
+    if model_name is not None:
+        model = build_model(model_name=model_name)
+        all_models.append(model)
     benchmark = seb.Benchmark(languages, tasks=tasks)
-    benchmark_result = benchmark.evaluate_model(
-        model,
+    benchmark_results = benchmark.evaluate_models(
+        all_models,
         use_cache=not ignore_cache,
         raise_errors=not ignore_errors,
     )
-    benchmark_result.to_disk(output_path)
-    benchmark_result.meta.name = f"NEW: {benchmark_result.meta.name}"
-    full_results = benchmark.evaluate_models(
-        models=get_all_models(), use_cache=True, run_model=False, cache_dir=None
-    )
-    full_results.append(benchmark_result)
-    benchmark_df = convert_to_table(full_results, languages)
-    pretty_print_benchmark(benchmark_df, highlight=benchmark_result.meta.name)
+    if model_name is not None:
+        current_benchmark = benchmark_results[-1]
+        if output_path is not None:
+            current_benchmark.to_disk(output_path)
+        current_benchmark.meta.name = f"NEW: {current_benchmark.meta.name}"
+        highlight = current_benchmark.meta.name
+    else:
+        highlight = None
+    benchmark_df = convert_to_table(benchmark_results, languages)
+    pretty_print_benchmark(benchmark_df, highlight=highlight)

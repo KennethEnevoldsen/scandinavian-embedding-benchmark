@@ -61,7 +61,7 @@ def convert_to_table(
     df = df.reset_index()
     df = df.rename(columns={"index": "Model"})
     ranks = [i + 1 for i in range(len(df.index))]
-    df.insert(0, "Rank", ranks)) + 1)
+    df.insert(0, "Rank", ranks)
     return df
 
 
@@ -77,30 +77,23 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
     return avg_ranks
 
 
-def display_model_table(result: seb.BenchmarkResults, langs: Optional[list[str]]):
-    # We load the full benchmark from cache in the package
-    full_bench = seb.Benchmark(languages=langs)
-    models = get_all_models()
-    bm_results = full_bench.evaluate_models(
-        models=models,
-        use_cache=True,
-        run_model=False,
-        cache_dir=None,
-    )
-    bm_results.append(result)
-    result.meta.name = "NEW: " + result.meta.name
-    model_name = result.meta.name
-    df = convert_to_table(bm_results, langs)
+def pretty_print_benchmark(df: pd.DataFrame, highlight: Optional[str] = None):
+    """Pretty prints the benchmark's results with Rich.
+    If you pass a model name in highlight, the model will
+    be highlighted and only the rows around it will be showed,
+    otherwise the full benchmark is shown and no row is highlighted.
+    """
     console = Console()
     table = Table(title="Benchmark Results")
     for column in df.columns:
         justify = "left" if column == "Model" else "right"
         no_wrap = column in ["Model", "Average Score", "Average Rank", "Rank"]
         table.add_column(column, justify=justify, no_wrap=no_wrap)
-    model_rank = df[df["Model"] == model_name]["Rank"].iloc[0]
-    models_to_display = df[(df["Rank"] <= 3) | ((df["Rank"] - model_rank).abs() < 3)]
-    for _, row in models_to_display.iterrows():
-        style = "deep_sky_blue1 bold" if model_name == row["Model"] else None
+    if highlight is not None:
+        model_rank = df[df["Model"] == highlight]["Rank"].iloc[0]
+        df = df[(df["Rank"] <= 3) | ((df["Rank"] - model_rank).abs() < 3)]
+    for _, row in df.iterrows():
+        style = "deep_sky_blue1 bold" if highlight == row["Model"] else None
         rank = row["Rank"]
         values = []
         for val in row:
@@ -110,7 +103,7 @@ def display_model_table(result: seb.BenchmarkResults, langs: Optional[list[str]]
                 val = str(val)
             values.append(val)
         table.add_row(*values, style=style)
-        if rank == 3:
+        if (rank == 3) and (highlight is not None):
             table.add_section()
     console.clear()
     console.print(table)

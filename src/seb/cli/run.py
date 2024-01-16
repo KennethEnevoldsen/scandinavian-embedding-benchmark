@@ -7,10 +7,11 @@ from radicli import Arg, get_list_converter
 from sentence_transformers import SentenceTransformer
 
 import seb
+from seb.registries import get_all_models
 
 from .cli import cli
 from .import_code import import_code
-from .table import display_model_table
+from .table import convert_to_table, pretty_print_benchmark
 
 logger = logging.getLogger(__name__)
 
@@ -115,4 +116,10 @@ def run_benchmark_cli(
         raise_errors=not ignore_errors,
     )
     benchmark_result.to_disk(output_path)
-    display_model_table(benchmark_result, languages)
+    benchmark_result.meta.name = f"NEW: {benchmark_result.meta.name}"
+    full_results = benchmark.evaluate_models(
+        models=get_all_models(), use_cache=True, run_model=False, cache_dir=None
+    )
+    full_results.append(benchmark_result)
+    benchmark_df = convert_to_table(full_results, languages)
+    pretty_print_benchmark(benchmark_df, highlight=benchmark_result.meta.name)

@@ -41,7 +41,7 @@ update-from-template:
 	@echo "This will update the project from the template, make sure to resolve any .rej files"
 	cruft update --skip-apply-ask
 
-update-benchmark:
+run-benchmark:
 	# set environment variables
 	hf_api_key=$(cat hf_api_key.txt)
 	export HF_TOKEN=hf_api_key
@@ -55,3 +55,4 @@ check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"
 
 	python src/scripts/check_benchmark_is_up_to_date.py
+

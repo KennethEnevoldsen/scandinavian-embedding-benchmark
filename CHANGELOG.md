@@ -2,6 +2,85 @@
 
 
 
+## v0.5.0 (2024-01-15)
+
+### Fix
+
+* fix: Fixed errors derived from merge conflicts ([`5f086cc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5f086ccff5b588888ca9bc47471ee706e1239101))
+
+### Unknown
+
+* Merge pull request #60 from KennethEnevoldsen/add-summarization
+
+Add summarization ([`065b0e6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/065b0e632b188362085705f9809409b055683dc7))
+
+
+## v0.4.0 (2024-01-15)
+
+### Feature
+
+* feat: Allow tasks to be passed to benchmark instead of just strings ([`57a9b19`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/57a9b194a741d0416a9289fe11da174835cfdd63))
+
+### Fix
+
+* fix: remove commented out code ([`04187b3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/04187b35f252c64e7ddb0a31e75ed6df03902206))
+
+* fix: remove DKHate from tests ([`3192fff`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3192fff27519a48aadcb46e8f126c4894e3ec727))
+
+* fix: Renamed Scala -&gt; ScaLA to ensure cache hit on non osx system ([`d9f7b05`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d9f7b0575dd140d840e9104755408c49c3e22b2e))
+
+* fix: Added intfloat/e5-mistral-7b results to cache ([`93b0086`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/93b008617a9717c8011cb34a3c1949d1d3e2c7df))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-summarization ([`5072584`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5072584d261f0d6b4594a7487d2c75e77ac30312))
+
+* Merge pull request #57 from KennethEnevoldsen/move_cli_to_radicli
+
+fix: Added new and more comprehensive CLI ([`2b0a47a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b0a47aa8ff3e044d15725adf6b20a2bb883aa69))
+
+* tests: Fix ordering of test input ([`971c9ac`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/971c9ac7d0a4640e982fe62ebfd62a0372b8f22e))
+
+* tests: Ensure that dummy tasks are not added to registry ([`affabc8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/affabc8a8aafcb16293079d464ddbd3867ab0f59))
+
+* Fixed type annotation to 3.9 ([`cbb73d6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cbb73d6669d2f127f2a6e874858b1bfa9220f131))
+
+* Merge branch &#39;move_cli_to_radicli&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into move_cli_to_radicli ([`76143d9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/76143d98cb4d39356996e3f2413c35e1a7054ba2))
+
+* Updated cookiecutter reference from Martins to Kenneths swift template
+
+This old one is no longer udated. ([`034b428`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/034b428b5fdd7386ed97bb206aa51213b94093df))
+
+* Updated cookiecutter reference ([`71b7ead`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/71b7eadaf5364ba3eca3cec0ad46bd5ae4c15eb2))
+
+
+## v0.3.1 (2024-01-15)
+
+### Documentation
+
+* docs: added execute flag ([`ea0e9ca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ea0e9ca6329a062c229d6157005f68cca4b98f15))
+
+### Fix
+
+* fix: Added new and more comprehensive CLI
+
+Including documentation and tests ([`14ca469`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/14ca469241d6a6b356d567fd888f69b613e5652d))
+
+* fix: SebModel -&gt; EmbeddingModel ([`d2f9efa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d2f9efa1e0a367f6240aef7f0cad5ba4a9b56b11))
+
+* fix: Allow embedding size to be None when using CLI ([`c621a8b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c621a8b328b1f6063cbd29d8a43376a9f587a00e))
+
+### Unknown
+
+* Merge pull request #58 from KennethEnevoldsen/update-cruft
+
+Update cruft ([`870e442`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/870e4424f4448c948a2f14f1d9035276b63e04a0))
+
+* clean: removed pre-commit as it is no longer used ([`f1b5804`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f1b5804b83796694157f282aacb1280986c58d01))
+
+* updated from cruft template ([`bd7b11a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bd7b11a202cca340103163b26e809e9491fea52b))
+
+
 ## v0.3.0 (2024-01-14)
 
 ### Ci
@@ -10,13 +89,29 @@
 
 ### Documentation
 
+* docs: Added &#34;government&#34; domain to LCC ([`232dfee`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/232dfee8517890cec21e075dd4b79f524c928d86))
+
+* docs: Added documentation of dataset coverage to datasets ([`e4f9468`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e4f9468140038c6dedf29f82a8b0b8dbf9c702c2))
+
 * docs: Added avg rank to benchmark table ([`15a821e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/15a821e6ade440fc2a2bba218e0c91d8bbc3c480))
 
 ### Feature
 
+* feat: Added e5 mistral model ([`56c0971`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/56c0971341034ae85a8499ce94e0eb0343355efc))
+
 * feat: Added option to not run a model ([`55cd023`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/55cd023cd69be59e7444bf19c331ee89b4c5003f))
 
 ### Fix
+
+* fix: Added Swedn dataset ([`ac6e744`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ac6e7442f15fe935ecf8718c8212acdccf804939))
+
+* fix: refactor utils script out into its subcomponents ([`f36be90`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f36be9020dbb3fcfcfec3fbd302a61e274627122))
+
+* fix: Allow optional embedding size in ModelMeta
+
+This makes the possible to create a on the fly models using the CLI ([`b0b4793`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b0b47930d74a6c012fbdf6b85d04c1d6665aa888))
+
+* fix: Updated CLI to now use models which is a part of the benchmark before wrapping it in sentence transformers ([`2b60c28`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b60c288edd115a8944d21b66e657ae17dac5943))
 
 * fix: Added embedding size of models ([`2937099`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/29370992610b78055f27a8c3ad7504147acbff5b))
 
@@ -33,6 +128,8 @@
 * fix: Added cache dir to all entry points ([`3fb4280`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3fb42806ffd9d0ccdbdcee45171d20a1390a8e68))
 
 ### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-summarization ([`8ed0a0d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8ed0a0dde5dc0bd35901927577fa8960fd64080a))
 
 * Merge pull request #52 from KennethEnevoldsen/add-dataset
 

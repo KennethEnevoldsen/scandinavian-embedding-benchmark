@@ -46,9 +46,14 @@ nav:
   - Package:
       - Installation: installation.md
       - Getting Started: getting_started.ipynb
+      - CLI: cli.md
       - API: api.md
 plugins:
-  - mkdocs-jupyter
+  - mkdocs-jupyter:
+      execute: true
+      # execute: false
+      execute_ignore:
+        - "*.py"
   - search
   - mkdocstrings:
       handlers:

@@ -57,7 +57,7 @@ class TaskResult(BaseModel):
         return list(self.scores.keys())
 
     @classmethod
-    def from_disk(cls, path: Path) -> "TaskResult":  # noqa: ANN102
+    def from_disk(cls, path: Path) -> "TaskResult":
         """
         Load task results from a path.
         """
@@ -93,7 +93,7 @@ class TaskError(BaseModel):
             f.write(json_str)
 
     @classmethod
-    def from_disk(cls, path: Path) -> "TaskError":  # noqa: ANN102
+    def from_disk(cls, path: Path) -> "TaskError":
         """
         Load task results from a path.
         """
@@ -118,6 +118,12 @@ class BenchmarkResults(BaseModel):
     meta: ModelMeta
     task_results: list[Union[TaskResult, TaskError]]
 
+    def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
+        scores = [t.get_main_score(lang) for t in self.task_results]
+        if scores:
+            return sum(scores) / len(scores)
+        return np.nan
+
     def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:
         return iter(self.task_results)
 
@@ -126,3 +132,18 @@ class BenchmarkResults(BaseModel):
 
     def __len__(self) -> int:
         return len(self.task_results)
+
+    def to_disk(self, path: Path) -> None:
+        if path.is_dir():
+            path = path / self.meta.get_path_name()
+        save_path = path.with_suffix(".json")
+
+        with save_path.open("w") as f:
+            f.write(self.model_dump_json())
+
+    @classmethod
+    def from_disk(cls, path: Path) -> "BenchmarkResults":
+        with path.open("r") as f:
+            obj = json.load(f)
+
+        return cls(**obj)

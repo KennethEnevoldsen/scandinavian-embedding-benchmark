@@ -2,9 +2,11 @@
 name: Documentation
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches:
-      - main
+    branches: [main]
+
 
 permissions:
   contents: write
@@ -31,6 +33,11 @@ jobs:
           pip install torch==2.0.1
           pip install -e .[docs]
 
-      - name: Build
+
+      - name: Build and Deploy
+        if: github.event_name == 'push'
         run: mkdocs gh-deploy --force
-          
+      
+      - name: Build
+        if: github.event_name == 'pull_request'
+        run: make build-docs

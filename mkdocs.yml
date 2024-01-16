@@ -49,9 +49,11 @@ nav:
       - CLI: cli.md
       - API: api.md
 plugins:
-  - mkdocs-jupyter
-  # - mkdocs-jupyter:
-  #     - execute: true # should be true when mistral results is merged in
+  - mkdocs-jupyter:
+      execute: true
+      # execute: false
+      execute_ignore:
+        - "*.py"
   - search
   - mkdocstrings:
       handlers:

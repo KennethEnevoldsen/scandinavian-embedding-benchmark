@@ -38,3 +38,6 @@ hf_api_key.txt
 test_task.json
 test_encode_task.json
 test-encode-task.json
+
+# tutorial results
+docs/model_results.json

@@ -10,6 +10,7 @@ import seb
 
 from .cli import cli
 from .import_code import import_code
+from .table import display_model_table
 
 logger = logging.getLogger(__name__)
 
@@ -114,3 +115,4 @@ def run_benchmark_cli(
         raise_errors=not ignore_errors,
     )
     benchmark_result.to_disk(output_path)
+    display_model_table(benchmark_result, languages)

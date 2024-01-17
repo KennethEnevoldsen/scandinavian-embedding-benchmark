@@ -5,7 +5,6 @@ from rich.console import Console
 from rich.table import Table
 
 import seb
-from seb.registries import get_all_models
 
 
 def get_main_score(task: seb.TaskResult, langs: Optional[list[str]]) -> float:
@@ -61,7 +60,7 @@ def convert_to_table(
     df = df.reset_index()
     df = df.rename(columns={"index": "Model"})
     ranks = [i + 1 for i in range(len(df.index))]
-    df.insert(0, "Rank", ranks)
+    df.insert(0, "Rank", ranks)  # type: ignore
     return df
 
 
@@ -72,7 +71,7 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
     """
     df = df.drop(columns=["Average Score", "Open Source", "Embedding Size"])
     ranks = df.rank(axis=0, ascending=False)
-    avg_ranks = ranks.mean(axis=1)
+    avg_ranks: pd.Series = ranks.mean(axis=1)  # type: ignore
     return avg_ranks
 
 
@@ -111,12 +110,12 @@ def pretty_print_benchmark(df: pd.DataFrame, highlight: list[str]):
         models_to_display.extend(df["Model"][df["Rank"] <= 3])
         # Add models surrounding the highlighted ones
         for model in highlight:
-            model_rank = df[df["Model"] == model]["Rank"].iloc[0]
+            model_rank = df[df["Model"] == model]["Rank"].iloc[0]  # type: ignore
             models_to_display.extend(df["Model"][(df["Rank"] - model_rank).abs() < 2])
     else:
         models_to_display = list(df["Model"])
-    df = df[df["Model"].isin(models_to_display)]
-    df = df.sort_values("Rank")
+    df = df[df["Model"].isin(models_to_display)]  # type: ignore
+    df = df.sort_values("Rank")  # type: ignore
     for _, row in df.iterrows():
         style = "deep_sky_blue1 bold" if (row["Model"] in highlight) else None
         rank = row["Rank"]

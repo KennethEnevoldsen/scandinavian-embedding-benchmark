@@ -106,24 +106,35 @@ def run_benchmark_cli(
     logging_level: Literal["DEBUG", "INFO"] = "INFO",
 ) -> None:
     """
-    Runs the Benchmark on a specified model.
-
+    Runs the Benchmark either on specified models or on all registered models.
+    Can save the benchmark's results, but also displays them in a table similar
+    to the official website.
 
     **Examples:**
 
-    To run a model on all languages and tasks
-
+    To run all models on all languages and tasks:
     ```{bash}
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json
+    seb run
+    ```
+
+    To run a model on all languages and tasks:
+    ```{bash}
+    seb run -m sentence-transformers/all-MiniLM-L6-v2
+    ```
+
+    To run multiple models:
+    To run a model on all languages and tasks:
+    ```{bash}
+    seb run -m sentence-transformers/all-MiniLM-L6-v2,sentence-transformers/all-mpnet-base-v2
     ```
 
     if you only want to limit it to a subset of languages or tasks you can use the `--languages` and `--tasks` flags.
     ```{bash}
     # Running a model on a subset of languages
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json -l nb nn
+    seb run sentence-transformers/all-MiniLM-L6-v2 -o results/ -l nb,nn
 
     # Running a model on a subset of tasks
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json -t DKHate ScaLA
+    seb run sentence-transformers/all-MiniLM-L6-v2 -o results/ -t DKHate,ScaLA
     ```
 
     """

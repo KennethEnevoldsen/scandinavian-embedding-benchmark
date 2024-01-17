@@ -75,6 +75,13 @@ class TaskResult(BaseModel):
         with path.open("w") as f:
             f.write(json_str)
 
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.task_name.replace("/", "__").replace(" ", "_")
+        return name
+
 
 class TaskError(BaseModel):
     task_name: str
@@ -104,6 +111,13 @@ class TaskError(BaseModel):
     @staticmethod
     def get_main_score(lang: Optional[Iterable[str]] = None) -> float:  # noqa: ARG004
         return np.nan
+
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.task_name.replace("/", "__").replace(" ", "_")
+        return name
 
 
 class BenchmarkResults(BaseModel):

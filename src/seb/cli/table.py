@@ -71,13 +71,24 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
     and then compute the average rank.
     """
     df = df.drop(columns=["Average Score", "Open Source", "Embedding Size"])
-
     ranks = df.rank(axis=0, ascending=False)
     avg_ranks = ranks.mean(axis=1)
     return avg_ranks
 
 
-def pretty_print_benchmark(df: pd.DataFrame, highlight: Optional[str] = None):
+MIN_WIDTHS = {
+    "Rank": len("Rank"),
+    "Model": len("embed-multilingual-v3.0"),
+    "Average Score": len("Average"),
+    "Average Rank": len("Average"),
+}
+NO_WRAP = {
+    "Model": True,
+    "Rank": True,
+}
+
+
+def pretty_print_benchmark(df: pd.DataFrame, highlight: list[str]):
     """Pretty prints the benchmark's results with Rich.
     If you pass a model name in highlight, the model will
     be highlighted and only the rows around it will be showed,
@@ -87,13 +98,27 @@ def pretty_print_benchmark(df: pd.DataFrame, highlight: Optional[str] = None):
     table = Table(title="Benchmark Results")
     for column in df.columns:
         justify = "left" if column == "Model" else "right"
-        no_wrap = column in ["Model", "Average Score", "Average Rank", "Rank"]
-        table.add_column(column, justify=justify, no_wrap=no_wrap)
-    if highlight is not None:
-        model_rank = df[df["Model"] == highlight]["Rank"].iloc[0]
-        df = df[(df["Rank"] <= 3) | ((df["Rank"] - model_rank).abs() < 3)]
+        table.add_column(
+            column,
+            justify=justify,
+            overflow="ellipsis",
+            min_width=MIN_WIDTHS.get(column, None),
+            no_wrap=NO_WRAP.get(column, False),
+        )
+    if highlight:
+        models_to_display = []
+        # Add top 3 models
+        models_to_display.extend(df["Model"][df["Rank"] <= 3])
+        # Add models surrounding the highlighted ones
+        for model in highlight:
+            model_rank = df[df["Model"] == model]["Rank"].iloc[0]
+            models_to_display.extend(df["Model"][(df["Rank"] - model_rank).abs() < 2])
+    else:
+        models_to_display = list(df["Model"])
+    df = df[df["Model"].isin(models_to_display)]
+    df = df.sort_values("Rank")
     for _, row in df.iterrows():
-        style = "deep_sky_blue1 bold" if highlight == row["Model"] else None
+        style = "deep_sky_blue1 bold" if (row["Model"] in highlight) else None
         rank = row["Rank"]
         values = []
         for val in row:
@@ -103,7 +128,7 @@ def pretty_print_benchmark(df: pd.DataFrame, highlight: Optional[str] = None):
                 val = str(val)
             values.append(val)
         table.add_row(*values, style=style)
-        if (rank == 3) and (highlight is not None):
+        if (rank == 3) and highlight:
             table.add_section()
-    console.clear()
+    # console.clear()
     console.print(table)

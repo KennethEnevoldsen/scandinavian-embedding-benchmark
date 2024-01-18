@@ -1,60 +1,24 @@
 from datetime import datetime
-from typing import Any, Protocol, runtime_checkable
+from typing import Any
 
 import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
 
-from .model_interface import ModelInterface
-from .result_dataclasses import TaskResult
+from ..result_dataclasses import TaskResult
+from ..types import ArrayLike
+from .model import Encoder
+from .task import DescriptiveDatasetStats, Task
 
 
-@runtime_checkable
-class Task(Protocol):
-    """
-    A task is a specific evaluation task for a sentence embedding model.
+class MTEBTaskModel(Encoder):
+    def __init__(self, mteb_model: Encoder, task: Task) -> None:
+        self.mteb_model = mteb_model
+        self.task = task
 
-    Attributes:
-        name: The name of the task.
-        main_score: The main score of the task.
-        description: A description of the task.
-        reference: A reference to the task.
-        version: The version of the task.
-        languages: The languages of the task.
-        domain: The domains of the task. Should be one of the categories listed on https://universaldependencies.org
-
-    """
-
-    name: str
-    main_score: str
-    description: str
-    reference: str
-    version: str
-    languages: list[str]
-    domain: list[str]
-
-    def evaluate(self, model: ModelInterface) -> TaskResult:
-        """
-        Evaluates a Sentence Embedding Model on the task.
-
-        Args:
-            model: A sentence embedding model.
-
-        Returns:
-            A TaskResult object.
-        """
-        ...
-
-    def get_descriptive_stats(self) -> dict[str, Any]:
-        ...
-
-    def name_to_path(self) -> str:
-        """
-        Convert a name to a path.
-        """
-        name = self.name.replace("/", "__").replace(" ", "_")
-        return name
+    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:
+        return self.mteb_model.encode(texts, task=self.task, **kwargs)
 
 
 class MTEBTask(Task):
@@ -67,7 +31,7 @@ class MTEBTask(Task):
         self.version = f"{mteb_version}"
         self.reference = mteb_desc["reference"]
         self.languages = mteb_desc["eval_langs"]
-        self.type = mteb_desc["type"]
+        self.task_type = mteb_desc["type"]
         self.domain = []
         self._text_columns = ["text"]
 
@@ -93,26 +57,27 @@ class MTEBTask(Task):
 
         return DatasetDict(ds)
 
-    def get_descriptive_stats(self) -> dict[str, Any]:
-        ds = self.load_data()
+    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+        ds: DatasetDict = self.load_data()
         texts = []
         for split in ds:
             for text_column in self._text_columns:
                 texts += ds[split][text_column]
 
-        document_lengths = [len(text) for text in texts]
+        document_lengths = np.array([len(text) for text in texts])
 
-        mean = np.mean(document_lengths)
-        std = np.std(document_lengths)
-        return {
-            "mean_document_length": mean,
-            "std_document_length": std,
-            "num_documents": len(document_lengths),
-        }
+        mean = float(np.mean(document_lengths))
+        std = float(np.std(document_lengths))
+        return DescriptiveDatasetStats(
+            mean_document_length=mean,
+            std_document_length=std,
+            num_documents=len(document_lengths),
+        )
 
-    def evaluate(self, model: ModelInterface) -> TaskResult:
+    def evaluate(self, model: Encoder) -> TaskResult:
         split = self.mteb_task.description["eval_splits"][0]
-        scores = self.mteb_task.evaluate(model, split=split)
+        task_model = MTEBTaskModel(model, self)
+        scores = self.mteb_task.evaluate(task_model, split=split)
         if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
 

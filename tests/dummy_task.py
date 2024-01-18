@@ -1,41 +1,42 @@
 from datetime import datetime
+from typing import Any
 
 import seb
-from seb.registries import tasks
+
+
+class TestTask(seb.Task):
+    name = "test task"
+    main_score = "a_metric"
+    description = "NA"
+    reference = "NA"
+    version = "NA"
+    languages = []  # noqa: RUF012
+    domain = []  # noqa: RUF012
+    task_type = "Classification"
+
+    def evaluate(self, model: seb.Encoder) -> seb.TaskResult:  # noqa: ARG002
+        return seb.TaskResult(
+            task_name="test task",
+            task_description="NA",
+            task_version="NA",
+            time_of_run=datetime.now(),
+            scores={"en": {"a_metric": 1.0}},
+            main_score="a_metric",
+        )
+
+    def get_descriptive_stats(self) -> dict[str, Any]:
+        return {}
 
 
 def create_test_task() -> seb.Task:
-    class DummyTask(seb.Task):
-        name = "test task"
-        main_score = "a_metric"
-        description = "NA"
-        reference = "NA"
-        version = "NA"
-        languages = []  # noqa: RUF012
-
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa: ARG002
-            return seb.TaskResult(
-                task_name="test task",
-                task_description="NA",
-                task_version="NA",
-                time_of_run=datetime.now(),
-                scores={"en": {"a_metric": 1.0}},
-                main_score="a_metric",
-            )
-
-    return DummyTask()
+    return TestTask()
 
 
 def create_test_encode_task() -> seb.Task:
-    class DummyTask(seb.Task):
+    class TestTaskWithEncode(TestTask):
         name = "test encode task"
-        main_score = "a_metric"
-        description = "NA"
-        reference = "NA"
-        version = "NA"
-        languages = []  # noqa: RUF012
 
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:
+        def evaluate(self, model: seb.Encoder) -> seb.TaskResult:
             model.encode(["a test sentence"])
 
             return seb.TaskResult(
@@ -47,7 +48,7 @@ def create_test_encode_task() -> seb.Task:
                 main_score="a_metric",
             )
 
-    return DummyTask()
+    return TestTaskWithEncode()
 
 
 def create_test_raise_error_task() -> seb.Task:
@@ -55,15 +56,10 @@ def create_test_raise_error_task() -> seb.Task:
     Note this task is not registered as it will cause errrors in other tests.
     """
 
-    class DummyTask(seb.Task):
+    class TestTaskWithError(TestTask):
         name = "test raise error task"
-        main_score = "a_metric"
-        description = "NA"
-        reference = "NA"
-        version = "NA"
-        languages = []  # noqa: RUF012
 
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:  # noqa ARG002
+        def evaluate(self, model: seb.Encoder) -> seb.TaskResult:  # noqa ARG002
             raise ValueError("Test raised error. This error should be handled.")
 
-    return DummyTask()
+    return TestTaskWithError()

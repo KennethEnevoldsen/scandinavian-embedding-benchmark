@@ -67,7 +67,7 @@ def test_all_tasks(task_name: str, model_name: str):
 
     assert isinstance(task, seb.Task)
     assert isinstance(model, seb.EmbeddingModel)
-    assert isinstance(model.model, seb.ModelInterface)
+    assert isinstance(model.model, seb.Encoder)
 
     task_result = task.evaluate(model)
     assert isinstance(task_result, seb.TaskResult)

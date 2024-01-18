@@ -9,13 +9,13 @@ from functools import partial
 
 import torch
 
-from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
+from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
 
 
-class OpenaiTextEmbeddingModel(ModelInterface):
+class OpenaiTextEmbeddingModel(Encoder):
     def __init__(self, api_name: str, input_sentences: int = 64) -> None:
         self.api_name = api_name
         self.input_sentences = input_sentences

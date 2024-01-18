@@ -1,5 +1,6 @@
+from seb.interfaces.mteb_task import MTEBTask
+from seb.interfaces.task import Task
 from seb.registries import tasks
-from seb.tasks_interface import MTEBTask, Task
 
 
 @tasks.register("SweReC")
@@ -24,7 +25,7 @@ def create_dalaj() -> Task:
 
 @tasks.register("SweFAQ")
 def create_swefaq() -> Task:
-    from seb.mteb_tasks import SweFaqRetrieval
+    from seb.registered_tasks.mteb_tasks import SweFaqRetrieval
 
     task = MTEBTask(SweFaqRetrieval())
     task.name = "SweFAQ"
@@ -37,7 +38,7 @@ def create_swefaq() -> Task:
 # temporarily disabled - will be added back in the future (along with the new datasets)
 # @tasks.register("Swedn")
 def create_swedn() -> Task:
-    from seb.mteb_tasks import SwednSummarizationSTS
+    from seb.registered_tasks.mteb_tasks import SwednSummarizationSTS
 
     task = MTEBTask(SwednSummarizationSTS())
     task.name = "Swedn"

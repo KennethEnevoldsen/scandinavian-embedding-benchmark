@@ -1,8 +1,10 @@
 import random
-from typing import Any
+from typing import Any, TypeVar
 
 import datasets
 from mteb.abstasks import AbsTaskClassification, AbsTaskRetrieval, AbsTaskSTS
+
+T = TypeVar("T")
 
 
 class SweFaqRetrieval(AbsTaskRetrieval):
@@ -101,13 +103,6 @@ class NorwegianParliamentClassification(AbsTaskClassification):
         }
 
 
-def sattolo_cycle(items):
-    for i in range(len(items) - 1, 0, -1):
-        j = random.randint(0, i - 1)
-        items[i], items[j] = items[j], items[i]
-    return items
-
-
 class SwednSummarizationSTS(AbsTaskSTS):
     def load_data(self, **kwargs: dict):  # noqa: ARG002
         """
@@ -143,7 +138,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             summaries = ds_split["sentence2"]
             articles = ds_split["sentence1"]
             scores = ds_split["score"]
-            mismatched_summaries = sattolo_cycle(summaries)
+            mismatched_summaries = self.sattolo_cycle(summaries)
 
             # add all the mismatched examples as negative examples
             mismatched_ds = datasets.Dataset.from_dict(
@@ -174,3 +169,15 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "max_score": 1,
             "revision": "ef1661775d746e0844b299164773db733bdc0bf6",
         }
+
+    @staticmethod
+    def sattolo_cycle(items: list[T]) -> list[T]:
+        """
+        The Sattolo cycle is a simple algorithm for randomly shuffling an array in-place.
+        It ensures that the element i, will not be in the ith position of the result.
+        """
+
+        for i in range(len(items) - 1, 0, -1):
+            j = random.randint(0, i - 1)
+            items[i], items[j] = items[j], items[i]
+        return items

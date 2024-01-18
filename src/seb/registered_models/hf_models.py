@@ -7,7 +7,7 @@ from typing import Optional
 
 from sentence_transformers import SentenceTransformer
 
-from seb.model_interface import EmbeddingModel, ModelMeta
+from seb.interfaces.model import EmbeddingModel, ModelMeta
 from seb.registries import models
 
 

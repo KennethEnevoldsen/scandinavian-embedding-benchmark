@@ -2,10 +2,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Union
 
+import numpy as np
 import pytest
 import seb
 from seb.cli import cli, run_benchmark_cli
-import numpy as np
 
 test_dir = Path(__file__).parent
 

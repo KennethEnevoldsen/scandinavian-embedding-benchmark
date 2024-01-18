@@ -1,14 +1,60 @@
-from typing import Any, Callable, Optional, Protocol, Union, runtime_checkable
+from typing import Any, Callable, Optional, Protocol, runtime_checkable
 
-from numpy import ndarray
 from pydantic import BaseModel
-from torch import Tensor
 
-ArrayLike = Union[ndarray, Tensor]
+from ..result_dataclasses import TaskResult
+from ..types import ArrayLike, DescriptiveDatasetStats, Domain, Language, TaskType
 
 
 @runtime_checkable
-class ModelInterface(Protocol):
+class Task(Protocol):
+    """
+    A task is a specific evaluation task for a sentence embedding model.
+
+    Attributes:
+        name: The name of the task.
+        main_score: The main score of the task.
+        description: A description of the task.
+        reference: A reference to the task.
+        version: The version of the task.
+        languages: The languages of the task.
+        domain: The domains of the task. Should be one of the categories listed on https://universaldependencies.org
+    """
+
+    name: str
+    main_score: str
+    description: str
+    reference: str
+    version: str
+    languages: list[Language]
+    domain: list[Domain]
+    task_type: TaskType
+
+    def evaluate(self, model: "Encoder") -> TaskResult:
+        """
+        Evaluates a Sentence Embedding Model on the task.
+
+        Args:
+            model: A sentence embedding model.
+
+        Returns:
+            A TaskResult object.
+        """
+        ...
+
+    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+        ...
+
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.name.replace("/", "__").replace(" ", "_")
+        return name
+
+
+@runtime_checkable
+class Encoder(Protocol):
     """
     Interface which all models must implement.
     """
@@ -16,12 +62,15 @@ class ModelInterface(Protocol):
     def encode(
         self,
         sentences: list[str],
+        task: Task,
         batch_size: int = 32,
         **kwargs: dict,
     ) -> ArrayLike:
         """Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
+            task: The task to encode for. This allows the model to encode differently for different tasks. Will always be given but does not need
+                to be used.
             batch_size: Batch size for the encoding
             kwargs: arguments to pass to the models encode method
 
@@ -62,11 +111,11 @@ class EmbeddingModel(BaseModel):
     """
 
     meta: ModelMeta
-    loader: Callable[[], ModelInterface]
-    _model: Optional[ModelInterface] = None
+    loader: Callable[[], Encoder]
+    _model: Optional[Encoder] = None
 
     @property
-    def model(self) -> ModelInterface:
+    def model(self) -> Encoder:
         """
         Dynimically load the model.
         """

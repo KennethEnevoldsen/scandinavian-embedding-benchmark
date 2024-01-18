@@ -1,12 +1,13 @@
 from functools import partial
 
-from seb import EmbeddingModel, ModelInterface, ModelMeta, models
-from seb.model_interface import ArrayLike
+from seb import models
 
+from ..interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from ..types import ArrayLike
 from .hf_models import get_sentence_transformer
 
 
-class E5Wrapper(ModelInterface):
+class E5Wrapper(Encoder):
     def __init__(self, model_name: str):
         self.model_name = model_name
         self.mdl = get_sentence_transformer(model_name)

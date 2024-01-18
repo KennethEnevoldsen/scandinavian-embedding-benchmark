@@ -1,6 +1,7 @@
-from seb.mteb_tasks import NorwegianParliamentClassification
+from seb.interfaces.mteb_task import MTEBTask
+from seb.interfaces.task import Task
+from seb.registered_tasks.mteb_tasks import NorwegianParliamentClassification
 from seb.registries import tasks
-from seb.tasks_interface import MTEBTask, Task
 
 
 @tasks.register("NoReC")

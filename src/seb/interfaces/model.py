@@ -17,6 +17,7 @@ class Encoder(Protocol):
     def encode(
         self,
         sentences: list[str],
+        *,
         task: "Task",
         batch_size: int = 32,
         **kwargs: dict,

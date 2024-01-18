@@ -37,6 +37,10 @@ class Encoder(Protocol):
 
 
 class ModelMeta(BaseModel):
+    """
+    The metadata object for a model. This includes information such as the name, description, languages, etc. 
+    """
+
     name: str
     description: Optional[str] = None
     huggingface_name: Optional[str] = None

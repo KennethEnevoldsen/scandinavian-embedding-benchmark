@@ -7,7 +7,7 @@ from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .interfaces.model import EmbeddingModel
+from .interfaces.model import EmbeddingModel, Encoder
 from .interfaces.task import Task
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult

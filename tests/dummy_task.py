@@ -37,7 +37,7 @@ def create_test_encode_task() -> seb.Task:
         name = "test encode task"
 
         def evaluate(self, model: seb.Encoder) -> seb.TaskResult:
-            model.encode(["a test sentence"])
+            model.encode(["a test sentence"], task=self)
 
             return seb.TaskResult(
                 task_name="test task",

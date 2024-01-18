@@ -3,12 +3,15 @@ All the models registered in the benchmark, along with their metadata.
 """
 import logging
 from functools import partial
-from typing import Optional
+from typing import Any, Optional
 
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import EmbeddingModel, ModelMeta
+from seb.interfaces.task import Task
 from seb.registries import models
+
+from ..types import ArrayLike
 
 
 def silence_warnings_from_sentence_transformers():
@@ -17,12 +20,28 @@ def silence_warnings_from_sentence_transformers():
     logger.setLevel(logging.ERROR)
 
 
+class SentenceTransformerWithTaskEncode(SentenceTransformer):
+    """
+    A sentence transformer wrapper that allows for encoding with a task.
+    """
+
+    def encode(
+        self,
+        sentences: list[str],
+        *,
+        batch_size: int,
+        task: Task,  # noqa: ARG002
+        **kwargs: Any,
+    ) -> ArrayLike:
+        return super().encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
+
+
 def get_sentence_transformer(
     model_name: str,
     max_seq_length: Optional[int] = None,
-) -> SentenceTransformer:
+) -> SentenceTransformerWithTaskEncode:
     silence_warnings_from_sentence_transformers()
-    mdl = SentenceTransformer(model_name)
+    mdl = SentenceTransformerWithTaskEncode(model_name)
     if max_seq_length is not None:
         mdl.max_seq_length = max_seq_length
     return mdl

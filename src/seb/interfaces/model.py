@@ -20,7 +20,7 @@ class Encoder(Protocol):
         *,
         task: "Task",
         batch_size: int = 32,
-        **kwargs: dict,
+        **kwargs: Any,
     ) -> ArrayLike:
         """Returns a list of embeddings for the given sentences.
         Args:
@@ -38,7 +38,7 @@ class Encoder(Protocol):
 
 class ModelMeta(BaseModel):
     """
-    The metadata object for a model. This includes information such as the name, description, languages, etc. 
+    The metadata object for a model. This includes information such as the name, description, languages, etc.
     """
 
     name: str
@@ -95,6 +95,8 @@ class EmbeddingModel(BaseModel):
     def encode(
         self,
         sentences: list[str],
+        *,
+        task: "Task",
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
@@ -102,10 +104,12 @@ class EmbeddingModel(BaseModel):
         Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
+            task: The task to encode for. This allows the model to encode differently for different tasks. Will always be given but does not need
+                to be used.
             batch_size: Batch size for the encoding
             kwargs: arguments to pass to the models encode method
 
         Returns:
             Embeddings for the given documents
         """
-        return self.model.encode(sentences, batch_size=batch_size, **kwargs)
+        return self.model.encode(sentences, batch_size=batch_size, task=task, **kwargs)

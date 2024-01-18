@@ -61,7 +61,7 @@ def create_scala() -> Task:
             self.languages = ["da", "nb", "sv", "nn"]
             self.domain = ["fiction", "news", "non-fiction", "spoken", "blog"]
             self._text_columns = ["text"]
-            self.type = "Classification"
+            self.task_type = "Classification"
 
         def load_data(self) -> DatasetDict:
             ds = {}

@@ -8,7 +8,7 @@ ArrayLike = Union[ndarray, Tensor]
 
 Domain = Literal[
     "social",
-    "peotry",
+    "poetry",
     "wiki",
     "fiction",
     "non-fiction",

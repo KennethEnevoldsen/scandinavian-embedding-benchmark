@@ -15,9 +15,10 @@ def create_test_encode_task() -> seb.Task:
         version = "NA"
         languages = []  # noqa: RUF012
         domain = []  # noqa: RUF012
+        task_type = "Classification"
 
         def evaluate(self, model: seb.Encoder) -> seb.TaskResult:
-            model.encode(["a test sentence"])
+            model.encode(["a test sentence"], task=self)
 
             return seb.TaskResult(
                 task_name="test-encode-task",

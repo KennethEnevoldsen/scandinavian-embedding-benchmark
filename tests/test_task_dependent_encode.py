@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 import seb
@@ -11,12 +12,13 @@ def create_test_model_with_task_dependent_encode() -> seb.EmbeddingModel:
         def encode(
             self,
             sentences: list[str],
-            batch_size: int,  # noqa: ARG002
+            *,
             task: seb.Task,
+            batch_size: int,  # noqa: ARG002
         ) -> np.ndarray:
             if task.task_type == "SNS":
-                return np.array([np.zeros(100) for _ in sentences])
-            return np.array([np.ones(100) for _ in sentences])
+                return np.array([np.ones(100) for _ in sentences])
+            return np.array([np.zeros(100) for _ in sentences])
 
     def load_test_model() -> TestEncoder:
         return TestEncoder()
@@ -35,8 +37,8 @@ def create_all_is_0_task() -> seb.Task:
         task_type: str = "SNS"
 
         def evaluate(self, model: seb.Encoder) -> seb.TaskResult:
-            out = model.encode(["a test sentence"])
-            assert np.all(out == 0)
+            out = model.encode(["a test sentence"], task=self)
+            assert np.all(out == 1)
 
             return seb.TaskResult(
                 task_name=self.name,
@@ -71,7 +73,7 @@ def create_all_is_1_task() -> seb.Task:
     return TestTaskAllEmbeddingIsZero()
 
 
-def test_task_dependent_encode():
+def test_task_dependent_encode(tmp_path: Path):
     model = create_test_model_with_task_dependent_encode()
 
     tasks = [
@@ -80,7 +82,7 @@ def test_task_dependent_encode():
     ]
 
     benchmark = seb.Benchmark(tasks=tasks)
-    result = benchmark.evaluate_model(model)
+    result = benchmark.evaluate_model(model, cache_dir=tmp_path)
     assert (
         result.get_main_score() == 1
     ), "both datasets should have score of 1 if they run successfully"

@@ -2,7 +2,7 @@ import random
 from typing import Any, TypeVar
 
 import datasets
-from mteb.abstasks import AbsTaskClassification, AbsTaskRetrieval, AbsTaskSTS
+from mteb.abstasks import AbsTaskBitextMining, AbsTaskClassification, AbsTaskRetrieval, AbsTaskSTS
 
 T = TypeVar("T")
 
@@ -123,9 +123,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
     def dataset_transform(self) -> None:
         self.dataset = self.dataset.rename_column("summary", "sentence2")
         self.dataset = self.dataset.rename_column("article", "sentence1")
-        self.dataset = self.dataset.remove_columns(
-            ["id", "headline", "article_category"]
-        )
+        self.dataset = self.dataset.remove_columns(["id", "headline", "article_category"])
         random.seed(42)
 
         # add score column
@@ -148,9 +146,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
                     "score": [0] * len(articles),
                 }
             )
-            self.dataset[split] = datasets.concatenate_datasets(
-                [ds_split, mismatched_ds]
-            )
+            self.dataset[split] = datasets.concatenate_datasets([ds_split, mismatched_ds])
 
     @property
     def description(self) -> dict[str, Any]:
@@ -181,3 +177,42 @@ class SwednSummarizationSTS(AbsTaskSTS):
             j = random.randint(0, i - 1)
             items[i], items[j] = items[j], items[i]
         return items
+
+
+class NorwegianCourtsBitextMining(AbsTaskBitextMining):
+    @property
+    def description(self) -> dict[str, Any]:
+        return {
+            "name": "NorwegianCourtsBitextMining",
+            "hf_hub_name": "kardosdrur/norwegian-courts",
+            "description": "Nynorsk and Bokmål parallel corpus from Norwegian courts. "
+            + "Norway has two standardised written languages. "
+            + "Bokmål is a variant closer to Danish, while Nynorsk was created to resemble "
+            + "regional dialects of Norwegian.",
+            "reference": "https://opus.nlpl.eu/ELRC-Courts_Norway-v1.php",
+            "type": "BitextMining",
+            "category": "s2s",
+            "eval_splits": ["test"],
+            "eval_langs": ["nb", "nn"],
+            "main_score": "f1",
+            "revision": "3bc5cfb4ec514264fe2db5615fac9016f7251552",
+        }
+
+    def load_data(self, **kwargs: Any) -> None:  # noqa: ARG002
+        """
+        Load dataset from HuggingFace hub and convert it to the standard format.
+        """
+        if self.data_loaded:
+            return
+
+        self.dataset = datasets.load_dataset(
+            self.description["hf_hub_name"],
+            revision=self.description.get("revision", None),
+        )
+        self.dataset_transform()
+        self.data_loaded = True
+
+    def dataset_transform(self) -> None:
+        # Convert to standard format
+        self.dataset = self.dataset.rename_column("nb", "sentence1")
+        self.dataset = self.dataset.rename_column("nn", "sentence2")

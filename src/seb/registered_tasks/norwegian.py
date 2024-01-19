@@ -26,5 +26,5 @@ def create_norwegian_parliament() -> Task:
 def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
-    task.domain = ["legal", "non-ficiton"]
+    task.domain = ["legal", "non-fiction"]
     return task

@@ -50,8 +50,8 @@ nav:
       - API: api.md
 plugins:
   - mkdocs-jupyter:
-      execute: true
       # execute: false
+      execute: true
       execute_ignore:
         - "*.py"
   - search

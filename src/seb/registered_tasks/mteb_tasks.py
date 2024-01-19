@@ -1,9 +1,10 @@
 import random
-from typing import Any
+from typing import Any, TypeVar
 
 import datasets
-from mteb.abstasks import (AbsTaskBitextMining, AbsTaskClassification,
-                           AbsTaskRetrieval, AbsTaskSTS)
+from mteb.abstasks import AbsTaskBitextMining, AbsTaskClassification, AbsTaskRetrieval, AbsTaskSTS
+
+T = TypeVar("T")
 
 
 class SweFaqRetrieval(AbsTaskRetrieval):
@@ -102,13 +103,6 @@ class NorwegianParliamentClassification(AbsTaskClassification):
         }
 
 
-def sattolo_cycle(items):
-    for i in range(len(items) - 1, 0, -1):
-        j = random.randint(0, i - 1)
-        items[i], items[j] = items[j], items[i]
-    return items
-
-
 class SwednSummarizationSTS(AbsTaskSTS):
     def load_data(self, **kwargs: dict):  # noqa: ARG002
         """
@@ -129,9 +123,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
     def dataset_transform(self) -> None:
         self.dataset = self.dataset.rename_column("summary", "sentence2")
         self.dataset = self.dataset.rename_column("article", "sentence1")
-        self.dataset = self.dataset.remove_columns(
-            ["id", "headline", "article_category"]
-        )
+        self.dataset = self.dataset.remove_columns(["id", "headline", "article_category"])
         random.seed(42)
 
         # add score column
@@ -144,7 +136,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             summaries = ds_split["sentence2"]
             articles = ds_split["sentence1"]
             scores = ds_split["score"]
-            mismatched_summaries = sattolo_cycle(summaries)
+            mismatched_summaries = self.sattolo_cycle(summaries)
 
             # add all the mismatched examples as negative examples
             mismatched_ds = datasets.Dataset.from_dict(
@@ -154,9 +146,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
                     "score": [0] * len(articles),
                 }
             )
-            self.dataset[split] = datasets.concatenate_datasets(
-                [ds_split, mismatched_ds]
-            )
+            self.dataset[split] = datasets.concatenate_datasets([ds_split, mismatched_ds])
 
     @property
     def description(self) -> dict[str, Any]:
@@ -176,10 +166,22 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "revision": "ef1661775d746e0844b299164773db733bdc0bf6",
         }
 
+    @staticmethod
+    def sattolo_cycle(items: list[T]) -> list[T]:
+        """
+        The Sattolo cycle is a simple algorithm for randomly shuffling an array in-place.
+        It ensures that the element i, will not be in the ith position of the result.
+        """
+
+        for i in range(len(items) - 1, 0, -1):
+            j = random.randint(0, i - 1)
+            items[i], items[j] = items[j], items[i]
+        return items
+
 
 class NorwegianCourtsBitextMining(AbsTaskBitextMining):
     @property
-    def description(self):
+    def description(self) -> dict[str, Any]:
         return {
             "name": "NorwegianCourtsBitextMining",
             "hf_hub_name": "kardosdrur/norwegian-courts",
@@ -196,7 +198,7 @@ class NorwegianCourtsBitextMining(AbsTaskBitextMining):
             "revision": "3bc5cfb4ec514264fe2db5615fac9016f7251552",
         }
 
-    def load_data(self, **kwargs):
+    def load_data(self, **kwargs: Any) -> None:  # noqa: ARG002
         """
         Load dataset from HuggingFace hub and convert it to the standard format.
         """
@@ -210,7 +212,7 @@ class NorwegianCourtsBitextMining(AbsTaskBitextMining):
         self.dataset_transform()
         self.data_loaded = True
 
-    def dataset_transform(self):
+    def dataset_transform(self) -> None:
         # Convert to standard format
         self.dataset = self.dataset.rename_column("nb", "sentence1")
         self.dataset = self.dataset.rename_column("nn", "sentence2")

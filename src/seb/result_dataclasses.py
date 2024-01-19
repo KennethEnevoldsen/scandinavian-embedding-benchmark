@@ -7,7 +7,7 @@ from typing import Optional, Union
 import numpy as np
 from pydantic import BaseModel
 
-from .model_interface import ModelMeta
+from .interfaces.model import ModelMeta
 
 
 class TaskResult(BaseModel):
@@ -75,6 +75,13 @@ class TaskResult(BaseModel):
         with path.open("w") as f:
             f.write(json_str)
 
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.task_name.replace("/", "__").replace(" ", "_")
+        return name
+
 
 class TaskError(BaseModel):
     task_name: str
@@ -105,6 +112,13 @@ class TaskError(BaseModel):
     def get_main_score(lang: Optional[Iterable[str]] = None) -> float:  # noqa: ARG004
         return np.nan
 
+    def name_to_path(self) -> str:
+        """
+        Convert a name to a path.
+        """
+        name = self.task_name.replace("/", "__").replace(" ", "_")
+        return name
+
 
 class BenchmarkResults(BaseModel):
     """
@@ -134,16 +148,37 @@ class BenchmarkResults(BaseModel):
         return len(self.task_results)
 
     def to_disk(self, path: Path) -> None:
-        if path.is_dir():
-            path = path / self.meta.get_path_name()
-        save_path = path.with_suffix(".json")
+        """
+        Write task results to a path.
+        """
+        if path.is_file():
+            raise ValueError("Can't save BenchmarkResults to a file. Path must be a directory.")
+        path.mkdir(parents=True, exist_ok=True)
+        for task_result in self.task_results:
+            if isinstance(task_result, TaskResult):
+                task_result.to_disk(path / f"{task_result.task_name}.json")
+            else:
+                task_result.to_disk(path / f"{task_result.task_name}.error.json")
 
-        with save_path.open("w") as f:
-            f.write(self.model_dump_json())
+        meta_path = path / "meta.json"
+        self.meta.to_disk(meta_path)
 
     @classmethod
     def from_disk(cls, path: Path) -> "BenchmarkResults":
-        with path.open("r") as f:
-            obj = json.load(f)
+        """
+        Load task results from a path.
+        """
+        if not path.is_dir():
+            raise ValueError("Can't load BenchmarkResults from path: {path}. Path must be a directory.")
+        task_results = []
+        for file in path.glob("*.json"):
+            if file.stem == "meta":
+                continue
+            if file.stem.endswith(".error"):
+                task_results.append(TaskError.from_disk(file))
+            else:
+                task_results.append(TaskResult.from_disk(file))
 
-        return cls(**obj)
+        meta_path = path / "meta.json"
+        meta = ModelMeta.from_disk(meta_path)
+        return cls(meta=meta, task_results=task_results)

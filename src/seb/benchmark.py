@@ -7,10 +7,10 @@ from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .model_interface import EmbeddingModel
+from .interfaces.model import EmbeddingModel, Encoder
+from .interfaces.task import Task
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
-from .tasks_interface import Task
 from .warning_ignore_manager import WarningIgnoreContextManager
 
 logger = logging.getLogger(__name__)
@@ -31,9 +31,7 @@ def get_cache_dir() -> Path:
     return CACHE_DIR
 
 
-def get_cache_path(
-    task: Task, model: EmbeddingModel, cache_dir: Optional[Path] = None
-) -> Path:
+def get_cache_path(task: Task, model: EmbeddingModel, cache_dir: Optional[Path] = None) -> Path:
     """
     Get the cache path for a task and model.
     """
@@ -57,8 +55,6 @@ def run_task(
     """
     if run_model is False and use_cache is False:
         raise ValueError("run_model and use_cache cannot both be False")
-    if not raise_errors and run_model is False:
-        raise ValueError("raise_errors cannot be False when run_model is False")
 
     if not raise_errors:
         try:
@@ -88,8 +84,7 @@ def run_task(
 
     if not run_model:
         raise ValueError(
-            f"Cache for {model.meta.name} on {task.name} does not exist. "
-            "Set run_model=True to run the model.",
+            f"Cache for {model.meta.name} on {task.name} does not exist. " "Set run_model=True to run the model.",
         )
     with WarningIgnoreContextManager():
         task_result = task.evaluate(model)
@@ -133,19 +128,19 @@ class Benchmark:
         _tasks = []
 
         if tasks is None:
-            return get_all_tasks()
-
-        for task in tasks:
-            if isinstance(task, str):
-                _tasks.append(get_task(task))
-            elif isinstance(task, Task):
-                _tasks.append(task)
-            else:
-                raise ValueError(f"Invalid task type: {type(task)}")
+            _tasks = get_all_tasks()
+        else:
+            for task in tasks:
+                if isinstance(task, str):
+                    _tasks.append(get_task(task))
+                elif isinstance(task, Task):
+                    _tasks.append(task)
+                else:
+                    raise ValueError(f"Invalid task type: {type(task)}")
 
         if languages is not None:
             langs = set(languages)
-            tasks = [task for task in _tasks if set(task.languages) & langs]
+            _tasks = [task for task in _tasks if set(task.languages) & langs]
 
         return _tasks
 
@@ -171,9 +166,7 @@ class Benchmark:
             The results of the benchmark.
         """
         task_results = []
-        pbar = tqdm(
-            self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False
-        )
+        pbar = tqdm(self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
         for task in pbar:
             pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(

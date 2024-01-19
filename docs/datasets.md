@@ -36,7 +36,7 @@ The following table show the coverage pr. language. The domains follows the cate
 | Wiki        |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
 | Fiction     |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
 | Web         |  <span style="color:green">✓</span>  |                                    |                                    | <span style="color:green">✓</span> |
-| Legal       | (<span style="color:green">✓</span>) |                                    |                                    |                                    |
+| Legal       | (<span style="color:green">✓</span>) | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
 | News        |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
 | Non-Fiction |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
 | Academic    | (<span style="color:green">✓</span>) |                                    |                                    |                                    |

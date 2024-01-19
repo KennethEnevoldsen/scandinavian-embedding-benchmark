@@ -5,7 +5,7 @@ from typing import Optional, Union
 
 import torch
 
-from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
+from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
 from seb.registries import models
 
 
@@ -18,7 +18,7 @@ def truncate_seq_length(  # noqa: ANN201
     return sequence_batch
 
 
-class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
+class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
     def __init__(
         self,
         encoder_name: str,
@@ -72,11 +72,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
         tokenizer_encoder = self.tokenizer.create_encoder(lang=self.source_lang)  # type: ignore
 
         pipeline = (
-            (
-                read_text(input)
-                if isinstance(input, (str, Path))
-                else read_sequence(input)
-            )
+            (read_text(input) if isinstance(input, (str, Path)) else read_sequence(input))
             .map(tokenizer_encoder)
             .bucket(batch_size)
             .map(Collater(self.tokenizer.vocab_info.pad_idx))  # type: ignore
@@ -100,11 +96,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
             source_lang=source_lang,
         )
     except ImportError:
-        msg = (
-            "Could not fetch Sonar Models. Make sure you have"
-            + "fairseq2 installed. This is currently only supported for "
-            + "Linux."
-        )
+        msg = "Could not fetch Sonar Models. Make sure you have" + "fairseq2 installed. This is currently only supported for " + "Linux."
         raise ImportError(msg)  # noqa B904
 
 

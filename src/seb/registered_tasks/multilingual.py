@@ -4,10 +4,11 @@ from typing import Any
 import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 
-from seb.model_interface import ModelInterface
+from seb.interfaces.model import Encoder
+from seb.interfaces.mteb_task import MTEBTask
+from seb.interfaces.task import Task
 from seb.registries import tasks
 from seb.result_dataclasses import TaskResult
-from seb.tasks_interface import MTEBTask, Task
 
 
 @tasks.register("Massive Intent")
@@ -60,7 +61,7 @@ def create_scala() -> Task:
             self.languages = ["da", "nb", "sv", "nn"]
             self.domain = ["fiction", "news", "non-fiction", "spoken", "blog"]
             self._text_columns = ["text"]
-            self.type = "Classification"
+            self.task_type = "Classification"
 
         def load_data(self) -> DatasetDict:
             ds = {}
@@ -93,7 +94,7 @@ def create_scala() -> Task:
                 "num_documents": len(document_lengths),
             }
 
-        def evaluate(self, model: ModelInterface) -> TaskResult:
+        def evaluate(self, model: Encoder) -> TaskResult:
             scores = {}
             for lang, mteb_task in self.mteb_tasks.items():
                 mteb_task.load_data()

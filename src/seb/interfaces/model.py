@@ -1,14 +1,17 @@
-from typing import Any, Callable, Optional, Protocol, Union, runtime_checkable
+import json
+from pathlib import Path
+from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
-from numpy import ndarray
 from pydantic import BaseModel
-from torch import Tensor
 
-ArrayLike = Union[ndarray, Tensor]
+from ..types import ArrayLike
+
+if TYPE_CHECKING:
+    from .task import Task
 
 
 @runtime_checkable
-class ModelInterface(Protocol):
+class Encoder(Protocol):
     """
     Interface which all models must implement.
     """
@@ -16,12 +19,16 @@ class ModelInterface(Protocol):
     def encode(
         self,
         sentences: list[str],
+        *,
+        task: "Task",
         batch_size: int = 32,
-        **kwargs: dict,
+        **kwargs: Any,
     ) -> ArrayLike:
         """Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
+            task: The task to encode for. This allows the model to encode differently for different tasks. Will always be given but does not need
+                to be used.
             batch_size: Batch size for the encoding
             kwargs: arguments to pass to the models encode method
 
@@ -32,6 +39,10 @@ class ModelInterface(Protocol):
 
 
 class ModelMeta(BaseModel):
+    """
+    The metadata object for a model. This includes information such as the name, description, languages, etc.
+    """
+
     name: str
     description: Optional[str] = None
     huggingface_name: Optional[str] = None
@@ -54,6 +65,16 @@ class ModelMeta(BaseModel):
             raise ValueError("This model does not have an associated huggingface name.")
         return f"https://huggingface.co/{self.huggingface_name}"
 
+    def to_disk(self, path: Path) -> None:
+        with path.open("w") as f:
+            f.write(self.model_dump_json())
+
+    @classmethod
+    def from_disk(cls, path: Path) -> "ModelMeta":
+        with path.open() as f:
+            model_meta = json.load(f)
+        return cls(**model_meta)
+
 
 class EmbeddingModel(BaseModel):
     """
@@ -62,11 +83,11 @@ class EmbeddingModel(BaseModel):
     """
 
     meta: ModelMeta
-    loader: Callable[[], ModelInterface]
-    _model: Optional[ModelInterface] = None
+    loader: Callable[[], Encoder]
+    _model: Optional[Encoder] = None
 
     @property
-    def model(self) -> ModelInterface:
+    def model(self) -> Encoder:
         """
         Dynimically load the model.
         """
@@ -86,6 +107,8 @@ class EmbeddingModel(BaseModel):
     def encode(
         self,
         sentences: list[str],
+        *,
+        task: "Task",
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
@@ -93,10 +116,12 @@ class EmbeddingModel(BaseModel):
         Returns a list of embeddings for the given sentences.
         Args:
             sentences: List of sentences to encode
+            task: The task to encode for. This allows the model to encode differently for different tasks. Will always be given but does not need
+                to be used.
             batch_size: Batch size for the encoding
             kwargs: arguments to pass to the models encode method
 
         Returns:
             Embeddings for the given documents
         """
-        return self.model.encode(sentences, batch_size=batch_size, **kwargs)
+        return self.model.encode(sentences, batch_size=batch_size, task=task, **kwargs)

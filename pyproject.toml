@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seb"
-version = "0.5.0"
+version = "0.5.2"
 authors = [
   { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
 ]
@@ -74,6 +74,7 @@ exclude = [".*venv*"]
 pythonPlatform = "Darwin"
 
 [tool.ruff]
+line-length = 150
 extend-include = ["*.ipynb"]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
 select = [

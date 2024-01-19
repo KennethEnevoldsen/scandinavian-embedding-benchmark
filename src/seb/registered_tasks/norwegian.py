@@ -1,7 +1,7 @@
-from seb.mteb_tasks import (NorwegianCourtsBitextMining,
-                            NorwegianParliamentClassification)
+from seb.interfaces.mteb_task import MTEBTask
+from seb.interfaces.task import Task
+from seb.registered_tasks.mteb_tasks import NorwegianCourtsBitextMining, NorwegianParliamentClassification
 from seb.registries import tasks
-from seb.tasks_interface import MTEBTask, Task
 
 
 @tasks.register("NoReC")
@@ -22,9 +22,9 @@ def create_norwegian_parliament() -> Task:
     return task
 
 
-# @tasks.register("Norwegian courts") # noqa
+# @tasks.register("Norwegian courts")
 def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
-    task.domain = ["legal", "non-ficiton"]
+    task.domain = ["legal", "non-fiction"]
     return task

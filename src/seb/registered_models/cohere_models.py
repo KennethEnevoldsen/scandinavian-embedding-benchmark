@@ -6,16 +6,17 @@ The openai embedding api's evaluated on the SEB benchmark.
 import logging
 from collections.abc import Sequence
 from functools import partial
+from typing import Any
 
 import torch
 
-from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
+import seb
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
 
 
-class CohereTextEmbeddingModel(ModelInterface):
+class CohereTextEmbeddingModel(seb.Encoder):
     def __init__(self, model_name: str) -> None:
         self.model_name = model_name
 
@@ -38,7 +39,7 @@ class CohereTextEmbeddingModel(ModelInterface):
         sentences: Sequence[str],
         batch_size: int = 32,  # noqa: ARG002
         embed_type: str = "classification",
-        **kwargs: dict,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
         import cohere  # type: ignore
 
@@ -53,9 +54,9 @@ class CohereTextEmbeddingModel(ModelInterface):
 
 
 @models.register("embed-multilingual-v3.0")
-def create_embed_multilingual_v3() -> EmbeddingModel:
+def create_embed_multilingual_v3() -> seb.EmbeddingModel:
     model_name = "embed-multilingual-v3.0"
-    meta = ModelMeta(
+    meta = seb.ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://huggingface.co/Cohere/Cohere-embed-multilingual-v3.0",
@@ -63,7 +64,7 @@ def create_embed_multilingual_v3() -> EmbeddingModel:
         open_source=False,
         embedding_size=1024,
     )
-    return EmbeddingModel(
+    return seb.EmbeddingModel(
         loader=partial(CohereTextEmbeddingModel, model_name=model_name),
         meta=meta,
     )

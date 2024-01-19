@@ -1,15 +1,17 @@
 import logging
 from functools import partial
 from pathlib import Path
-from typing import Literal, Optional
+from typing import Literal, Optional, Union
 
 from radicli import Arg, get_list_converter
 from sentence_transformers import SentenceTransformer
 
 import seb
+from seb.registries import get_all_models
 
 from .cli import cli
 from .import_code import import_code
+from .table import convert_to_table, pretty_print_benchmark
 
 logger = logging.getLogger(__name__)
 
@@ -33,27 +35,50 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     return model
 
 
+def get_save_path(
+    task_res: Union[seb.TaskResult, seb.TaskError],
+    benchmark_res: seb.BenchmarkResults,
+    output_dir: Path,
+) -> Path:
+    mdl_path_name = benchmark_res.meta.get_path_name()
+    task_path_name = task_res.name_to_path() + ".json"
+    task_cache_path = output_dir / mdl_path_name / task_path_name
+    return task_cache_path
+
+
+def dump_all_results(results: list[seb.BenchmarkResults], output_path: Path):
+    for result in results:
+        for task_res in result:
+            task_res_path = get_save_path(task_res, result, output_path)
+            task_res.to_disk(task_res_path)
+
+
 @cli.command(
     "run",
-    model_name=Arg(
-        help="The model name or path. If the model is not registrered in SEB it will be loaded using SentenceTransformers."
+    models=Arg(
+        "--models",
+        "-m",
+        help="Model names or paths."
+        " If a model is not registrered in SEB it will be loaded using SentenceTransformers."
+        " If none are specified the whole benchmark is run.",
+        converter=get_list_converter(str, delimiter=","),
     ),
     output_path=Arg(
         "--output-path",
         "-o",
-        help="The path to save the output to. Can be a directory.",
+        help="Directory to save all results to.",
     ),
     languages=Arg(
         "--languages",
         "-l",
         help="What languages subsection to run the benchmark on. If left blank it will run it on all languages.",
-        converter=get_list_converter(str, delimiter=" "),
+        converter=get_list_converter(str, delimiter=","),
     ),
     tasks=Arg(
         "--tasks",
         "-t",
         help="What tasks should model be run on. Default to all tasks within the specified languages.",
-        converter=get_list_converter(str, delimiter=" "),
+        converter=get_list_converter(str, delimiter=","),
     ),
     ignore_cache=Arg(
         "--ignore-cache",
@@ -71,8 +96,8 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     logging_level=Arg("--logging-level", help="Logging level for the benchmark."),
 )
 def run_benchmark_cli(
-    model_name: str,
-    output_path: Path,
+    models: Optional[list[str]] = None,
+    output_path: Optional[Path] = None,
     tasks: Optional[list[str]] = None,
     languages: Optional[list[str]] = None,
     ignore_cache: bool = False,
@@ -81,24 +106,35 @@ def run_benchmark_cli(
     logging_level: Literal["DEBUG", "INFO"] = "INFO",
 ) -> None:
     """
-    Runs the Benchmark on a specified model.
-
+    Runs the Benchmark either on specified models or on all registered models.
+    Can save the benchmark's results, but also displays them in a table similar
+    to the official website.
 
     **Examples:**
 
-    To run a model on all languages and tasks
-
+    To run all models on all languages and tasks:
     ```{bash}
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json
+    seb run
+    ```
+
+    To run a model on all languages and tasks:
+    ```{bash}
+    seb run -m sentence-transformers/all-MiniLM-L6-v2
+    ```
+
+    To run multiple models:
+    To run a model on all languages and tasks:
+    ```{bash}
+    seb run -m sentence-transformers/all-MiniLM-L6-v2,sentence-transformers/all-mpnet-base-v2
     ```
 
     if you only want to limit it to a subset of languages or tasks you can use the `--languages` and `--tasks` flags.
     ```{bash}
     # Running a model on a subset of languages
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json -l nb nn
+    seb run sentence-transformers/all-MiniLM-L6-v2 -o results/ -l nb,nn
 
     # Running a model on a subset of tasks
-    seb run sentence-transformers/all-MiniLM-L6-v2 -o results.json -t DKHate ScaLA
+    seb run sentence-transformers/all-MiniLM-L6-v2 -o results/ -t DKHate,ScaLA
     ```
 
     """
@@ -106,11 +142,28 @@ def run_benchmark_cli(
 
     import_code(code_path)
 
-    model = build_model(model_name=model_name)
+    all_models = get_all_models()
+    n_registered_models = len(all_models)
+    if models is not None:
+        for model_name in models:
+            model = build_model(model_name=model_name)
+            all_models.append(model)
     benchmark = seb.Benchmark(languages, tasks=tasks)
-    benchmark_result = benchmark.evaluate_model(
-        model,
+    benchmark_results = benchmark.evaluate_models(
+        all_models,
         use_cache=not ignore_cache,
         raise_errors=not ignore_errors,
     )
-    benchmark_result.to_disk(output_path)
+    if output_path is not None:
+        output_path.mkdir(exist_ok=True)
+        dump_all_results(benchmark_results, output_path)
+    highlight = []
+    if models is not None:
+        # We mark the models specified in the CLI as "NEW"
+        for i_model in range(n_registered_models, len(all_models)):
+            benchmark_results[
+                i_model
+            ].meta.name = f"NEW: {benchmark_results[i_model].meta.name}"
+            highlight.append(benchmark_results[i_model].meta.name)
+    benchmark_df = convert_to_table(benchmark_results, languages)
+    pretty_print_benchmark(benchmark_df, highlight=highlight)

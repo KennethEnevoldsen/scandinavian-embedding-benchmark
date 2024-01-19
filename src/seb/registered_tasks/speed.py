@@ -1,0 +1,103 @@
+import logging
+import platform
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Optional, Union
+
+import numpy as np
+import psutil
+import torch
+
+from seb.interfaces.model import EmbeddingModel
+from seb.interfaces.task import Task
+from seb.result_dataclasses import TaskResult
+from seb.types import DescriptiveDatasetStats, languages_in_seb
+
+logger = logging.getLogger(__name__)
+
+
+class CPUSpeedTask(Task):
+    reference = "NA"
+    version = "0.0.1"
+    task_type = "Speed"
+    languages = languages_in_seb
+    main_score = "Inference speed (seconds)"
+    domain = ["fiction"]  # noqa
+    name = "Speed (CPU)"
+    description = "Time taken to encode the text 'The Ugly Duckling' split by paragraphs on a CPU."
+    device = "cpu"
+    _dataset: Optional[list[str]] = None
+
+    def load_dataset(self) -> list[str]:
+        file_path = Path(__file__).parent / "the_ugly_duckling.txt"
+        with file_path.open("r") as f:
+            text = f.read()
+        return text.split("\n\n")
+
+    @property
+    def dataset(self) -> list[str]:
+        if self._dataset is None:
+            self._dataset = self.load_dataset()
+        return self._dataset
+
+    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+        dataset = self.load_dataset()
+        lengths = np.array([len(x) for x in dataset])
+        return DescriptiveDatasetStats(
+            mean_document_length=float(np.mean(lengths)), std_document_length=float(np.std(lengths)), num_documents=len(dataset)
+        )
+
+    def get_time_taken(self, model: EmbeddingModel) -> float:
+        dataset = self.load_dataset()
+        start = time.time()
+        with torch.no_grad():
+            model.encode(dataset, batch_size=1, device=self.device, task=self)
+        time_taken = time.time() - start
+        return time_taken
+
+    def evaluate(self, model: EmbeddingModel) -> TaskResult:
+        model.loader()  # ensure model is loaded
+
+        has_to_method = callable(getattr(model._model, "to", None))
+        if has_to_method:
+            model = model.to(self.device)  # type: ignore
+
+        run_inference = not (self.device == "cuda" and not has_to_method)
+        if run_inference:
+            time_taken = self.get_time_taken(model)
+        else:
+            logger.warn(f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping")
+            time_taken = np.nan
+
+        scores: dict[str, Union[str, float]] = {self.main_score: time_taken, **self.get_system_info()}
+
+        return TaskResult(
+            task_name=self.name,
+            task_description=self.description,
+            task_version=self.version,
+            scores={Language: scores for Language in self.languages},
+            time_of_run=datetime.now(),
+            main_score=self.main_score,
+        )
+
+    def get_system_info(self) -> dict[str, str]:
+        """
+        Returns a dictionary with system information.
+        """
+        info = {}
+        info["platform"] = platform.system()
+        info["platform-release"] = platform.release()
+        info["platform-version"] = platform.version()
+        info["architecture"] = platform.machine()
+        info["processor"] = platform.processor()
+        info["ram"] = str(round(psutil.virtual_memory().total / (1024.0**3))) + " GB"
+        info["Physical cores"] = psutil.cpu_count(logical=False)
+        info["Total cores"] = psutil.cpu_count(logical=True)
+        return info
+
+
+class GPUSpeedTask(CPUSpeedTask):
+    name = "Speed (GPU)"
+    description = "Time taken to encode the text 'The Ugly Duckling' split by paragraphs on a GPU."
+    device: str = "cuda"

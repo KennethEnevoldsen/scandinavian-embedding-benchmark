@@ -8,6 +8,7 @@ import numpy as np
 from pydantic import BaseModel
 
 from .interfaces.model import ModelMeta
+from .types import Language
 
 
 class TaskResult(BaseModel):
@@ -27,7 +28,7 @@ class TaskResult(BaseModel):
     task_description: str
     task_version: str
     time_of_run: datetime
-    scores: dict[str, dict[str, float]]  # {language: {"metric": value}}.
+    scores: dict[str, dict[str, Union[float, str]]]  # {language: {"metric": value}}.
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
@@ -61,7 +62,7 @@ class TaskResult(BaseModel):
         """
         Load task results from a path.
         """
-        with path.open() as f:
+        with path.open("r") as f:
             task_results = json.load(f)
         return cls(**task_results)
 
@@ -132,7 +133,7 @@ class BenchmarkResults(BaseModel):
     meta: ModelMeta
     task_results: list[Union[TaskResult, TaskError]]
 
-    def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
+    def get_main_score(self, lang: Optional[Iterable[Language]] = None) -> float:
         scores = [t.get_main_score(lang) for t in self.task_results]
         if scores:
             return sum(scores) / len(scores)

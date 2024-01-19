@@ -2,6 +2,21 @@
 
 
 
+## v0.5.2 (2024-01-19)
+
+### Documentation
+
+* docs: Added norwegian courts to table ([`4f31602`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4f31602b22d4327c7853f05fc04a03a04dd9ff1b))
+
+### Unknown
+
+* Merge pull request #66 from KennethEnevoldsen/allow-custom-embeddings
+
+Allow custom embeddings ([`698453a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/698453a9eda4cb9661b6751dae1361341b97e7f8))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into allow-custom-embeddings ([`f8b91f1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f8b91f161b2fe73b8aa539c85fb15e10f678cc3f))
+
+
 ## v0.5.1 (2024-01-19)
 
 ### Ci
@@ -22,6 +37,14 @@
 
 * fix: Benchmark result now save in the same format as the cache ([`896c3bf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/896c3bf553dfe3e7738b47f2a70525a661ab0940))
 
+* fix: updated according to static type checks ([`f3c77aa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f3c77aa873d788b8b61271daa614833da492c680))
+
+* fix: Added missing init file to make sure that docs build ([`8d44640`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8d446409e1b58f1a432b676e1dd6b0fad521c2cc))
+
+* fix: require positional argument for encoder ([`a7040a5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a7040a5385124945d4697a519b47182c9d668289))
+
+* fix: restructure repo ([`64bace6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/64bace65f840ffb8c11cc9ba689b4509d4e18e26))
+
 ### Unknown
 
 * Merge pull request #65 from x-tabdeveloping/main
@@ -41,6 +64,8 @@ Update paper.md ([`1676c66`](https://github.com/KennethEnevoldsen/scandinavian-e
 * Changed ruff formatter to use line length 150 ([`1079489`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/107948928fda0476c89b8bd816164fd0c6f240ce))
 
 * Merge branch &#39;cli&#39; of https://github.com/x-tabdeveloping/scandinavian-embedding-benchmark into cli_updates ([`7ef411f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ef411f81dcc6e4643493b4d35b989dd3a0c663f))
+
+* tests: Tests pass as inteded ([`d19c650`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d19c6505e4bf7cee055b9568cc7dd8deab61525b))
 
 * Altered tests for CLI ([`e4f5457`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e4f5457be47b46a4ca1a3234f782db6a4e3dcc51))
 

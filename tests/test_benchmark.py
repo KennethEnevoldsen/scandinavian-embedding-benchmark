@@ -2,7 +2,6 @@
 The test specifications for the benchmark.
 """
 
-import os
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union
@@ -55,9 +54,7 @@ def test_run_benchmark(
         languages=languages,
         tasks=tasks,
     )
-    bm_results: list[seb.BenchmarkResults] = benchmark.evaluate_models(
-        models=models, use_cache=False, cache_dir=tmp_path
-    )
+    bm_results: list[seb.BenchmarkResults] = benchmark.evaluate_models(models=models, use_cache=False, cache_dir=tmp_path)
 
     assert len(bm_results) == len(models)
 
@@ -107,9 +104,7 @@ def test_cache_dir_is_reused(
     )
 
     before_run = datetime.now()
-    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(
-        model, use_cache=False, cache_dir=tmp_path
-    )
+    bm_result: seb.BenchmarkResults = benchmark.evaluate_model(model, use_cache=False, cache_dir=tmp_path)
     after_run = datetime.now()
 
     assert len(bm_result) == 1
@@ -157,6 +152,18 @@ def test_benchmark_skip_on_error_raised(tmp_path: Path):
 
     # test that the benchmark raises an error if raise_errors is True
     with pytest.raises(ValueError):  # noqa: PT011
-        benchmark.evaluate_model(
-            model, use_cache=False, raise_errors=True, cache_dir=tmp_path
-        )
+        benchmark.evaluate_model(model, use_cache=False, raise_errors=True, cache_dir=tmp_path)
+
+
+@pytest.mark.parametrize("languages", [None, ["nb", "nn"], ["sv", "nb", "nn"], ["sv", "nb", "nn", "da"]])
+@pytest.mark.parametrize("tasks", [None, ["DKHate", "ScaLA"]])
+def test_benchmark_init(languages: Optional[list[str]], tasks: Optional[list[str]]):
+    benchmark = seb.Benchmark(languages=languages, tasks=tasks)
+
+    if languages:
+        lang_set = set(languages)
+        for task in benchmark.tasks:
+            assert any(lang in lang_set for lang in task.languages), "the benchmark should not include tasks with languages not specified"
+    if tasks:
+        tasks_names = {t.name for t in benchmark.tasks}
+        assert tasks_names.issubset(set(tasks)), "The tasks should be the same or less than the tasks specified"

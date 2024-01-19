@@ -73,6 +73,7 @@ exclude = [".*venv*"]
 pythonPlatform = "Darwin"
 
 [tool.ruff]
+line-length = 150
 extend-include = ["*.ipynb"]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
 select = [

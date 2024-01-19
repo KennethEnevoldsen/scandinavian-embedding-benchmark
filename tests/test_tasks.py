@@ -6,9 +6,7 @@ import seb
 from seb.result_dataclasses import TaskResult
 
 all_tasks = seb.get_all_tasks()
-all_tasks_names = [
-    task.name for task in all_tasks if not task.name.startswith("test ")
-]  # ignore tasks intended for testing
+all_tasks_names = [task.name for task in all_tasks if not task.name.startswith("test ")]  # ignore tasks intended for testing
 
 
 @pytest.fixture()
@@ -50,9 +48,7 @@ def test_read_write_tasks(task_result: TaskResult):
 def test_task_result_main_score(task_result: seb.TaskResult):
     assert task_result.get_main_score(["da"]) == 0.2
     assert task_result.get_main_score(["en"]) == 0.4
-    assert (
-        task_result.get_main_score() - task_result.get_main_score(["da", "en"]) < 0.0001
-    )
+    assert task_result.get_main_score() - task_result.get_main_score(["da", "en"]) < 0.0001
     assert task_result.get_main_score(["da", "en"]) - 0.3 < 0.0001
 
 

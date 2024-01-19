@@ -17,13 +17,7 @@ def insert_table(file: Path, table: str) -> None:
     )
 
     # Construct the updated content
-    updated_content = (
-        start_section
-        + "<!--START_TABLE-->\n"
-        + table
-        + "\n<!--END_TABLE-->"
-        + end_section
-    )
+    updated_content = start_section + "<!--START_TABLE-->\n" + table + "\n<!--END_TABLE-->" + end_section
 
     # Write the updated content back to the file
     with file.open("w") as f:

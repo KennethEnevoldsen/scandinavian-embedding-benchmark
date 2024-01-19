@@ -20,7 +20,7 @@ class TestTask(seb.Task):
             task_description="NA",
             task_version="NA",
             time_of_run=datetime.now(),
-            scores={"en": {"a_metric": 1.0}},
+            scores={"nb": {"a_metric": 1.0}},
             main_score="a_metric",
         )
 
@@ -29,7 +29,7 @@ class TestTask(seb.Task):
 
 
 def create_test_task() -> seb.Task:
-    return TestTask()
+    return TestTask()  # type: ignore
 
 
 def create_test_encode_task() -> seb.Task:

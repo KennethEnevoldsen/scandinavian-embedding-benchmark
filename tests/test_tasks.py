@@ -13,7 +13,7 @@ all_tasks_names = [task.name for task in all_tasks if not task.name.startswith("
 def task_result() -> seb.TaskResult:
     task_result = seb.TaskResult(
         task_name="test",
-        scores={"en": {"test_measure": 0.4}, "da": {"test_measure": 0.2}},
+        scores={"nb": {"test_measure": 0.4}, "da": {"test_measure": 0.2}},
         main_score="test_measure",
         time_of_run=datetime.now(),
         task_version="0.0.1",
@@ -47,9 +47,9 @@ def test_read_write_tasks(task_result: TaskResult):
 
 def test_task_result_main_score(task_result: seb.TaskResult):
     assert task_result.get_main_score(["da"]) == 0.2
-    assert task_result.get_main_score(["en"]) == 0.4
-    assert task_result.get_main_score() - task_result.get_main_score(["da", "en"]) < 0.0001
-    assert task_result.get_main_score(["da", "en"]) - 0.3 < 0.0001
+    assert task_result.get_main_score(["nb"]) == 0.4
+    assert task_result.get_main_score() - task_result.get_main_score(["da", "nb"]) < 0.0001
+    assert task_result.get_main_score(["da", "nb"]) - 0.3 < 0.0001
 
 
 @pytest.mark.skip(

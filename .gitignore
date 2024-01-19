@@ -34,7 +34,8 @@ site/
 datawrapper_api_key.txt
 hf_api_key.txt
 
-# Test caches
+
+# tests cache ignore
 test_task.json
 test_encode_task.json
 test-encode-task.json

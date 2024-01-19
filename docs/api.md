@@ -17,12 +17,20 @@ General function for dealing with tasks and models implemented in SEB.
 
 :::seb.Benchmark
 
-## Model Interface
+## Interfaces
 
-::: seb.ModelInterface
+SEB implements to main interfaces. A task interface which is a tasks within the Benchmark and a model interface which is a model applied to the tasks.
 
 
-## Task Interface
+### Model Interface
+
+::: seb.EmbeddingModel
+
+::: seb.Encoder
+
+
+
+### Task Interface
 
 ::: seb.Task
 

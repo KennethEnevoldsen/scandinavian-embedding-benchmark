@@ -7,10 +7,10 @@ from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .model_interface import EmbeddingModel
+from .interfaces.model import EmbeddingModel, Encoder
+from .interfaces.task import Task
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
-from .tasks_interface import Task
 from .warning_ignore_manager import WarningIgnoreContextManager
 
 logger = logging.getLogger(__name__)

@@ -7,7 +7,7 @@ from typing import Optional, Union
 import numpy as np
 from pydantic import BaseModel
 
-from .model_interface import ModelMeta
+from .interfaces.model import ModelMeta
 
 
 class TaskResult(BaseModel):

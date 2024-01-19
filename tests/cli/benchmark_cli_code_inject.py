@@ -15,9 +15,10 @@ def create_test_encode_task() -> seb.Task:
         version = "NA"
         languages = []  # noqa: RUF012
         domain = []  # noqa: RUF012
+        task_type = "Classification"
 
-        def evaluate(self, model: seb.ModelInterface) -> seb.TaskResult:
-            model.encode(["a test sentence"])
+        def evaluate(self, model: seb.Encoder) -> seb.TaskResult:
+            model.encode(["a test sentence"], task=self)
 
             return seb.TaskResult(
                 task_name="test-encode-task",
@@ -54,7 +55,7 @@ def create_test_model() -> seb.EmbeddingModel:
     def load_test_model() -> TestEncoder:
         return TestEncoder()
 
-    assert isinstance(TestEncoder, seb.ModelInterface)
+    assert isinstance(TestEncoder, seb.Encoder)
 
     return seb.EmbeddingModel(
         meta=seb.ModelMeta(name="test_model", embedding_size=100),

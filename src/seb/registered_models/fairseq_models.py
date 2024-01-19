@@ -5,7 +5,7 @@ from typing import Optional, Union
 
 import torch
 
-from seb.model_interface import EmbeddingModel, ModelInterface, ModelMeta
+from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
 from seb.registries import models
 
 
@@ -18,7 +18,7 @@ def truncate_seq_length(  # noqa: ANN201
     return sequence_batch
 
 
-class SonarTextToEmbeddingModelPipeline(torch.nn.Module, ModelInterface):
+class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
     def __init__(
         self,
         encoder_name: str,

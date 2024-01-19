@@ -6,9 +6,8 @@ This is the specification for the full benchmark. Running the code here will rep
 from pathlib import Path
 from typing import Optional
 
-from seb.model_interface import EmbeddingModel
-
 from .benchmark import Benchmark
+from .interfaces.model import EmbeddingModel
 from .registries import get_all_models
 from .result_dataclasses import BenchmarkResults
 

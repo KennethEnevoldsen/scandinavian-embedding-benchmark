@@ -7,8 +7,10 @@ import torch.nn.functional as F
 from torch import Tensor
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
-from seb import EmbeddingModel, ModelInterface, ModelMeta, models
-from seb.model_interface import ArrayLike
+from seb import models
+from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+
+from ..types import ArrayLike
 
 T = TypeVar("T")
 
@@ -22,7 +24,7 @@ def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
         yield batch
 
 
-class E5Mistral(ModelInterface):
+class E5Mistral(Encoder):
     max_length = 4096
 
     def __init__(self):

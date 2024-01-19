@@ -1,12 +1,15 @@
 from functools import partial
+from typing import Any
 
-from seb import EmbeddingModel, ModelInterface, ModelMeta, models
-from seb.model_interface import ArrayLike
+from seb import models
 
+from ..interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from ..interfaces.task import Task
+from ..types import ArrayLike
 from .hf_models import get_sentence_transformer
 
 
-class E5Wrapper(ModelInterface):
+class E5Wrapper(Encoder):
     def __init__(self, model_name: str):
         self.model_name = model_name
         self.mdl = get_sentence_transformer(model_name)
@@ -22,9 +25,11 @@ class E5Wrapper(ModelInterface):
     def encode(
         self,
         sentences: list[str],
+        *,
+        task: Task,  # noqa: ARG002
         batch_size: int = 32,
-        **kwargs: dict,
-    ) -> list[ArrayLike]:
+        **kwargs: Any,
+    ) -> ArrayLike:
         sentences = self.preprocess(sentences)
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
 

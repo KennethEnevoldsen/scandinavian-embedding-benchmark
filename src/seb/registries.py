@@ -1,7 +1,7 @@
 import catalogue
 
-from .model_interface import EmbeddingModel
-from .tasks_interface import Task
+from .interfaces.model import EmbeddingModel
+from .interfaces.task import Task
 
 models = catalogue.create("seb", "models")
 tasks = catalogue.create("seb", "tasks")

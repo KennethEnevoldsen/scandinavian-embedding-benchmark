@@ -53,6 +53,7 @@ sonar = [
   "fairseq2",
   "sonar-space>=0.1.0",
 ] # fairseq2 only works for linux at the moment
+fasttext = ["fasttext>=0.9.0"]
 
 
 [project.readme]

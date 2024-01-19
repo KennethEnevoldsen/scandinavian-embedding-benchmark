@@ -29,9 +29,7 @@ class E5Mistral(ModelInterface):
         self.load_model()
 
     def load_model(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            "intfloat/e5-mistral-7b-instruct"
-        )
+        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
 
     def preprocess(self, sentences: Sequence[str]) -> BatchEncoding:
@@ -52,9 +50,7 @@ class E5Mistral(ModelInterface):
             [*input_ids, self.tokenizer.eos_token_id]
             for input_ids in batch_dict["input_ids"]  # type: ignore
         ]
-        batch_dict = self.tokenizer.pad(
-            batch_dict, padding=True, return_attention_mask=True, return_tensors="pt"
-        )
+        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
 
         return batch_dict
 

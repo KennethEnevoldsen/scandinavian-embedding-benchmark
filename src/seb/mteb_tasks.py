@@ -128,9 +128,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
     def dataset_transform(self) -> None:
         self.dataset = self.dataset.rename_column("summary", "sentence2")
         self.dataset = self.dataset.rename_column("article", "sentence1")
-        self.dataset = self.dataset.remove_columns(
-            ["id", "headline", "article_category"]
-        )
+        self.dataset = self.dataset.remove_columns(["id", "headline", "article_category"])
         random.seed(42)
 
         # add score column
@@ -153,9 +151,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
                     "score": [0] * len(articles),
                 }
             )
-            self.dataset[split] = datasets.concatenate_datasets(
-                [ds_split, mismatched_ds]
-            )
+            self.dataset[split] = datasets.concatenate_datasets([ds_split, mismatched_ds])
 
     @property
     def description(self) -> dict[str, Any]:

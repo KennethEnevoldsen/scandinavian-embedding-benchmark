@@ -128,9 +128,7 @@ def create_dansk_bert() -> EmbeddingModel:
 
     return EmbeddingModel(
         # see https://huggingface.co/vesteinn/DanskBERT/discussions/3
-        loader=partial(
-            get_sentence_transformer, model_name=hf_name, max_seq_length=512
-        ),  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 
@@ -234,9 +232,7 @@ def create_bert_base_swedish_cased() -> EmbeddingModel:
         embedding_size=768,
     )
     return EmbeddingModel(
-        loader=partial(
-            get_sentence_transformer, model_name=hf_name, max_seq_length=512
-        ),  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 
@@ -271,9 +267,7 @@ def create_xlm_roberta_base() -> EmbeddingModel:
     )
 
     return EmbeddingModel(
-        loader=partial(
-            get_sentence_transformer, model_name=hf_name, max_seq_length=512
-        ),  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
         meta=meta,
     )
 

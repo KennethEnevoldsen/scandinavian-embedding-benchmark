@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from typing import Any, Callable, Optional, Protocol, Union, runtime_checkable
 
 from numpy import ndarray
@@ -53,6 +55,16 @@ class ModelMeta(BaseModel):
         if self.huggingface_name is None:
             raise ValueError("This model does not have an associated huggingface name.")
         return f"https://huggingface.co/{self.huggingface_name}"
+
+    def to_disk(self, path: Path) -> None:
+        with path.open("w") as f:
+            f.write(self.model_dump_json())
+
+    @classmethod
+    def from_disk(cls, path: Path) -> "ModelMeta":
+        with path.open() as f:
+            model_meta = json.load(f)
+        return cls(**model_meta)
 
 
 class EmbeddingModel(BaseModel):

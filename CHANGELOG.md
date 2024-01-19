@@ -2,6 +2,71 @@
 
 
 
+## v0.5.1 (2024-01-19)
+
+### Ci
+
+* ci: rename pre-commit to lint ([`1f3c743`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1f3c74368341ce08e398aadd6c4391bc5628352a))
+
+### Documentation
+
+* docs: Updated CLI docs for run ([`8ff59b3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8ff59b391e50d7a631d95ebf63a5fff4a834b83e))
+
+* docs: make sure that tutorials are tested on prs ([`e4ef73a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e4ef73a1d94f9dfbecf6c739adb4c12e5d63e4dc))
+
+* docs: Updated tutorial with the CLI ([`525eaf2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/525eaf27f46f1ff036d5bb237e7e645b96270ce4))
+
+### Fix
+
+* fix: Run command now print table for target models ([`b7d444b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b7d444befad022fed23f92a30d6dec94413348cd))
+
+* fix: Benchmark result now save in the same format as the cache ([`896c3bf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/896c3bf553dfe3e7738b47f2a70525a661ab0940))
+
+### Unknown
+
+* Merge pull request #65 from x-tabdeveloping/main
+
+Added Norwegian bitext mining task ([`2e8bb07`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2e8bb070fb4b4128c3491dc6995ff171f74c9cf3))
+
+* Merge pull request #68 from KennethEnevoldsen/cli_updates
+
+Added table to CLI ([`2457782`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2457782374aa402b10623626c22570610b9e6510))
+
+* Merge pull request #69 from KennethEnevoldsen/KennethEnevoldsen-patch-1
+
+Update paper.md ([`1676c66`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1676c66d25e33e4195418314e4ec0cd3bf0d6a10))
+
+* Update paper.md ([`eca5a43`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/eca5a4377a8b9966148a46941398bb5cf39b7220))
+
+* Changed ruff formatter to use line length 150 ([`1079489`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/107948928fda0476c89b8bd816164fd0c6f240ce))
+
+* Merge branch &#39;cli&#39; of https://github.com/x-tabdeveloping/scandinavian-embedding-benchmark into cli_updates ([`7ef411f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ef411f81dcc6e4643493b4d35b989dd3a0c663f))
+
+* Altered tests for CLI ([`e4f5457`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e4f5457be47b46a4ca1a3234f782db6a4e3dcc51))
+
+* Tried fixing type errors (ignore problems that are not actually problems) ([`6123138`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6123138b89742a12872b4638d75409985e134c97))
+
+* Changed -h docs to reflect changes in behaviour ([`b8b8169`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b8b8169528e2c1c1f59539b32fc810d6493bd1ba))
+
+* Model printing nicer with less space, fixed multiple arguments, and implemented new output interface ([`fdd072b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fdd072b0def344fa0a14457003928e2b493b9d64))
+
+* Made model and output path optional ([`fb1c976`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fb1c976408c2acc444b7f48ab7e083c66123bfff))
+
+* Added more direct reference and commented out task ([`566a009`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/566a009d221501ddc19c672343460189ebe59d15))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`af6f926`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/af6f926163bca4d68689d44e3bedd169bc6c0d7a))
+
+* Added Norwegian bitext mining task ([`49b1655`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49b1655b331fbc9f733dd883a8b27a19926a1d00))
+
+* Moved more code into main CLI, pretty printing now takes DataFrame ([`ae1cb90`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ae1cb9005c7162eeade95d861673096917e7b9f7))
+
+* Added pretty printing benchmark results in table to CLI ([`eba47c1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/eba47c1233ab972ff816a72583e3b698c10d159e))
+
+* Merge pull request #62 from KennethEnevoldsen/update-tutorial-with-cli
+
+Make sure that tutorials are tested on prs ([`ebf1640`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ebf1640a05511fd6a145dba51596b2d20e9345e2))
+
+
 ## v0.5.0 (2024-01-15)
 
 ### Fix
@@ -40,6 +105,8 @@ Add summarization ([`065b0e6`](https://github.com/KennethEnevoldsen/scandinavian
 fix: Added new and more comprehensive CLI ([`2b0a47a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b0a47aa8ff3e044d15725adf6b20a2bb883aa69))
 
 * tests: Fix ordering of test input ([`971c9ac`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/971c9ac7d0a4640e982fe62ebfd62a0372b8f22e))
+
+* removed files ([`1e78ada`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1e78ada48460b33592fcaddad83745a6ce260ec0))
 
 * tests: Ensure that dummy tasks are not added to registry ([`affabc8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/affabc8a8aafcb16293079d464ddbd3867ab0f59))
 

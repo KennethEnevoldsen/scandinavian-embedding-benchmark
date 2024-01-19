@@ -18,3 +18,8 @@
 - It should be transparent how models are run as often the exact prompt used can notably influence performance. --> this models are implemented as a part of the bencmark.
 
 # Results
+
+- conflict between language identification and lang. alignment
+
+
+- translation then embed comparison

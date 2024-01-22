@@ -5,10 +5,11 @@ from rich.console import Console
 from rich.table import Table
 
 import seb
+from seb.types import Language
 
 
-def get_main_score(task: seb.TaskResult, langs: Optional[list[str]]) -> float:
-    if langs is None:
+def get_main_score(task: seb.TaskResult, langs: Optional[list[Language]]) -> float:
+    if langs is None:  # noqa
         _langs = task.languages
     else:
         _langs = set(langs) & set(task.languages)

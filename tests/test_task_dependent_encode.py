@@ -43,7 +43,7 @@ def create_all_is_0_task() -> seb.Task:
                 task_description="NA",
                 task_version="NA",
                 time_of_run=datetime.now(),
-                scores={"en": {"a_metric": 1.0}},
+                scores={"nb": {"a_metric": 1.0}},
                 main_score="a_metric",
             )
 
@@ -64,7 +64,7 @@ def create_all_is_1_task() -> seb.Task:
                 task_description="NA",
                 task_version="NA",
                 time_of_run=datetime.now(),
-                scores={"en": {"a_metric": 1.0}},
+                scores={"nb": {"a_metric": 1.0}},
                 main_score="a_metric",
             )
 

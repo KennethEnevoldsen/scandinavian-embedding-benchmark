@@ -1,5 +1,7 @@
 from typing import Protocol, runtime_checkable
 
+from attr import dataclass
+
 from ..result_dataclasses import TaskResult
 from ..types import DescriptiveDatasetStats, Domain, Language, TaskType
 from .model import Encoder

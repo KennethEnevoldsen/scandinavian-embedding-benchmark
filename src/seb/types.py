@@ -24,9 +24,10 @@ Domain = Literal[
     "bible",
 ]
 
-Language = Literal["da", "nb", "nn", "sv"]
+Language = Literal["da", "nb", "nn", "sv", "da-bornholm", "is", "fo"]
+languages_in_seb: list[Language] = ["da", "nb", "nn", "sv", "da-bornholm", "is", "fo"]
 
-TaskType = Literal["Classification", "Retrieval", "STS", "BitextMining", "Clustering"]
+TaskType = Literal["Classification", "Retrieval", "STS", "BitextMining", "Clustering", "Speed"]
 
 
 class DescriptiveDatasetStats(TypedDict):

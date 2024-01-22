@@ -5,3 +5,4 @@ from .fairseq_models import *
 from .fasttext import *
 from .hf_models import *
 from .openai_models import *
+from .translate_e5_models import *

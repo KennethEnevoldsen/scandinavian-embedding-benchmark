@@ -5,7 +5,7 @@ import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 
 from seb.interfaces.model import Encoder
-from seb.interfaces.mteb_task import MTEBTask
+from seb.interfaces.mteb_task import MTEBTask, MTEBTaskModel
 from seb.interfaces.task import Task
 from seb.registries import tasks
 from seb.result_dataclasses import TaskResult
@@ -84,7 +84,7 @@ def create_scala() -> Task:
                 for text_column in self._text_columns:
                     texts += ds[split][text_column]
 
-            document_lengths = [len(text) for text in texts]
+            document_lengths = np.array([len(text) for text in texts])
 
             mean = np.mean(document_lengths)
             std = np.std(document_lengths)
@@ -96,9 +96,10 @@ def create_scala() -> Task:
 
         def evaluate(self, model: Encoder) -> TaskResult:
             scores = {}
+            _model = MTEBTaskModel(model, self)
             for lang, mteb_task in self.mteb_tasks.items():
                 mteb_task.load_data()
-                score = mteb_task.evaluate(model)
+                score = mteb_task.evaluate(_model)
                 scores[lang] = score
 
             return TaskResult(

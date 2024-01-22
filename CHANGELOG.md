@@ -2,6 +2,19 @@
 
 
 
+## v0.6.0 (2024-01-22)
+
+### Fix
+
+* fix: Allow models to batch inputs ([`09c3527`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/09c35278018671ed21e71f8ee749b2b12127efab))
+
+### Unknown
+
+* Merge pull request #70 from KennethEnevoldsen/add-speed-task
+
+Added speed task ([`d192e44`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d192e445956c979e6e2e806cf76778555c0e09e4))
+
+
 ## v0.5.5 (2024-01-22)
 
 ### Fix
@@ -30,9 +43,15 @@ Fix verbosity toggle on CLI and remove duplicate entries in table ([`99ef0f2`](h
 
 ## v0.5.3 (2024-01-22)
 
+### Feature
+
+* feat: Added speed task for estimating the speed of the embedding models ([`25caacc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/25caacc87baed6f3c85d6c40682a28790409dc04))
+
 ### Fix
 
 * fix: ScaLA now correctly wraps models to allow for task argument to be passed Renamed scala cache ([`a70c950`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a70c950b0093924e9aa64dc4c0a4604cb868c864))
+
+* fix: fixed a type hint in tests ([`da32c0e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/da32c0eb09982be8b6b2a40c2a6d195f11f6d428))
 
 ### Unknown
 

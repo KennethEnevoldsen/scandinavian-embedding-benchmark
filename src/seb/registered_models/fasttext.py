@@ -39,9 +39,9 @@ class FastTextModel(seb.Encoder):
 
 @models.register("fasttext-cc-da-300")
 def create_cc_da_300() -> seb.EmbeddingModel:
-    model_name = "cc.da.300.bin"
+    model_name = "fasttext-cc-da-300"
     meta = seb.ModelMeta(
-        name=model_name,
+        name="cc.da.300.bin",
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["da"],
@@ -56,9 +56,9 @@ def create_cc_da_300() -> seb.EmbeddingModel:
 
 @models.register("fasttext-cc-sv-300")
 def create_cc_sv_300() -> seb.EmbeddingModel:
-    model_name = "cc.sv.300.bin"
+    model_name = "fasttext-cc-sv-300"
     meta = seb.ModelMeta(
-        name=model_name,
+        name="cc.sv.300.bin",
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["sv"],
@@ -73,9 +73,9 @@ def create_cc_sv_300() -> seb.EmbeddingModel:
 
 @models.register("fasttext-cc-nb-300")
 def create_cc_nb_300() -> seb.EmbeddingModel:
-    model_name = "cc.no.300.bin"
+    model_name = "fasttext-cc-nb-300"
     meta = seb.ModelMeta(
-        name=model_name,
+        name="cc.no.300.bin",
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["nb"],
@@ -90,9 +90,9 @@ def create_cc_nb_300() -> seb.EmbeddingModel:
 
 @models.register("fasttext-cc-nn-300")
 def create_cc_nn_300() -> seb.EmbeddingModel:
-    model_name = "cc.nn.300.bin"
+    model_name = "fasttext-cc-nn-300"
     meta = seb.ModelMeta(
-        name=model_name,
+        name="cc.nn.300.bin",
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["nn"],

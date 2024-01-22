@@ -151,6 +151,7 @@ class Benchmark:
         run_model: bool = True,
         raise_errors: bool = True,
         cache_dir: Optional[Path] = None,
+        verbose: bool = True,
     ) -> BenchmarkResults:
         """
         Evaluate a model on the benchmark.
@@ -161,12 +162,13 @@ class Benchmark:
             run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
             cache_dir: The cache directory to use. If None, the default cache directory is used.
+            verbose: Whether to show a progress bar.
 
         Returns:
             The results of the benchmark.
         """
         task_results = []
-        pbar = tqdm(self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False)
+        pbar = tqdm(self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False, disable=not verbose)
         for task in pbar:
             pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(
@@ -188,6 +190,7 @@ class Benchmark:
         run_model: bool = True,
         raise_errors: bool = True,
         cache_dir: Optional[Path] = None,
+        verbose: bool = True,
     ) -> list[BenchmarkResults]:
         """
         Evaluate a list of models on the benchmark.
@@ -198,12 +201,13 @@ class Benchmark:
             run_model: Whether to run the model if the cache is not present.
             raise_errors: Whether to raise errors.
             cache_dir: The cache directory to use. If None, the default cache directory is used.
+            verbose: Whether to show a progress bar.
 
         Returns:
             The results of the benchmark, once for each model.
         """
         results = []
-        pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True)
+        pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True, disable=not verbose)
 
         for model in pbar:
             pbar.set_description(f"Running {model.meta.name}")
@@ -214,6 +218,7 @@ class Benchmark:
                     run_model=run_model,
                     raise_errors=raise_errors,
                     cache_dir=cache_dir,
+                    verbose=verbose
                 ),
             )
         return results

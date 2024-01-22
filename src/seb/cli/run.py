@@ -150,9 +150,10 @@ def run_benchmark_cli(
 
     # Dummy run all models for the sake of printing the table
     current_models = {mdl.meta.name for mdl in emb_models}
-    for mdl_name, create_mdl in seb.models.get_all().items():
-        if mdl_name not in current_models:
-            emb_models.append(create_mdl())
+    for _, create_mdl in seb.models.get_all().items():
+        mdl = create_mdl()
+        if mdl.meta.name not in current_models:
+            emb_models.append(mdl)
 
     benchmark = seb.Benchmark(languages, tasks=tasks)
     benchmark_results = benchmark.evaluate_models(
@@ -160,6 +161,7 @@ def run_benchmark_cli(
         use_cache=True,
         raise_errors=False,
         run_model=False,
+        verbose=False,
     )
 
     new_highlight_names = []

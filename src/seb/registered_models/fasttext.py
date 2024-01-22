@@ -29,6 +29,9 @@ class FastTextModel(seb.Encoder):
         model = fasttext.load_model(self.model_name)
         embeddings = []
         for sentence in sentences:
+            # This is to appease FastText as they made the function err
+            # if there's a \n in the sentence.
+            sentence = " ".join(sentence.split())
             sentence_embedding = model.get_sentence_vector(sentence.strip())
             embeddings.append(sentence_embedding)
         return torch.tensor(np.stack(embeddings))

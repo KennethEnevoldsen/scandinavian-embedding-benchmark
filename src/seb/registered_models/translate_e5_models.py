@@ -2,14 +2,13 @@ from collections.abc import Sequence
 from functools import partial
 from typing import Any
 
+import torch
 from sentence_transformers import SentenceTransformer
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
 import seb
 from seb import models
 from seb.registries import models
-
-from ..types import ArrayLike, Language
 
 
 class TranslateE5Model(seb.Encoder):
@@ -21,7 +20,7 @@ class TranslateE5Model(seb.Encoder):
         )
         self.trans_tokenizer = M2M100Tokenizer.from_pretrained("facebook/m2m100_418M")
 
-    def translate(self, sentence: str, src_lang: Language) -> str:
+    def translate(self, sentence: str, src_lang: str) -> str:
         self.trans_tokenizer.src_lang = src_lang
         encoded_sent = self.trans_tokenizer(sentence, return_tensors="pt")
         gen_tokens = self.trans_model.generate(
@@ -36,7 +35,7 @@ class TranslateE5Model(seb.Encoder):
         task: seb.Task,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> torch.Tensor:
         try:
             src_lang = task.languages[0]
         except IndexError:

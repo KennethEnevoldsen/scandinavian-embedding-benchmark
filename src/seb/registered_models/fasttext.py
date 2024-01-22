@@ -10,6 +10,11 @@ from seb.registries import models
 
 class FastTextModel(seb.Encoder):
     def __init__(self, model_name: str, lang: str) -> None:
+        import fasttext
+        import fasttext.util
+
+        fasttext.util.download_model(self.lang, if_exists="ignore")
+        self.model = fasttext.load_model(self.model_name)
         self.model_name = model_name
         self.lang = lang
 
@@ -22,17 +27,12 @@ class FastTextModel(seb.Encoder):
         sentences: Sequence[str],
         **kwargs: dict,  # noqa: ARG002
     ) -> torch.Tensor:
-        import fasttext
-        import fasttext.util
-
-        fasttext.util.download_model(self.lang, if_exists="ignore")
-        model = fasttext.load_model(self.model_name)
         embeddings = []
         for sentence in sentences:
             # This is to appease FastText as they made the function err
             # if there's a \n in the sentence.
             sentence = " ".join(sentence.split())
-            sentence_embedding = model.get_sentence_vector(sentence.strip())
+            sentence_embedding = self.model.get_sentence_vector(sentence)
             embeddings.append(sentence_embedding)
         return torch.tensor(np.stack(embeddings))
 

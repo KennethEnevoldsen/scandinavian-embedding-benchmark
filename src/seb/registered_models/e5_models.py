@@ -26,12 +26,12 @@ class E5Wrapper(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Task,  # noqa: ARG002
+        task: Task,
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
         sentences = self.preprocess(sentences)
-        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
+        return self.mdl.encode(sentences, batch_size=batch_size, task=task, **kwargs)  # type: ignore
 
 
 # English

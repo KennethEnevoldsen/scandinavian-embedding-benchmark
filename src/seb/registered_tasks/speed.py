@@ -3,7 +3,7 @@ import platform
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Union
+from typing import Callable, Optional, Union
 
 import numpy as np
 import psutil
@@ -52,14 +52,14 @@ class CPUSpeedTask(Task):
         dataset = self.load_dataset()
         start = time.time()
         with torch.no_grad():
-            model.encode(dataset, batch_size=1, device=self.device, task=self)
+            model.encode(dataset, device=self.device, task=self)
         time_taken = time.time() - start
         return time_taken
 
     def evaluate(self, model: EmbeddingModel) -> TaskResult:
         model.loader()  # ensure model is loaded
 
-        has_to_method = callable(getattr(model._model, "to", None))
+        has_to_method = hasattr(model._model, "to") and isinstance(model._model.to, Callable)  # type: ignore
         if has_to_method:
             model = model.to(self.device)  # type: ignore
 

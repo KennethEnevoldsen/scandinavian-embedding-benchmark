@@ -2,6 +2,17 @@
 
 
 
+## v0.5.4 (2024-01-22)
+
+### Fix
+
+* fix: ScaLA now correctly wraps models to allow for task argument to be passed ([`3b07a4d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3b07a4d9cf8ad1170453feb3f74fb065edd05114))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`07efe8f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/07efe8f29fc14d3db50e96a91283b3e16dea77fa))
+
+
 ## v0.5.3 (2024-01-22)
 
 ### Fix

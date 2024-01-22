@@ -131,7 +131,7 @@ def run_benchmark_cli(
     import_code(code_path)
 
     benchmark = seb.Benchmark(languages, tasks=tasks)
-    if models is None:
+    if models is None:  # noqa
         emb_models = get_all_models()
     else:
         emb_models = [build_model(model_name=model_name) for model_name in models]
@@ -145,6 +145,8 @@ def run_benchmark_cli(
     if output_path is not None:
         output_path.mkdir(exist_ok=True)
         dump_results(benchmark_results, output_path)
+
+    highlight = [model.meta.name for model in emb_models]
 
     # Dummy run all models for the sake of printing the table
     current_models = {mdl.meta.name for mdl in emb_models}
@@ -160,12 +162,10 @@ def run_benchmark_cli(
         run_model=False,
     )
 
-    n_registered_models = len(emb_models)
-    highlight = []
-    if models is not None:
-        # We mark the models specified in the CLI as "NEW"
-        for i_model in range(n_registered_models, len(emb_models)):
-            benchmark_results[i_model].meta.name = f"NEW: {benchmark_results[i_model].meta.name}"
-            highlight.append(benchmark_results[i_model].meta.name)
+    new_highlight_names = []
+    for model in benchmark_results:
+        if model.meta.name in highlight:
+            model.meta.name = f"NEW: {model.meta.name}"
+            new_highlight_names.append(model.meta.name)
     benchmark_df = convert_to_table(benchmark_results, languages)
-    pretty_print_benchmark(benchmark_df, highlight=highlight)
+    pretty_print_benchmark(benchmark_df, highlight=new_highlight_names)

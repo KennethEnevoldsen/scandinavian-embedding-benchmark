@@ -41,7 +41,7 @@ class FastTextModel(seb.Encoder):
 def create_cc_da_300() -> seb.EmbeddingModel:
     model_name = "fasttext-cc-da-300"
     meta = seb.ModelMeta(
-        name="cc.da.300.bin",
+        name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["da"],
@@ -49,7 +49,7 @@ def create_cc_da_300() -> seb.EmbeddingModel:
         embedding_size=300,
     )
     return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name=model_name, lang="da"),
+        loader=partial(FastTextModel, model_name="cc.da.300.bin", lang="da"),
         meta=meta,
     )
 
@@ -58,7 +58,7 @@ def create_cc_da_300() -> seb.EmbeddingModel:
 def create_cc_sv_300() -> seb.EmbeddingModel:
     model_name = "fasttext-cc-sv-300"
     meta = seb.ModelMeta(
-        name="cc.sv.300.bin",
+        name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["sv"],
@@ -66,7 +66,7 @@ def create_cc_sv_300() -> seb.EmbeddingModel:
         embedding_size=300,
     )
     return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name=model_name, lang="sv"),
+        loader=partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv"),
         meta=meta,
     )
 
@@ -75,7 +75,7 @@ def create_cc_sv_300() -> seb.EmbeddingModel:
 def create_cc_nb_300() -> seb.EmbeddingModel:
     model_name = "fasttext-cc-nb-300"
     meta = seb.ModelMeta(
-        name="cc.no.300.bin",
+        name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["nb"],
@@ -83,7 +83,7 @@ def create_cc_nb_300() -> seb.EmbeddingModel:
         embedding_size=300,
     )
     return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name=model_name, lang="no"),
+        loader=partial(FastTextModel, model_name="cc.no.300.bin", lang="no"),
         meta=meta,
     )
 
@@ -92,7 +92,7 @@ def create_cc_nb_300() -> seb.EmbeddingModel:
 def create_cc_nn_300() -> seb.EmbeddingModel:
     model_name = "fasttext-cc-nn-300"
     meta = seb.ModelMeta(
-        name="cc.nn.300.bin",
+        name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
         languages=["nn"],
@@ -100,6 +100,6 @@ def create_cc_nn_300() -> seb.EmbeddingModel:
         embedding_size=300,
     )
     return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name=model_name, lang="nn"),
+        loader=partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn"),
         meta=meta,
     )

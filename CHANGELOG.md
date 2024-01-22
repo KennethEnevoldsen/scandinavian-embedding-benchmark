@@ -2,6 +2,19 @@
 
 
 
+## v0.5.3 (2024-01-22)
+
+### Fix
+
+* fix: ScaLA now correctly wraps models to allow for task argument to be passed Renamed scala cache ([`a70c950`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a70c950b0093924e9aa64dc4c0a4604cb868c864))
+
+### Unknown
+
+* Merge pull request #73 from KennethEnevoldsen/bug-scala-missing-task-encode-wrapper
+
+Wraps ScaLA models in MTEBTaskModel ([`e2eee05`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e2eee055775ffcc7019fa470dcd5d70a124416aa))
+
+
 ## v0.5.2 (2024-01-19)
 
 ### Documentation

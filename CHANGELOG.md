@@ -2,6 +2,21 @@
 
 
 
+## v0.5.5 (2024-01-22)
+
+### Fix
+
+* fix: Add toggle for verbosity on the cli and remove duplicate entries in table ([`4d26fce`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4d26fce32019b61dad08fc5adeb9c47ca85b9226))
+
+### Unknown
+
+* Merge pull request #74 from KennethEnevoldsen/verbosity_for_cli
+
+Fix verbosity toggle on CLI and remove duplicate entries in table ([`99ef0f2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/99ef0f2886275158aa43952f95d7f9aa1c9a5a16))
+
+* Remove model results for repo ([`2435011`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2435011311ef423f27d72f3706675cbada8ade38))
+
+
 ## v0.5.4 (2024-01-22)
 
 ### Fix

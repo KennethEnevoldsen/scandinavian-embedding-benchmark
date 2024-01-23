@@ -2,6 +2,21 @@
 
 
 
+## v0.7.0 (2024-01-23)
+
+### Feature
+
+* feat: Added SwednRetrieval task
+
+The idea is that it can be compared with SwednSTS to which one makes the most sense. ([`7fe3371`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7fe337195a98a6a97c0e590401fd47ce2158334c))
+
+### Unknown
+
+* Merge pull request #82 from KennethEnevoldsen/add-retrieval-swedn
+
+feat: Added SwednRetrieval task ([`d5f959d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d5f959d7fca26bc1bc5c09769d7aca0dcb0b7e28))
+
+
 ## v0.6.0 (2024-01-22)
 
 ### Fix

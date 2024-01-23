@@ -5,13 +5,12 @@ import logging
 from functools import partial
 from typing import Any, Optional
 
+from numpy.typing import ArrayLike
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import EmbeddingModel, ModelMeta
 from seb.interfaces.task import Task
 from seb.registries import models
-
-from ..types import ArrayLike
 
 
 def silence_warnings_from_sentence_transformers():

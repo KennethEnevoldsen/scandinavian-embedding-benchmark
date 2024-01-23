@@ -1,10 +1,39 @@
-from typing import Protocol, runtime_checkable
+from typing import Literal, Protocol, TypedDict, runtime_checkable
 
 from attr import dataclass
 
+from seb.interfaces.language import Language
+
 from ..result_dataclasses import TaskResult
-from ..types import DescriptiveDatasetStats, Domain, Language, TaskType
 from .model import Encoder
+
+Domain = Literal[
+    "social",
+    "poetry",
+    "wiki",
+    "fiction",
+    "non-fiction",
+    "web",
+    "legal",
+    "news",
+    "academic",
+    "spoken",
+    "reviews",
+    "blog",
+    "medical",
+    "government",
+    "bible",
+]
+
+TaskType = Literal[
+    "Classification", "Retrieval", "STS", "BitextMining", "Clustering", "Speed"
+]
+
+
+class DescriptiveDatasetStats(TypedDict):
+    mean_document_length: float
+    std_document_length: float
+    num_documents: int
 
 
 @runtime_checkable

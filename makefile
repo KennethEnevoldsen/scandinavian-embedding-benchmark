@@ -1,6 +1,7 @@
 install:
 	@echo "--- 🚀 Installing project ---"
-	pip install -e ".[dev, docs, openai, cohere, tests, mistral, fasttext]" 
+	pip install pybind11
+	pip install -e ".[dev, docs, openai, cohere, tests, mistral]" 
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"

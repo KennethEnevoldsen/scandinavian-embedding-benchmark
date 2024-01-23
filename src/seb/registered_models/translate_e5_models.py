@@ -44,7 +44,7 @@ class TranslateE5Model(seb.Encoder):
             # Danish is the default fallback if no language is specified for the task.
             src_lang = "da"
         sentences = [self.translate(sentence, src_lang) for sentence in sentences]
-        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
+        return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore
 
 
 @models.register("translate-e5-small")

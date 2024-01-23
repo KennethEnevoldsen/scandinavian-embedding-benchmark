@@ -2,6 +2,49 @@
 
 
 
+## v0.7.0 (2024-01-23)
+
+### Feature
+
+* feat: Added SwednRetrieval task
+
+The idea is that it can be compared with SwednSTS to which one makes the most sense. ([`7fe3371`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7fe337195a98a6a97c0e590401fd47ce2158334c))
+
+### Unknown
+
+* Merge pull request #82 from KennethEnevoldsen/add-retrieval-swedn
+
+feat: Added SwednRetrieval task ([`d5f959d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d5f959d7fca26bc1bc5c09769d7aca0dcb0b7e28))
+
+
+## v0.6.0 (2024-01-22)
+
+### Fix
+
+* fix: Allow models to batch inputs ([`09c3527`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/09c35278018671ed21e71f8ee749b2b12127efab))
+
+### Unknown
+
+* Merge pull request #70 from KennethEnevoldsen/add-speed-task
+
+Added speed task ([`d192e44`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d192e445956c979e6e2e806cf76778555c0e09e4))
+
+
+## v0.5.5 (2024-01-22)
+
+### Fix
+
+* fix: Add toggle for verbosity on the cli and remove duplicate entries in table ([`4d26fce`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4d26fce32019b61dad08fc5adeb9c47ca85b9226))
+
+### Unknown
+
+* Merge pull request #74 from KennethEnevoldsen/verbosity_for_cli
+
+Fix verbosity toggle on CLI and remove duplicate entries in table ([`99ef0f2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/99ef0f2886275158aa43952f95d7f9aa1c9a5a16))
+
+* Remove model results for repo ([`2435011`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2435011311ef423f27d72f3706675cbada8ade38))
+
+
 ## v0.5.4 (2024-01-22)
 
 ### Fix
@@ -15,9 +58,15 @@
 
 ## v0.5.3 (2024-01-22)
 
+### Feature
+
+* feat: Added speed task for estimating the speed of the embedding models ([`25caacc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/25caacc87baed6f3c85d6c40682a28790409dc04))
+
 ### Fix
 
 * fix: ScaLA now correctly wraps models to allow for task argument to be passed Renamed scala cache ([`a70c950`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a70c950b0093924e9aa64dc4c0a4604cb868c864))
+
+* fix: fixed a type hint in tests ([`da32c0e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/da32c0eb09982be8b6b2a40c2a6d195f11f6d428))
 
 ### Unknown
 

@@ -25,6 +25,7 @@ class Encoder(Protocol):
         **kwargs: Any,
     ) -> ArrayLike:
         """Returns a list of embeddings for the given sentences.
+
         Args:
             sentences: List of sentences to encode
             task: The task to encode for. This allows the model to encode differently for different tasks. Will always be given but does not need

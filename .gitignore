@@ -41,4 +41,6 @@ test_encode_task.json
 test-encode-task.json
 
 # tutorial results
+docs/model_results/*
+model_results/*
 docs/model_results.json

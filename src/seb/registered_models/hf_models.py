@@ -47,6 +47,23 @@ def get_sentence_transformer(
     return mdl
 
 
+@models.register("jinaai/jina-embedding-b-en-v1")
+def create_jina_base() -> EmbeddingModel:
+    hf_name = "jinaai/jina-embedding-b-en-v1"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["en"],
+        open_source=True,
+        embedding_size=768,
+    )
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        meta=meta,
+    )
+
+
 # Relevant multilingual models
 @models.register("sentence-transformers/all-MiniLM-L6-v2")
 def create_all_mini_lm_l6_v2() -> EmbeddingModel:

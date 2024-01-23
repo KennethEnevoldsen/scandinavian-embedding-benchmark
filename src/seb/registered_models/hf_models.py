@@ -294,7 +294,7 @@ def create_xlm_roberta_base() -> EmbeddingModel:
 
 @models.register("xlm-roberta-large")
 def create_xlm_roberta_large() -> EmbeddingModel:
-    hf_name = "xlm-roberta-base"
+    hf_name = "xlm-roberta-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
@@ -322,7 +322,7 @@ def create_labse() -> EmbeddingModel:
     )
 
     return EmbeddingModel(
-        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=256),  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 

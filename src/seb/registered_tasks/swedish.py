@@ -36,12 +36,23 @@ def create_swefaq() -> Task:
 
 
 # temporarily disabled - will be added back in the future (along with the new datasets)
-# @tasks.register("Swedn")
-def create_swedn() -> Task:
+# @tasks.register("SwednSTS")
+def create_swedn_sts() -> Task:
     from seb.registered_tasks.mteb_tasks import SwednSummarizationSTS
 
     task = MTEBTask(SwednSummarizationSTS())
-    task.name = "Swedn"
+    task.name = "SwednSTS"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "news"]
+    return task
+
+
+# @tasks.register("SwednRetrieval")
+def create_swedn_retrieval() -> Task:
+    from seb.registered_tasks.mteb_tasks import SwednRetrieval
+
+    task = MTEBTask(SwednRetrieval())
+    task.name = "SwednRetrieval"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     return task

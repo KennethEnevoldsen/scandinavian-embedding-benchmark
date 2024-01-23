@@ -2,6 +2,37 @@
 
 
 
+## v0.7.1 (2024-01-23)
+
+### Fix
+
+* fix: added task argument to TranslateE5 encoding ([`71dcd09`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/71dcd0994df98e891a80c1576b8bf0d8411a151d))
+
+### Unknown
+
+* Merge pull request #87 from KennethEnevoldsen/new_models
+
+Added XLM-Roberta large and LaBSE ([`74fcf43`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/74fcf431d2f7824ecb570722f4fccc0262f41615))
+
+* Merge pull request #85 from x-tabdeveloping/main
+
+Added FastText and Translate-E5 models ([`2d9043e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2d9043ea2f52243de168f110bc9732dae4abf14c))
+
+* Removed commented-out lines ([`373b937`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/373b9378f7e4e75c73e527c5741932f7faca8ce9))
+
+* Removed duplicate model ([`476d679`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/476d679e10aaf1b5c0d123d2cca1d9ed12440bdd))
+
+* Fixed duplicate model names ([`7275686`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7275686b4a22972b803b76dffa92aa9f9cfbe37d))
+
+* Added XLM-Roberta large and LaBSE ([`858db1b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/858db1bd3e305c3d9299ffd892aa14841608985a))
+
+* Merging upstream into the branch so that it contains the fixed E5 models, that pass along the task. ([`f6f71db`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f6f71db4648867e0118af35aa75b65018bd5cc77))
+
+* TranslateE5 now uses E5Wrapper to ensure task-correct embeddings and prefixes. ([`5eff1fc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5eff1fcad96d15fdad962b370568ae9c676efa8d))
+
+* Translate now returns a single string instead of a list ([`e1cefd9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e1cefd919fa69b9c9edf36eb960e258613322d2b))
+
+
 ## v0.7.0 (2024-01-23)
 
 ### Feature
@@ -15,6 +46,18 @@ The idea is that it can be compared with SwednSTS to which one makes the most se
 * Merge pull request #82 from KennethEnevoldsen/add-retrieval-swedn
 
 feat: Added SwednRetrieval task ([`d5f959d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d5f959d7fca26bc1bc5c09769d7aca0dcb0b7e28))
+
+* No longer imports ..types because of an error ([`c75629a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c75629acd9a2a74c404f0a0cde2e5ea26df7f40b))
+
+* Fasttext now loads on initialization instead of the first encode() call ([`e6b1fda`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e6b1fdaf611ed413d7b5bcd649c694cb77196801))
+
+* Added Translate E5 models ([`33835af`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/33835afa0a5fcc4c25c54dc4424a3fa2bf63358d))
+
+* Added fasttext models to cache ([`fbc9482`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fbc94829648ec40be94a8ca5bb65b84f0ab78a2e))
+
+* Fixed model names ([`d28f259`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d28f259e428e0b85829fbde9a4cf3e6c16b370cc))
+
+* Changed model fasttext names ([`7871ab5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7871ab592f4911ab6197b6d62be8a7e2c897e060))
 
 
 ## v0.6.0 (2024-01-22)
@@ -42,7 +85,17 @@ Added speed task ([`d192e44`](https://github.com/KennethEnevoldsen/scandinavian-
 
 Fix verbosity toggle on CLI and remove duplicate entries in table ([`99ef0f2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/99ef0f2886275158aa43952f95d7f9aa1c9a5a16))
 
+* Fixed newline error with FastText ([`65411a3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/65411a3c50096e0099925ee66f00b76a7604f3ea))
+
 * Remove model results for repo ([`2435011`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2435011311ef423f27d72f3706675cbada8ade38))
+
+* Made fasttext models compatible with the new interface ([`ac8d46f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ac8d46fa0329112cca8b966d3904f08a69a69804))
+
+* Merge branch &#39;main&#39; of https://github.com/x-tabdeveloping/scandinavian-embedding-benchmark into main ([`c0be7a6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c0be7a650b21dae93966c9f49784444e32a2701a))
+
+* Added fasttext models for nn, nb, da, sv ([`1820689`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1820689e3af0f0d6673c18290dd8e7a7045642fe))
+
+* Added Fasttext models for nb, nn, sv and da ([`184dde8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/184dde8c7c0d17fdb7bcb2bbeab83c76000eb94a))
 
 
 ## v0.5.4 (2024-01-22)
@@ -73,6 +126,10 @@ Fix verbosity toggle on CLI and remove duplicate entries in table ([`99ef0f2`](h
 * Merge pull request #73 from KennethEnevoldsen/bug-scala-missing-task-encode-wrapper
 
 Wraps ScaLA models in MTEBTaskModel ([`e2eee05`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e2eee055775ffcc7019fa470dcd5d70a124416aa))
+
+* Merging with current status of Upstream ([`9c1fdf3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9c1fdf3cbea2f63eec45e051d7330678d6da11df))
+
+* Added Fasttext models for nb, nn, sv and da ([`4249333`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4249333e9b2b89c1c8900fb80c2f677723fa6279))
 
 
 ## v0.5.2 (2024-01-19)
@@ -135,6 +192,8 @@ Update paper.md ([`1676c66`](https://github.com/KennethEnevoldsen/scandinavian-e
 * Update paper.md ([`eca5a43`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/eca5a4377a8b9966148a46941398bb5cf39b7220))
 
 * Changed ruff formatter to use line length 150 ([`1079489`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/107948928fda0476c89b8bd816164fd0c6f240ce))
+
+* Merge remote-tracking branch &#39;upstream/main&#39; into main ([`d0739d8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d0739d8b3d03c9dd2cc6470141bbac9c91fc9a44))
 
 * Merge branch &#39;cli&#39; of https://github.com/x-tabdeveloping/scandinavian-embedding-benchmark into cli_updates ([`7ef411f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ef411f81dcc6e4643493b4d35b989dd3a0c663f))
 

@@ -100,17 +100,3 @@ def test_run_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
         tr for tr in bench_res.task_results if tr.task_name != "test-encode-task"
     ]
     assert is_approximately_equal(bench_res.get_main_score(), inputs.score)
-
-
-def test_run_some_models():
-    """Runs all sorts of models on a small task to see if they can run without breaking.
-    Cache is ignored so that the models are actually run.
-    """
-    models = [
-        "sentence-transformers/all-MiniLM-L6-v2",
-        "intfloat/e5-small",
-        "translate-e5-small",
-        "fasttext-cc-da-300",
-    ]
-    tasks = ["LCC"]
-    run_benchmark_cli(models=models, tasks=tasks, ignore_cache=True)

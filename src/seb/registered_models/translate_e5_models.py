@@ -52,7 +52,6 @@ def create_translate_e5_small() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-small"
     meta = seb.ModelMeta(
         name="translate-e5-small",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
@@ -69,7 +68,6 @@ def create_translate_e5_base() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-base"
     meta = seb.ModelMeta(
         name="translate-e5-base",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
@@ -86,7 +84,6 @@ def create_translate_e5_large() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-large"
     meta = seb.ModelMeta(
         name="translate-e5-large",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,

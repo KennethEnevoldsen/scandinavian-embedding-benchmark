@@ -112,5 +112,5 @@ def test_run_some_models():
         "translate-e5-small",
         "fasttext-cc-da-300",
     ]
-    tasks = ["DKHate"]
+    tasks = ["LCC"]
     run_benchmark_cli(models=models, tasks=tasks, ignore_cache=True)

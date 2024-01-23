@@ -285,8 +285,44 @@ def create_xlm_roberta_base() -> EmbeddingModel:
         embedding_size=768,
     )
 
+    # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
     return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("xlm-roberta-large")
+def create_xlm_roberta_large() -> EmbeddingModel:
+    hf_name = "xlm-roberta-base"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=1024,
+    )
+
+    # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("sentence-transformers/LaBSE")
+def create_labse() -> EmbeddingModel:
+    hf_name = "sentence-transformers/LaBSE"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=768,
+    )
+
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=256),  # type: ignore
         meta=meta,
     )
 

@@ -1,7 +1,7 @@
 from seb.cli import run_benchmark_cli
 
 
-def test_run_some_models():
+def test_cli_integration():
     """Runs all sorts of models on a small task to see if they can run without breaking.
     Cache is ignored so that the models are actually run.
     """

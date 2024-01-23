@@ -3,18 +3,18 @@ from functools import partial
 from typing import Any
 
 import torch
-from sentence_transformers import SentenceTransformer
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
 import seb
 from seb import models
+from seb.registered_models.e5_models import E5Wrapper
 from seb.registries import models
 
 
 class TranslateE5Model(seb.Encoder):
     def __init__(self, model_name: str) -> None:
         self.model_name = model_name
-        self.mdl = SentenceTransformer(model_name)
+        self.mdl = E5Wrapper(model_name)
         self.trans_model: M2M100ForConditionalGeneration = (  # type: ignore
             M2M100ForConditionalGeneration.from_pretrained("facebook/m2m100_418M")
         )

@@ -56,3 +56,13 @@ def create_swedn_retrieval() -> Task:
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     return task
+
+@tasks.register("SwednClustering")
+def create_swedn_clustering() -> Task:
+    from seb.registered_tasks.mteb_tasks_clustering import SwednClustering
+
+    task = MTEBTask(SwednClustering())
+    task.name = "SwednClustering"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "news"]
+    return task

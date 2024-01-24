@@ -103,6 +103,7 @@ class NorwegianParliamentClassification(AbsTaskClassification):
         }
 
 
+
 class SwednSummarizationSTS(AbsTaskSTS):
     def load_data(self, **kwargs: dict):  # noqa: ARG002
         """
@@ -155,7 +156,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "hf_hub_name": "sbx/superlim-2",
             "description": "News Article Summary Semantic Similarity Estimation.",
             "reference": "https://spraakbanken.gu.se/en/resources/swedn",
-            "type": "Retrieval",
+            "type": "STS",
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],
@@ -186,7 +187,7 @@ class SwednRetrieval(AbsTaskRetrieval):
             "hf_hub_name": "sbx/superlim-2",
             "description": "News Article Summary Semantic Similarity Estimation.",
             "reference": "https://spraakbanken.gu.se/en/resources/swedn",
-            "type": "STS",
+            "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],

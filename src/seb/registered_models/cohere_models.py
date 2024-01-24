@@ -4,53 +4,73 @@ The openai embedding api's evaluated on the SEB benchmark.
 
 
 import logging
-from collections.abc import Sequence
 from functools import partial
 from typing import Any
 
 import torch
 
 import seb
+from seb.interfaces.task import Task
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
 
 
 class CohereTextEmbeddingModel(seb.Encoder):
-    def __init__(self, model_name: str) -> None:
+    def __init__(self, model_name: str, sep: str = " ") -> None:
         self.model_name = model_name
-
-    @staticmethod
-    def create_sentence_blocks(
-        sentences: Sequence[str],
-        block_size: int,
-    ) -> list[Sequence[str]]:
-        sent_blocks: list[Sequence[str]] = []
-        for i in range(0, len(sentences), block_size):
-            sent_blocks.append(sentences[i : i + block_size])
-        return sent_blocks
+        self.sep = sep
 
     def get_embedding_dim(self) -> int:
-        v = self.encode(["get emb dim"])
+        v = self._embed(["get emb dim"], input_type="classification")
         return v.shape[1]
 
-    def encode(
-        self,
-        sentences: Sequence[str],
-        batch_size: int = 32,  # noqa: ARG002
-        embed_type: str = "classification",
-        **kwargs: Any,  # noqa: ARG002
-    ) -> torch.Tensor:
-        import cohere  # type: ignore
+    def _embed(self, sentences: list[str], input_type: str) -> torch.Tensor:
+        import cohere
 
         client = cohere.Client()
         response = client.embed(
             texts=list(sentences),
             model=self.model_name,
-            input_type=embed_type,
+            input_type=input_type,
         )
-
         return torch.tensor(response.embeddings)
+
+    def encode(
+        self,
+        sentences: list[str],
+        batch_size: int = 32,  # noqa: ARG002
+        *,
+        task: Task,
+        **kwargs: Any,  # noqa: ARG002
+    ) -> torch.Tensor:
+        if task.task_type == "Classification":
+            input_type = "classification"
+        elif task.task_type == "Clustering":
+            input_type = "clustering"
+        else:
+            input_type = "search_document"
+        return self._embed(sentences, input_type=input_type)
+
+    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):
+        return self._embed(queries, input_type="search_query")
+
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):
+        if type(corpus) is dict:
+            sentences = [
+                (corpus["title"][i] + self.sep + corpus["text"][i]).strip()
+                if "title" in corpus
+                else corpus["text"][i].strip()
+                for i in range(len(corpus["text"]))
+            ]
+        else:
+            sentences = [
+                (doc["title"] + self.sep + doc["text"]).strip()
+                if "title" in doc
+                else doc["text"].strip()
+                for doc in corpus
+            ]
+        return self._embed(sentences, input_type="search_document")
 
 
 @models.register("embed-multilingual-v3.0")

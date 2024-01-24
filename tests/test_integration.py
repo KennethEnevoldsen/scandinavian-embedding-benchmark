@@ -29,7 +29,7 @@ def create_test_encode_task() -> seb.Task:
                 main_score="a_metric",
             )
 
-        def get_descriptive_stats(self):
+        def get_descriptive_stats(self) -> dict:
             return {}
 
     return DummyTask()

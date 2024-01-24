@@ -35,8 +35,8 @@ def create_test_encode_task() -> seb.Task:
     return DummyTask()
 
 
-def test_cli_integration():
-    """Runs all sorts of models on a small task to see if they can run without breaking.
+def test_integration_dummy():
+    """Runs all sorts of models on a dummy task to see if they can run without breaking.
     Cache is ignored so that the models are actually run.
     """
     models = [
@@ -45,4 +45,11 @@ def test_cli_integration():
         "translate-e5-small",
     ]
     tasks = ["test-encode-task"]
+    run_benchmark_cli(models=models, tasks=tasks, ignore_cache=True)
+
+
+def test_integration_lcc():
+    """Runs model(s) on LCC to see if everything works in order with tasks included."""
+    models = ["sentence-transformers/all-MiniLM-L6-v2"]
+    tasks = ["LCC"]
     run_benchmark_cli(models=models, tasks=tasks, ignore_cache=True)

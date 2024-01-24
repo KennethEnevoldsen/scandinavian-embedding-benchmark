@@ -10,13 +10,13 @@ from seb.registries import models
 
 class FastTextModel(seb.Encoder):
     def __init__(self, model_name: str, lang: str) -> None:
+        self.model_name = model_name
+        self.lang = lang
         import fasttext
         import fasttext.util
 
         fasttext.util.download_model(self.lang, if_exists="ignore")
         self.model = fasttext.load_model(self.model_name)
-        self.model_name = model_name
-        self.lang = lang
 
     def get_embedding_dim(self) -> int:
         v = self.encode(["get emb dim"])

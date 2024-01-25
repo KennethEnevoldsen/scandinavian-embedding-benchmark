@@ -6,10 +6,12 @@ The openai embedding api's evaluated on the SEB benchmark.
 import logging
 from collections.abc import Sequence
 from functools import partial
+from typing import Any
 
 import torch
 
 from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.task import Task
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
@@ -71,8 +73,10 @@ class OpenaiTextEmbeddingModel(Encoder):
     def encode(
         self,
         sentences: Sequence[str],
+        *,
+        task: "Task",  # noqa: ARG002
         batch_size: int = 32,  # noqa: ARG002
-        **kwargs: dict,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
         sentences = self.preprocess(sentences)
         sent_blocks = self.create_sentence_blocks(sentences, self.input_sentences)

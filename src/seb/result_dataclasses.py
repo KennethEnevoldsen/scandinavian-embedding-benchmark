@@ -139,7 +139,7 @@ class BenchmarkResults(BaseModel):
             return sum(scores) / len(scores)
         return np.nan
 
-    def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:
+    def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:  # type: ignore
         return iter(self.task_results)
 
     def __getitem__(self, index: int) -> Union[TaskResult, TaskError]:

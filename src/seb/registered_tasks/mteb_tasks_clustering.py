@@ -75,7 +75,7 @@ class SwednClustering(AbsTaskClustering):
         documents = [documents[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
         labels = [labels[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
 
-        ds = datasets.Dataset.from_dict({"sentences": documents[:100], "labels": labels[:100]})
+        ds = datasets.Dataset.from_dict({"sentences": documents, "labels": labels})
         self.dataset = datasets.DatasetDict({"all": ds})
 
 
@@ -133,7 +133,7 @@ class VGSummarizationClustering(AbsTaskClustering):
 
             assert len(documents) == len(labels)
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
-            ds[split] = datasets.Dataset.from_dict({"sentences": [documents], "labels": [labels]})
+            ds[split] = datasets.Dataset.from_dict({"sentences": [documents[:100]], "labels": [labels[:100]]})
 
         self.dataset = datasets.DatasetDict(ds)
 

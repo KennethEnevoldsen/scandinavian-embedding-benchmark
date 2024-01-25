@@ -6,10 +6,9 @@ from datasets import DatasetDict, concatenate_datasets
 
 from seb.interfaces.model import Encoder
 from seb.interfaces.mteb_task import MTEBTask, MTEBTaskModel
-from seb.interfaces.task import Task
+from seb.interfaces.task import DescriptiveDatasetStats, Task
 from seb.registries import tasks
 from seb.result_dataclasses import TaskResult
-from seb.types import DescriptiveDatasetStats
 
 
 @tasks.register("Massive Intent")

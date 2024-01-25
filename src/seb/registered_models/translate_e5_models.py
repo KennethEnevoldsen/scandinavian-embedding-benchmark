@@ -23,12 +23,8 @@ class TranslateE5Model(seb.Encoder):
     def translate(self, sentence: str, src_lang: str) -> str:
         self.trans_tokenizer.src_lang = src_lang
         encoded_sent = self.trans_tokenizer(sentence, return_tensors="pt")
-        gen_tokens = self.trans_model.generate(
-            **encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en")
-        )
-        return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[
-            0
-        ]
+        gen_tokens = self.trans_model.generate(**encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en"))
+        return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[0]
 
     def encode(
         self,

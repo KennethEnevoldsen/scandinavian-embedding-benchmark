@@ -39,7 +39,7 @@ class DanFever(AbsTaskRetrieval):
         """
         and transform to a retrieval datset, which have the following attributes
 
-        self.corpus = Dict[doc_id, Dict[str, str]] #id => dict with document datas like title and text
+        self.corpus = Dict[doc_id, Dict[str, str]] #id => dict with document data like title and text
         self.queries = Dict[query_id, str] #id => query
         self.relevant_docs = Dict[query_id, Dict[[doc_id, score]]
         """
@@ -57,9 +57,10 @@ class DanFever(AbsTaskRetrieval):
             claims = ds["claim"]
             evidences = ds["evidence_extract"]
             labels = ds["label"]
+            class_labels = ds.features["label"].names
 
-            for claim, evidence, label in zip(claims, evidences, labels):
-                claim_is_supported = label == "Supported"
+            for claim, evidence, label_id in zip(claims, evidences, labels):
+                claim_is_supported = class_labels[label_id] == "Supported"
 
                 sim = 1 if claim_is_supported else 0  # negative for refutes claims - is that what we want?
 

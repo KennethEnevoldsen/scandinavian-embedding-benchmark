@@ -57,6 +57,7 @@ def create_swedn_retrieval() -> Task:
     task.domain = ["non-fiction", "news"]
     return task
 
+
 @tasks.register("SwednClustering")
 def create_swedn_clustering() -> Task:
     from seb.registered_tasks.mteb_tasks_clustering import SwednClustering

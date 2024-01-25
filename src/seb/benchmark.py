@@ -212,13 +212,6 @@ class Benchmark:
         for model in pbar:
             pbar.set_description(f"Running {model.meta.name}")
             results.append(
-                self.evaluate_model(
-                    model,
-                    use_cache=use_cache,
-                    run_model=run_model,
-                    raise_errors=raise_errors,
-                    cache_dir=cache_dir,
-                    verbose=verbose
-                ),
+                self.evaluate_model(model, use_cache=use_cache, run_model=run_model, raise_errors=raise_errors, cache_dir=cache_dir, verbose=verbose),
             )
         return results

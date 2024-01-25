@@ -103,7 +103,6 @@ class NorwegianParliamentClassification(AbsTaskClassification):
         }
 
 
-
 class SwednSummarizationSTS(AbsTaskSTS):
     def load_data(self, **kwargs: dict):  # noqa: ARG002
         """
@@ -249,9 +248,7 @@ class SwednRetrieval(AbsTaskRetrieval):
                     n += 1
                 cor_n = text2id[art]
 
-                self.relevant_docs[split][str(q_n)] = {
-                    str(text2id[art]): 1, str(text2id[summ]): 1
-                }  # only two correct matches
+                self.relevant_docs[split][str(q_n)] = {str(text2id[art]): 1, str(text2id[summ]): 1}  # only two correct matches
 
 
 class NorwegianCourtsBitextMining(AbsTaskBitextMining):
@@ -291,4 +288,3 @@ class NorwegianCourtsBitextMining(AbsTaskBitextMining):
         # Convert to standard format
         self.dataset = self.dataset.rename_column("nb", "sentence1")
         self.dataset = self.dataset.rename_column("nn", "sentence2")
-

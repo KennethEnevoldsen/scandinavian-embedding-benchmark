@@ -7,8 +7,8 @@ from typing import Optional, Union
 import numpy as np
 from pydantic import BaseModel
 
+from .interfaces.language import Language
 from .interfaces.model import ModelMeta
-from .types import Language
 
 
 class TaskResult(BaseModel):
@@ -28,7 +28,9 @@ class TaskResult(BaseModel):
     task_description: str
     task_version: str
     time_of_run: datetime
-    scores: dict[str, dict[str, Union[float, str]]]  # {language: {"metric": value}}.
+    scores: dict[
+        Language, dict[str, Union[float, str]]
+    ]  # {language: {"metric": value}}.
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
@@ -51,7 +53,7 @@ class TaskResult(BaseModel):
         return sum(main_scores) / len(main_scores)
 
     @property
-    def languages(self) -> list[str]:
+    def languages(self) -> list[Language]:
         """
         Returns the languages of the task.
         """
@@ -153,7 +155,9 @@ class BenchmarkResults(BaseModel):
         Write task results to a path.
         """
         if path.is_file():
-            raise ValueError("Can't save BenchmarkResults to a file. Path must be a directory.")
+            raise ValueError(
+                "Can't save BenchmarkResults to a file. Path must be a directory."
+            )
         path.mkdir(parents=True, exist_ok=True)
         for task_result in self.task_results:
             if isinstance(task_result, TaskResult):
@@ -170,7 +174,9 @@ class BenchmarkResults(BaseModel):
         Load task results from a path.
         """
         if not path.is_dir():
-            raise ValueError("Can't load BenchmarkResults from path: {path}. Path must be a directory.")
+            raise ValueError(
+                "Can't load BenchmarkResults from path: {path}. Path must be a directory."
+            )
         task_results = []
         for file in path.glob("*.json"):
             if file.stem == "meta":

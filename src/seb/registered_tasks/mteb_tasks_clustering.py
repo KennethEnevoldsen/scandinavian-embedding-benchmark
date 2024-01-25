@@ -133,7 +133,7 @@ class VGSummarizationClustering(AbsTaskClustering):
 
             assert len(documents) == len(labels)
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
-            ds[split] = datasets.Dataset.from_dict({"sentences": [documents[:100]], "labels": [labels[:100]]})
+            ds[split] = datasets.Dataset.from_dict({"sentences": [documents[:10000]], "labels": [labels[:10000]]})
 
         self.dataset = datasets.DatasetDict(ds)
 

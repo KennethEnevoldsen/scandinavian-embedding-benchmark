@@ -5,9 +5,9 @@ import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
+from numpy.typing import ArrayLike
 
 from ..result_dataclasses import TaskResult
-from ..types import ArrayLike, Language
 from .model import Encoder
 from .task import DescriptiveDatasetStats, Task
 
@@ -88,7 +88,9 @@ class MTEBTask(Task):
         scores = scores.get(split, scores)
         score_is_nested = isinstance(scores[next(iter(scores.keys()))], dict)
         if not score_is_nested:
-            _scores: dict[str, dict[str, Union[float, str]]] = {lang: scores for lang in self.languages}
+            _scores: dict[str, dict[str, Union[float, str]]] = {
+                lang: scores for lang in self.languages
+            }
             scores = _scores
 
         task_result = TaskResult(

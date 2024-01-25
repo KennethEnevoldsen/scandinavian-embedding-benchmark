@@ -1,11 +1,12 @@
 from functools import partial
 from typing import Any
 
+from numpy.typing import ArrayLike
+
 from seb import models
 
 from ..interfaces.model import EmbeddingModel, Encoder, ModelMeta
 from ..interfaces.task import Task
-from ..types import ArrayLike
 from .hf_models import get_sentence_transformer
 
 

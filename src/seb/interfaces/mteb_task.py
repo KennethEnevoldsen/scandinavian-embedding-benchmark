@@ -17,7 +17,7 @@ class MTEBTaskModel(Encoder):
         self.mteb_model = mteb_model
         self.task = task
 
-    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:
+    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:  # type: ignore
         return self.mteb_model.encode(texts, task=self.task, **kwargs)
 
 
@@ -88,9 +88,7 @@ class MTEBTask(Task):
         scores = scores.get(split, scores)
         score_is_nested = isinstance(scores[next(iter(scores.keys()))], dict)
         if not score_is_nested:
-            _scores: dict[str, dict[str, Union[float, str]]] = {
-                lang: scores for lang in self.languages
-            }
+            _scores: dict[str, dict[str, Union[float, str]]] = {lang: scores for lang in self.languages}
             scores = _scores
 
         task_result = TaskResult(

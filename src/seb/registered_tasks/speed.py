@@ -58,7 +58,7 @@ class CPUSpeedTask(Task):
         time_taken = time.time() - start
         return time_taken
 
-    def evaluate(self, model: EmbeddingModel) -> TaskResult:
+    def evaluate(self, model: EmbeddingModel) -> TaskResult:  # type: ignore
         model.loader()  # ensure model is loaded
 
         has_to_method = hasattr(model._model, "to") and isinstance(model._model.to, Callable)  # type: ignore
@@ -69,9 +69,7 @@ class CPUSpeedTask(Task):
         if run_inference:
             time_taken = self.get_time_taken(model)
         else:
-            logger.warn(
-                f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping"
-            )
+            logger.warn(f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping")
             time_taken = np.nan
 
         scores: dict[str, Union[str, float]] = {

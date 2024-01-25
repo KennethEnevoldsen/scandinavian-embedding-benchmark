@@ -25,9 +25,7 @@ Domain = Literal[
     "bible",
 ]
 
-TaskType = Literal[
-    "Classification", "Retrieval", "STS", "BitextMining", "Clustering", "Speed"
-]
+TaskType = Literal["Classification", "Retrieval", "STS", "BitextMining", "Clustering", "Speed"]
 
 
 class DescriptiveDatasetStats(TypedDict):

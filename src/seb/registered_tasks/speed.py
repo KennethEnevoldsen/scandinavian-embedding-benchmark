@@ -69,9 +69,7 @@ class CPUSpeedTask(Task):
         if run_inference:
             time_taken = self.get_time_taken(model)
         else:
-            logger.warn(
-                f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping"
-            )
+            logger.warn(f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping")
             time_taken = np.nan
 
         scores: dict[str, Union[str, float]] = {

@@ -68,8 +68,8 @@ class DanFever(AbsTaskRetrieval):
                 if evidence not in text2id:
                     text2id[evidence] = len(text2id)
 
-                claim_id = text2id[claim]
-                evidence_id = text2id[evidence]
+                claim_id = str(text2id[claim])
+                evidence_id = str(text2id[evidence])
 
                 self.queries[split][claim_id] = claim
                 self.corpus[split][evidence_id] = {"title": "", "text": evidence}

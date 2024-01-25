@@ -1,4 +1,4 @@
-from random import shuffle
+import random
 from typing import Any
 
 import datasets
@@ -61,18 +61,21 @@ class SwednClustering(AbsTaskClustering):
             documents.extend(ds_split["article"])
             labels.extend(ds_split[label_col])
 
-        pairs = list(zip(documents, labels))  # 114k examples
-        shuffle(pairs)
+        pairs = list(zip(documents, labels))
+
+        rng = random.Random(42)  # local only seed
+        rng.shuffle(pairs)
         documents, labels = list(zip(*pairs))
 
-        n_pairs = len(documents)
-        n_splits = 10  # chosen semi-arbitrarily based on existing clustering tasks in MTEB
+        n_pairs = len(documents)  # 114k examples
+        n_splits = 10  # chosen semi-arbitrarily based on existing clustering tasks in MTEB  -
+        # we could also make sure that the summary, article and headlines are in the same bins?
         n_per_split = n_pairs // n_splits
 
-        # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
         documents = [documents[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
         labels = [labels[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
-        ds = datasets.Dataset.from_dict({"sentences": documents, "labels": labels})
+
+        ds = datasets.Dataset.from_dict({"sentences": documents[:100], "labels": labels[:100]})
         self.dataset = datasets.DatasetDict({"all": ds})
 
 
@@ -118,16 +121,17 @@ class VGSummarizationClustering(AbsTaskClustering):
         for split in splits:
             ds_split = self.dataset[split]
 
-            labels = self.normalize_labels(ds_split[label_col])
+            _label = self.normalize_labels(ds_split[label_col])
             documents.extend(ds_split["title"])
-            labels.extend(labels)
+            labels.extend(_label)
 
             documents.extend(ds_split["ingress"])
-            labels.extend(labels)
+            labels.extend(_label)
 
             documents.extend(ds_split["article"])
-            labels.extend(labels)
+            labels.extend(_label)
 
+            assert len(documents) == len(labels)
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
             ds[split] = datasets.Dataset.from_dict({"sentences": [documents], "labels": [labels]})
 

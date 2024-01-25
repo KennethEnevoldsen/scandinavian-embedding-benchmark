@@ -146,8 +146,19 @@ class VGSummarizationClustering(AbsTaskClustering):
 
             assert len(documents) == len(labels)
 
-            documents_batched = list(batched(documents, 2048))[:5]
-            labels_batched = list(batched(labels, 2048))[:5]
+            rng = random.Random(1111)  # local only seed
+            pairs = list(zip(documents, labels))
+            rng.shuffle(pairs)
+            documents, labels = list(zip(*pairs))
+
+            documents_batched = list(batched(documents, 512))[:4]
+            labels_batched = list(batched(labels, 512))[:4]
+            # (512x4) resampling changes scores from 12.68, 11.30, 12.65,
+            # (512x5) resampling changes scores from 11.5, 11.8,
+            # (2048x5) resampling changes scores from 11.40, 10.94, 10.95
+            # (5000x5) resampling changes scores from 10.9, 10.48
+            # conclusion: It seems like the more data gives a slightly better estimate, but not by much.
+            # it also seems like the large batches lead to a slightly lower score (I could imagine it is correlated with number of clusters).
 
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
             ds[split] = datasets.Dataset.from_dict(

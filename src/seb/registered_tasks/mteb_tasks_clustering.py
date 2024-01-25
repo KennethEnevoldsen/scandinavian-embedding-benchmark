@@ -146,8 +146,8 @@ class VGSummarizationClustering(AbsTaskClustering):
 
             assert len(documents) == len(labels)
 
-            documents_batched = list(batched(documents, 10000))[:-1]
-            labels_batched = list(batched(labels, 10000))[:-1]
+            documents_batched = list(batched(documents, 2048))[:5]
+            labels_batched = list(batched(labels, 2048))[:5]
 
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
             ds[split] = datasets.Dataset.from_dict(

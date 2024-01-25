@@ -1,8 +1,21 @@
 import random
-from typing import Any
+from collections.abc import Iterable
+from itertools import islice
+from typing import Any, TypeVar
 
 import datasets
 from mteb.abstasks import AbsTaskClustering
+
+T = TypeVar("T")
+
+
+def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
+    # batched('ABCDEFG', 3) --> ABC DEF G
+    if n < 1:
+        raise ValueError("n must be at least one")
+    it = iter(iterable)
+    while batch := tuple(islice(it, n)):
+        yield batch
 
 
 class SwednClustering(AbsTaskClustering):
@@ -132,9 +145,16 @@ class VGSummarizationClustering(AbsTaskClustering):
             labels.extend(_label)
 
             assert len(documents) == len(labels)
+
+            documents_batched = list(batched(documents, 10000))[:-1]
+            labels_batched = list(batched(labels, 10000))[:-1]
+
             # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
             ds[split] = datasets.Dataset.from_dict(
-                {"sentences": [documents[:10000], documents[10001:20000]], "labels": [labels[:10000], labels[10001:20000]]}
+                {
+                    "sentences": documents_batched,
+                    "labels": labels_batched,
+                }
             )
 
         self.dataset = datasets.DatasetDict(ds)

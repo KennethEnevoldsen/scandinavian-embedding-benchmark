@@ -17,7 +17,7 @@ class MTEBTaskModel(Encoder):
         self.mteb_model = mteb_model
         self.task = task
 
-    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:
+    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:  # type: ignore
         return self.mteb_model.encode(texts, task=self.task, **kwargs)
 
 

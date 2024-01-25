@@ -96,7 +96,7 @@ class MTEBTask(Task):
             task_description=self.description,
             task_version=self.version,
             time_of_run=time_of_run,
-            scores=scores,
+            scores=scores,  # type: ignore
             main_score=self.main_score,
         )
 

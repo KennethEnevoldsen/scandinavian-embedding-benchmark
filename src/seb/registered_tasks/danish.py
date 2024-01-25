@@ -63,3 +63,13 @@ def create_da_political_comments() -> Task:
     task.domain = ["social"]
     task.reference = "https://huggingface.co/datasets/danish_political_comments"  # TODO: Make a PR for MTEB to add this reference
     return task
+
+
+@tasks.register("DanFEVER")
+def create_dan_fever() -> Task:
+    from .mteb_retrieval import DanFever
+
+    task = MTEBTask(DanFever())
+    task.name = "DanFEVER"
+    task.domain = ["wiki", "non-fiction"]
+    return task

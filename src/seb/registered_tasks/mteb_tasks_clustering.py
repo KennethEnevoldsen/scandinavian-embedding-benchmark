@@ -29,7 +29,7 @@ class SwednClustering(AbsTaskClustering):
             + " dataset both regarding textual structure. This dataset uses the category labels as clusters.",
             "reference": "https://spraakbanken.gu.se/en/resources/swedn",
             "type": "Clustering",
-            "category": "p2p",  # and S2P
+            "category": "p2p",
             "eval_splits": ["all"],
             "eval_langs": ["sv"],
             "main_score": "v_measure",
@@ -57,38 +57,46 @@ class SwednClustering(AbsTaskClustering):
         The article_category clusters differ between the splits (with the test set only having 1 cluster). Therefore we combine it all into one
         cluster.
         """
-        splits = ["train", "test", "validation"]
+        splits = ["train", "validation"]
+        # performance of sample models with test set: 8.74, 2.43 -removing test-> 11.26, 4.27
+        # this is due to the test set only having 1 cluster which is "other"
 
-        documents = []
+        headlines = []
+        summaries = []
+        articles = []
         labels = []
         label_col = "article_category"
 
         for split in splits:
             ds_split = self.dataset[split]
-            documents.extend(ds_split["headline"])
+            headlines.extend(ds_split["headline"])
             labels.extend(ds_split[label_col])
 
-            documents.extend(ds_split["summary"])
+            summaries.extend(ds_split["summary"])
             labels.extend(ds_split[label_col])
 
-            documents.extend(ds_split["article"])
+            articles.extend(ds_split["article"])
             labels.extend(ds_split[label_col])
-
-        pairs = list(zip(documents, labels))
 
         rng = random.Random(42)  # local only seed
-        rng.shuffle(pairs)
-        documents, labels = list(zip(*pairs))
 
-        n_pairs = len(documents)  # 114k examples
-        n_splits = 10  # chosen semi-arbitrarily based on existing clustering tasks in MTEB  -
-        # we could also make sure that the summary, article and headlines are in the same bins?
-        n_per_split = n_pairs // n_splits
+        clusters_text = []
+        clusters_labels = []
+        doc_types = [summaries, articles]
+        # Note that headlines is excluded:
+        # Scores of sample models with headlines: 11.26, 4.27 -removing headlines-> 16.43, 4.31
+        # as headlines are soo short it is hard to meaningfully cluster them even for humans.
+        for text in doc_types:
+            pairs = list(zip(text, labels))
+            rng.shuffle(pairs)
+            # reduce size of dataset to not have too large datasets in the clustering task
+            pairs_batched = list(batched(pairs, 512))
+            texts1, labels2 = list(zip(*pairs_batched[0]))
+            texts2, labels2 = list(zip(*pairs_batched[1]))
 
-        documents = [documents[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
-        labels = [labels[i : i + n_per_split] for i in range(0, n_pairs, n_per_split)][:-1]
-
-        ds = datasets.Dataset.from_dict({"sentences": documents, "labels": labels})
+            clusters_text.extend([texts1, texts2])
+            clusters_labels.extend([labels2, labels2])
+        ds = datasets.Dataset.from_dict({"sentences": clusters_text, "labels": clusters_labels})
         self.dataset = datasets.DatasetDict({"all": ds})
 
 
@@ -102,8 +110,8 @@ class VGSummarizationClustering(AbsTaskClustering):
             "reference": "https://huggingface.co/datasets/navjordj/VG_summarization",
             "type": "Clustering",
             "category": "p2p",
-            "eval_splits": ["test"],  # 18k examples (what size do we want to for this?)
-            "eval_langs": ["nb"],  # maybe nn too?
+            "eval_splits": ["test"],
+            "eval_langs": ["nb"],
             "main_score": "v_measure",
             "revision": "d4c5a8ba10ae71224752c727094ac4c46947fa29",
         }
@@ -147,20 +155,18 @@ class VGSummarizationClustering(AbsTaskClustering):
             assert len(documents) == len(labels)
 
             rng = random.Random(1111)  # local only seed
+            # resampling changes scores from 12.68, 11.30, 12.65 (sample model)
             pairs = list(zip(documents, labels))
             rng.shuffle(pairs)
             documents, labels = list(zip(*pairs))
 
+            # reduce size of dataset to not have too large datasets in the clustering task
             documents_batched = list(batched(documents, 512))[:4]
             labels_batched = list(batched(labels, 512))[:4]
-            # (512x4) resampling changes scores from 12.68, 11.30, 12.65,
-            # (512x5) resampling changes scores from 11.5, 11.8,
-            # (2048x5) resampling changes scores from 11.40, 10.94, 10.95
-            # (5000x5) resampling changes scores from 10.9, 10.48
-            # conclusion: It seems like the more data gives a slightly better estimate, but not by much.
-            # it also seems like the large batches lead to a slightly lower score (I could imagine it is correlated with number of clusters).
+            # See:
+            # https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/pull/96
+            # for a discussion on sizes
 
-            # just keeping it all as one cluster - Could imagine there is a reasonable size limit? How to choose?
             ds[split] = datasets.Dataset.from_dict(
                 {
                     "sentences": documents_batched,

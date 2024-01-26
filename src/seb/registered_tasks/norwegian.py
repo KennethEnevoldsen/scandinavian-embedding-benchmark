@@ -28,3 +28,14 @@ def create_norwegian_courts() -> Task:
     task.name = "Norwegian courts"
     task.domain = ["legal", "non-fiction"]
     return task
+
+
+@tasks.register("VGSummarizationClustering")
+def create_swedn_clustering() -> Task:
+    from seb.registered_tasks.mteb_tasks_clustering import VGSummarizationClustering
+
+    task = MTEBTask(VGSummarizationClustering())
+    task.name = "VGSummarizationClustering"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "news"]
+    return task

@@ -1,10 +1,37 @@
-from typing import Protocol, runtime_checkable
+from typing import Literal, Protocol, TypedDict, runtime_checkable
 
 from attr import dataclass
 
+from seb.interfaces.language import Language
+
 from ..result_dataclasses import TaskResult
-from ..types import DescriptiveDatasetStats, Domain, Language, TaskType
 from .model import Encoder
+
+Domain = Literal[
+    "social",
+    "poetry",
+    "wiki",
+    "fiction",
+    "non-fiction",
+    "web",
+    "legal",
+    "news",
+    "academic",
+    "spoken",
+    "reviews",
+    "blog",
+    "medical",
+    "government",
+    "bible",
+]
+
+TaskType = Literal["Classification", "Retrieval", "STS", "BitextMining", "Clustering", "Speed"]
+
+
+class DescriptiveDatasetStats(TypedDict):
+    mean_document_length: float
+    std_document_length: float
+    num_documents: int
 
 
 @runtime_checkable
@@ -15,21 +42,21 @@ class Task(Protocol):
     Attributes:
         name: The name of the task.
         main_score: The main score of the task.
-        description: A description of the task.
         reference: A reference to the task.
         version: The version of the task.
         languages: The languages of the task.
         domain: The domains of the task. Should be one of the categories listed on https://universaldependencies.org
+        description: A description of the task.
     """
 
     name: str
     main_score: str
-    description: str
     reference: str
     version: str
     languages: list[Language]
     domain: list[Domain]
     task_type: TaskType
+    description: str
 
     def evaluate(self, model: Encoder) -> TaskResult:
         """

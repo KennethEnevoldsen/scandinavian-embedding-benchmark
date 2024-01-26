@@ -5,7 +5,7 @@ from rich.console import Console
 from rich.table import Table
 
 import seb
-from seb.types import Language
+from seb.interfaces.language import Language
 
 
 def get_main_score(task: seb.TaskResult, langs: Optional[list[Language]]) -> float:

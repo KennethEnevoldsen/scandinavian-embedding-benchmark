@@ -5,13 +5,12 @@ import logging
 from functools import partial
 from typing import Any, Optional
 
+from numpy.typing import ArrayLike
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import EmbeddingModel, ModelMeta
 from seb.interfaces.task import Task
 from seb.registries import models
-
-from ..types import ArrayLike
 
 
 def silence_warnings_from_sentence_transformers():
@@ -25,7 +24,7 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
     A sentence transformer wrapper that allows for encoding with a task.
     """
 
-    def encode(
+    def encode(  # type: ignore
         self,
         sentences: list[str],
         *,
@@ -45,6 +44,23 @@ def get_sentence_transformer(
     if max_seq_length is not None:
         mdl.max_seq_length = max_seq_length
     return mdl
+
+
+@models.register("jinaai/jina-embedding-b-en-v1")
+def create_jina_base() -> EmbeddingModel:
+    hf_name = "jinaai/jina-embedding-b-en-v1"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["en"],
+        open_source=True,
+        embedding_size=768,
+    )
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        meta=meta,
+    )
 
 
 # Relevant multilingual models
@@ -285,8 +301,44 @@ def create_xlm_roberta_base() -> EmbeddingModel:
         embedding_size=768,
     )
 
+    # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
     return EmbeddingModel(
         loader=partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("xlm-roberta-large")
+def create_xlm_roberta_large() -> EmbeddingModel:
+    hf_name = "xlm-roberta-large"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=1024,
+    )
+
+    # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("sentence-transformers/LaBSE")
+def create_labse() -> EmbeddingModel:
+    hf_name = "sentence-transformers/LaBSE"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=768,
+    )
+
+    return EmbeddingModel(
+        loader=partial(get_sentence_transformer, model_name=hf_name),  # type: ignore
         meta=meta,
     )
 

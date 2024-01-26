@@ -4,13 +4,12 @@ from typing import Any, TypeVar
 
 import torch
 import torch.nn.functional as F
+from numpy.typing import ArrayLike
 from torch import Tensor
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
 from seb import models
 from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
-
-from ..types import ArrayLike
 
 T = TypeVar("T")
 

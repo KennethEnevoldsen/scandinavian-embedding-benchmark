@@ -155,7 +155,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "hf_hub_name": "sbx/superlim-2",
             "description": "News Article Summary Semantic Similarity Estimation.",
             "reference": "https://spraakbanken.gu.se/en/resources/swedn",
-            "type": "Retrieval",
+            "type": "STS",
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],
@@ -186,7 +186,7 @@ class SwednRetrieval(AbsTaskRetrieval):
             "hf_hub_name": "sbx/superlim-2",
             "description": "News Article Summary Semantic Similarity Estimation.",
             "reference": "https://spraakbanken.gu.se/en/resources/swedn",
-            "type": "STS",
+            "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],
@@ -248,9 +248,7 @@ class SwednRetrieval(AbsTaskRetrieval):
                     n += 1
                 cor_n = text2id[art]
 
-                self.relevant_docs[split][str(q_n)] = {
-                    str(text2id[art]): 1, str(text2id[summ]): 1
-                }  # only two correct matches
+                self.relevant_docs[split][str(q_n)] = {str(text2id[art]): 1, str(text2id[summ]): 1}  # only two correct matches
 
 
 class NorwegianCourtsBitextMining(AbsTaskBitextMining):
@@ -290,4 +288,3 @@ class NorwegianCourtsBitextMining(AbsTaskBitextMining):
         # Convert to standard format
         self.dataset = self.dataset.rename_column("nb", "sentence1")
         self.dataset = self.dataset.rename_column("nn", "sentence2")
-

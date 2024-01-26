@@ -23,12 +23,8 @@ class TranslateE5Model(seb.Encoder):
     def translate(self, sentence: str, src_lang: str) -> str:
         self.trans_tokenizer.src_lang = src_lang
         encoded_sent = self.trans_tokenizer(sentence, return_tensors="pt")
-        gen_tokens = self.trans_model.generate(
-            **encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en")
-        )
-        return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[
-            0
-        ]
+        gen_tokens = self.trans_model.generate(**encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en"))
+        return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[0]
 
     def encode(
         self,
@@ -52,7 +48,6 @@ def create_translate_e5_small() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-small"
     meta = seb.ModelMeta(
         name="translate-e5-small",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
@@ -69,7 +64,6 @@ def create_translate_e5_base() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-base"
     meta = seb.ModelMeta(
         name="translate-e5-base",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
@@ -86,7 +80,6 @@ def create_translate_e5_large() -> seb.EmbeddingModel:
     hf_name = "intfloat/e5-large"
     meta = seb.ModelMeta(
         name="translate-e5-large",
-        # huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,

@@ -9,10 +9,10 @@ import numpy as np
 import psutil
 import torch
 
+from seb.interfaces.language import languages_in_seb
 from seb.interfaces.model import EmbeddingModel
-from seb.interfaces.task import Task
+from seb.interfaces.task import DescriptiveDatasetStats, Task
 from seb.result_dataclasses import TaskResult
-from seb.types import DescriptiveDatasetStats, languages_in_seb
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +45,9 @@ class CPUSpeedTask(Task):
         dataset = self.load_dataset()
         lengths = np.array([len(x) for x in dataset])
         return DescriptiveDatasetStats(
-            mean_document_length=float(np.mean(lengths)), std_document_length=float(np.std(lengths)), num_documents=len(dataset)
+            mean_document_length=float(np.mean(lengths)),
+            std_document_length=float(np.std(lengths)),
+            num_documents=len(dataset),
         )
 
     def get_time_taken(self, model: EmbeddingModel) -> float:
@@ -56,7 +58,7 @@ class CPUSpeedTask(Task):
         time_taken = time.time() - start
         return time_taken
 
-    def evaluate(self, model: EmbeddingModel) -> TaskResult:
+    def evaluate(self, model: EmbeddingModel) -> TaskResult:  # type: ignore
         model.loader()  # ensure model is loaded
 
         has_to_method = hasattr(model._model, "to") and isinstance(model._model.to, Callable)  # type: ignore
@@ -70,7 +72,10 @@ class CPUSpeedTask(Task):
             logger.warn(f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping")
             time_taken = np.nan
 
-        scores: dict[str, Union[str, float]] = {self.main_score: time_taken, **self.get_system_info()}
+        scores: dict[str, Union[str, float]] = {
+            self.main_score: time_taken,
+            **self.get_system_info(),
+        }
 
         return TaskResult(
             task_name=self.name,

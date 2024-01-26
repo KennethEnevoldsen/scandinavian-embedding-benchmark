@@ -5,9 +5,9 @@ import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
+from numpy.typing import ArrayLike
 
 from ..result_dataclasses import TaskResult
-from ..types import ArrayLike, Language
 from .model import Encoder
 from .task import DescriptiveDatasetStats, Task
 
@@ -17,7 +17,7 @@ class MTEBTaskModel(Encoder):
         self.mteb_model = mteb_model
         self.task = task
 
-    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:
+    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:  # type: ignore
         return self.mteb_model.encode(texts, task=self.task, **kwargs)
 
 
@@ -96,7 +96,7 @@ class MTEBTask(Task):
             task_description=self.description,
             task_version=self.version,
             time_of_run=time_of_run,
-            scores=scores,
+            scores=scores,  # type: ignore
             main_score=self.main_score,
         )
 

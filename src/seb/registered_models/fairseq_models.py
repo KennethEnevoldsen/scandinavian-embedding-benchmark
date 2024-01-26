@@ -1,7 +1,7 @@
 from collections.abc import Sequence
 from functools import partial
 from pathlib import Path
-from typing import Optional, Union
+from typing import Any, Optional, Union
 
 import torch
 
@@ -57,11 +57,12 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
         self.source_lang = source_lang
 
     @torch.inference_mode()
-    def encode(
+    def encode(  # type: ignore
         self,
         input: Union[Path, Sequence[str]],  # noqa: A002
+        *,
         batch_size: int,
-        **kwargs: dict,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
         from fairseq2.data import Collater  # type: ignore
         from fairseq2.data.data_pipeline import read_sequence  # type: ignore

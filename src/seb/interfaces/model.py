@@ -2,9 +2,10 @@ import json
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
+from numpy.typing import ArrayLike
 from pydantic import BaseModel
 
-from ..types import ArrayLike
+from seb.interfaces.language import Language
 
 if TYPE_CHECKING:
     from .task import Task
@@ -48,7 +49,7 @@ class ModelMeta(BaseModel):
     description: Optional[str] = None
     huggingface_name: Optional[str] = None
     reference: Optional[str] = None
-    languages: list[str] = []
+    languages: list[Language] = []
     open_source: bool = False
     embedding_size: Optional[int] = None
 

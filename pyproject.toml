@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seb"
-version = "0.7.1"
+version = "0.9.0"
 authors = [
   { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
 ]
@@ -33,7 +33,7 @@ file = "LICENSE"
 name = "MIT"
 
 [project.optional-dependencies]
-dev = ["cruft>=2.0.0", "pyright==1.1.338", "ruff>=0.0.281"]
+dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff>=0.0.281"]
 tests = ["pytest>=7.1.3", "pytest-cov>=3.0.0"]
 docs = [
   "mkdocs-jupyter==0.24.6",

@@ -24,7 +24,7 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
     A sentence transformer wrapper that allows for encoding with a task.
     """
 
-    def encode(
+    def encode(  # type: ignore
         self,
         sentences: list[str],
         *,

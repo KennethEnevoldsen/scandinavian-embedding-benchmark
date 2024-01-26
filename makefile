@@ -8,8 +8,13 @@ static-type-check:
 
 lint:
 	@echo "--- 🧹 Running linters ---"
-	ruff format .  								# running ruff formatting
+	ruff format . 								# running ruff formatting
 	ruff **/*.py --fix 						    # running ruff linting
+
+lint-check:
+	@echo "--- 🧹 Check is project is linted ---"
+	ruff format . --check						# running ruff formatting
+	ruff **/*.py 						        # running ruff linting
 
 test:
 	@echo "--- 🧪 Running tests ---"

@@ -31,12 +31,8 @@ class BenchmarkCliTestInput:
 cli_command_parametrize = pytest.mark.parametrize(
     "inputs",
     [
-        BenchmarkCliTestInput(
-            "sentence-transformers/all-MiniLM-L6-v2", 0.550, tasks=["DKHate"]
-        ),
-        BenchmarkCliTestInput(
-            "sentence-transformers/all-MiniLM-L6-v2", 0.525, tasks=["DKHate", "ScaLA"]
-        ),
+        BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.550, tasks=["DKHate"]),
+        BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.525, tasks=["DKHate", "ScaLA"]),
         BenchmarkCliTestInput(
             "sentence-transformers/all-MiniLM-L6-v2",
             0.50,
@@ -78,9 +74,7 @@ def test_run_benchmark_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
     res = load_results(tmp_path)
     assert len(res) == 1
     bench_res = res[0]
-    bench_res.task_results = [
-        tr for tr in bench_res.task_results if tr.task_name != "test-encode-task"
-    ]
+    bench_res.task_results = [tr for tr in bench_res.task_results if tr.task_name != "test-encode-task"]
     assert is_approximately_equal(bench_res.get_main_score(), inputs.score)
 
 
@@ -91,7 +85,5 @@ def test_run_cli(inputs: BenchmarkCliTestInput, tmp_path: Path):
 
     assert len(res) == 1
     bench_res = res[0]
-    bench_res.task_results = [
-        tr for tr in bench_res.task_results if tr.task_name != "test-encode-task"
-    ]
+    bench_res.task_results = [tr for tr in bench_res.task_results if tr.task_name != "test-encode-task"]
     assert is_approximately_equal(bench_res.get_main_score(), inputs.score)

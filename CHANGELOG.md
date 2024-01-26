@@ -2,6 +2,27 @@
 
 
 
+## v0.9.0 (2024-01-26)
+
+### Feature
+
+* feat: Added performance metrics for danfever ([`22eb72b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/22eb72bc1b530d3425d2b4fd1fb64d3bf3b2c971))
+
+### Unknown
+
+* Merge pull request #97 from KennethEnevoldsen/add-danfever
+
+Add danFEVER ([`801753f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/801753f0d5500e91d935093140daaa402b8d4b57))
+
+* appease pyright ([`a572962`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a572962c5f6fc6826182c86aa5b6ad5ec1af076e))
+
+* tests: remove tests which has to be changed when adding new datasets ([`04aa44e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/04aa44e5c62e26919eddd16487f92c37b85f6fb4))
+
+* tests: convert test_task back to normal ([`be2c071`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/be2c071f85fb2454bb4b90e1dbad8602eef6d4bf))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-danfever ([`69a5a03`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/69a5a0367f5025a1d8184ceee0589549d7872a32))
+
+
 ## v0.8.0 (2024-01-25)
 
 ### Ci
@@ -16,11 +37,15 @@
 
 ### Feature
 
+* feat: Added danfever ([`ccec57c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ccec57cf67f575f97751b7d87d36a273825b9606))
+
 * feat: Added VG clustering dataset ([`49e75d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49e75d554e43b48f99b6257b2ae0bd2b4cf828dc))
 
 * feat: Add swedn clustering ([`0786ec5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0786ec5a96e7607cbaf7efd368724b1fb9b6d043))
 
 ### Fix
+
+* fix: Update indexes to strings ([`37d165f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/37d165f162a324c33c180d767bcdbdc9765e972a))
 
 * fix: fixed error arised from merge ([`11e28d6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/11e28d62b27b0654bf683c525f4dab2848995160))
 
@@ -31,6 +56,8 @@
 * fix: reduced size of SwednClustering and ensure that clusters match with document size ([`0b70730`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0b7073082da8340b6cad68fb91121b22329355b0))
 
 ### Style
+
+* style: ran linter ([`bcc1231`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bcc123179a2ac0764f00d223b900b4840fa90da5))
 
 * style: ran linting ([`05b6bf9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/05b6bf9828cb3327f6b5ab231f6e18e5ebdb5c6c))
 
@@ -53,6 +80,8 @@
 * Merge pull request #96 from KennethEnevoldsen/add-swedn-clustering
 
 Add Swedn and VG clustering datasets ([`8537e12`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8537e121d115522cec4eaaef8b2d501606d7cdaa))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-danfever ([`796e3c9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/796e3c993d789ad5ddc7ea050fc3f08dfd80b249))
 
 * Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-swedn-clustering ([`18f9afb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/18f9afb722e353b7f2ed6cf3452935c0cbf70cfb))
 

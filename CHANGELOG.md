@@ -2,6 +2,27 @@
 
 
 
+## v0.9.2 (2024-01-26)
+
+### Ci
+
+* ci: Updated lint workflow to actually fail when not linted ([`d1c177c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d1c177cfe8c4f976ab7d8d8701b0df9fa80496c9))
+
+### Fix
+
+* fix: Added relevant type ignores ([`27b8dd3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/27b8dd3d52867e03f528390f361fc3b8b8f116f4))
+
+### Unknown
+
+* Merge pull request #104 from KennethEnevoldsen/ci-lint
+
+Ci lint ([`ade460b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ade460b3c6beed2aff8589919aef19551980841f))
+
+* fixing linting error ([`1b75a4f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1b75a4f65d1f927355341ae61ba7731fd521c21c))
+
+* introduce intentional lint error ([`d861935`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d861935b62b457b1b49c1dba74d6842448b8fdce))
+
+
 ## v0.9.1 (2024-01-26)
 
 ### Fix

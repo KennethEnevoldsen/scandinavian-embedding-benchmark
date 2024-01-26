@@ -124,7 +124,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
         self.dataset = self.dataset.rename_column("summary", "sentence2")
         self.dataset = self.dataset.rename_column("article", "sentence1")
         self.dataset = self.dataset.remove_columns(["id", "headline", "article_category"])
-        random.seed(42)
+        self.dataset = self.dataset.shuffle(seed=42)
 
         # add score column
         for split in self.dataset:
@@ -143,10 +143,11 @@ class SwednSummarizationSTS(AbsTaskSTS):
                 {
                     "sentence1": articles,
                     "sentence2": mismatched_summaries,
-                    "score": [0] * len(articles),
+                    "score": ([0] * len(articles)),
                 }
             )
-            self.dataset[split] = datasets.concatenate_datasets([ds_split, mismatched_ds])
+            mismatched_ds = mismatched_ds.shuffle(seed=42)
+            self.dataset[split] = datasets.concatenate_datasets([ds_split.select(range(1024)), mismatched_ds.select(range(1024))])
 
     @property
     def description(self) -> dict[str, Any]:
@@ -159,7 +160,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],
-            "main_score": "spearman",
+            "main_score": "cosine_spearman",
             "min_score": 0,
             "max_score": 1,
             "revision": "ef1661775d746e0844b299164773db733bdc0bf6",
@@ -171,9 +172,9 @@ class SwednSummarizationSTS(AbsTaskSTS):
         The Sattolo cycle is a simple algorithm for randomly shuffling an array in-place.
         It ensures that the element i, will not be in the ith position of the result.
         """
-
+        rng = random.Random(42)
         for i in range(len(items) - 1, 0, -1):
-            j = random.randint(0, i - 1)
+            j = rng.randint(0, i - 1)
             items[i], items[j] = items[j], items[i]
         return items
 
@@ -225,6 +226,8 @@ class SwednRetrieval(AbsTaskRetrieval):
 
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
+            ds = ds.shuffle(seed=42)
+            ds = ds.select(range(1024))  # limit the dataset size to make sure the task does not take too long to run
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}

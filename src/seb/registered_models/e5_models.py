@@ -27,10 +27,12 @@ class E5Wrapper(Encoder):
         return self.encode_queries(sentences, batch_size=batch_size, **kwargs)
 
     def encode_queries(self, queries: list[str], batch_size: int, **kwargs):
+        print("ENCODING QUERYYYYY!!!!")
         sentences = ["query: " + sentence for sentence in queries]
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
 
     def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):
+        print("ENCODING CORPUS!!!!")
         if type(corpus) is dict:
             sentences = [
                 (corpus["title"][i] + self.sep + corpus["text"][i]).strip()

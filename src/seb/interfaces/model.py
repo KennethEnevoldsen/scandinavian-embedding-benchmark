@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
+from typing import (TYPE_CHECKING, Any, Callable, Optional, Protocol,
+                    runtime_checkable)
 
 from numpy.typing import ArrayLike
 from pydantic import BaseModel
@@ -21,7 +22,7 @@ class Encoder(Protocol):
         self,
         sentences: list[str],
         *,
-        task: "Task",
+        task: Optional["Task"] = None,
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
@@ -110,7 +111,7 @@ class EmbeddingModel(BaseModel):
         self,
         sentences: list[str],
         *,
-        task: "Task",
+        task: Optional["Task"] = None,
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
@@ -127,3 +128,30 @@ class EmbeddingModel(BaseModel):
             Embeddings for the given documents
         """
         return self.model.encode(sentences, batch_size=batch_size, task=task, **kwargs)
+
+    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):
+        try:
+            return self.model.encode_queries(queries, batch_size=batch_size, **kwargs)
+        except AttributeError:
+            return self.encode(queries, task=None, batch_size=batch_size, **kwargs)
+
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):
+        try:
+            return self.model.encode_corpus(corpus, batch_size=batch_size, **kwargs)
+        except AttributeError:
+            sep = " "
+            if type(corpus) is dict:
+                sentences = [
+                    (corpus["title"][i] + sep + corpus["text"][i]).strip()
+                    if "title" in corpus
+                    else corpus["text"][i].strip()
+                    for i in range(len(corpus["text"]))
+                ]
+            else:
+                sentences = [
+                    (doc["title"] + sep + doc["text"]).strip()
+                    if "title" in doc
+                    else doc["text"].strip()
+                    for doc in corpus
+                ]
+            return self.encode(sentences, task=None, batch_size=batch_size, **kwargs)

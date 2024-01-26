@@ -5,7 +5,7 @@ The openai embedding api's evaluated on the SEB benchmark.
 
 import logging
 from functools import partial
-from typing import Any
+from typing import Any, Optional
 
 import torch
 
@@ -41,7 +41,7 @@ class CohereTextEmbeddingModel(seb.Encoder):
         sentences: list[str],
         batch_size: int = 32,  # noqa: ARG002
         *,
-        task: Task,
+        task: Optional[Task] = None,
         **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
         if task.task_type == "Classification":

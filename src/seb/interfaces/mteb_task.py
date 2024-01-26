@@ -1,4 +1,5 @@
 from datetime import datetime
+from functools import partial
 from typing import Any, Union
 
 import numpy as np
@@ -10,15 +11,6 @@ from numpy.typing import ArrayLike
 from ..result_dataclasses import TaskResult
 from .model import Encoder
 from .task import DescriptiveDatasetStats, Task
-
-
-class MTEBTaskModel(Encoder):
-    def __init__(self, mteb_model: Encoder, task: Task) -> None:
-        self.mteb_model = mteb_model
-        self.task = task
-
-    def encode(self, texts: list[str], **kwargs: Any) -> ArrayLike:
-        return self.mteb_model.encode(texts, task=self.task, **kwargs)
 
 
 class MTEBTask(Task):
@@ -76,8 +68,12 @@ class MTEBTask(Task):
 
     def evaluate(self, model: Encoder) -> TaskResult:
         split = self.mteb_task.description["eval_splits"][0]
-        task_model = MTEBTaskModel(model, self)
-        scores = self.mteb_task.evaluate(task_model, split=split)
+        # Infusing task into encode()
+        original_encode = model.encode
+        model.encode = partial(model.encode, task=self)
+        scores = self.mteb_task.evaluate(model, split=split)
+        # Resetting encode to original
+        model.encode = original_encode
         if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
 

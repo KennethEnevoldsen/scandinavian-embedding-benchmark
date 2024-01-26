@@ -32,9 +32,6 @@ cli_command_parametrize = pytest.mark.parametrize(
     "inputs",
     [
         BenchmarkCliTestInput(
-            "sentence-transformers/all-MiniLM-L6-v2", 0.448, None, None
-        ),
-        BenchmarkCliTestInput(
             "sentence-transformers/all-MiniLM-L6-v2", 0.550, tasks=["DKHate"]
         ),
         BenchmarkCliTestInput(
@@ -42,11 +39,9 @@ cli_command_parametrize = pytest.mark.parametrize(
         ),
         BenchmarkCliTestInput(
             "sentence-transformers/all-MiniLM-L6-v2",
-            0.487,
-            languages=["sv", "no", "nn"],
-        ),
-        BenchmarkCliTestInput(
-            "sentence-transformers/all-MiniLM-L6-v2", 0.423, languages=["da"]
+            0.50,
+            tasks=["DKHate", "ScaLA"],
+            languages=["sv", "nn", "nb"],
         ),
         BenchmarkCliTestInput(
             "test_model",

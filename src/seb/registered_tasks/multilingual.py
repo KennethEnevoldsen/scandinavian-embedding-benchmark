@@ -93,13 +93,20 @@ def create_scala() -> Task:
 
         def evaluate(self, model: Encoder) -> TaskResult:
             scores = {}
+            # Infusing task into encode()
             original_encode = model.encode
-            model.encode = partial(model.encode, task=self)
-            for lang, mteb_task in self.mteb_tasks.items():
-                mteb_task.load_data()
-                score = mteb_task.evaluate(model)
-                scores[lang] = score
-            model.encode = original_encode
+            try:
+                model.encode = partial(model.encode, task=self)
+                for lang, mteb_task in self.mteb_tasks.items():
+                    mteb_task.load_data()
+                    score = mteb_task.evaluate(model)
+                    scores[lang] = score
+                model.encode = original_encode
+            except Exception as e:
+                raise e
+            finally:
+                # Resetting encode to original
+                model.encode = original_encode
 
             return TaskResult(
                 task_name=self.name,

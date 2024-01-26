@@ -70,10 +70,14 @@ class MTEBTask(Task):
         split = self.mteb_task.description["eval_splits"][0]
         # Infusing task into encode()
         original_encode = model.encode
-        model.encode = partial(model.encode, task=self)
-        scores = self.mteb_task.evaluate(model, split=split)
-        # Resetting encode to original
-        model.encode = original_encode
+        try:
+            model.encode = partial(model.encode, task=self)
+            scores = self.mteb_task.evaluate(model, split=split)
+        except Exception as e:
+            raise e
+        finally:
+            # Resetting encode to original
+            model.encode = original_encode
         if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
 

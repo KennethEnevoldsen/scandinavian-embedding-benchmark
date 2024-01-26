@@ -1,4 +1,5 @@
 from datetime import datetime
+from functools import partial
 from typing import Any, Union
 
 import numpy as np
@@ -11,6 +12,7 @@ from .model import Encoder
 from .task import DescriptiveDatasetStats, Task
 
 
+<<<<<<< HEAD
 class MTEBTaskModel(Encoder):
     def __init__(self, mteb_model: Encoder, task: Task) -> None:
         self.mteb_model = mteb_model
@@ -20,6 +22,8 @@ class MTEBTaskModel(Encoder):
         return self.mteb_model.encode(texts, task=self.task, **kwargs)  # type: ignore
 
 
+=======
+>>>>>>> f427a6da949fb2f7eb14f1014e9ae7a43df3a109
 class MTEBTask(Task):
     def __init__(self, mteb_task: AbsTask) -> None:
         self.mteb_task = mteb_task
@@ -96,17 +100,24 @@ class MTEBTask(Task):
 
     def evaluate(self, model: Encoder) -> TaskResult:
         split = self.mteb_task.description["eval_splits"][0]
-        task_model = MTEBTaskModel(model, self)
-        raw_scores = self.mteb_task.evaluate(task_model, split=split)
-
-        if raw_scores is None:
+        # Infusing task into encode()
+        original_encode = model.encode
+        try:
+            model.encode = partial(model.encode, task=self)
+            scores = self.mteb_task.evaluate(model, split=split)
+        except Exception as e:
+            raise e
+        finally:
+            # Resetting encode to original
+            model.encode = original_encode
+        if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
 
         # there is only one split in all MTEB tasks in SEB
 
         time_of_run: datetime = datetime.now()
 
-        scores = self.format_scores(raw_scores, split)
+        scores = self.format_scores(scores, split)
 
         task_result = TaskResult(
             task_name=self.name,

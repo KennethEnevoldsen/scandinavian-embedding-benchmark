@@ -1,6 +1,6 @@
 from collections.abc import Iterable, Sequence
 from itertools import islice
-from typing import Any, TypeVar
+from typing import Any, Optional, TypeVar
 
 import torch
 import torch.nn.functional as F
@@ -10,6 +10,7 @@ from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
 from seb import models
 from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.task import Task
 
 T = TypeVar("T")
 
@@ -73,6 +74,8 @@ class E5Mistral(Encoder):
     def encode(
         self,
         sentences: list[str],
+        *,
+        task: Optional[Task] = None,
         batch_size: int = 32,
         **kwargs: Any,  # noqa
     ) -> ArrayLike:

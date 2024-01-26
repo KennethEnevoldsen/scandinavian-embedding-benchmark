@@ -29,7 +29,7 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
         sentences: list[str],
         *,
         batch_size: int,
-        task: Task,  # noqa: ARG002
+        task: Optional[Task] = None,  # noqa: ARG002
         **kwargs: Any,
     ) -> ArrayLike:
         return super().encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore

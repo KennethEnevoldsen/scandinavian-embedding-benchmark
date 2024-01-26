@@ -46,7 +46,7 @@ class TaskResult(BaseModel):
             lang = self.scores.keys()
 
         for l in lang:
-            main_scores.append(self.scores[l][self.main_score])
+            main_scores.append(self.scores[l][self.main_score])  # type: ignore
 
         return sum(main_scores) / len(main_scores)
 

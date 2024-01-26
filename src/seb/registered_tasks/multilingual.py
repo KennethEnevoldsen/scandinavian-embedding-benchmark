@@ -1,11 +1,12 @@
 from datetime import datetime
+from functools import partial
 from typing import Any
 
 import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 
 from seb.interfaces.model import Encoder
-from seb.interfaces.mteb_task import MTEBTask, MTEBTaskModel
+from seb.interfaces.mteb_task import MTEBTask
 from seb.interfaces.task import DescriptiveDatasetStats, Task
 from seb.registries import tasks
 from seb.result_dataclasses import TaskResult
@@ -37,13 +38,9 @@ def create_massive_scenario() -> Task:
 
 @tasks.register("ScaLA")
 def create_scala() -> Task:
-    from mteb import (
-        ScalaDaClassification,
-        ScalaNbClassification,
-        ScalaNnClassification,
-        ScalaSvClassification,
-        __version__,
-    )
+    from mteb import (ScalaDaClassification, ScalaNbClassification,
+                      ScalaNnClassification, ScalaSvClassification,
+                      __version__)
 
     class ScalaTask(Task):
         def __init__(self) -> None:
@@ -96,11 +93,20 @@ def create_scala() -> Task:
 
         def evaluate(self, model: Encoder) -> TaskResult:
             scores = {}
-            _model = MTEBTaskModel(model, self)
-            for lang, mteb_task in self.mteb_tasks.items():
-                mteb_task.load_data()
-                score = mteb_task.evaluate(_model)
-                scores[lang] = score
+            # Infusing task into encode()
+            original_encode = model.encode
+            try:
+                model.encode = partial(model.encode, task=self)
+                for lang, mteb_task in self.mteb_tasks.items():
+                    mteb_task.load_data()
+                    score = mteb_task.evaluate(model)
+                    scores[lang] = score
+                model.encode = original_encode
+            except Exception as e:
+                raise e
+            finally:
+                # Resetting encode to original
+                model.encode = original_encode
 
             return TaskResult(
                 task_name=self.name,

@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from functools import partial
+from typing import Any
 
 import numpy as np
 import torch
@@ -10,28 +11,29 @@ from seb.registries import models
 
 class FastTextModel(seb.Encoder):
     def __init__(self, model_name: str, lang: str) -> None:
-        import fasttext
-        import fasttext.util
+        self.model_name = model_name
+        self.lang = lang
+
+        import fasttext  # type: ignore
+        import fasttext.util  # type: ignore
 
         fasttext.util.download_model(self.lang, if_exists="ignore")
         self.model = fasttext.load_model(self.model_name)
-        self.model_name = model_name
-        self.lang = lang
 
     def get_embedding_dim(self) -> int:
         v = self.encode(["get emb dim"])
         return v.shape[1]
 
-    def encode(
+    def encode(  # type: ignore
         self,
         sentences: Sequence[str],
-        **kwargs: dict,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
         embeddings = []
         for sentence in sentences:
             # This is to appease FastText as they made the function err
             # if there's a \n in the sentence.
-            sentence = " ".join(sentence.split())
+            sentence = " ".join(sentence.split())  # noqa
             sentence_embedding = self.model.get_sentence_vector(sentence)
             embeddings.append(sentence_embedding)
         return torch.tensor(np.stack(embeddings))

@@ -1,4 +1,5 @@
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import (TYPE_CHECKING, Any, Callable, Optional, Protocol,
                     runtime_checkable)
@@ -79,7 +80,8 @@ class ModelMeta(BaseModel):
         return cls(**model_meta)
 
 
-class EmbeddingModel(BaseModel):
+@dataclass
+class EmbeddingModel:
     """
     An embedding model as implemented in SEB. It notably dynamically loads models (such that models are not loaded when a cache is hit)
     and includes metadata pertaining to the specific model.

@@ -28,9 +28,7 @@ class TaskResult(BaseModel):
     task_description: str
     task_version: str
     time_of_run: datetime
-    scores: dict[
-        Language, dict[str, Union[float, str]]
-    ]  # {language: {"metric": value}}.
+    scores: dict[Language, dict[str, Union[float, str]]]  # {language: {"metric": value}}.
     main_score: str
 
     def get_main_score(self, lang: Optional[Iterable[str]] = None) -> float:
@@ -48,7 +46,7 @@ class TaskResult(BaseModel):
             lang = self.scores.keys()
 
         for l in lang:
-            main_scores.append(self.scores[l][self.main_score])
+            main_scores.append(self.scores[l][self.main_score])  # type: ignore
 
         return sum(main_scores) / len(main_scores)
 
@@ -141,7 +139,7 @@ class BenchmarkResults(BaseModel):
             return sum(scores) / len(scores)
         return np.nan
 
-    def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:
+    def __iter__(self) -> Iterator[Union[TaskResult, TaskError]]:  # type: ignore
         return iter(self.task_results)
 
     def __getitem__(self, index: int) -> Union[TaskResult, TaskError]:
@@ -155,9 +153,7 @@ class BenchmarkResults(BaseModel):
         Write task results to a path.
         """
         if path.is_file():
-            raise ValueError(
-                "Can't save BenchmarkResults to a file. Path must be a directory."
-            )
+            raise ValueError("Can't save BenchmarkResults to a file. Path must be a directory.")
         path.mkdir(parents=True, exist_ok=True)
         for task_result in self.task_results:
             if isinstance(task_result, TaskResult):
@@ -174,9 +170,7 @@ class BenchmarkResults(BaseModel):
         Load task results from a path.
         """
         if not path.is_dir():
-            raise ValueError(
-                "Can't load BenchmarkResults from path: {path}. Path must be a directory."
-            )
+            raise ValueError("Can't load BenchmarkResults from path: {path}. Path must be a directory.")
         task_results = []
         for file in path.glob("*.json"):
             if file.stem == "meta":

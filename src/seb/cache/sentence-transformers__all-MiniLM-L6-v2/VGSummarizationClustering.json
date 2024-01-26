@@ -1,0 +1,1 @@
+{"task_name":"VGSummarizationClustering","task_description":"Articles and ingresses from VG news articles extracted from Norsk Aviskorpus. Uses articles classes as clusters.","task_version":"0.0.1","time_of_run":"2024-01-25T10:02:40.216699","scores":{"nb":{"v_measure":0.1265854086180265,"v_measure_std":0.009509409902242557}},"main_score":"v_measure"}

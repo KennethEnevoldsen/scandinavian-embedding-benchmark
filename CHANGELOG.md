@@ -2,6 +2,112 @@
 
 
 
+## v0.9.0 (2024-01-26)
+
+### Feature
+
+* feat: Added performance metrics for danfever ([`22eb72b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/22eb72bc1b530d3425d2b4fd1fb64d3bf3b2c971))
+
+### Unknown
+
+* Merge pull request #97 from KennethEnevoldsen/add-danfever
+
+Add danFEVER ([`801753f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/801753f0d5500e91d935093140daaa402b8d4b57))
+
+* appease pyright ([`a572962`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a572962c5f6fc6826182c86aa5b6ad5ec1af076e))
+
+* tests: remove tests which has to be changed when adding new datasets ([`04aa44e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/04aa44e5c62e26919eddd16487f92c37b85f6fb4))
+
+* tests: convert test_task back to normal ([`be2c071`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/be2c071f85fb2454bb4b90e1dbad8602eef6d4bf))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-danfever ([`69a5a03`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/69a5a0367f5025a1d8184ceee0589549d7872a32))
+
+
+## v0.8.0 (2024-01-25)
+
+### Ci
+
+* ci: fix mispecified yaml syntax ([`ca5567c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ca5567c71d3da1ec49b59c0a74b74bd85219a46e))
+
+### Documentation
+
+* docs: formatting code blocks ([`cee41f3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cee41f39ad3b8a9c4095399c28abcc2b0704f229))
+
+* docs: update docs to not run all models ([`90cef3d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/90cef3d05053f4d007c3ed926240243a9c5ecf93))
+
+### Feature
+
+* feat: Added danfever ([`ccec57c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ccec57cf67f575f97751b7d87d36a273825b9606))
+
+* feat: Added VG clustering dataset ([`49e75d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49e75d554e43b48f99b6257b2ae0bd2b4cf828dc))
+
+* feat: Add swedn clustering ([`0786ec5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0786ec5a96e7607cbaf7efd368724b1fb9b6d043))
+
+### Fix
+
+* fix: Update indexes to strings ([`37d165f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/37d165f162a324c33c180d767bcdbdc9765e972a))
+
+* fix: fixed error arised from merge ([`11e28d6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/11e28d62b27b0654bf683c525f4dab2848995160))
+
+* fix: updated based on static type checks ([`4752f07`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4752f070ac711aba0514de8f33d8511e3da8a274))
+
+* fix: move description to the end as to make printing of task object prettier ([`f8ec70d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f8ec70d2125cac3b01c5717c8d7d0f73159acb28))
+
+* fix: reduced size of SwednClustering and ensure that clusters match with document size ([`0b70730`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0b7073082da8340b6cad68fb91121b22329355b0))
+
+### Style
+
+* style: ran linter ([`bcc1231`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bcc123179a2ac0764f00d223b900b4840fa90da5))
+
+* style: ran linting ([`05b6bf9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/05b6bf9828cb3327f6b5ab231f6e18e5ebdb5c6c))
+
+### Test
+
+* test: Performance using 5x2048 examples is 8.13 ([`ed5cb5d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ed5cb5d9bcbda66a2eb9797e1c280a7af0243d80))
+
+* test: Performance using 5x10000 examples is 13.80 ([`ed36b82`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ed36b821e3e65e48468d48163936318dea401cd9))
+
+* test: Performance using 2x10000 examples is 8.70 ([`6fe30b7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6fe30b7e002c4ce7bfbe7f48611e4f17821f77e5))
+
+* test: Performance using 10000 examples is 8.46 ([`630769c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/630769cb8acafb972bf82254217eba83b96f6773))
+
+* test: Performance using 1000 examples is 8.12 ([`7732c32`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7732c3279533bc389fed434085c5ab699d53f0a4))
+
+* test: Performance using 100 examples is 21.07 ([`82f7b3f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/82f7b3fd67a4f866f5899f49b5ceca7df0333c64))
+
+### Unknown
+
+* Merge pull request #96 from KennethEnevoldsen/add-swedn-clustering
+
+Add Swedn and VG clustering datasets ([`8537e12`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8537e121d115522cec4eaaef8b2d501606d7cdaa))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-danfever ([`796e3c9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/796e3c993d789ad5ddc7ea050fc3f08dfd80b249))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-swedn-clustering ([`18f9afb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/18f9afb722e353b7f2ed6cf3452935c0cbf70cfb))
+
+* tests: refactored tests to not be highly dependent on a few tasks ([`4b1eaa5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4b1eaa556db1887a995db52e0f49da1edca42217))
+
+* Added a bunch of experiments for the vg summerization. ([`d9a13cb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d9a13cbc0d5932ebc1153da03e15a4db73ed3451))
+
+* Merge pull request #90 from KennethEnevoldsen/types
+
+Moved task types to task interface and deleted types module ([`7c3b582`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7c3b582943b26060303816f70d122930083ac70e))
+
+* Added English to Language type ([`221bdd8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/221bdd80bde334ec077e75f0f014b9b48e75de03))
+
+* Removed faulty import in E5 models ([`601002c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/601002cc9613a59cb9bf236fab909d2bd24433d3))
+
+* Merge pull request #91 from KennethEnevoldsen/new_models
+
+Added Jina base ([`95c515e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/95c515e7c6095f75f825692f141d622dea9ff3e1))
+
+* Fixed import error in speed task ([`cfccbdf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cfccbdf3aa32e8b73e4d89ac924ac1eefac64986))
+
+* Added Jina base ([`6d1ec69`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d1ec694f9b53e76f86e97ed4df4be70717f465b))
+
+* Moved task types to task interface and deleted types module ([`2f1adf1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2f1adf1305567b7f989b288344cb32caef7efad5))
+
+
 ## v0.7.1 (2024-01-23)
 
 ### Fix

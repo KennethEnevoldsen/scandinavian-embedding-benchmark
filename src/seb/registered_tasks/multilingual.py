@@ -7,7 +7,7 @@ from datasets import DatasetDict, concatenate_datasets
 
 from seb.interfaces.model import Encoder
 from seb.interfaces.mteb_task import MTEBTask
-from seb.interfaces.task import Task
+from seb.interfaces.task import DescriptiveDatasetStats, Task
 from seb.registries import tasks
 from seb.result_dataclasses import TaskResult
 
@@ -74,7 +74,7 @@ def create_scala() -> Task:
 
             return DatasetDict(ds)
 
-        def get_descriptive_stats(self) -> dict[str, Any]:
+        def get_descriptive_stats(self) -> DescriptiveDatasetStats:
             ds = self.load_data()
             texts = []
             for split in ds:
@@ -85,11 +85,11 @@ def create_scala() -> Task:
 
             mean = np.mean(document_lengths)
             std = np.std(document_lengths)
-            return {
-                "mean_document_length": mean,
-                "std_document_length": std,
-                "num_documents": len(document_lengths),
-            }
+            return DescriptiveDatasetStats(
+                mean_document_length=float(mean),
+                std_document_length=float(std),
+                num_documents=len(document_lengths),
+            )
 
         def evaluate(self, model: Encoder) -> TaskResult:
             scores = {}

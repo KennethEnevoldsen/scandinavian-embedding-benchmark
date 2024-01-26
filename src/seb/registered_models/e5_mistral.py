@@ -8,9 +8,9 @@ from numpy.typing import ArrayLike
 from torch import Tensor
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
-from seb import models
-from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
+from seb.registries import models
 
 T = TypeVar("T")
 
@@ -31,7 +31,9 @@ class E5Mistral(Encoder):
         self.load_model()
 
     def load_model(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            "intfloat/e5-mistral-7b-instruct"
+        )
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
 
     def preprocess(self, sentences: Sequence[str]) -> BatchEncoding:
@@ -52,7 +54,9 @@ class E5Mistral(Encoder):
             [*input_ids, self.tokenizer.eos_token_id]
             for input_ids in batch_dict["input_ids"]  # type: ignore
         ]
-        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
+        batch_dict = self.tokenizer.pad(
+            batch_dict, padding=True, return_attention_mask=True, return_tensors="pt"
+        )
 
         return batch_dict
 
@@ -98,7 +102,7 @@ class E5Mistral(Encoder):
 
 
 @models.register("intfloat/e5-mistral-7b-instruct")
-def create_multilingual_e5_mistral_7b_instruct() -> EmbeddingModel:
+def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -108,7 +112,7 @@ def create_multilingual_e5_mistral_7b_instruct() -> EmbeddingModel:
         open_source=True,
         embedding_size=4096,
     )
-    return EmbeddingModel(
-        loader=E5Mistral,
+    return SebModel(
+        encoder=LazyLoadEncoder(E5Mistral),
         meta=meta,
     )

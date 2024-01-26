@@ -2,12 +2,13 @@ from datetime import datetime
 from pathlib import Path
 
 import numpy as np
+
 import seb
 
 from .dummy_task import TestTask
 
 
-def create_test_model_with_task_dependent_encode() -> seb.EmbeddingModel:
+def create_test_model_with_task_dependent_encode() -> seb.SebModel:
     class TestEncoder(seb.Encoder):
         def encode(
             self,
@@ -23,9 +24,11 @@ def create_test_model_with_task_dependent_encode() -> seb.EmbeddingModel:
     def load_test_model() -> TestEncoder:
         return TestEncoder()
 
-    return seb.EmbeddingModel(
-        meta=seb.ModelMeta(name="test_model_with_task_dependent_encode", embedding_size=100),
-        loader=load_test_model,
+    return seb.SebModel(
+        meta=seb.ModelMeta(
+            name="test_model_with_task_dependent_encode", embedding_size=100
+        ),
+        encoder=seb.LazyLoadEncoder(load_test_model),
     )
 
 
@@ -81,4 +84,6 @@ def test_task_dependent_encode(tmp_path: Path):
 
     benchmark = seb.Benchmark(tasks=tasks)
     result = benchmark.evaluate_model(model, cache_dir=tmp_path)
-    assert result.get_main_score() == 1, "both datasets should have score of 1 if they run successfully"
+    assert (
+        result.get_main_score() == 1
+    ), "both datasets should have score of 1 if they run successfully"

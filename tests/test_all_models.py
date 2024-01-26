@@ -3,6 +3,7 @@ This section contains big tests which are too heavy to run as part of the CI, bu
 """
 
 import pytest
+
 import seb
 
 from .dummy_task import create_test_encode_task
@@ -16,22 +17,22 @@ openai_models = []
 )
 @pytest.mark.parametrize("model", all_models)
 @pytest.mark.parametrize("task", [create_test_encode_task()])
-def test_model(model: seb.EmbeddingModel, task: seb.Task):
+def test_model(model: seb.SebModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """
-    task.evaluate(model)
+    task.evaluate(model.encoder)
 
 
 @pytest.mark.skip(
     reason="This test loads in all models. It is too heavy to have running as a CI",
 )
 @pytest.mark.parametrize("model", all_models)
-def test_embedding_match_what_is_stated(model: seb.EmbeddingModel):
+def test_embedding_match_what_is_stated(model: seb.SebModel):
     """
     This test checks if the embedding size matches what is stated in the ModelMeta
     """
-    output = model.encode(["test"])
+    output = model.encoder.encode(["test"])
     output_embedding_size = output.shape[1]
     assert output_embedding_size == model.meta.embedding_size
 
@@ -41,8 +42,8 @@ def test_embedding_match_what_is_stated(model: seb.EmbeddingModel):
 )
 @pytest.mark.parametrize("model", [seb.get_model("text-embedding-ada-002")])
 @pytest.mark.parametrize("task", [create_test_encode_task()])
-def test_openai_model(model: seb.EmbeddingModel, task: seb.Task):
+def test_openai_model(model: seb.SebModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """
-    task.evaluate(model)
+    task.evaluate(model.encoder)

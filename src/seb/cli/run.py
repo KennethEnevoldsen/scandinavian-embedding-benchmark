@@ -16,7 +16,7 @@ from .table import convert_to_table, pretty_print_benchmark
 logger = logging.getLogger(__name__)
 
 
-def build_model(model_name: str) -> seb.EmbeddingModel:
+def build_model(model_name: str) -> seb.SebModel:
     all_models = seb.models.get_all().keys()
 
     if model_name in seb.models:
@@ -28,9 +28,9 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     meta = seb.ModelMeta(
         name=Path(model_name).stem,
     )
-    model = seb.EmbeddingModel(
+    model = seb.SebModel(
         meta=meta,
-        loader=partial(SentenceTransformer, model_name_or_path=model_name),  # type: ignore
+        encoder=seb.LazyLoadEncoder(partial(SentenceTransformer, model_name_or_path=model_name)),  # type: ignore
     )
     return model
 

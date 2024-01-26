@@ -10,7 +10,7 @@ from typing import Any
 
 import torch
 
-from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
@@ -90,7 +90,7 @@ class OpenaiTextEmbeddingModel(Encoder):
 
 
 @models.register("text-embedding-ada-002")
-def create_openai_ada_002() -> EmbeddingModel:
+def create_openai_ada_002() -> SebModel:
     api_name = "text-embedding-ada-002"
     meta = ModelMeta(
         name=api_name,
@@ -100,7 +100,7 @@ def create_openai_ada_002() -> EmbeddingModel:
         open_source=False,
         embedding_size=1536,
     )
-    return EmbeddingModel(
-        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(OpenaiTextEmbeddingModel, api_name=api_name)),
         meta=meta,
     )

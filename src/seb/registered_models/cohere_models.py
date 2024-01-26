@@ -9,14 +9,14 @@ from typing import Any, Optional
 
 import torch
 
-import seb
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
 logger = logging.getLogger(__name__)
 
 
-class CohereTextEmbeddingModel(seb.Encoder):
+class CohereTextEmbeddingModel(Encoder):
     def __init__(self, model_name: str, sep: str = " ") -> None:
         self.model_name = model_name
         self.sep = sep
@@ -44,6 +44,8 @@ class CohereTextEmbeddingModel(seb.Encoder):
         task: Optional[Task] = None,
         **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
+        if task is None:
+            return self._embed(sentences, input_type="classification")
         if task.task_type == "Classification":
             input_type = "classification"
         elif task.task_type == "Clustering":
@@ -74,9 +76,9 @@ class CohereTextEmbeddingModel(seb.Encoder):
 
 
 @models.register("embed-multilingual-v3.0")
-def create_embed_multilingual_v3() -> seb.EmbeddingModel:
+def create_embed_multilingual_v3() -> SebModel:
     model_name = "embed-multilingual-v3.0"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://huggingface.co/Cohere/Cohere-embed-multilingual-v3.0",
@@ -84,7 +86,9 @@ def create_embed_multilingual_v3() -> seb.EmbeddingModel:
         open_source=False,
         embedding_size=1024,
     )
-    return seb.EmbeddingModel(
-        loader=partial(CohereTextEmbeddingModel, model_name=model_name),
+    return SebModel(
+        encoder=LazyLoadEncoder(
+            partial(CohereTextEmbeddingModel, model_name=model_name)
+        ),
         meta=meta,
     )

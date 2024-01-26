@@ -7,7 +7,7 @@ from typing import Optional, Union
 
 from tqdm import tqdm
 
-from .interfaces.model import EmbeddingModel, Encoder
+from .interfaces.model import Encoder, SebModel
 from .interfaces.task import Task
 from .registries import get_all_tasks, get_task
 from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
@@ -31,7 +31,9 @@ def get_cache_dir() -> Path:
     return CACHE_DIR
 
 
-def get_cache_path(task: Task, model: EmbeddingModel, cache_dir: Optional[Path] = None) -> Path:
+def get_cache_path(
+    task: Task, model: SebModel, cache_dir: Optional[Path] = None
+) -> Path:
     """
     Get the cache path for a task and model.
     """
@@ -44,7 +46,7 @@ def get_cache_path(task: Task, model: EmbeddingModel, cache_dir: Optional[Path] 
 
 def run_task(
     task: Task,
-    model: EmbeddingModel,
+    model: SebModel,
     use_cache: bool,
     run_model: bool,
     raise_errors: bool,
@@ -84,10 +86,11 @@ def run_task(
 
     if not run_model:
         raise ValueError(
-            f"Cache for {model.meta.name} on {task.name} does not exist. " "Set run_model=True to run the model.",
+            f"Cache for {model.meta.name} on {task.name} does not exist. "
+            "Set run_model=True to run the model.",
         )
     with WarningIgnoreContextManager():
-        task_result = task.evaluate(model)
+        task_result = task.evaluate(model.encoder)
     task_result.to_disk(cache_path)
     return task_result
 
@@ -146,7 +149,7 @@ class Benchmark:
 
     def evaluate_model(
         self,
-        model: EmbeddingModel,
+        model: SebModel,
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,
@@ -168,7 +171,13 @@ class Benchmark:
             The results of the benchmark.
         """
         task_results = []
-        pbar = tqdm(self.tasks, position=1, desc=f"Running {model.meta.name}", leave=False, disable=not verbose)
+        pbar = tqdm(
+            self.tasks,
+            position=1,
+            desc=f"Running {model.meta.name}",
+            leave=False,
+            disable=not verbose,
+        )
         for task in pbar:
             pbar.set_description(f"Running {model.meta.name} on {task.name}")
             task_result = run_task(
@@ -185,7 +194,7 @@ class Benchmark:
 
     def evaluate_models(
         self,
-        models: list[EmbeddingModel],
+        models: list[SebModel],
         use_cache: bool = True,
         run_model: bool = True,
         raise_errors: bool = True,
@@ -207,11 +216,24 @@ class Benchmark:
             The results of the benchmark, once for each model.
         """
         results = []
-        pbar = tqdm(models, position=0, desc="Running Benchmark", leave=True, disable=not verbose)
+        pbar = tqdm(
+            models,
+            position=0,
+            desc="Running Benchmark",
+            leave=True,
+            disable=not verbose,
+        )
 
         for model in pbar:
             pbar.set_description(f"Running {model.meta.name}")
             results.append(
-                self.evaluate_model(model, use_cache=use_cache, run_model=run_model, raise_errors=raise_errors, cache_dir=cache_dir, verbose=verbose),
+                self.evaluate_model(
+                    model,
+                    use_cache=use_cache,
+                    run_model=run_model,
+                    raise_errors=raise_errors,
+                    cache_dir=cache_dir,
+                    verbose=verbose,
+                ),
             )
         return results

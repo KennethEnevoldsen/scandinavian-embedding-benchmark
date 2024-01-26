@@ -124,7 +124,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
         self.dataset = self.dataset.rename_column("summary", "sentence2")
         self.dataset = self.dataset.rename_column("article", "sentence1")
         self.dataset = self.dataset.remove_columns(["id", "headline", "article_category"])
-        self.dataset.shuffle(seed=42)
+        self.dataset = self.dataset.shuffle(seed=42)
 
         # add score column
         for split in self.dataset:
@@ -146,7 +146,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
                     "score": ([0] * len(articles)),
                 }
             )
-            mismatched_ds.shuffle(seed=42)
+            mismatched_ds = mismatched_ds.shuffle(seed=42)
             self.dataset[split] = datasets.concatenate_datasets([ds_split.select(range(1024)), mismatched_ds.select(range(1024))])
 
     @property
@@ -160,7 +160,7 @@ class SwednSummarizationSTS(AbsTaskSTS):
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["sv"],
-            "main_score": "spearman",
+            "main_score": "cosine_spearman",
             "min_score": 0,
             "max_score": 1,
             "revision": "ef1661775d746e0844b299164773db733bdc0bf6",
@@ -226,6 +226,8 @@ class SwednRetrieval(AbsTaskRetrieval):
 
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
+            ds = ds.shuffle(seed=42)
+            ds = ds.select(range(1024))  # limit the dataset size to make sure the task does not take too long to run
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}

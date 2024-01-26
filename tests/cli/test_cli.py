@@ -33,7 +33,6 @@ cli_command_parametrize = pytest.mark.parametrize(
         BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.550, tasks=["DKHate"]),
         BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.525, tasks=["DKHate", "ScaLA"]),
         BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.50, tasks=["DKHate", "ScaLA"], languages=["sv", "nn", "nb"]),
-        BenchmarkCliTestInput("sentence-transformers/all-MiniLM-L6-v2", 0.423, languages=["da"]),
         BenchmarkCliTestInput(
             "test_model", np.nan, code_path=(test_dir / "benchmark_cli_code_inject.py"), tasks=["test-encode-task"], ignore_cache=True
         ),

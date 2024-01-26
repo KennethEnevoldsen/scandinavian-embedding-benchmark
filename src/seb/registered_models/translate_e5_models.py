@@ -35,7 +35,7 @@ class TranslateE5Model(seb.Encoder):
         **kwargs: Any,
     ) -> torch.Tensor:
         try:
-            src_lang = task.languages[0]
+            src_lang = task.languages[0]  # type: ignore
         except IndexError:
             # Danish is the default fallback if no language is specified for the task.
             src_lang = "da"

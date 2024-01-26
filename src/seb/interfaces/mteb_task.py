@@ -12,18 +12,6 @@ from .model import Encoder
 from .task import DescriptiveDatasetStats, Task
 
 
-<<<<<<< HEAD
-class MTEBTaskModel(Encoder):
-    def __init__(self, mteb_model: Encoder, task: Task) -> None:
-        self.mteb_model = mteb_model
-        self.task = task
-
-    def encode(self, texts: list[str], **kwargs: Any) -> np.ndarray:  # type: ignore
-        return self.mteb_model.encode(texts, task=self.task, **kwargs)  # type: ignore
-
-
-=======
->>>>>>> f427a6da949fb2f7eb14f1014e9ae7a43df3a109
 class MTEBTask(Task):
     def __init__(self, mteb_task: AbsTask) -> None:
         self.mteb_task = mteb_task

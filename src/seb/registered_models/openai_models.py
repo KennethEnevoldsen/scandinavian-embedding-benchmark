@@ -70,7 +70,7 @@ class OpenaiTextEmbeddingModel(Encoder):
         vectors = [embedding.embedding for embedding in data]
         return torch.tensor(vectors)
 
-    def encode(
+    def encode(  # type: ignore
         self,
         sentences: Sequence[str],
         *,

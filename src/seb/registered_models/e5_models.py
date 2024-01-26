@@ -16,35 +16,28 @@ class E5Wrapper(Encoder):
         self.mdl = SentenceTransformer(model_name)
         self.sep = sep
 
-    def encode(
+    def encode(  # type: ignore
         self,
         sentences: list[str],
         *,
-        task: Task,
+        task: Task,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
         return self.encode_queries(sentences, batch_size=batch_size, **kwargs)
 
-    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):
+    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa
         sentences = ["query: " + sentence for sentence in queries]
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):
-        if type(corpus) is dict:
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
+        if isinstance(corpus, dict):
             sentences = [
-                (corpus["title"][i] + self.sep + corpus["text"][i]).strip()
-                if "title" in corpus
-                else corpus["text"][i].strip()
-                for i in range(len(corpus["text"]))
+                (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
+                for i in range(len(corpus["text"]))  # type: ignore
             ]
         else:
-            sentences = [
-                (doc["title"] + self.sep + doc["text"]).strip()
-                if "title" in doc
-                else doc["text"].strip()
-                for doc in corpus
-            ]
+            sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         sentences = ["passage: " + sentence for sentence in sentences]
         return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
 

@@ -1,6 +1,6 @@
 from collections.abc import Sequence
 from functools import partial
-from typing import Any
+from typing import Any, Optional
 
 import torch
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
@@ -30,7 +30,7 @@ class TranslateE5Model(seb.Encoder):
         self,
         sentences: list[str],
         *,
-        task: seb.Task,  # noqa: ARG002
+        task: Optional[seb.Task] = None,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
     ) -> torch.Tensor:

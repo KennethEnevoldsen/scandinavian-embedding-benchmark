@@ -1,27 +1,20 @@
 from functools import partial
-from typing import Any
+from typing import Any, Optional
 
 from numpy.typing import ArrayLike
+from sentence_transformers import SentenceTransformer
 
 from seb import models
 
 from ..interfaces.model import EmbeddingModel, Encoder, ModelMeta
 from ..interfaces.task import Task
-from .hf_models import get_sentence_transformer
 
 
 class E5Wrapper(Encoder):
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str, sep: str = " "):
         self.model_name = model_name
-        self.mdl = get_sentence_transformer(model_name)
-
-    @staticmethod
-    def preprocess(sentences: list[str]) -> list[str]:
-        # following the documentation it is better to generally do this:
-        return ["query: " + sentence for sentence in sentences]
-
-    # but it does not work slightly better than this:
-    # return sentences # noqa
+        self.mdl = SentenceTransformer(model_name)
+        self.sep = sep
 
     def encode(
         self,
@@ -31,8 +24,29 @@ class E5Wrapper(Encoder):
         batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
-        sentences = self.preprocess(sentences)
-        return self.mdl.encode(sentences, batch_size=batch_size, task=task, **kwargs)  # type: ignore
+        return self.encode_queries(sentences, batch_size=batch_size, **kwargs)
+
+    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):
+        sentences = ["query: " + sentence for sentence in queries]
+        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
+
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):
+        if type(corpus) is dict:
+            sentences = [
+                (corpus["title"][i] + self.sep + corpus["text"][i]).strip()
+                if "title" in corpus
+                else corpus["text"][i].strip()
+                for i in range(len(corpus["text"]))
+            ]
+        else:
+            sentences = [
+                (doc["title"] + self.sep + doc["text"]).strip()
+                if "title" in doc
+                else doc["text"].strip()
+                for doc in corpus
+            ]
+        sentences = ["passage: " + sentence for sentence in sentences]
+        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
 
 
 # English

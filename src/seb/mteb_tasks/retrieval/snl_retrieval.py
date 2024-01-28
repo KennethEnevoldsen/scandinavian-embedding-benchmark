@@ -29,7 +29,7 @@ class SNLRetrieval(AbsTaskRetrieval):
             "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["test"],
-            "eval_langs": ["sv"],
+            "eval_langs": ["nb"],
             "main_score": "ndcg_at_10",
             "revision": "3d3d27aa7af8941408cefc3991ada5d12a4273d1",
         }

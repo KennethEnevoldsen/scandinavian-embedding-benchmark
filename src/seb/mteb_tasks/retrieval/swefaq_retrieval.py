@@ -15,7 +15,7 @@ class SweFaqRetrieval(AbsTaskRetrieval):
             "type": "Retrieval",
             "category": "s2s",
             "eval_splits": ["test"],
-            "eval_langs": ["sv"],
+            "eval_langs": ["da"],
             "main_score": "ndcg_at_10",
             "revision": "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56",
         }

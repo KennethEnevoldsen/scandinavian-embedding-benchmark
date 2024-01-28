@@ -15,7 +15,7 @@ class TV2Nordretrieval(AbsTaskRetrieval):
             "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["test"],
-            "eval_langs": ["sv"],
+            "eval_langs": ["da"],
             "main_score": "ndcg_at_10",
             "revision": "80cdb115ec2ef46d4e926b252f2b59af62d6c070",
         }

@@ -2,6 +2,13 @@
 
 
 
+## v0.9.4 (2024-01-28)
+
+### Fix
+
+* fix: speed benchmark actually runs the speed tasks ([`7ae3ef0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ae3ef04e3d9b29c80e77a5f4ea57b4ca58cdb92))
+
+
 ## v0.9.3 (2024-01-28)
 
 ### Fix

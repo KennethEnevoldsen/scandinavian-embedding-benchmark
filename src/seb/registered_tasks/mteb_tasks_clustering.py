@@ -106,7 +106,7 @@ class VGClustering(AbsTaskClustering):
         return {
             "name": "VGSummarizationClustering",
             "hf_hub_name": "navjordj/VG_summarization",
-            "description": "Articles and ingresses from VG news articles extracted from Norsk Aviskorpus. Uses articles classes as clusters.",
+            "description": "Articles and their classes from VG news articles extracted from Norsk Aviskorpus. Uses articles classes as clusters.",
             "reference": "https://huggingface.co/datasets/navjordj/VG_summarization",
             "type": "Clustering",
             "category": "p2p",

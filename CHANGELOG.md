@@ -2,6 +2,13 @@
 
 
 
+## v0.9.3 (2024-01-28)
+
+### Fix
+
+* fix: Added new OpenAI Models ([`e096ef5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e096ef5efe351087207e49a254e3ffc6dcf30916))
+
+
 ## v0.9.2 (2024-01-26)
 
 ### Ci

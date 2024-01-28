@@ -11,17 +11,17 @@ The follows table give you and an overview of the coverage of the tasks in the S
 |                          |                     |               Danish               |          Norwegian Bokmål          |         Norwegian Nynorsk          |              Swedish               |
 | :----------------------- | :------------------ | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 | **Task**                 | **Formalization**   |                                    |                                    |                                    |                                    |
-| Question Answering       | Retrieval           |                                    |                                    |                                    | <span style="color:green">✓</span> |
-| bitext Mining            | Bitext Mining       | <span style="color:green">✓</span> |                                    |                                    |                                    |
-| Summarization            | STS                 |                                    |                                    |                                    | <span style="color:green">✓</span> |
+| Question Answering       | Retrieval           | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+| bitext Mining            | Bitext Mining       | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
 | Political                | Classification      |                                    | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
 | Language Identification  | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
 | Linguistic Acceptability | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
 | Sentiment/Hate Speech    | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
 | Dialog Systems           | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+| Thematic Clustering      | Clustering          |                                    | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
 |                          | Reranking           |                                    |                                    |                                    |                                    |
 |                          | Pair Classification |                                    |                                    |                                    |                                    |
-|                          | Clustering          |                                    |                                    |                                    |                                    |
+|                          | STS                 |                                    |                                    |                                    |                                    |
 
 
 
@@ -31,21 +31,21 @@ The following table show the coverage pr. language. The domains follows the cate
 |             |                Danish                |          Norwegian Bokmål          |         Norwegian Nynorsk          |              Swedish               |
 | ----------- | :----------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 | **Domain**  |                                      |                                    |                                    |                                    |
-| Social      |  <span style="color:green">✓</span>  |                                    |                                    | <span style="color:green">✓</span> |
-| Poetry      | (<span style="color:green">✓</span>) |                                    |                                    |                                    |
-| Wiki        |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+| Academic    | (<span style="color:green">✓</span>) |                                    |                                    |                                    |
+| Bible       |                                      |                                    |                                    |                                    |
+| Blog        |                                      |                                    |                                    |                                    |
 | Fiction     |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
-| Web         |  <span style="color:green">✓</span>  |                                    |                                    | <span style="color:green">✓</span> |
+| Government  |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
 | Legal       | (<span style="color:green">✓</span>) | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
+| Medical     |                                      |                                    |                                    |                                    |
 | News        |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
 | Non-Fiction |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
-| Academic    | (<span style="color:green">✓</span>) |                                    |                                    |                                    |
-| Spoken      |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+| Poetry      | (<span style="color:green">✓</span>) |                                    |                                    |                                    |
 | Reviews     |                                      | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
-| Blog        |                                      |                                    |                                    |                                    |
-| Medical     |                                      |                                    |                                    |                                    |
-| Government  |  <span style="color:green">✓</span>  |                                    |                                    |                                    |
-| Bible       |                                      |                                    |                                    |                                    |
+| Social      |  <span style="color:green">✓</span>  |                                    |                                    | <span style="color:green">✓</span> |
+| Spoken      |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+| Wiki        |  <span style="color:green">✓</span>  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+| Web         |  <span style="color:green">✓</span>  |                                    |                                    | <span style="color:green">✓</span> |
 
 
 

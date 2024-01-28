@@ -73,3 +73,13 @@ def create_dan_fever() -> Task:
     task.name = "DanFEVER"
     task.domain = ["wiki", "non-fiction"]
     return task
+
+
+@tasks.register("Twitterhjerne")
+def create_twitterhjerne() -> Task:
+    from seb.mteb_tasks import TwitterHjerneRetrieval
+
+    task = MTEBTask(TwitterHjerneRetrieval())
+    task.name = "Twitterhjerne"
+    task.domain = ["social"]
+    return task

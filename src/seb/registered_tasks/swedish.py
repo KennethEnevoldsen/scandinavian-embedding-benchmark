@@ -25,7 +25,7 @@ def create_dalaj() -> Task:
 
 @tasks.register("SweFAQ")
 def create_swefaq() -> Task:
-    from seb.registered_tasks.mteb_tasks import SweFaqRetrieval
+    from seb.mteb_tasks import SweFaqRetrieval
 
     task = MTEBTask(SweFaqRetrieval())
     task.name = "SweFAQ"
@@ -35,21 +35,9 @@ def create_swefaq() -> Task:
     return task
 
 
-# temporarily disabled - will be added back in the future (along with the new datasets)
-@tasks.register("SwednSTS")
-def create_swedn_sts() -> Task:
-    from seb.registered_tasks.mteb_tasks import SwednSummarizationSTS
-
-    task = MTEBTask(SwednSummarizationSTS())
-    task.name = "SwednSTS"
-    task.version = "0.0.1"
-    task.domain = ["non-fiction", "news"]
-    return task
-
-
 @tasks.register("SwednRetrieval")
 def create_swedn_retrieval() -> Task:
-    from seb.registered_tasks.mteb_tasks import SwednRetrieval
+    from seb.mteb_tasks import SwednRetrieval
 
     task = MTEBTask(SwednRetrieval())
     task.name = "SwednRetrieval"
@@ -60,7 +48,7 @@ def create_swedn_retrieval() -> Task:
 
 @tasks.register("SwednClustering")
 def create_swedn_clustering() -> Task:
-    from seb.registered_tasks.mteb_tasks_clustering import SwednClustering
+    from seb.mteb_tasks import SwednClustering
 
     task = MTEBTask(SwednClustering())
     task.name = "SwednClustering"

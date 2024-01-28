@@ -67,7 +67,7 @@ def create_da_political_comments() -> Task:
 
 @tasks.register("DanFEVER")
 def create_dan_fever() -> Task:
-    from .mteb_retrieval import DanFever
+    from seb.mteb_tasks import DanFever
 
     task = MTEBTask(DanFever())
     task.name = "DanFEVER"

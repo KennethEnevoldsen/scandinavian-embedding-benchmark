@@ -104,3 +104,37 @@ def create_openai_ada_002() -> EmbeddingModel:
         loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
         meta=meta,
     )
+
+
+@models.register("text-embedding-3-small")
+def create_openai_3_small() -> EmbeddingModel:
+    api_name = "text-embedding-3-small"
+    meta = ModelMeta(
+        name=api_name,
+        huggingface_name=None,
+        reference="https://openai.com/blog/new-and-improved-embedding-model",
+        languages=[],
+        open_source=False,
+        embedding_size=1536,
+    )
+    return EmbeddingModel(
+        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+        meta=meta,
+    )
+
+
+@models.register("text-embedding-3-large")
+def create_openai_3_large() -> EmbeddingModel:
+    api_name = "text-embedding-3-large"
+    meta = ModelMeta(
+        name=api_name,
+        huggingface_name=None,
+        reference="https://openai.com/blog/new-and-improved-embedding-model",
+        languages=[],
+        open_source=False,
+        embedding_size=3072,
+    )
+    return EmbeddingModel(
+        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+        meta=meta,
+    )

@@ -22,7 +22,7 @@ def create_norwegian_parliament() -> Task:
     return task
 
 
-# @tasks.register("Norwegian courts")
+@tasks.register("Norwegian courts")
 def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
@@ -30,12 +30,12 @@ def create_norwegian_courts() -> Task:
     return task
 
 
-@tasks.register("VGSummarizationClustering")
+@tasks.register("VGClustering")
 def create_swedn_clustering() -> Task:
-    from seb.registered_tasks.mteb_tasks_clustering import VGSummarizationClustering
+    from seb.registered_tasks.mteb_tasks_clustering import VGClustering
 
-    task = MTEBTask(VGSummarizationClustering())
-    task.name = "VGSummarizationClustering"
+    task = MTEBTask(VGClustering())
+    task.name = "VGClustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     return task

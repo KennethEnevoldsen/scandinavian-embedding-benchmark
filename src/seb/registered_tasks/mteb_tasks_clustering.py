@@ -100,7 +100,7 @@ class SwednClustering(AbsTaskClustering):
         self.dataset = datasets.DatasetDict({"all": ds})
 
 
-class VGSummarizationClustering(AbsTaskClustering):
+class VGClustering(AbsTaskClustering):
     @property
     def description(self) -> dict[str, Any]:
         return {

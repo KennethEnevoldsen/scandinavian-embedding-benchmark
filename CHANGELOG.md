@@ -2,11 +2,36 @@
 
 
 
+## v0.10.0 (2024-01-29)
+
+### Unknown
+
+* Merge pull request #119 from KennethEnevoldsen/updated-coverage-tables
+
+Updated coverage tables ([`94f72d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/94f72d5c072483f636e62a218d9a2321cb8614cb))
+
+* Merge pull request #108 from KennethEnevoldsen/add-sts-retrieval
+
+Restructured MTEB ([`115acef`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/115acef802c61cf057dc3fc0f07adaf55756e0d4))
+
+
 ## v0.9.4 (2024-01-28)
+
+### Documentation
+
+* docs: Updated coverage tables ([`3f848bd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3f848bd02f84a3b705cffe0b3097eba67b78935b))
+
+* docs: allow error for now in docs ([`4617983`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4617983837f222c06eec2a4c5e7b83ed094286d4))
+
+### Feature
+
+* feat: removed swedn sts to experimental tasks ([`6d22966`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d22966ada7bd8d5610b7562cd852d35813e0bf7))
 
 ### Fix
 
 * fix: speed benchmark actually runs the speed tasks ([`7ae3ef0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ae3ef04e3d9b29c80e77a5f4ea57b4ca58cdb92))
+
+* fix: restructure mteb tasks  to its own folder ([`d88864d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d88864d68f7243dfd36921ab8bbd25f3a1efdb90))
 
 
 ## v0.9.3 (2024-01-28)

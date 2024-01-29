@@ -103,7 +103,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
         raise ImportError(msg)  # noqa B904
 
 
-@models.register("facebook/SONAR_da")
+@models.register("sonar-dan")
 def create_sonar_da() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-dan",
@@ -119,7 +119,7 @@ def create_sonar_da() -> EmbeddingModel:
     )
 
 
-@models.register("facebook/SONAR_sv")
+@models.register("sonar-swe")
 def create_sonar_sv() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-swe",
@@ -135,7 +135,7 @@ def create_sonar_sv() -> EmbeddingModel:
     )
 
 
-@models.register("facebook/SONAR_nb")
+@models.register("sonar-nob")
 def create_sonar_nb() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-nob",
@@ -151,7 +151,7 @@ def create_sonar_nb() -> EmbeddingModel:
     )
 
 
-@models.register("facebook/SONAR_nn")
+@models.register("sonar-nno")
 def create_sonar_nn() -> EmbeddingModel:
     meta = ModelMeta(
         name="sonar-nno",

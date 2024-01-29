@@ -7,18 +7,23 @@ Example:
 """
 import argparse
 from collections.abc import Sequence
+from typing import Optional
 
 import numpy as np
 import pandas as pd
 import seb
 from datawrapper import Datawrapper
 from seb.full_benchmark import BENCHMARKS
+from seb.registered_tasks.speed import CPUSpeedTask
 
 subset_to_chart_id = {
     "Mainland Scandinavian": "7Nwjx",
     "Danish": "us1YK",
     "Norwegian": "pV87q",
     "Swedish": "aL23t",
+    "Domain": "F00q5",
+    "Task Type": "4jkip",
+    "Speed x Performance": "oXdUJ",
 }
 
 datawrapper_lang_codes = {
@@ -61,6 +66,17 @@ def create_mdl_name(mdl: seb.ModelMeta) -> str:
     return mdl_name
 
 
+def get_speed_results(model_meta: seb.ModelMeta) -> Optional[float]:
+    hf_name = model_meta.huggingface_name
+    model = seb.get_model(hf_name) if hf_name else seb.get_model(model_meta.name)
+
+    speed_task = CPUSpeedTask()
+    speed_result = seb.run_task(speed_task, model, raise_errors=False, use_cache=True, run_model=False)
+    if isinstance(speed_result, seb.TaskResult):
+        return speed_result.get_main_score()
+    return None
+
+
 def benchmark_result_to_row(
     result: seb.BenchmarkResults,
     langs: list[str],
@@ -73,9 +89,62 @@ def benchmark_result_to_row(
     scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
 
     df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
-    df["Average Score"] = result.get_mean_score()  # type: ignore
+    df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
+    df["Speed (CPU)"] = get_speed_results(result.meta)
+    return df
+
+
+def benchmark_result_to_domain_row(
+    result: seb.BenchmarkResults,
+    langs: list[str],
+) -> pd.DataFrame:
+    tasks: list[seb.Task] = seb.get_all_tasks()
+    domains = sorted({d for t in tasks for d in t.domain})
+    domain2tasks = {d: [t.name for t in tasks if d in t.domain] for d in domains}
+
+    scores = []
+    domain_names = []
+    for d, ts in domain2tasks.items():
+        task_results = [r for r in result.task_results if r.task_name in ts]
+        _scores = np.array([get_main_score(t, langs) for t in task_results])  # type: ignore
+        score = np.mean(_scores)
+        scores.append(score)
+        domain_names.append(d.capitalize() + " (#Tasks=" + f"{len(ts)})")
+
+    mdl_name = create_mdl_name(result.meta)
+    df = pd.DataFrame([scores], columns=domain_names, index=[mdl_name])
+    df["Average Score"] = result.get_main_score() * 100
+    df["Open Source"] = open_source_to_string(result.meta.open_source)
+    df["Embedding Size"] = result.meta.embedding_size
+    df["Speed (CPU)"] = get_speed_results(result.meta)
+    return df
+
+
+def benchmark_result_to_task_type_row(
+    result: seb.BenchmarkResults,
+    langs: list[str],
+) -> pd.DataFrame:
+    tasks: list[seb.Task] = seb.get_all_tasks()
+    task_type = sorted({t.task_type for t in tasks})
+    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type] for tt in task_type}
+
+    scores = []
+    task_type_names = []
+    for t, ts in tasktype2tasks.items():
+        task_results = [r for r in result.task_results if r.task_name in ts]
+        _scores = np.array([get_main_score(t, langs) for t in task_results])  # type: ignore
+        score = np.mean(_scores)
+        scores.append(score)
+        task_type_names.append(t.capitalize() + " (#Tasks=" + f"{len(ts)})")
+
+    mdl_name = create_mdl_name(result.meta)
+    df = pd.DataFrame([scores], columns=task_type_names, index=[mdl_name])
+    df["Average Score"] = result.get_main_score() * 100
+    df["Open Source"] = open_source_to_string(result.meta.open_source)
+    df["Embedding Size"] = result.meta.embedding_size
+    df["Speed (CPU)"] = get_speed_results(result.meta)
     return df
 
 
@@ -90,7 +159,7 @@ def convert_to_table(
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    first_columns = ["Average Score", "Average Rank", "Open Source", "Embedding Size"]
+    first_columns = ["Average Score", "Average Rank", "Open Source", "Embedding Size", "Speed (CPU)"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 
@@ -116,13 +185,49 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
     """
     df = df.drop(columns=["Average Score", "Open Source", "Embedding Size"])
 
-    ranks = df.rank(axis=0, ascending=False)
+    ranks = df.rank(axis=0, ascending=False, na_option="bottom")
     avg_ranks = ranks.mean(axis=1)
     return avg_ranks
 
 
+def create_domain_table(
+    results: list[seb.BenchmarkResults],
+    langs: list[str],
+) -> pd.DataFrame:
+    rows = [benchmark_result_to_domain_row(result, langs) for result in results]
+    df = pd.concat(rows)
+    df = df.sort_values(by="Average Score", ascending=False)
+    cols = df.columns.tolist()
+    first_columns = ["Average Score", "Open Source", "Embedding Size", "Speed (CPU)"]
+    other_cols = sorted(c for c in cols if c not in first_columns)
+    df = df[first_columns + other_cols]
+
+    # convert name to column
+    df = df.reset_index()
+    df = df.rename(columns={"index": "Model"})
+    return df
+
+
+def create_task_type_table(
+    results: list[seb.BenchmarkResults],
+    langs: list[str],
+) -> pd.DataFrame:
+    rows = [benchmark_result_to_task_type_row(result, langs) for result in results]
+    df = pd.concat(rows)
+    df = df.sort_values(by="Average Score", ascending=False)
+    cols = df.columns.tolist()
+    first_columns = ["Average Score", "Open Source", "Embedding Size", "Speed (CPU)"]
+    other_cols = sorted(c for c in cols if c not in first_columns)
+    df = df[first_columns + other_cols]
+
+    # convert name to column
+    df = df.reset_index()
+    df = df.rename(columns={"index": "Model"})
+    return df
+
+
 def main(data_wrapper_api_token: str):
-    results = seb.run_benchmark(use_cache=True)
+    results = seb.run_benchmark(use_cache=True, run_models=False, raise_errors=False)
 
     for subset, result in results.items():
         langs = BENCHMARKS[subset]
@@ -130,6 +235,20 @@ def main(data_wrapper_api_token: str):
         table = convert_to_table(result, langs)
         chart_id = subset_to_chart_id[subset]
         push_to_datawrapper(table, chart_id, data_wrapper_api_token)
+
+        if subset == "Mainland Scandinavian":
+            # Update the chart for speed x performance
+            chart_id = subset_to_chart_id["Speed x Performance"]
+            push_to_datawrapper(table, chart_id, data_wrapper_api_token)
+
+            # also create the summary charts for task types and domains
+            table = create_domain_table(result, langs)
+            chart_id = subset_to_chart_id["Domain"]
+            push_to_datawrapper(table, chart_id, data_wrapper_api_token)
+
+            table = create_task_type_table(result, langs)
+            chart_id = subset_to_chart_id["Task Type"]
+            push_to_datawrapper(table, chart_id, data_wrapper_api_token)
 
 
 if __name__ == "__main__":

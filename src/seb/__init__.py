@@ -1,5 +1,5 @@
-from .benchmark import Benchmark
-from .full_benchmark import run_benchmark
+from .benchmark import Benchmark, run_task
+from .full_benchmark import run_benchmark, run_speed_benchmark
 from .registries import (
     get_all_models,
     get_all_tasks,

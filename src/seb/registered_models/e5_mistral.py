@@ -75,7 +75,7 @@ class E5Mistral(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Optional[Task] = None,
+        task: Optional[Task] = None,  # noqa
         batch_size: int = 32,
         **kwargs: Any,  # noqa
     ) -> ArrayLike:

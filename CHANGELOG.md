@@ -2,9 +2,44 @@
 
 
 
+## v0.11.0 (2024-01-29)
+
+### Fix
+
+* fix: Added cache for speed benchmark ([`f3cd21e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f3cd21e84db31e71b2accb49dcb43a7c89ce22e2))
+
+### Unknown
+
+* Merge pull request #120 from KennethEnevoldsen/ran-speed-bench
+
+fix: Added cache for speed benchmark ([`b4596c3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b4596c3d6010a9e34c26beab210ad134ab4035ff))
+
+* Merge pull request #109 from KennethEnevoldsen/add-sts-retrieval-dataset
+
+Add SNL Clustering task ([`9d1dae4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9d1dae45d8959737a0a7e7126276d6b59c48f742))
+
+* Merge pull request #110 from KennethEnevoldsen/sts-retrieval
+
+Add SNL retrieval ([`9412d71`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9412d71e164549f1bded845da815cd9cc0d8783b))
+
+* Merge branch &#39;add-sts-retrieval-dataset&#39; into sts-retrieval ([`a1216bf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a1216bfadd246a04517dac673de404e1f1403702))
+
+
 ## v0.10.0 (2024-01-29)
 
 ### Unknown
+
+* Merge pull request #113 from KennethEnevoldsen/twitterhjerne
+
+Added twitterhjerne ([`a32dea2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a32dea264da3d3a71f8fb49167659e2fb47b0cbf))
+
+* Merge pull request #117 from KennethEnevoldsen/nordjylland-retrieval
+
+Added tv2nord retrieval dataset ([`1721983`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1721983657cd004912c3e4ec78f25883256b26f1))
+
+* Merge pull request #118 from KennethEnevoldsen/norquad
+
+Added NorQuad ([`0cf610d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0cf610dc79c9a866f443fb3b4565e625ac868934))
 
 * Merge pull request #119 from KennethEnevoldsen/updated-coverage-tables
 
@@ -25,11 +60,25 @@ Restructured MTEB ([`115acef`](https://github.com/KennethEnevoldsen/scandinavian
 
 ### Feature
 
+* feat: Added NorQuad ([`b1ab34d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1ab34de84036dada7940742505b823aeff9d15b))
+
+* feat: Added tv2nord retrieval dataset ([`c315d94`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c315d94d51795d3e62231997506e344731c6c98a))
+
+* feat: Added twitterhjerne ([`8509c37`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8509c3733aeeab082e59dbad24c0e5b73fdab4f2))
+
+* feat: Added SNL Retrieval ([`b1169ff`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1169ff6a7f61d8a64f8246b5d38575e3bd0bf43))
+
+* feat: Added SNL clustering ([`c380519`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c380519a844f56091975d6e3e57ae7ef44b66ef7))
+
 * feat: removed swedn sts to experimental tasks ([`6d22966`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d22966ada7bd8d5610b7562cd852d35813e0bf7))
 
 ### Fix
 
 * fix: speed benchmark actually runs the speed tasks ([`7ae3ef0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ae3ef04e3d9b29c80e77a5f4ea57b4ca58cdb92))
+
+* fix: Update wrong language tag. ([`6a143e7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6a143e725102fb3a5e99f8b55d622328fcd69d69))
+
+* fix: remove ingress from the SNL corpus as they almost always contain the headline ([`617d616`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/617d6167479d2955f6034bd1fc6b3e4810eb591e))
 
 * fix: restructure mteb tasks  to its own folder ([`d88864d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d88864d68f7243dfd36921ab8bbd25f3a1efdb90))
 

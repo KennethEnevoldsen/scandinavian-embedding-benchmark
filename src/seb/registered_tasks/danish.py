@@ -83,3 +83,12 @@ def create_tv2nord_retrieval() -> Task:
     task.name = "TV2Nord Retrieval"
     task.domain = ["news", "non-fiction"]
     return task
+
+@tasks.register("Twitterhjerne")
+def create_twitterhjerne() -> Task:
+    from seb.mteb_tasks import TwitterHjerneRetrieval
+
+    task = MTEBTask(TwitterHjerneRetrieval())
+    task.name = "Twitterhjerne"
+    task.domain = ["social"]
+    return task

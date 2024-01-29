@@ -1,15 +1,6 @@
 """
-Experiments:
-
-Using two sample models (text-embedding-3-small, all-MiniLM-L6-v2) we get the following results:
-
-96.07, 64.67
-
-if we then remove the ingress from the corpus we get:
-92.71, 51.61
-The reason why we might want to remove the ingress is that it almost always start with headline.
-
-As the scores are indeed slightly lower we will ignore the ingress as the task becomes too easy.
+The dataset is quite similar to the SNL dataset (both are wikistyle), however NorQuad actually uses questions, while the other is just headline,
+article pairs.
 """
 
 from typing import Any
@@ -18,20 +9,20 @@ import datasets
 from mteb.abstasks import AbsTaskRetrieval
 
 
-class SNLRetrieval(AbsTaskRetrieval):
+class NorQuadRetrieval(AbsTaskRetrieval):
     @property
     def description(self) -> dict[str, Any]:
         return {
-            "name": "SNLClustering",
-            "hf_hub_name": "navjordj/SNL_summarization",
-            "description": "Webscrabed articles and ingresses from the Norwegian lexicon 'Det Store Norske Leksikon'.",
-            "reference": "https://huggingface.co/datasets/navjordj/SNL_summarization",
+            "name": "NorQuadRetrieval",
+            "hf_hub_name": "ScandEval/norquad-mini",
+            "description": "Human-created question for Norwegian wikipedia passages.",
+            "reference": "https://aclanthology.org/2023.nodalida-1.17/",
             "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["nb"],
             "main_score": "ndcg_at_10",
-            "revision": "3d3d27aa7af8941408cefc3991ada5d12a4273d1",
+            "revision": "a47881440ce4b18ef61a99be66dc4badbf5aac6e",
         }
 
     def load_data(self, **kwargs: dict):  # noqa: ARG002
@@ -65,21 +56,28 @@ class SNLRetrieval(AbsTaskRetrieval):
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
             ds = ds.shuffle(seed=42)
-
+            max_samples = min(1024, len(ds))
+            ds = ds.select(range(max_samples))  # limit the dataset size to make sure the task does not take too long to run
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}
 
-            headline = ds["headline"]
-            article = ds["article"]
+            question = ds["question"]
+            context = ds["context"]
+            answer = [a["text"][0] for a in ds["answers"]]
 
             n = 0
-            for headl, art in zip(headline, article):
-                self.queries[split][str(n)] = headl
+            for q, cont, ans in zip(question, context, answer):
+                self.queries[split][str(n)] = q
                 q_n = n
                 n += 1
-                if art not in text2id:
-                    text2id[art] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": art}
+                if cont not in text2id:
+                    text2id[cont] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": cont}
                     n += 1
-                self.relevant_docs[split][str(q_n)] = {str(text2id[art]): 1}  # only one correct matches
+                if ans not in text2id:
+                    text2id[ans] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": ans}
+                    n += 1
+
+                self.relevant_docs[split][str(q_n)] = {str(text2id[ans]): 1, str(text2id[cont]): 1}  # only two correct matches

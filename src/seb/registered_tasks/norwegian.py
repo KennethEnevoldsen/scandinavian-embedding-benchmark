@@ -22,7 +22,7 @@ def create_norwegian_parliament() -> Task:
     return task
 
 
-# @tasks.register("Norwegian courts")
+@tasks.register("Norwegian courts")
 def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
@@ -30,12 +30,45 @@ def create_norwegian_courts() -> Task:
     return task
 
 
-@tasks.register("VGClustering")
-def create_swedn_clustering() -> Task:
+@tasks.register("VG Clustering")
+def create_vg_clustering() -> Task:
     from seb.mteb_tasks import VGClustering
 
     task = MTEBTask(VGClustering())
-    task.name = "VGClustering"
+    task.name = "VG Clustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
+    return task
+
+
+@tasks.register("SNL Clustering")
+def create_sts_clustering() -> Task:
+    from seb.mteb_tasks import SNLClustering
+
+    task = MTEBTask(SNLClustering())
+    task.name = "SNL Clustering"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "wiki"]
+    return task
+
+
+@tasks.register("SNL Retrieval")
+def create_sts_retrieval() -> Task:
+    from seb.mteb_tasks import SNLRetrieval
+
+    task = MTEBTask(SNLRetrieval())
+    task.name = "SNL Retrieval"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "wiki"]
+    return task
+
+
+@tasks.register("NorQuad")
+def create_norquad() -> Task:
+    from seb.mteb_tasks import NorQuadRetrieval
+
+    task = MTEBTask(NorQuadRetrieval())
+    task.name = "NorQuad"
+    task.version = "0.0.1"
+    task.domain = ["non-fiction", "wiki"]
     return task

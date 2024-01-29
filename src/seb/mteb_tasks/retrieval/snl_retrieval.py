@@ -1,23 +1,37 @@
+"""
+Experiments:
+
+Using two sample models (text-embedding-3-small, all-MiniLM-L6-v2) we get the following results:
+
+96.07, 64.67
+
+if we then remove the ingress from the corpus we get:
+92.71, 51.61
+The reason why we might want to remove the ingress is that it almost always start with headline.
+
+As the scores are indeed slightly lower we will ignore the ingress as the task becomes too easy.
+"""
+
 from typing import Any
 
 import datasets
 from mteb.abstasks import AbsTaskRetrieval
 
 
-class SweFaqRetrieval(AbsTaskRetrieval):
+class SNLRetrieval(AbsTaskRetrieval):
     @property
     def description(self) -> dict[str, Any]:
         return {
-            "name": "swefaq",
-            "hf_hub_name": "AI-Sweden/SuperLim",
-            "description": "A Swedish QA dataset derived from FAQ",
-            "reference": "https://spraakbanken.gu.se/en/resources/superlim",
+            "name": "SNLClustering",
+            "hf_hub_name": "navjordj/SNL_summarization",
+            "description": "Webscrabed articles and ingresses from the Norwegian lexicon 'Det Store Norske Leksikon'.",
+            "reference": "https://huggingface.co/datasets/navjordj/SNL_summarization",
             "type": "Retrieval",
-            "category": "s2s",
+            "category": "p2p",
             "eval_splits": ["test"],
-            "eval_langs": ["da"],
+            "eval_langs": ["nb"],
             "main_score": "ndcg_at_10",
-            "revision": "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56",
+            "revision": "3d3d27aa7af8941408cefc3991ada5d12a4273d1",
         }
 
     def load_data(self, **kwargs: dict):  # noqa: ARG002
@@ -29,7 +43,6 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         self.dataset: datasets.DatasetDict = datasets.load_dataset(
             self.description["hf_hub_name"],
-            "swefaq",  # chose the relevant subset
             revision=self.description.get("revision"),
         )  # type: ignore
 
@@ -51,29 +64,22 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
+            ds = ds.shuffle(seed=42)
+
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}
 
-            questions = ds["question"]
-            ca_answers = ds["candidate_answer"]
-            co_answers = ds["correct_answer"]
+            headline = ds["headline"]
+            article = ds["article"]
 
             n = 0
-            for q, ca, co in zip(questions, ca_answers, co_answers):
-                self.queries[split][str(n)] = q
+            for headl, art in zip(headline, article):
+                self.queries[split][str(n)] = headl
                 q_n = n
                 n += 1
-                if ca not in text2id:
-                    text2id[ca] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": ca}
+                if art not in text2id:
+                    text2id[art] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": art}
                     n += 1
-                if co not in text2id:
-                    text2id[co] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": co}
-                    n += 1
-                cor_n = text2id[co]
-
-                self.relevant_docs[split][str(q_n)] = {
-                    str(cor_n): 1,
-                }  # only one correct match
+                self.relevant_docs[split][str(q_n)] = {str(text2id[art]): 1}  # only one correct matches

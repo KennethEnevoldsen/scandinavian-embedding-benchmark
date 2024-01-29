@@ -1,23 +1,28 @@
+"""
+The dataset is quite similar to the SNL dataset (both are wikistyle), however NorQuad actually uses questions, while the other is just headline,
+article pairs.
+"""
+
 from typing import Any
 
 import datasets
 from mteb.abstasks import AbsTaskRetrieval
 
 
-class SweFaqRetrieval(AbsTaskRetrieval):
+class NorQuadRetrieval(AbsTaskRetrieval):
     @property
     def description(self) -> dict[str, Any]:
         return {
-            "name": "swefaq",
-            "hf_hub_name": "AI-Sweden/SuperLim",
-            "description": "A Swedish QA dataset derived from FAQ",
-            "reference": "https://spraakbanken.gu.se/en/resources/superlim",
+            "name": "NorQuadRetrieval",
+            "hf_hub_name": "ScandEval/norquad-mini",
+            "description": "Human-created question for Norwegian wikipedia passages.",
+            "reference": "https://aclanthology.org/2023.nodalida-1.17/",
             "type": "Retrieval",
-            "category": "s2s",
+            "category": "p2p",
             "eval_splits": ["test"],
-            "eval_langs": ["da"],
+            "eval_langs": ["nb"],
             "main_score": "ndcg_at_10",
-            "revision": "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56",
+            "revision": "a47881440ce4b18ef61a99be66dc4badbf5aac6e",
         }
 
     def load_data(self, **kwargs: dict):  # noqa: ARG002
@@ -29,7 +34,6 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         self.dataset: datasets.DatasetDict = datasets.load_dataset(
             self.description["hf_hub_name"],
-            "swefaq",  # chose the relevant subset
             revision=self.description.get("revision"),
         )  # type: ignore
 
@@ -51,29 +55,29 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
+            ds = ds.shuffle(seed=42)
+            max_samples = min(1024, len(ds))
+            ds = ds.select(range(max_samples))  # limit the dataset size to make sure the task does not take too long to run
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}
 
-            questions = ds["question"]
-            ca_answers = ds["candidate_answer"]
-            co_answers = ds["correct_answer"]
+            question = ds["question"]
+            context = ds["context"]
+            answer = [a["text"][0] for a in ds["answers"]]
 
             n = 0
-            for q, ca, co in zip(questions, ca_answers, co_answers):
+            for q, cont, ans in zip(question, context, answer):
                 self.queries[split][str(n)] = q
                 q_n = n
                 n += 1
-                if ca not in text2id:
-                    text2id[ca] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": ca}
+                if cont not in text2id:
+                    text2id[cont] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": cont}
                     n += 1
-                if co not in text2id:
-                    text2id[co] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": co}
+                if ans not in text2id:
+                    text2id[ans] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": ans}
                     n += 1
-                cor_n = text2id[co]
 
-                self.relevant_docs[split][str(q_n)] = {
-                    str(cor_n): 1,
-                }  # only one correct match
+                self.relevant_docs[split][str(q_n)] = {str(text2id[ans]): 1, str(text2id[cont]): 1}  # only two correct matches

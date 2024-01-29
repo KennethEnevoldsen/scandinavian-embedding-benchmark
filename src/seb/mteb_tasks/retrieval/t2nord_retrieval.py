@@ -4,20 +4,20 @@ import datasets
 from mteb.abstasks import AbsTaskRetrieval
 
 
-class SweFaqRetrieval(AbsTaskRetrieval):
+class TV2Nordretrieval(AbsTaskRetrieval):
     @property
     def description(self) -> dict[str, Any]:
         return {
-            "name": "swefaq",
-            "hf_hub_name": "AI-Sweden/SuperLim",
-            "description": "A Swedish QA dataset derived from FAQ",
-            "reference": "https://spraakbanken.gu.se/en/resources/superlim",
+            "name": "TV2Nordretrieval",
+            "hf_hub_name": "alexandrainst/nordjylland-news-summarization",
+            "description": "News Article and corresponding summaries extracted from the Danish newspaper TV2 Nord.",
+            "reference": "https://huggingface.co/datasets/alexandrainst/nordjylland-news-summarization",
             "type": "Retrieval",
-            "category": "s2s",
+            "category": "p2p",
             "eval_splits": ["test"],
             "eval_langs": ["da"],
             "main_score": "ndcg_at_10",
-            "revision": "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56",
+            "revision": "80cdb115ec2ef46d4e926b252f2b59af62d6c070",
         }
 
     def load_data(self, **kwargs: dict):  # noqa: ARG002
@@ -29,7 +29,6 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         self.dataset: datasets.DatasetDict = datasets.load_dataset(
             self.description["hf_hub_name"],
-            "swefaq",  # chose the relevant subset
             revision=self.description.get("revision"),
         )  # type: ignore
 
@@ -51,29 +50,24 @@ class SweFaqRetrieval(AbsTaskRetrieval):
 
         for split in self.dataset:
             ds: datasets.Dataset = self.dataset[split]  # type: ignore
+            ds = ds.shuffle(seed=42)
+            ds = ds.select(range(2048))  # limit the dataset size to make sure the task does not take too long to run
             self.queries[split] = {}
             self.relevant_docs[split] = {}
             self.corpus[split] = {}
 
-            questions = ds["question"]
-            ca_answers = ds["candidate_answer"]
-            co_answers = ds["correct_answer"]
+            summary = ds["summary"]
+            article = ds["text"]
 
             n = 0
-            for q, ca, co in zip(questions, ca_answers, co_answers):
-                self.queries[split][str(n)] = q
+            for summ, art in zip(summary, article):
+                self.queries[split][str(n)] = summ
                 q_n = n
                 n += 1
-                if ca not in text2id:
-                    text2id[ca] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": ca}
+                if art not in text2id:
+                    text2id[art] = n
+                    self.corpus[split][str(n)] = {"title": "", "text": art}
                     n += 1
-                if co not in text2id:
-                    text2id[co] = n
-                    self.corpus[split][str(n)] = {"title": "", "text": co}
-                    n += 1
-                cor_n = text2id[co]
+                cor_n = text2id[art]
 
-                self.relevant_docs[split][str(q_n)] = {
-                    str(cor_n): 1,
-                }  # only one correct match
+                self.relevant_docs[split][str(q_n)] = {str(text2id[art]): 1}  # only one correct matches

@@ -1,6 +1,6 @@
 from seb.interfaces.mteb_task import MTEBTask
 from seb.interfaces.task import Task
-from seb.registered_tasks.mteb_tasks import NorwegianCourtsBitextMining, NorwegianParliamentClassification
+from seb.mteb_tasks import NorwegianCourtsBitextMining, NorwegianParliamentClassification
 from seb.registries import tasks
 
 
@@ -30,12 +30,12 @@ def create_norwegian_courts() -> Task:
     return task
 
 
-@tasks.register("VGSummarizationClustering")
+@tasks.register("VGClustering")
 def create_swedn_clustering() -> Task:
-    from seb.registered_tasks.mteb_tasks_clustering import VGSummarizationClustering
+    from seb.mteb_tasks import VGClustering
 
-    task = MTEBTask(VGSummarizationClustering())
-    task.name = "VGSummarizationClustering"
+    task = MTEBTask(VGClustering())
+    task.name = "VGClustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     return task

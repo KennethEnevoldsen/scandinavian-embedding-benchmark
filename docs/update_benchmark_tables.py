@@ -3,7 +3,7 @@ Script for running the benchmark and pushing the results to Datawrapper.
 
 Example:
 
-    python run_benchmark.py --data-wrapper-api-token <token>
+    python update_benchmark_tables.py --data-wrapper-api-token <token>
 """
 import argparse
 from collections.abc import Sequence

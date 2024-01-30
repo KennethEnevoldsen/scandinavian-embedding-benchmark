@@ -55,7 +55,7 @@ def open_source_to_string(open_source: bool) -> str:
     return "✓" if open_source else "✗"
 
 
-def create_mdl_name(mdl: seb.ModelMeta) -> str:
+def create_mdl_name_w_reference(mdl: seb.ModelMeta) -> str:
     reference = mdl.reference
     name: str = mdl.name
 
@@ -84,14 +84,15 @@ def benchmark_result_to_row(
     result: seb.BenchmarkResults,
     langs: list[str],
 ) -> pd.DataFrame:
-    mdl_name = create_mdl_name(result.meta)
+    mdl_name_w_link = create_mdl_name_w_reference(result.meta)
     # sort by task name
     task_results = result.task_results
     sorted_tasks = sorted(task_results, key=lambda t: t.task_name)
     task_names = [t.task_name for t in sorted_tasks]
     scores = [get_main_score(t, langs) for t in sorted_tasks]  # type: ignore
 
-    df = pd.DataFrame([scores], columns=task_names, index=[mdl_name])
+    df = pd.DataFrame([scores], columns=task_names, index=[mdl_name_w_link])
+    df["Model name"] = result.meta.name
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
@@ -118,7 +119,7 @@ def benchmark_result_to_domain_row(
         domain_names.append(d.capitalize())
         n_datasets.append(len(ts))
 
-    mdl_name = create_mdl_name(result.meta)
+    mdl_name = create_mdl_name_w_reference(result.meta)
     df = pd.DataFrame([scores], columns=domain_names, index=[mdl_name])
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
@@ -150,7 +151,7 @@ def benchmark_result_to_task_type_row(
         task_type_names.append(t.capitalize())
         n_datasets.append(len(ts))
 
-    mdl_name = create_mdl_name(result.meta)
+    mdl_name = create_mdl_name_w_reference(result.meta)
     df = pd.DataFrame([scores], columns=task_type_names, index=[mdl_name])
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
@@ -251,14 +252,16 @@ def main(data_wrapper_api_token: str):
     for subset, result in results.items():
         langs = BENCHMARKS[subset]
 
-        table = convert_to_table(result, langs)
+        raw_table = convert_to_table(result, langs)
+        table = raw_table.drop(columns=["Model name"])
         chart_id = subset_to_chart_id[subset]
         push_to_datawrapper(table, chart_id, data_wrapper_api_token)
 
         if subset == "Mainland Scandinavian":
             # Update the chart for speed x performance
             chart_id = subset_to_chart_id["Speed x Performance"]
-            push_to_datawrapper(table, chart_id, data_wrapper_api_token)
+            _table = raw_table.drop(columns=["Model"]).rename(columns={"Model name": "Model"})
+            push_to_datawrapper(_table, chart_id, data_wrapper_api_token)
 
             # also create the summary charts for task types and domains
             table = create_domain_table(result, langs)

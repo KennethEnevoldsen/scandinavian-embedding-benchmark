@@ -144,20 +144,3 @@ def create_multilingual_e5_large() -> EmbeddingModel:
         loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
         meta=meta,
     )
-
-
-@models.register("intfloat/e5-mistral-7b-instruct")
-def create_multilingual_e5_mistral_7b_instruct() -> EmbeddingModel:
-    hf_name = "intfloat/e5-mistral-7b-instruct"
-    meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=[],
-        open_source=True,
-        embedding_size=4096,
-    )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
-        meta=meta,
-    )

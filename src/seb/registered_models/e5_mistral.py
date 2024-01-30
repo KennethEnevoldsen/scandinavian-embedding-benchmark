@@ -76,7 +76,7 @@ class E5Mistral(Encoder):
         sentences: list[str],
         *,
         task: Optional[Task] = None,  # noqa
-        batch_size: int = 32,
+        batch_size: int = 8,
         **kwargs: Any,  # noqa
     ) -> ArrayLike:
         batched_embeddings = []

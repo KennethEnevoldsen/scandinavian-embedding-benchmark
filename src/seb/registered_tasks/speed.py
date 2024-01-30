@@ -16,6 +16,8 @@ from seb.result_dataclasses import TaskResult
 
 logger = logging.getLogger(__name__)
 
+TOKENS_IN_UGLY_DUCKLING = 3591
+
 
 class CPUSpeedTask(Task):
     reference = "NA"
@@ -74,6 +76,7 @@ class CPUSpeedTask(Task):
 
         scores: dict[str, Union[str, float]] = {
             self.main_score: time_taken,
+            "words pr. second": TOKENS_IN_UGLY_DUCKLING / time_taken,
             **self.get_system_info(),
         }
 

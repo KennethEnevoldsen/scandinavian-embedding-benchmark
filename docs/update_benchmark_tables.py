@@ -69,11 +69,14 @@ def create_mdl_name(mdl: seb.ModelMeta) -> str:
 def get_speed_results(model_meta: seb.ModelMeta) -> Optional[float]:
     hf_name = model_meta.huggingface_name
     model = seb.get_model(hf_name) if hf_name else seb.get_model(model_meta.name)
+    TOKENS_IN_UGLY_DUCKLING = 3591
 
     speed_task = CPUSpeedTask()
     speed_result = seb.run_task(speed_task, model, raise_errors=False, use_cache=True, run_model=False)
     if isinstance(speed_result, seb.TaskResult):
-        return speed_result.get_main_score()
+        speed_in_seconds = speed_result.get_main_score()
+        word_per_seconds = TOKENS_IN_UGLY_DUCKLING / speed_in_seconds
+        return word_per_seconds
     return None
 
 
@@ -92,7 +95,7 @@ def benchmark_result_to_row(
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
-    df["Speed (CPU)"] = get_speed_results(result.meta)
+    df["WPS (CPU)"] = get_speed_results(result.meta)
     return df
 
 
@@ -106,19 +109,25 @@ def benchmark_result_to_domain_row(
 
     scores = []
     domain_names = []
+    n_datasets = []
     for d, ts in domain2tasks.items():
         task_results = [r for r in result.task_results if r.task_name in ts]
         _scores = np.array([get_main_score(t, langs) for t in task_results])  # type: ignore
         score = np.mean(_scores)
         scores.append(score)
-        domain_names.append(d.capitalize() + " (#Tasks=" + f"{len(ts)})")
+        domain_names.append(d.capitalize())
+        n_datasets.append(len(ts))
 
     mdl_name = create_mdl_name(result.meta)
     df = pd.DataFrame([scores], columns=domain_names, index=[mdl_name])
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
-    df["Speed (CPU)"] = get_speed_results(result.meta)
+    df["WPS (CPU)"] = get_speed_results(result.meta)
+
+    # create row for number of datasets
+    df2 = pd.DataFrame([n_datasets], columns=domain_names, index=["N. Datasets"])
+    df = pd.concat([df, df2])
     return df
 
 
@@ -132,19 +141,25 @@ def benchmark_result_to_task_type_row(
 
     scores = []
     task_type_names = []
+    n_datasets = []
     for t, ts in tasktype2tasks.items():
         task_results = [r for r in result.task_results if r.task_name in ts]
         _scores = np.array([get_main_score(t, langs) for t in task_results])  # type: ignore
         score = np.mean(_scores)
         scores.append(score)
-        task_type_names.append(t.capitalize() + " (#Tasks=" + f"{len(ts)})")
+        task_type_names.append(t.capitalize())
+        n_datasets.append(len(ts))
 
     mdl_name = create_mdl_name(result.meta)
     df = pd.DataFrame([scores], columns=task_type_names, index=[mdl_name])
     df["Average Score"] = result.get_main_score() * 100
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
-    df["Speed (CPU)"] = get_speed_results(result.meta)
+    df["WPS (CPU)"] = get_speed_results(result.meta)
+
+    # create row for number of datasets
+    df2 = pd.DataFrame([n_datasets], columns=task_type_names, index=["N. Datasets"])
+    df = pd.concat([df, df2])
     return df
 
 
@@ -159,7 +174,7 @@ def convert_to_table(
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
-    first_columns = ["Average Score", "Average Rank", "Open Source", "Embedding Size", "Speed (CPU)"]
+    first_columns = ["Average Score", "Average Rank", "Open Source", "Embedding Size", "WPS (CPU)"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 
@@ -196,9 +211,11 @@ def create_domain_table(
 ) -> pd.DataFrame:
     rows = [benchmark_result_to_domain_row(result, langs) for result in results]
     df = pd.concat(rows)
+    # remove duplicate rows (notably the number of datasets row)
+    df = df.loc[~df.index.duplicated(keep="first")]
     df = df.sort_values(by="Average Score", ascending=False)
     cols = df.columns.tolist()
-    first_columns = ["Average Score", "Open Source", "Embedding Size", "Speed (CPU)"]
+    first_columns = ["Average Score", "Open Source", "Embedding Size", "WPS (CPU)"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 
@@ -214,9 +231,11 @@ def create_task_type_table(
 ) -> pd.DataFrame:
     rows = [benchmark_result_to_task_type_row(result, langs) for result in results]
     df = pd.concat(rows)
+    # remove duplicate rows (notably the number of datasets row)
+    df = df.loc[~df.index.duplicated(keep="first")]
     df = df.sort_values(by="Average Score", ascending=False)
     cols = df.columns.tolist()
-    first_columns = ["Average Score", "Open Source", "Embedding Size", "Speed (CPU)"]
+    first_columns = ["Average Score", "Open Source", "Embedding Size", "WPS (CPU)"]
     other_cols = sorted(c for c in cols if c not in first_columns)
     df = df[first_columns + other_cols]
 

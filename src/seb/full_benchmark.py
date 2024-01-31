@@ -60,7 +60,7 @@ def run_speed_benchmark(
     Run the speed benchmark.
     """
     models: list[EmbeddingModel] = get_all_models()
-    tasks = [CPUSpeedTask(), GPUSpeedTask()]  # type: ignore
+    tasks = [CPUSpeedTask()]  # type: ignore
 
     if use_cache:
         logger.warn(

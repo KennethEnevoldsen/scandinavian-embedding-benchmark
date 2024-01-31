@@ -44,3 +44,4 @@ test-encode-task.json
 docs/model_results/*
 model_results/*
 docs/model_results.json
+speed_test.py

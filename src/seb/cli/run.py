@@ -1,12 +1,12 @@
 import logging
 from functools import partial
 from pathlib import Path
-from typing import Literal, Optional, Union
+from typing import Literal, Optional
 
 from radicli import Arg, get_list_converter
-from sentence_transformers import SentenceTransformer
 
 import seb
+from seb.registered_models.hf_models import SentenceTransformerWithTaskEncode
 from seb.registries import get_all_models
 
 from .cli import cli
@@ -30,7 +30,7 @@ def build_model(model_name: str) -> seb.SebModel:
     )
     model = seb.SebModel(
         meta=meta,
-        encoder=seb.LazyLoadEncoder(partial(SentenceTransformer, model_name_or_path=model_name)),  # type: ignore
+        encoder=seb.LazyLoadEncoder(partial(SentenceTransformerWithTaskEncode, model_name_or_path=model_name)),  # type: ignore
     )
     return model
 

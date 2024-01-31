@@ -5,7 +5,7 @@ from typing import Any, Optional, Union
 
 import torch
 
-from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
@@ -104,7 +104,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
 
 
 @models.register("facebook/SONAR_da")
-def create_sonar_da() -> EmbeddingModel:
+def create_sonar_da() -> SebModel:
     meta = ModelMeta(
         name="sonar-dan",
         huggingface_name=None,
@@ -113,14 +113,14 @@ def create_sonar_da() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(get_sonar_model, source_lang="dan_Latn"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="dan_Latn")),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_sv")
-def create_sonar_sv() -> EmbeddingModel:
+def create_sonar_sv() -> SebModel:
     meta = ModelMeta(
         name="sonar-swe",
         huggingface_name=None,
@@ -129,14 +129,14 @@ def create_sonar_sv() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(get_sonar_model, source_lang="swe_Latn"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="swe_Latn")),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_nb")
-def create_sonar_nb() -> EmbeddingModel:
+def create_sonar_nb() -> SebModel:
     meta = ModelMeta(
         name="sonar-nob",
         huggingface_name=None,
@@ -145,14 +145,14 @@ def create_sonar_nb() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(get_sonar_model, source_lang="nob_Latn"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="nob_Latn")),
         meta=meta,
     )
 
 
 @models.register("facebook/SONAR_nn")
-def create_sonar_nn() -> EmbeddingModel:
+def create_sonar_nn() -> SebModel:
     meta = ModelMeta(
         name="sonar-nno",
         huggingface_name=None,
@@ -161,7 +161,7 @@ def create_sonar_nn() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(get_sonar_model, source_lang="nno_Latn"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="nno_Latn")),
         meta=meta,
     )

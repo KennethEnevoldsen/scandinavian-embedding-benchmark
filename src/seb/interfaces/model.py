@@ -80,13 +80,9 @@ class ModelMeta(BaseModel):
 
 
 @dataclass
-class EmbeddingModel:
-    """
-    An embedding model as implemented in SEB. It notably dynamically loads models (such that models are not loaded when a cache is hit)
-    and includes metadata pertaining to the specific model.
-    """
+class LazyLoadEncoder(Encoder):
+    """Encoder object, which lazy loads the model on the first call to encode()"""
 
-    meta: ModelMeta
     loader: Callable[[], Encoder]
     _model: Optional[Encoder] = None
 
@@ -98,15 +94,6 @@ class EmbeddingModel:
         if self._model is None:
             self._model = self.loader()
         return self._model
-
-    @property
-    def number_of_parameters(self) -> Optional[int]:
-        """
-        Returns the number of parameters in the model.
-        """
-        if hasattr(self.model, "num_parameters"):
-            return sum(p.numel() for p in self.model.parameters() if p.requires_grad)  # type: ignore
-        return None
 
     def encode(
         self,
@@ -149,3 +136,23 @@ class EmbeddingModel:
             else:
                 sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
             return self.encode(sentences, task=None, batch_size=batch_size, **kwargs)
+
+
+@dataclass
+class SebModel:
+    """
+    An embedding model as implemented in SEB. It notably dynamically loads models (such that models are not loaded when a cache is hit)
+    and includes metadata pertaining to the specific model.
+    """
+
+    meta: ModelMeta
+    encoder: Encoder
+
+    @property
+    def number_of_parameters(self) -> Optional[int]:
+        """
+        Returns the number of parameters in the model.
+        """
+        if hasattr(self.encoder, "num_parameters"):
+            return sum(p.numel() for p in self.model.parameters() if p.requires_grad)  # type: ignore
+        return None

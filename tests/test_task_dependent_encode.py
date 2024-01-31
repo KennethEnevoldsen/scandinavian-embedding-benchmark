@@ -7,7 +7,7 @@ import seb
 from .dummy_task import TestTask
 
 
-def create_test_model_with_task_dependent_encode() -> seb.EmbeddingModel:
+def create_test_model_with_task_dependent_encode() -> seb.SebModel:
     class TestEncoder(seb.Encoder):
         def encode(
             self,
@@ -23,9 +23,9 @@ def create_test_model_with_task_dependent_encode() -> seb.EmbeddingModel:
     def load_test_model() -> TestEncoder:
         return TestEncoder()
 
-    return seb.EmbeddingModel(
+    return seb.SebModel(
         meta=seb.ModelMeta(name="test_model_with_task_dependent_encode", embedding_size=100),
-        loader=load_test_model,
+        encoder=seb.LazyLoadEncoder(load_test_model),
     )
 
 

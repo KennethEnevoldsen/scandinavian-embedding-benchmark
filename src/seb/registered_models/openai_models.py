@@ -10,7 +10,7 @@ from typing import Any
 
 import torch
 
-from seb.interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
@@ -90,7 +90,7 @@ class OpenaiTextEmbeddingModel(Encoder):
 
 
 @models.register("text-embedding-ada-002")
-def create_openai_ada_002() -> EmbeddingModel:
+def create_openai_ada_002() -> SebModel:
     api_name = "text-embedding-ada-002"
     meta = ModelMeta(
         name=api_name,
@@ -100,14 +100,14 @@ def create_openai_ada_002() -> EmbeddingModel:
         open_source=False,
         embedding_size=1536,
     )
-    return EmbeddingModel(
-        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(OpenaiTextEmbeddingModel, api_name=api_name)),
         meta=meta,
     )
 
 
 @models.register("text-embedding-3-small")
-def create_openai_3_small() -> EmbeddingModel:
+def create_openai_3_small() -> SebModel:
     api_name = "text-embedding-3-small"
     meta = ModelMeta(
         name=api_name,
@@ -117,14 +117,14 @@ def create_openai_3_small() -> EmbeddingModel:
         open_source=False,
         embedding_size=1536,
     )
-    return EmbeddingModel(
-        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(OpenaiTextEmbeddingModel, api_name=api_name)),
         meta=meta,
     )
 
 
 @models.register("text-embedding-3-large")
-def create_openai_3_large() -> EmbeddingModel:
+def create_openai_3_large() -> SebModel:
     api_name = "text-embedding-3-large"
     meta = ModelMeta(
         name=api_name,
@@ -134,7 +134,7 @@ def create_openai_3_large() -> EmbeddingModel:
         open_source=False,
         embedding_size=3072,
     )
-    return EmbeddingModel(
-        loader=partial(OpenaiTextEmbeddingModel, api_name=api_name),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(OpenaiTextEmbeddingModel, api_name=api_name)),
         meta=meta,
     )

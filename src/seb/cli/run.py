@@ -6,6 +6,8 @@ from typing import Literal, Optional, Union
 from radicli import Arg, get_list_converter
 from sentence_transformers import SentenceTransformer
 
+from seb.registered_models.hf_models import get_sentence_transformer
+
 import seb
 from seb.registries import get_all_models
 
@@ -30,7 +32,7 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     )
     model = seb.EmbeddingModel(
         meta=meta,
-        loader=partial(SentenceTransformer, model_name_or_path=model_name),  # type: ignore
+        loader=partial(get_sentence_transformer, model_name=model_name),  # type: ignore
     )
     return model
 

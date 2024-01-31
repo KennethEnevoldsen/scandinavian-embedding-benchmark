@@ -53,9 +53,6 @@ run-benchmark:
 
 	# additionally this expect that API keys required for specific models are set as env variables
 
-	# additionally set API key for datawrapper to upload results
-	datawrapper_api_key=$(cat datawrapper_api_key.txt)
-
 	# run benchmark
 	seb run
 

@@ -161,7 +161,6 @@ def run_benchmark_cli(
         use_cache=True,
         raise_errors=False,
         run_model=False,
-        verbose=False,
     )
 
     new_highlight_names = []

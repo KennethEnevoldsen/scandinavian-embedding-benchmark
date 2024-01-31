@@ -55,21 +55,14 @@ class CohereTextEmbeddingModel(Encoder):
     def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa
         return self._embed(queries, input_type="search_query")
 
-    def encode_corpus(
-        self, corpus: list[dict[str, str]], batch_size: int, **kwargs
-    ):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
         if isinstance(corpus, dict):
             sentences = [
                 (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
                 for i in range(len(corpus["text"]))  # type: ignore
             ]
         else:
-            sentences = [
-                (doc["title"] + self.sep + doc["text"]).strip()
-                if "title" in doc
-                else doc["text"].strip()
-                for doc in corpus
-            ]
+            sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         return self._embed(sentences, input_type="search_document")
 
 
@@ -85,8 +78,6 @@ def create_embed_multilingual_v3() -> SebModel:
         embedding_size=1024,
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(CohereTextEmbeddingModel, model_name=model_name)
-        ),
+        encoder=LazyLoadEncoder(partial(CohereTextEmbeddingModel, model_name=model_name)),
         meta=meta,
     )

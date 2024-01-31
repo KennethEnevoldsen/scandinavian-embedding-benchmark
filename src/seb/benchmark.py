@@ -31,9 +31,7 @@ def get_cache_dir() -> Path:
     return CACHE_DIR
 
 
-def get_cache_path(
-    task: Task, model: SebModel, cache_dir: Optional[Path] = None
-) -> Path:
+def get_cache_path(task: Task, model: SebModel, cache_dir: Optional[Path] = None) -> Path:
     """
     Get the cache path for a task and model.
     """
@@ -86,8 +84,7 @@ def run_task(
 
     if not run_model:
         raise ValueError(
-            f"Cache for {model.meta.name} on {task.name} does not exist. "
-            "Set run_model=True to run the model.",
+            f"Cache for {model.meta.name} on {task.name} does not exist. " "Set run_model=True to run the model.",
         )
     with WarningIgnoreContextManager():
         task_result = task.evaluate(model.encoder)

@@ -51,9 +51,7 @@ def create_cc_da_300() -> SebModel:
         embedding_size=300,
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(FastTextModel, model_name="cc.da.300.bin", lang="da")
-        ),
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.da.300.bin", lang="da")),
         meta=meta,
     )
 
@@ -70,9 +68,7 @@ def create_cc_sv_300() -> SebModel:
         embedding_size=300,
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv")
-        ),
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv")),
         meta=meta,
     )
 
@@ -89,9 +85,7 @@ def create_cc_nb_300() -> SebModel:
         embedding_size=300,
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(FastTextModel, model_name="cc.no.300.bin", lang="no")
-        ),
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.no.300.bin", lang="no")),
         meta=meta,
     )
 
@@ -108,8 +102,6 @@ def create_cc_nn_300() -> SebModel:
         embedding_size=300,
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn")
-        ),
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn")),
         meta=meta,
     )

@@ -6,7 +6,6 @@ import numpy as np
 from datasets import DatasetDict, concatenate_datasets
 from mteb import AbsTask
 from mteb import __version__ as mteb_version
-from numpy.typing import ArrayLike
 
 from ..result_dataclasses import TaskResult
 from .model import Encoder
@@ -66,6 +65,27 @@ class MTEBTask(Task):
             num_documents=len(document_lengths),
         )
 
+    def format_scores(self, raw_scores: dict[str, Any], split: str) -> dict[str, Any]:
+        if self.task_type == "STS":
+            raw_scores = {
+                "cosine_spearman": raw_scores["cos_sim"]["spearman"],
+                "cosine_pearson": raw_scores["cos_sim"]["pearson"],
+                "euclidean_spearman": raw_scores["euclidean"]["spearman"],
+                "euclidean_pearson": raw_scores["euclidean"]["pearson"],
+                "manhattan_spearman": raw_scores["manhattan"]["spearman"],
+                "manhattan_pearson": raw_scores["manhattan"]["pearson"],
+            }
+
+        raw_scores = raw_scores.get(split, raw_scores)
+        score_is_nested = isinstance(raw_scores[next(iter(raw_scores.keys()))], dict)
+        if not score_is_nested:
+            _scores: dict[str, dict[str, Union[float, str]]] = {lang: raw_scores for lang in self.languages}
+            scores = _scores
+        else:
+            scores = raw_scores
+
+        return scores
+
     def evaluate(self, model: Encoder) -> TaskResult:
         split = self.mteb_task.description["eval_splits"][0]
         # Infusing task into encode()
@@ -85,11 +105,7 @@ class MTEBTask(Task):
 
         time_of_run: datetime = datetime.now()
 
-        scores = scores.get(split, scores)
-        score_is_nested = isinstance(scores[next(iter(scores.keys()))], dict)
-        if not score_is_nested:
-            _scores: dict[str, dict[str, Union[float, str]]] = {lang: scores for lang in self.languages}
-            scores = _scores
+        scores = self.format_scores(scores, split)
 
         task_result = TaskResult(
             task_name=self.name,

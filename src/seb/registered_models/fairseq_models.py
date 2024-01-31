@@ -36,7 +36,9 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
                 Norwegian Nynorsk, and Norwegian Bokmål, respectively.
         """
         from sonar.models.sonar_text import (  # type: ignore
-            load_sonar_text_encoder_model, load_sonar_tokenizer)
+            load_sonar_text_encoder_model,
+            load_sonar_tokenizer,
+        )
 
         super().__init__()
 
@@ -73,11 +75,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
         tokenizer_encoder = self.tokenizer.create_encoder(lang=self.source_lang)  # type: ignore
 
         pipeline = (
-            (
-                read_text(input)
-                if isinstance(input, (str, Path))
-                else read_sequence(input)
-            )
+            (read_text(input) if isinstance(input, (str, Path)) else read_sequence(input))
             .map(tokenizer_encoder)
             .bucket(batch_size)
             .map(Collater(self.tokenizer.vocab_info.pad_idx))  # type: ignore
@@ -101,11 +99,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
             source_lang=source_lang,
         )
     except ImportError:
-        msg = (
-            "Could not fetch Sonar Models. Make sure you have"
-            + "fairseq2 installed. This is currently only supported for "
-            + "Linux."
-        )
+        msg = "Could not fetch Sonar Models. Make sure you have" + "fairseq2 installed. This is currently only supported for " + "Linux."
         raise ImportError(msg)  # noqa B904
 
 

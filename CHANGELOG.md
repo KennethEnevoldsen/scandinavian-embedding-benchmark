@@ -2,11 +2,173 @@
 
 
 
+## v0.11.0 (2024-01-29)
+
+### Fix
+
+* fix: Added cache for speed benchmark ([`f3cd21e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f3cd21e84db31e71b2accb49dcb43a7c89ce22e2))
+
+### Unknown
+
+* Merge pull request #120 from KennethEnevoldsen/ran-speed-bench
+
+fix: Added cache for speed benchmark ([`b4596c3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b4596c3d6010a9e34c26beab210ad134ab4035ff))
+
+* Merge pull request #109 from KennethEnevoldsen/add-sts-retrieval-dataset
+
+Add SNL Clustering task ([`9d1dae4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9d1dae45d8959737a0a7e7126276d6b59c48f742))
+
+* Merge pull request #110 from KennethEnevoldsen/sts-retrieval
+
+Add SNL retrieval ([`9412d71`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9412d71e164549f1bded845da815cd9cc0d8783b))
+
+* Merge branch &#39;add-sts-retrieval-dataset&#39; into sts-retrieval ([`a1216bf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a1216bfadd246a04517dac673de404e1f1403702))
+
+
+## v0.10.0 (2024-01-29)
+
+### Unknown
+
+* Merge pull request #113 from KennethEnevoldsen/twitterhjerne
+
+Added twitterhjerne ([`a32dea2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a32dea264da3d3a71f8fb49167659e2fb47b0cbf))
+
+* Merge pull request #117 from KennethEnevoldsen/nordjylland-retrieval
+
+Added tv2nord retrieval dataset ([`1721983`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1721983657cd004912c3e4ec78f25883256b26f1))
+
+* Merge pull request #118 from KennethEnevoldsen/norquad
+
+Added NorQuad ([`0cf610d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0cf610dc79c9a866f443fb3b4565e625ac868934))
+
+* Merge pull request #119 from KennethEnevoldsen/updated-coverage-tables
+
+Updated coverage tables ([`94f72d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/94f72d5c072483f636e62a218d9a2321cb8614cb))
+
+* Merge pull request #108 from KennethEnevoldsen/add-sts-retrieval
+
+Restructured MTEB ([`115acef`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/115acef802c61cf057dc3fc0f07adaf55756e0d4))
+
+
+## v0.9.4 (2024-01-28)
+
+### Documentation
+
+* docs: Updated coverage tables ([`3f848bd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3f848bd02f84a3b705cffe0b3097eba67b78935b))
+
+* docs: allow error for now in docs ([`4617983`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4617983837f222c06eec2a4c5e7b83ed094286d4))
+
+### Feature
+
+* feat: Added NorQuad ([`b1ab34d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1ab34de84036dada7940742505b823aeff9d15b))
+
+* feat: Added tv2nord retrieval dataset ([`c315d94`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c315d94d51795d3e62231997506e344731c6c98a))
+
+* feat: Added twitterhjerne ([`8509c37`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8509c3733aeeab082e59dbad24c0e5b73fdab4f2))
+
+* feat: Added SNL Retrieval ([`b1169ff`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1169ff6a7f61d8a64f8246b5d38575e3bd0bf43))
+
+* feat: Added SNL clustering ([`c380519`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c380519a844f56091975d6e3e57ae7ef44b66ef7))
+
+* feat: removed swedn sts to experimental tasks ([`6d22966`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d22966ada7bd8d5610b7562cd852d35813e0bf7))
+
+### Fix
+
+* fix: speed benchmark actually runs the speed tasks ([`7ae3ef0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ae3ef04e3d9b29c80e77a5f4ea57b4ca58cdb92))
+
+* fix: Update wrong language tag. ([`6a143e7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6a143e725102fb3a5e99f8b55d622328fcd69d69))
+
+* fix: remove ingress from the SNL corpus as they almost always contain the headline ([`617d616`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/617d6167479d2955f6034bd1fc6b3e4810eb591e))
+
+* fix: restructure mteb tasks  to its own folder ([`d88864d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d88864d68f7243dfd36921ab8bbd25f3a1efdb90))
+
+
+## v0.9.3 (2024-01-28)
+
+### Fix
+
+* fix: Added new OpenAI Models ([`e096ef5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e096ef5efe351087207e49a254e3ffc6dcf30916))
+
+
+## v0.9.2 (2024-01-26)
+
+### Ci
+
+* ci: Updated lint workflow to actually fail when not linted ([`d1c177c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d1c177cfe8c4f976ab7d8d8701b0df9fa80496c9))
+
+### Fix
+
+* fix: Added relevant type ignores ([`27b8dd3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/27b8dd3d52867e03f528390f361fc3b8b8f116f4))
+
+### Unknown
+
+* Merge pull request #104 from KennethEnevoldsen/ci-lint
+
+Ci lint ([`ade460b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ade460b3c6beed2aff8589919aef19551980841f))
+
+* fixing linting error ([`1b75a4f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1b75a4f65d1f927355341ae61ba7731fd521c21c))
+
+* introduce intentional lint error ([`d861935`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d861935b62b457b1b49c1dba74d6842448b8fdce))
+
+
+## v0.9.1 (2024-01-26)
+
+### Fix
+
+* fix: ran swednsts and reduced dataset size ([`6c0a030`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6c0a030a7244914548f0bbc12426505cb7427555))
+
+* fix: ensure that metrics is correctly formatted from MTEB ([`b5873b8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b5873b8ef8471afb82d8f26c7a1dee5202d84f78))
+
+### Unknown
+
+* Merge pull request #100 from KennethEnevoldsen/sts_vs_retrieval
+
+Reduce size of SwednSTS ([`c2c32b7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2c32b7504fabc5b43d198edf5ec6f5546acf310))
+
+* fixed type hints ([`0a5fd27`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0a5fd275439effcef106d7eea9b4e2aa9270b300))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into sts_vs_retrieval ([`141ed73`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/141ed73f6ad066f94273596c497a2e5b3bc76022))
+
+* Merge pull request #89 from KennethEnevoldsen/stuff_runs_tests
+
+Added integration test for four model types ([`f427a6d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f427a6da949fb2f7eb14f1014e9ae7a43df3a109))
+
+* Merge pull request #92 from KennethEnevoldsen/custom_embeddings
+
+Custom embeddings for E5 and Cohere + Interface changes to accomodate this ([`aeb32ce`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/aeb32ce9b8105e7e5b71fa10297bb799246225ab))
+
+* Reset test cases incorrectly overwritten by a merge conflict resolution ([`ccdd886`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ccdd8863fce445f39e21550806b4ca875a18215f))
+
+* Merge branch &#39;custom_embeddings&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into custom_embeddings ([`2414337`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/24143375997a8c99e84d11d96177ee1308798e8c))
+
+* Put resetting the model&#39;s encode() method to a finally clause ([`34a2612`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/34a2612eb578c909d14266092a539537e208eea9))
+
+* Merge branch &#39;main&#39; into custom_embeddings ([`18cd858`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/18cd858c1349f44d8b404eacf52c8c983a4065e5))
+
+* Removed debugging print statements from E5 ([`cc12070`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cc12070004fb4ea943a5e7f76a086cba234ed8cc))
+
+* Made EmbeddingModel into a dataclass instead of BaseModel ([`75debec`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/75debecb9e4108b30080845ff81bcd4935e81286))
+
+* Removed reference to MTEBTask from ScaLA ([`674a005`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/674a0054e281d5536ac2df13b39e8f3ecd017c7b))
+
+* Replaced MTEBTaskModel with partial() ([`79708bf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/79708bfe5824a465ae018c4d0b4921acc9b47ff7))
+
+* Added encode_queries and encode_documents to EmbeddingModel, made task optional ([`ecee037`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ecee037d73448de50320d58063d08917fcd9d77b))
+
+* Merge branch &#39;main&#39; into stuff_runs_tests ([`01e8979`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/01e897997279bf092a54b993cc497a0ea25e4fc8))
+
+* Moved models to @parametrize ([`fafcb39`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fafcb39b3eae7e3921060b38f986da90531d20ab))
+
+
 ## v0.9.0 (2024-01-26)
 
 ### Feature
 
 * feat: Added performance metrics for danfever ([`22eb72b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/22eb72bc1b530d3425d2b4fd1fb64d3bf3b2c971))
+
+### Fix
+
+* fix: limit the size of STS ([`0d1b659`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0d1b6590d69bddbfda5154827b6a9341ccc8cec5))
 
 ### Unknown
 
@@ -89,13 +251,39 @@ Add Swedn and VG clustering datasets ([`8537e12`](https://github.com/KennethEnev
 
 * Added a bunch of experiments for the vg summerization. ([`d9a13cb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d9a13cbc0d5932ebc1153da03e15a4db73ed3451))
 
+* Added task-dependent and asymmetrical embeddings for Cohere ([`6742fdd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6742fdd4b710fd5b1e7ca3145454f60b4330574f))
+
+* Added encode_queries() and encode_corpus() to E5Wrapper ([`53390da`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/53390da85b1b9462504568f9dd0e769a6c485407))
+
+* Added integration test for MiniLM + LCC ([`4560a16`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4560a162ec85f66ba961afad9afba7e43a2a274b))
+
+* Added return type to appease linter ([`828e556`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/828e556d1626e759cbf711ef8d06ad98d376689e))
+
+* Switched out fasttext package with fasttext-wheel ([`2cd74d4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2cd74d4d9e167d2b8380dfd3947689a9a211fc25))
+
+* Added pybind as an optional dependency for fasttext ([`77cdd4b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/77cdd4bde812d527a63f67f2b874f28f4844af7b))
+
+* Added fasttext as dependency in the makefile ([`012a689`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/012a6892d9a01a1c09d6308b0d21208c605e7ae3))
+
+* Added Dummy task to integration test, remove all-MiniLM-L6 ([`2f75712`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2f757121b8ef77fdf0120a6df3d3394dc19b5d1b))
+
+* Fixed issue with fasttext models ([`0a015ba`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0a015bafc96439ce04df55f90707f0fdff9819f6))
+
 * Merge pull request #90 from KennethEnevoldsen/types
 
 Moved task types to task interface and deleted types module ([`7c3b582`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7c3b582943b26060303816f70d122930083ac70e))
 
 * Added English to Language type ([`221bdd8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/221bdd80bde334ec077e75f0f014b9b48e75de03))
 
+* Added pybind install to makefile ([`31d2a35`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/31d2a354a6592da870492b47dc589b7c92b140e4))
+
 * Removed faulty import in E5 models ([`601002c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/601002cc9613a59cb9bf236fab909d2bd24433d3))
+
+* Added fasttext to testing dependencies ([`045de9f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/045de9fc453fb3136d79b374c5e7337a0ebe20b2))
+
+* Renamed test function ([`3c50f4f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3c50f4f1b11dc6d873964171655ac92fd6b76ab9))
+
+* Moved integration test to new file ([`6d3ba6d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d3ba6de3ba929471a4fb3d0586491fcdde09877))
 
 * Merge pull request #91 from KennethEnevoldsen/new_models
 
@@ -104,6 +292,8 @@ Added Jina base ([`95c515e`](https://github.com/KennethEnevoldsen/scandinavian-e
 * Fixed import error in speed task ([`cfccbdf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cfccbdf3aa32e8b73e4d89ac924ac1eefac64986))
 
 * Added Jina base ([`6d1ec69`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d1ec694f9b53e76f86e97ed4df4be70717f465b))
+
+* Changed DKHate to LCC ([`8c004af`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8c004af42005a6cf826d962ff40678fe96789d8a))
 
 * Moved task types to task interface and deleted types module ([`2f1adf1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2f1adf1305567b7f989b288344cb32caef7efad5))
 
@@ -131,6 +321,8 @@ Added FastText and Translate-E5 models ([`2d9043e`](https://github.com/KennethEn
 * Fixed duplicate model names ([`7275686`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7275686b4a22972b803b76dffa92aa9f9cfbe37d))
 
 * Added XLM-Roberta large and LaBSE ([`858db1b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/858db1bd3e305c3d9299ffd892aa14841608985a))
+
+* Added integration test for four model types ([`61ff3bb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/61ff3bb13af50620ab55f1f6004ef91e2f14d45e))
 
 * Merging upstream into the branch so that it contains the fixed E5 models, that pass along the task. ([`f6f71db`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f6f71db4648867e0118af35aa75b65018bd5cc77))
 

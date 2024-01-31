@@ -69,7 +69,7 @@ def run_speed_benchmark(
 
     results = {}
     for subset, langs in BENCHMARKS.items():
-        benchmark = Benchmark(languages=langs)
+        benchmark = Benchmark(languages=langs, tasks=tasks)
         bm_results = benchmark.evaluate_models(
             models=models,
             use_cache=use_cache,

@@ -1,6 +1,5 @@
 from datetime import datetime
 from functools import partial
-from typing import Any
 
 import numpy as np
 from datasets import DatasetDict, concatenate_datasets
@@ -38,9 +37,7 @@ def create_massive_scenario() -> Task:
 
 @tasks.register("ScaLA")
 def create_scala() -> Task:
-    from mteb import (ScalaDaClassification, ScalaNbClassification,
-                      ScalaNnClassification, ScalaSvClassification,
-                      __version__)
+    from mteb import ScalaDaClassification, ScalaNbClassification, ScalaNnClassification, ScalaSvClassification, __version__
 
     class ScalaTask(Task):
         def __init__(self) -> None:

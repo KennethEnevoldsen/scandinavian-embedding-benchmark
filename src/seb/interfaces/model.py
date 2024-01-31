@@ -1,8 +1,7 @@
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import (TYPE_CHECKING, Any, Callable, Optional, Protocol,
-                    runtime_checkable)
+from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
 from numpy.typing import ArrayLike
 from pydantic import BaseModel
@@ -124,9 +123,7 @@ class LazyLoadEncoder(Encoder):
         except AttributeError:
             return self.encode(queries, task=None, batch_size=batch_size, **kwargs)
 
-    def encode_corpus(
-        self, corpus: list[dict[str, str]], batch_size: int, **kwargs
-    ):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
         try:
             return self.model.encode_corpus(corpus, batch_size=batch_size, **kwargs)  # type: ignore
         except AttributeError:
@@ -137,12 +134,7 @@ class LazyLoadEncoder(Encoder):
                     for i in range(len(corpus["text"]))  # type: ignore
                 ]
             else:
-                sentences = [
-                    (doc["title"] + sep + doc["text"]).strip()
-                    if "title" in doc
-                    else doc["text"].strip()
-                    for doc in corpus
-                ]
+                sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
             return self.encode(sentences, task=None, batch_size=batch_size, **kwargs)
 
 

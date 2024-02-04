@@ -74,8 +74,8 @@ class SNLClustering(AbsTaskClustering):
     def dataset_transform(self):
         splits = self.description["eval_splits"]
 
-        documents = []
-        labels = []
+        documents: list = []
+        labels: list = []
         label_col = "category"
 
         ds = {}
@@ -94,7 +94,7 @@ class SNLClustering(AbsTaskClustering):
             rng = random.Random(42)  # local only seed
             pairs = list(zip(documents, labels))
             rng.shuffle(pairs)
-            documents, labels = list(zip(*pairs))
+            documents, labels = [list(collection) for collection in zip(*pairs)]
 
             # reduce size of dataset to not have too large datasets in the clustering task
             documents_batched = list(batched(documents, 512))[:4]

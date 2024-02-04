@@ -1,12 +1,12 @@
 
 # Scandinavian Embedding Benchmark
 
-This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is intended to evaluate the sentence/document embeddings of large language models.
+This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is intended to evaluate the sentence/document embeddings of language models for mainland Scandinavian Languages.
 
 Intended uses for this benchmark:
 
 - Evaluating document embeddings of Scandinavian language models
-- Evaluating document embeddings for multilingual models in Scandinavian languages
+- Evaluating document embeddings of multilingual models for Scandinavian languages
 - Allow ranking of competing Scandinavian and multilingual models using no more compute than what a consumer laptop can provide 
 
 
@@ -14,6 +14,7 @@ Intended uses for this benchmark:
 
     <iframe title="Scandinavian Sentence Embedding Benchmark" aria-label="Table" id="datawrapper-chart-7Nwjx" src="https://datawrapper.dwcdn.net/7Nwjx/16/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="910" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
     </script>   
+
 
 === "Danish"
 
@@ -29,6 +30,8 @@ Intended uses for this benchmark:
 
     <iframe title="Swedish Sentence Embedding Benchmark" aria-label="Table" id="datawrapper-chart-aL23t" src="https://datawrapper.dwcdn.net/aL23t/12/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="910" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
     </script>
+
+
 
 
 ## Comparison to other benchmarks

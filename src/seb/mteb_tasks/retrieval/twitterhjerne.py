@@ -21,7 +21,7 @@ class TwitterHjerneRetrieval(AbsTaskRetrieval):
             "type": "Retrieval",
             "category": "p2p",
             "eval_splits": ["train"],
-            "eval_langs": ["sv"],
+            "eval_langs": ["da"],
             "main_score": "ndcg_at_10",
             "revision": "099ee143c7fdfa6bd7965be8c801cb161c313b29",
         }

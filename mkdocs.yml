@@ -28,7 +28,6 @@ theme:
   palette:
     primary: white
     accent: light blue
-    # automatic dark mode is
 
 markdown_extensions:
   - pymdownx.superfences
@@ -42,6 +41,8 @@ copyright: Copyright &copy; 2023 Kenneth Enevoldsen
 nav:
   - The Benchmark:
       - Benchmark: index.md
+      - Domains: domains.md
+      - Task Types: task_type.md
       - Datasets: datasets.md
   - Package:
       - Installation: installation.md
@@ -50,8 +51,8 @@ nav:
       - API: api.md
 plugins:
   - mkdocs-jupyter:
-      # execute: false
-      execute: true
+      execute: false
+      # execute: true
       # allow_errors: false
       execute_ignore:
         - "*.py"

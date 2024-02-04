@@ -49,3 +49,5 @@ speed_test.py
 # fasttext model
 *.bin
 *.bin.gz
+*.bin.gz.part
+

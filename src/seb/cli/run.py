@@ -1,14 +1,14 @@
 import logging
 from functools import partial
 from pathlib import Path
-from typing import Literal, Optional, Union
+from typing import Literal, Optional
 
 from radicli import Arg, get_list_converter
-from sentence_transformers import SentenceTransformer
 
 from seb.registered_models.hf_models import get_sentence_transformer
 
 import seb
+from seb.registered_models.hf_models import SentenceTransformerWithTaskEncode
 from seb.registries import get_all_models
 
 from .cli import cli
@@ -18,7 +18,7 @@ from .table import convert_to_table, pretty_print_benchmark
 logger = logging.getLogger(__name__)
 
 
-def build_model(model_name: str) -> seb.EmbeddingModel:
+def build_model(model_name: str) -> seb.SebModel:
     all_models = seb.models.get_all().keys()
 
     if model_name in seb.models:
@@ -30,9 +30,9 @@ def build_model(model_name: str) -> seb.EmbeddingModel:
     meta = seb.ModelMeta(
         name=Path(model_name).stem,
     )
-    model = seb.EmbeddingModel(
+    model = seb.SebModel(
         meta=meta,
-        loader=partial(get_sentence_transformer, model_name=model_name),  # type: ignore
+        encoder=seb.LazyLoadEncoder(partial(get_sentence_transformer, model_name=model_name)),  # type: ignore
     )
     return model
 
@@ -163,7 +163,6 @@ def run_benchmark_cli(
         use_cache=True,
         raise_errors=False,
         run_model=False,
-        verbose=False,
     )
 
     new_highlight_names = []

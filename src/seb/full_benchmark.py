@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Optional
 
 from .benchmark import Benchmark
-from .interfaces.model import EmbeddingModel
+from .interfaces.model import SebModel
 from .registered_tasks.speed import CPUSpeedTask, GPUSpeedTask
 from .registries import get_all_models
 from .result_dataclasses import BenchmarkResults
@@ -32,7 +32,7 @@ def run_benchmark(
     """
     Run the full SEB benchmark.
     """
-    models: list[EmbeddingModel] = get_all_models()
+    models: list[SebModel] = get_all_models()
 
     results = {}
     for subset, langs in BENCHMARKS.items():
@@ -59,7 +59,7 @@ def run_speed_benchmark(
     """
     Run the speed benchmark.
     """
-    models: list[EmbeddingModel] = get_all_models()
+    models: list[SebModel] = get_all_models()
     tasks = [CPUSpeedTask()]  # type: ignore
 
     if use_cache:

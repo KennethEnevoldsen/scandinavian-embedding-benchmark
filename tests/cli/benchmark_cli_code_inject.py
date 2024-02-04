@@ -36,12 +36,13 @@ def create_test_encode_task() -> seb.Task:
 
 
 import numpy as np
+
 import seb
 from seb.registries import models
 
 
 @models.register("test_model")
-def create_test_model() -> seb.EmbeddingModel:
+def create_test_model() -> seb.Encoder:
     class TestEncoder:
         def encode(
             self,
@@ -57,7 +58,7 @@ def create_test_model() -> seb.EmbeddingModel:
 
     assert isinstance(TestEncoder, seb.Encoder)
 
-    return seb.EmbeddingModel(
+    return seb.SebModel(
         meta=seb.ModelMeta(name="test_model", embedding_size=100),
-        loader=load_test_model,
-    )  # type: ignore
+        encoder=seb.LazyLoadEncoder(load_test_model),  # type: ignore
+    )

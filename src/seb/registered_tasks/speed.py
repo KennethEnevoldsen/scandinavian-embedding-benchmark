@@ -10,7 +10,7 @@ import psutil
 import torch
 
 from seb.interfaces.language import languages_in_seb
-from seb.interfaces.model import EmbeddingModel
+from seb.interfaces.model import Encoder
 from seb.interfaces.task import DescriptiveDatasetStats, Task
 from seb.result_dataclasses import TaskResult
 
@@ -52,7 +52,7 @@ class CPUSpeedTask(Task):
             num_documents=len(dataset),
         )
 
-    def get_time_taken(self, model: EmbeddingModel) -> float:
+    def get_time_taken(self, model: Encoder) -> float:
         dataset = self.load_dataset()
         start = time.time()
         with torch.no_grad():
@@ -60,8 +60,8 @@ class CPUSpeedTask(Task):
         time_taken = time.time() - start
         return time_taken
 
-    def evaluate(self, model: EmbeddingModel) -> TaskResult:  # type: ignore
-        model.loader()  # ensure model is loaded
+    def evaluate(self, model: Encoder) -> TaskResult:  # type: ignore
+        model.encode(["encode this"])  # ensure model is loaded
 
         has_to_method = hasattr(model._model, "to") and isinstance(model._model.to, Callable)  # type: ignore
         if has_to_method:
@@ -71,7 +71,6 @@ class CPUSpeedTask(Task):
         if run_inference:
             time_taken = self.get_time_taken(model)
         else:
-            logger.warn(f"Could not run inference on {model.meta.name} on {self.device} as it does not have a 'to' method. Skipping")
             time_taken = np.nan
 
         scores: dict[str, Union[str, float]] = {
@@ -84,7 +83,7 @@ class CPUSpeedTask(Task):
             task_name=self.name,
             task_description=self.description,
             task_version=self.version,
-            scores={Language: scores for Language in self.languages},
+            scores={Language: scores for Language in self.languages},  # type: ignore
             time_of_run=datetime.now(),
             main_score=self.main_score,
         )

@@ -129,6 +129,7 @@ def benchmark_result_to_domain_row(
     # create row for number of datasets
     df2 = pd.DataFrame([n_datasets], columns=domain_names, index=["N. Datasets"])
     df = pd.concat([df, df2])
+    df = df.sort_index()
     return df
 
 
@@ -161,6 +162,7 @@ def benchmark_result_to_task_type_row(
     # create row for number of datasets
     df2 = pd.DataFrame([n_datasets], columns=task_type_names, index=["N. Datasets"])
     df = pd.concat([df, df2])
+    df = df.sort_index()
     return df
 
 
@@ -182,6 +184,7 @@ def convert_to_table(
     # convert name to column
     df = df.reset_index()
     df = df.rename(columns={"index": "Model"})
+    df = df.sort_values(by="Model", ascending=True)
 
     return df
 
@@ -223,6 +226,7 @@ def create_domain_table(
     # convert name to column
     df = df.reset_index()
     df = df.rename(columns={"index": "Model"})
+    df = df.sort_values(by="Model", ascending=True)
     return df
 
 
@@ -243,6 +247,7 @@ def create_task_type_table(
     # convert name to column
     df = df.reset_index()
     df = df.rename(columns={"index": "Model"})
+    df = df.sort_values(by="Model", ascending=True)
     return df
 
 

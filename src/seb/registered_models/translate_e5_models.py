@@ -5,13 +5,13 @@ from typing import Any, Optional
 import torch
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
-import seb
-from seb import models
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
+from seb.interfaces.task import Task
 from seb.registered_models.e5_models import E5Wrapper
 from seb.registries import models
 
 
-class TranslateE5Model(seb.Encoder):
+class TranslateE5Model(Encoder):
     def __init__(self, model_name: str) -> None:
         self.model_name = model_name
         self.mdl = E5Wrapper(model_name)
@@ -30,7 +30,7 @@ class TranslateE5Model(seb.Encoder):
         self,
         sentences: list[str],
         *,
-        task: Optional[seb.Task] = None,  # noqa: ARG002
+        task: Optional[Task] = None,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
     ) -> torch.Tensor:
@@ -47,48 +47,48 @@ class TranslateE5Model(seb.Encoder):
 
 
 @models.register("translate-e5-small")
-def create_translate_e5_small() -> seb.EmbeddingModel:
+def create_translate_e5_small() -> SebModel:
     hf_name = "intfloat/e5-small"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name="translate-e5-small",
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
         embedding_size=384,
     )
-    return seb.EmbeddingModel(
-        loader=partial(TranslateE5Model, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("translate-e5-base")
-def create_translate_e5_base() -> seb.EmbeddingModel:
+def create_translate_e5_base() -> SebModel:
     hf_name = "intfloat/e5-base"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name="translate-e5-base",
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
         embedding_size=384,
     )
-    return seb.EmbeddingModel(
-        loader=partial(TranslateE5Model, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
         meta=meta,
     )
 
 
 @models.register("translate-e5-large")
-def create_translate_e5_large() -> seb.EmbeddingModel:
+def create_translate_e5_large() -> SebModel:
     hf_name = "intfloat/e5-large"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name="translate-e5-large",
         reference=f"https://huggingface.co/{hf_name}",
         languages=["en"],
         open_source=True,
         embedding_size=384,
     )
-    return seb.EmbeddingModel(
-        loader=partial(TranslateE5Model, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
         meta=meta,
     )

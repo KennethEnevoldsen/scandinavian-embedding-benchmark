@@ -2,6 +2,57 @@
 
 
 
+## v0.11.1 (2024-02-04)
+
+### Documentation
+
+* docs: restructured dataset overview ([`30440f0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/30440f07c853da518e936cb0b74dc0e39381788a))
+
+### Fix
+
+* fix: Updated tables ([`d30284c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d30284c6bb62af1a8e14bc1db140278b994c0742))
+
+### Style
+
+* style: Applied linter ([`2b0342d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b0342d6aeac41462f51360a6094279274b6ff30))
+
+### Unknown
+
+* Merge pull request #121 from KennethEnevoldsen/update-tables
+
+Updated docs ([`02b5993`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/02b5993b274c934fa948c0c26906bf3bc5a1c5cf))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into update-tables ([`db3ae97`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/db3ae9714ef799d544ccee876a4e65c71ca5aa9b))
+
+* Merge pull request #103 from KennethEnevoldsen/restructure_model_interface
+
+Added LazyLoadEncoder, added SebModel and removed EmbeddingModel ([`4e1cd36`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4e1cd36e4a42079307393c59e905b99c30836989))
+
+* Fixed linting ([`82c0a49`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/82c0a490a02a5a9f102b592a9273cf25e9a1644b))
+
+* Changed Norwegian Bitext Mining revision to None ([`a5675eb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a5675eb1ff74fc2c2a18d0c8742ebe1cddd26d67))
+
+* Added docstring to LazyLoadEncoder, adjusted api.md to new interface. ([`c48e9cf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c48e9cf2b6fbfeea6a81eceda6097240af0dfeb4))
+
+* Changed model building to use SentenceTransformerWithTaskEncode in CLI ([`c85aad0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c85aad0d08f2da8b9d7c88dc418f295d5e7c3327))
+
+* Ran linting on danish tasks ([`3663cd8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3663cd839b9f8520de18ae91869fc301a244136d))
+
+* Ran linting ([`8f1c3b3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8f1c3b36b432d1a2f0d958e28248b59a1cbd074e))
+
+* Removed verbose parameter, as it does not exist ([`2a743d0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2a743d093d38a66f1a4fcfb9caba6778396a5070))
+
+* Converted new OpenAI models to the new interface ([`8b24890`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8b2489086ce920282b968e6b23ae968ad665f79a))
+
+* Fixed syntax error in Cohere ([`e1d18f1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e1d18f16054561b5eea92fd807a6d027c8003876))
+
+* Fixed type errors in speed task ([`834e5c7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/834e5c7351d62a1e48119afc69531612418e3413))
+
+* Fixed tuple.extend type errors ([`341930a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/341930acca86ea7f6ac16e4b180d82b2759e5f1b))
+
+* Merge branch &#39;main&#39; into restructure_model_interface ([`7b20806`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7b208061dbcad56161b6155966b2326bdd30b76a))
+
+
 ## v0.11.0 (2024-01-29)
 
 ### Fix
@@ -124,6 +175,8 @@ Ci lint ([`ade460b`](https://github.com/KennethEnevoldsen/scandinavian-embedding
 * Merge pull request #100 from KennethEnevoldsen/sts_vs_retrieval
 
 Reduce size of SwednSTS ([`c2c32b7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2c32b7504fabc5b43d198edf5ec6f5546acf310))
+
+* Added LazyLoadEncoder, added SebModel and removed EmbeddingModel ([`805c343`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/805c3432099d3426fd8ef15c87bd54522a763b30))
 
 * fixed type hints ([`0a5fd27`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0a5fd275439effcef106d7eea9b4e2aa9270b300))
 

@@ -99,7 +99,7 @@ def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
             source_lang=source_lang,
         )
     except ImportError:
-        msg = "Could not fetch Sonar Models. Make sure you have" + "fairseq2 installed. This is currently only supported for " + "Linux."
+        msg = "Could not fetch Sonar Models. Make sure you have" + " fairseq2 installed. This is currently only supported for " + "Linux."
         raise ImportError(msg)  # noqa B904
 
 

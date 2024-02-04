@@ -44,3 +44,6 @@ test-encode-task.json
 docs/model_results/*
 model_results/*
 docs/model_results.json
+
+# ignore fasttext model
+*.bin.gz.part

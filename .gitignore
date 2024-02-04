@@ -45,3 +45,7 @@ docs/model_results/*
 model_results/*
 docs/model_results.json
 speed_test.py
+
+# fasttext model
+*.bin
+*.bin.gz

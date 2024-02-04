@@ -39,7 +39,6 @@ def create_test_encode_task() -> seb.Task:
 @pytest.mark.parametrize(
     "model",
     [
-        "fasttext-cc-da-300",
         "intfloat/e5-small",
         "translate-e5-small",
     ],

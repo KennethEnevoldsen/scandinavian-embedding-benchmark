@@ -9,8 +9,8 @@ from .registries import (
     tasks,
 )
 
+from .interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from .interfaces.task import Task
-from .interfaces.model import EmbeddingModel, ModelMeta, Encoder
-from .result_dataclasses import BenchmarkResults, TaskError, TaskResult
 from .registered_models import *  # import all SEB models
 from .registered_tasks import *  # import all SEB tasks
+from .result_dataclasses import BenchmarkResults, TaskError, TaskResult

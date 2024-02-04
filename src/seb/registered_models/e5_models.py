@@ -4,9 +4,9 @@ from typing import Any, Optional
 from numpy.typing import ArrayLike
 from sentence_transformers import SentenceTransformer
 
-from seb import models
+from seb.registries import models
 
-from ..interfaces.model import EmbeddingModel, Encoder, ModelMeta
+from ..interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from ..interfaces.task import Task
 
 
@@ -44,7 +44,7 @@ class E5Wrapper(Encoder):
 
 # English
 @models.register("intfloat/e5-small")
-def create_e5_small() -> EmbeddingModel:
+def create_e5_small() -> SebModel:
     hf_name = "intfloat/e5-small"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -54,14 +54,14 @@ def create_e5_small() -> EmbeddingModel:
         open_source=True,
         embedding_size=384,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )
 
 
 @models.register("intfloat/e5-base")
-def create_e5_base() -> EmbeddingModel:
+def create_e5_base() -> SebModel:
     hf_name = "intfloat/e5-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -71,14 +71,14 @@ def create_e5_base() -> EmbeddingModel:
         open_source=True,
         embedding_size=768,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )
 
 
 @models.register("intfloat/e5-large")
-def create_e5_large() -> EmbeddingModel:
+def create_e5_large() -> SebModel:
     hf_name = "intfloat/e5-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -88,15 +88,15 @@ def create_e5_large() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )
 
 
 # Multilingual
 @models.register("intfloat/multilingual-e5-small")
-def create_multilingual_e5_small() -> EmbeddingModel:
+def create_multilingual_e5_small() -> SebModel:
     hf_name = "intfloat/multilingual-e5-small"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -106,14 +106,14 @@ def create_multilingual_e5_small() -> EmbeddingModel:
         open_source=True,
         embedding_size=384,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )
 
 
 @models.register("intfloat/multilingual-e5-base")
-def create_multilingual_e5_base() -> EmbeddingModel:
+def create_multilingual_e5_base() -> SebModel:
     hf_name = "intfloat/multilingual-e5-base"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -123,14 +123,14 @@ def create_multilingual_e5_base() -> EmbeddingModel:
         open_source=True,
         embedding_size=768,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )
 
 
 @models.register("intfloat/multilingual-e5-large")
-def create_multilingual_e5_large() -> EmbeddingModel:
+def create_multilingual_e5_large() -> SebModel:
     hf_name = "intfloat/multilingual-e5-large"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -140,7 +140,7 @@ def create_multilingual_e5_large() -> EmbeddingModel:
         open_source=True,
         embedding_size=1024,
     )
-    return EmbeddingModel(
-        loader=partial(E5Wrapper, model_name=hf_name),  # type: ignore
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
         meta=meta,
     )

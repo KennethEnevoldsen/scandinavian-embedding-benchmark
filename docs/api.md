@@ -24,11 +24,11 @@ SEB implements to main interfaces. A task interface which is a tasks within the 
 
 ### Model Interface
 
-::: seb.EmbeddingModel
-
 ::: seb.Encoder
 
+::: seb.LazyLoadEncoder
 
+::: seb.SebModel
 
 ### Task Interface
 

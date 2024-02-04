@@ -5,11 +5,11 @@ from typing import Any
 import numpy as np
 import torch
 
-import seb
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.registries import models
 
 
-class FastTextModel(seb.Encoder):
+class FastTextModel(Encoder):
     def __init__(self, model_name: str, lang: str) -> None:
         self.model_name = model_name
         self.lang = lang
@@ -40,9 +40,9 @@ class FastTextModel(seb.Encoder):
 
 
 @models.register("fasttext-cc-da-300")
-def create_cc_da_300() -> seb.EmbeddingModel:
+def create_cc_da_300() -> SebModel:
     model_name = "fasttext-cc-da-300"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
@@ -50,16 +50,16 @@ def create_cc_da_300() -> seb.EmbeddingModel:
         open_source=True,
         embedding_size=300,
     )
-    return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name="cc.da.300.bin", lang="da"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.da.300.bin", lang="da")),
         meta=meta,
     )
 
 
 @models.register("fasttext-cc-sv-300")
-def create_cc_sv_300() -> seb.EmbeddingModel:
+def create_cc_sv_300() -> SebModel:
     model_name = "fasttext-cc-sv-300"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
@@ -67,16 +67,16 @@ def create_cc_sv_300() -> seb.EmbeddingModel:
         open_source=True,
         embedding_size=300,
     )
-    return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv")),
         meta=meta,
     )
 
 
 @models.register("fasttext-cc-nb-300")
-def create_cc_nb_300() -> seb.EmbeddingModel:
+def create_cc_nb_300() -> SebModel:
     model_name = "fasttext-cc-nb-300"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
@@ -84,16 +84,16 @@ def create_cc_nb_300() -> seb.EmbeddingModel:
         open_source=True,
         embedding_size=300,
     )
-    return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name="cc.no.300.bin", lang="no"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.no.300.bin", lang="no")),
         meta=meta,
     )
 
 
 @models.register("fasttext-cc-nn-300")
-def create_cc_nn_300() -> seb.EmbeddingModel:
+def create_cc_nn_300() -> SebModel:
     model_name = "fasttext-cc-nn-300"
-    meta = seb.ModelMeta(
+    meta = ModelMeta(
         name=model_name,
         huggingface_name=None,
         reference="https://fasttext.cc/docs/en/crawl-vectors.html",
@@ -101,7 +101,7 @@ def create_cc_nn_300() -> seb.EmbeddingModel:
         open_source=True,
         embedding_size=300,
     )
-    return seb.EmbeddingModel(
-        loader=partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn"),
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn")),
         meta=meta,
     )

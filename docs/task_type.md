@@ -13,19 +13,22 @@ The table show the performance across task types:
 ## Coverage
 The follows table give you and an overview of the coverage of the tasks: 
 
-|                          |                     |               Danish               |          Norwegian Bokmål          |         Norwegian Nynorsk          |              Swedish               |
-| :----------------------- | :------------------ | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
-| **Task**                 | **Formalization**   |                                    |                                    |                                    |                                    |
-| Question Answering       | Retrieval           | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
-| bitext Mining            | Bitext Mining       | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
-| Political                | Classification      |                                    | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
-| Language Identification  | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
-| Linguistic Acceptability | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
-| Sentiment/Hate Speech    | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
-| Dialog Systems           | Classification      | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
-| Thematic Clustering      | Clustering          |                                    | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
-|                          | Reranking           |                                    |                                    |                                    |                                    |
-|                          | Pair Classification |                                    |                                    |                                    |                                    |
-|                          | STS                 |                                    |                                    |                                    |                                    |
+
+
+|                     |                          |               Across               |         ·           Danish         |          Norwegian Bokmål          |         Norwegian Nynorsk          |              Swedish               |
+| :------------------ | :----------------------- | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| **Formalization**   | **Task**                 |                                    |                                    |                                    |                                    |                                    |
+| Retrieval           | Question answering       | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+|                     | article retrieval        | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+| bitext Mining       | dialect pairing          | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
+| Classification      | Political                | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    |
+|                     | Language Identification  | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+|                     | Linguistic Acceptability | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+|                     | Sentiment/Hate Speech    | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+|                     | Dialog Systems           | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> | <span style="color:green">✓</span> |
+| Clustering          | Thematic Clustering      | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |                                    | <span style="color:green">✓</span> |
+| Reranking           |                          |                                    |                                    |                                    |                                    |                                    |
+| Pair Classification |                          |                                    |                                    |                                    |                                    |                                    |
+| STS                 |                          |                                    |                                    |                                    |                                    |                                    |
 
 

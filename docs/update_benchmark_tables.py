@@ -100,6 +100,31 @@ def benchmark_result_to_row(
     return df
 
 
+def create_n_datasets_row_for_domains() -> pd.DataFrame:
+    tasks: list[seb.Task] = seb.get_all_tasks()
+    domains = sorted({d for t in tasks for d in t.domain})
+    domain2tasks = {d: [t.name for t in tasks if d in t.domain] for d in domains}
+    scores = []
+    domain_names = []
+    n_datasets = []
+    for d, ts in domain2tasks.items():
+        domain_names.append(d.capitalize())
+        n_datasets.append(len(ts))
+    return pd.DataFrame([n_datasets], columns=domain_names, index=["N. Datasets"])
+
+
+def create_n_datasets_row_for_task_types() -> pd.DataFrame:
+    tasks: list[seb.Task] = seb.get_all_tasks()
+    task_type = sorted({t.task_type for t in tasks})
+    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type] for tt in task_type}
+    scores = []
+    task_type_names = []
+    n_datasets = []
+    for t, ts in tasktype2tasks.items():
+        task_type_names.append(t.capitalize())
+        n_datasets.append(len(ts))
+    return pd.DataFrame([n_datasets], columns=task_type_names, index=["N. Datasets"])
+
 def benchmark_result_to_domain_row(
     result: seb.BenchmarkResults,
     langs: list[str],
@@ -125,11 +150,6 @@ def benchmark_result_to_domain_row(
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
     df["WPS (CPU)"] = get_speed_results(result.meta)
-
-    # create row for number of datasets
-    df2 = pd.DataFrame([n_datasets], columns=domain_names, index=["N. Datasets"])
-    df = pd.concat([df, df2])
-    df = df.sort_index()
     return df
 
 
@@ -158,11 +178,6 @@ def benchmark_result_to_task_type_row(
     df["Open Source"] = open_source_to_string(result.meta.open_source)
     df["Embedding Size"] = result.meta.embedding_size
     df["WPS (CPU)"] = get_speed_results(result.meta)
-
-    # create row for number of datasets
-    df2 = pd.DataFrame([n_datasets], columns=task_type_names, index=["N. Datasets"])
-    df = pd.concat([df, df2])
-    df = df.sort_index()
     return df
 
 
@@ -215,8 +230,7 @@ def create_domain_table(
 ) -> pd.DataFrame:
     rows = [benchmark_result_to_domain_row(result, langs) for result in results]
     df = pd.concat(rows)
-    # remove duplicate rows (notably the number of datasets row)
-    df = df.loc[~df.index.duplicated(keep="first")]
+    df = pd.concat([df, create_n_datasets_row_for_domains()])
     df = df.sort_values(by="Average Score", ascending=False)
     cols = df.columns.tolist()
     first_columns = ["Average Score", "Open Source", "Embedding Size", "WPS (CPU)"]
@@ -236,8 +250,7 @@ def create_task_type_table(
 ) -> pd.DataFrame:
     rows = [benchmark_result_to_task_type_row(result, langs) for result in results]
     df = pd.concat(rows)
-    # remove duplicate rows (notably the number of datasets row)
-    df = df.loc[~df.index.duplicated(keep="first")]
+    df = pd.concat([df, create_n_datasets_row_for_task_types()])
     df = df.sort_values(by="Average Score", ascending=False)
     cols = df.columns.tolist()
     first_columns = ["Average Score", "Open Source", "Embedding Size", "WPS (CPU)"]

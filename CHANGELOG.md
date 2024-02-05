@@ -2,13 +2,70 @@
 
 
 
+## v0.11.2 (2024-02-05)
+
+### Fix
+
+* fix: Updated table generation of the benchmark ([`c87aed4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c87aed42be525a737426a820833ed3fd3d652fa5))
+
+### Style
+
+* style: ran linting ([`489e124`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/489e124ab368db33b0b69661a1e13cbb0dd3e7af))
+
+### Unknown
+
+* Merge pull request #127 from KennethEnevoldsen/run-models
+
+Ran most of the models ([`db1868e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/db1868e9438ebd0f686e41a58bb0522efd0342d3))
+
+* remo ve test srcipt ([`dcbe547`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/dcbe547fdd6fdbf9e9788fed49a2c2645eeed48e))
+
+* Added translate and embed scores ([`26805ad`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/26805ad1052fced0402317281a362999848d927c))
+
+* Merge branch &#39;run-models&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark into run-models ([`5570776`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/55707761d6f66fcdf218a38d9e50fc2f466591ec))
+
+* Added fasttext and translate scores ([`d725b44`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d725b443fdd28d8f28500c58e6df6db4e8817f18))
+
+
 ## v0.11.1 (2024-02-04)
 
 ### Documentation
 
+* docs: sort model on new tables ([`d4d9e56`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d4d9e564a207698279fd7575b583ad47286b31cf))
+
+* docs: Minor grammatical fixes ([`633b47d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/633b47da12771f6da6234a428d329479c6817a64))
+
+* docs: Added speed x performance tab to documentation ([`b3011a3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b3011a3e596e020068369dc6e504d575e4cbccca))
+
+* docs: renamed run_benchmark to update_benchmark tables
+
+Also disabled it actually running the model. Models are now run using `seb run` ([`da562b7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/da562b7f19298f9b33c921596480243fd9fb7a3e))
+
 * docs: restructured dataset overview ([`30440f0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/30440f07c853da518e936cb0b74dc0e39381788a))
 
 ### Fix
+
+* fix: correctly check if model have a to() method ([`e2a1f44`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e2a1f44e9b361a7e277d6042f154ea6172121c42))
+
+* fix: ensure that the correct sentence transformer wrapper in using the CLI ([`03fff7f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/03fff7fd63584df8703de0871bf5a01c2bdef7c6))
+
+* fix: removed GPU test from speed test
+
+at least for the moment ([`a7600bd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a7600bd31490cd68805589f4bffd67e9267fd942))
+
+* fix: Updated cache for models ([`ec07680`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ec07680e2c756bdf73f168bd618159e901ad27e4))
+
+* fix: lower default batch size for e5 mistral model ([`3cdd55e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3cdd55e6261f8cebc75dd4098f329c9d8e64e59d))
+
+* fix: added e5 mistral cache ([`ecc85c4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ecc85c40d8938ddaf45782dd3979747c157176bb))
+
+* fix: Added cache for all smaller models on all tasks ([`789c8b7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/789c8b798e5d36224201fe591df493436b9089ae))
+
+* fix: added WPS to speed tasks and benchmark ([`7ebaca4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7ebaca44815ab076cb70a29661b740702ceda1f2))
+
+* fix: Updated scores for all API models ([`f10c01a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f10c01a045d4a689a3b7d504b1d762d67a5f70ea))
+
+* fix: remove duplicate e5 mistral model ([`2de6ee2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2de6ee23fc22dd2e21d035473adad2fa23c8accb))
 
 * fix: Updated tables ([`d30284c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d30284c6bb62af1a8e14bc1db140278b994c0742))
 
@@ -18,11 +75,21 @@
 
 ### Unknown
 
+* tests: remove fasttext from integration test as it takes too long to download ([`84baefa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/84baefa00c92356025cb6cecc8393b6c70ec1c78))
+
+* ignore fasttext files ([`0f9823e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0f9823ec768675a46950e0057d2396e2081ee324))
+
+* ignore fasttext models ([`4dbba98`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4dbba98138cffa4da4437e3fff76245ab82cdcd1))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into run-models ([`f13be1c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f13be1c2bd082a31ae09c7e6fee2f78f56110952))
+
 * Merge pull request #121 from KennethEnevoldsen/update-tables
 
 Updated docs ([`02b5993`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/02b5993b274c934fa948c0c26906bf3bc5a1c5cf))
 
 * Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into update-tables ([`db3ae97`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/db3ae9714ef799d544ccee876a4e65c71ca5aa9b))
+
+* Removed req. for datawrapper api when running benchmkark ([`ee8673f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ee8673f4dba8591703e8a6258d6e5045ee87ff8f))
 
 * Merge pull request #103 from KennethEnevoldsen/restructure_model_interface
 
@@ -51,6 +118,16 @@ Added LazyLoadEncoder, added SebModel and removed EmbeddingModel ([`4e1cd36`](ht
 * Fixed tuple.extend type errors ([`341930a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/341930acca86ea7f6ac16e4b180d82b2759e5f1b))
 
 * Merge branch &#39;main&#39; into restructure_model_interface ([`7b20806`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7b208061dbcad56161b6155966b2326bdd30b76a))
+
+* Merge branch &#39;run-models&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into run-models ([`9a80296`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9a80296a53417208740635581484820ef22aba08))
+
+* Merge branch &#39;run-models&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark into run-models ([`11734d0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/11734d01ddec0df478c6e85e161965248deb11fd))
+
+* remove accidental test file ([`25da0fe`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/25da0feac456319b789df28a1091452162cf64b5))
+
+* added openAI scores ([`edff86b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/edff86bf7cee799eb44f2a6ae4743ed831ac7a50))
+
+* Remove cohere scores ([`bcfdee5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bcfdee56ff3a40b2d7932c40948f97a8cddab7c8))
 
 
 ## v0.11.0 (2024-01-29)

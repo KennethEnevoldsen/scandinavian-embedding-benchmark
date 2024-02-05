@@ -74,6 +74,8 @@ def create_scala() -> Task:
         def get_descriptive_stats(self) -> DescriptiveDatasetStats:
             ds = self.load_data()
             texts = []
+            splits = self.get_splits()
+
             for split in ds:
                 for text_column in self._text_columns:
                     texts += ds[split][text_column]
@@ -113,6 +115,12 @@ def create_scala() -> Task:
                 task_description=self.description,
                 main_score=self.main_score,
             )
+
+        def get_splits(self) -> list[str]:
+            splits = []
+            for lang, mteb_task in self.mteb_tasks.items():  # noqa: B007
+                splits += mteb_task.description["eval_splits"]
+            return list(set(splits))
 
     return ScalaTask()
 

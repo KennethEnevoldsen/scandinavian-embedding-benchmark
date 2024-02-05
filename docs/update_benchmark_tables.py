@@ -125,6 +125,7 @@ def create_n_datasets_row_for_task_types() -> pd.DataFrame:
         n_datasets.append(len(ts))
     return pd.DataFrame([n_datasets], columns=task_type_names, index=["N. Datasets"])
 
+
 def benchmark_result_to_domain_row(
     result: seb.BenchmarkResults,
     langs: list[str],

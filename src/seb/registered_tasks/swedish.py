@@ -54,4 +54,5 @@ def create_swedn_clustering() -> Task:
     task.name = "SwednClustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
+    task._text_columns = ["sentences"]
     return task

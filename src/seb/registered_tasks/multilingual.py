@@ -75,8 +75,9 @@ def create_scala() -> Task:
             ds = self.load_data()
             texts = []
             splits = self.get_splits()
+            assert len(splits) >= 1, "No splits found in MTEB task."
 
-            for split in ds:
+            for split in splits:
                 for text_column in self._text_columns:
                     texts += ds[split][text_column]
 

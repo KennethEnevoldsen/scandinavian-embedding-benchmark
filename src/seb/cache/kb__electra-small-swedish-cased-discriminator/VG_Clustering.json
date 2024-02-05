@@ -1,0 +1,1 @@
+{"task_name":"VG Clustering","task_description":"Articles and their classes (e.g. sports) from VG news articles extracted from Norsk Aviskorpus.","task_version":"0.0.1","time_of_run":"2024-01-30T14:37:32.122575","scores":{"nb":{"v_measure":0.054533692691583306,"v_measure_std":0.009764958070479108}},"main_score":"v_measure"}

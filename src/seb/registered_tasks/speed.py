@@ -16,6 +16,8 @@ from seb.result_dataclasses import TaskResult
 
 logger = logging.getLogger(__name__)
 
+TOKENS_IN_UGLY_DUCKLING = 3591
+
 
 class CPUSpeedTask(Task):
     reference = "NA"
@@ -63,7 +65,7 @@ class CPUSpeedTask(Task):
 
         has_to_method = hasattr(model._model, "to") and isinstance(model._model.to, Callable)  # type: ignore
         if has_to_method:
-            model = model.to(self.device)  # type: ignore
+            model._model = model._model.to(self.device)  # type: ignore
 
         run_inference = not (self.device == "cuda" and not has_to_method)
         if run_inference:
@@ -73,6 +75,7 @@ class CPUSpeedTask(Task):
 
         scores: dict[str, Union[str, float]] = {
             self.main_score: time_taken,
+            "words pr. second": TOKENS_IN_UGLY_DUCKLING / time_taken,
             **self.get_system_info(),
         }
 

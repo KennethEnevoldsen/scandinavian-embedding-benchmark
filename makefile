@@ -47,14 +47,14 @@ update-from-template:
 	cruft update --skip-apply-ask
 
 run-benchmark:
-	# set environment variables
+	# HF API key to access the required datasets
 	hf_api_key=$(cat hf_api_key.txt)
 	export HF_TOKEN=hf_api_key
 
-	# run benchmark
-	datawrapper_api_key=$(cat datawrapper_api_key.txt)
-	python docs/run_benchmark.py --data-wrapper-api-token $datawrapper_api_key
+	# additionally this expect that API keys required for specific models are set as env variables
 
+	# run benchmark
+	seb run
 
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"

@@ -34,10 +34,13 @@ class TranslateE5Model(Encoder):
         batch_size: int = 32,
         **kwargs: Any,
     ) -> torch.Tensor:
-        try:
-            src_lang = task.languages[0]  # type: ignore
-        except IndexError:
-            # Danish is the default fallback if no language is specified for the task.
+        if task:
+            try:
+                src_lang = task.languages[0]  # type: ignore
+            except IndexError:
+                # Danish is the default fallback if no language is specified for the task.
+                src_lang = "da"
+        else:
             src_lang = "da"
         sentences = [self.translate(sentence, src_lang) for sentence in sentences]
         return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore

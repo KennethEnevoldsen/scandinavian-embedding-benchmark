@@ -43,6 +43,7 @@ nav:
       - Benchmark: index.md
       - Domains: domains.md
       - Task Types: task_type.md
+      - Speed and Performance: speed_performance.md
       - Datasets: datasets.md
   - Package:
       - Installation: installation.md

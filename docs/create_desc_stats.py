@@ -41,7 +41,9 @@ def create_table() -> pd.DataFrame:
     tasks = registries.tasks.get_all().items()
     tasks = sorted(tasks, key=lambda x: x[0])
 
-    for name, getter in tqdm(tasks):  # noqa: B007
+    pbar = tqdm(tasks, desc="Creating Table")
+    for name, getter in pbar:
+        pbar.set_postfix_str(name)
         task = getter()
         stats = task.get_descriptive_stats()
 
@@ -51,7 +53,7 @@ def create_table() -> pd.DataFrame:
             task.description,  # Description
             task.main_score.capitalize(),  # Main Score
             ", ".join(task.languages),  # Languages
-            task.type,  # Type
+            task.task_type,  # Type
             ", ".join(task.domain),  # Domains
             stats["num_documents"],  # Number of Documents
             f'{stats["mean_document_length"]:.2f} (std: {stats["std_document_length"]:.2f})',  # Mean Length of Documents

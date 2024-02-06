@@ -27,6 +27,7 @@ def create_norwegian_courts() -> Task:
     task = MTEBTask(NorwegianCourtsBitextMining())
     task.name = "Norwegian courts"
     task.domain = ["legal", "non-fiction"]
+    task._text_columns = ["sentence1", "sentence2"]
     return task
 
 
@@ -38,6 +39,7 @@ def create_vg_clustering() -> Task:
     task.name = "VG Clustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
+    task._text_columns = ["sentences"]
     return task
 
 
@@ -49,6 +51,7 @@ def create_sts_clustering() -> Task:
     task.name = "SNL Clustering"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "wiki"]
+    task._text_columns = ["sentences"]
     return task
 
 

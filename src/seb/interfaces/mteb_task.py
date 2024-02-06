@@ -51,9 +51,21 @@ class MTEBTask(Task):
     def get_descriptive_stats(self) -> DescriptiveDatasetStats:
         ds: DatasetDict = self.load_data()
         texts = []
-        for split in ds:
-            for text_column in self._text_columns:
-                texts += ds[split][text_column]
+        splits = self.mteb_task.description["eval_splits"]
+        assert len(splits) >= 1, "No splits found in MTEB task."
+
+        for split in splits:
+            if self.task_type == "Retrieval":
+                _corpus = self.mteb_task.corpus[split]  # type: ignore
+                _queries = self.mteb_task.queries[split]  # type: ignore
+                texts = [f"{text['title']} {text['text']}" for text in _corpus.values()]
+                texts += list(_queries.values())
+            elif self.task_type == "Clustering":
+                for text_column in self._text_columns:
+                    texts += [text for tl in ds[split][text_column] for text in tl]
+            else:
+                for text_column in self._text_columns:
+                    texts += ds[split][text_column]
 
         document_lengths = np.array([len(text) for text in texts])
 

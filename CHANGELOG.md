@@ -2,6 +2,29 @@
 
 
 
+## v0.11.3 (2024-02-06)
+
+### Documentation
+
+* docs: Updated table w. dataset descriptions ([`f955379`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f955379ee8c97ecd7916e3e9a767e3bc7dd555b9))
+
+* docs: Added across column for coverage
+
+added swapped formalization and task columns ([`31d9d76`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/31d9d76e257919c5541ccf1652ff4f48fe2bbe81))
+
+### Fix
+
+* fix: Updated dataset description metadata and script ([`0e63eb4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0e63eb40a48bddafa0abff289c4972752dee1f26))
+
+* fix: Update calc. descriptive stats ([`bdbd552`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/bdbd552ee28a118ce1a6da76fea8b6484828aeb4))
+
+### Unknown
+
+* Merge pull request #130 from KennethEnevoldsen/docs-update
+
+Update task/dataset descriptions ([`144f025`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/144f025b7eb7d3b29af1e79662028fca758fd35d))
+
+
 ## v0.11.2 (2024-02-05)
 
 ### Fix

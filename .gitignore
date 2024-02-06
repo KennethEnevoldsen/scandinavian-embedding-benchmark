@@ -51,3 +51,4 @@ speed_test.py
 *.bin.gz
 *.bin.gz.part
 
+run_sonar.py

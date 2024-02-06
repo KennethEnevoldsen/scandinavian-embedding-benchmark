@@ -3,6 +3,7 @@ from functools import partial
 from pathlib import Path
 from typing import Any, Optional, Union
 
+import numpy as np
 import torch
 
 from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
@@ -19,11 +20,9 @@ def truncate_seq_length(  # noqa: ANN201
     return sequence_batch
 
 
-class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
+class SonarTextToEmbeddingModelPipeline(Encoder):
     def __init__(
         self,
-        encoder_name: str,
-        tokenizer_name: str,
         source_lang: str,
         device: Optional[torch.device] = None,
     ) -> None:
@@ -35,67 +34,36 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
             source_lang: Set source_lang to '[dan|swe|nno|nob|]_Latn' for Danish, Swedish,
                 Norwegian Nynorsk, and Norwegian Bokmål, respectively.
         """
-        from sonar.models.sonar_text import (  # type: ignore
-            load_sonar_text_encoder_model,
-            load_sonar_tokenizer,
-        )
+        from sonar.inference_pipelines.text import TextToEmbeddingModelPipeline  # type: ignore
 
-        super().__init__()
+        self.t2vec_model = TextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder")
 
+        self.to(device=device)
+        self.source_lang = source_lang
+
+    def to(self, device: Optional[torch.device]) -> "SonarTextToEmbeddingModelPipeline":
         if device is None:
             device = torch.device("cpu")
-
-        _encoder = load_sonar_text_encoder_model(
-            encoder_name,
-            device=device,
-            progress=False,
-        )
-        tokenizer_name = load_sonar_tokenizer(tokenizer_name, progress=False)
-
-        self.tokenizer = tokenizer_name
-        self.model = _encoder.to(device).eval()
+        self.model = self.model.to(device)
         self.device = device
-        self.source_lang = source_lang
+        return self
 
     @torch.inference_mode()
     def encode(  # type: ignore
         self,
-        input: Union[Path, Sequence[str]],  # noqa: A002
+        sentences: Union[Path, Sequence[str]],
         *,
-        task: Optional[Task] = None,
+        task: Optional[Task] = None,  # noqa: ARG002
         batch_size: int,
         **kwargs: Any,  # noqa: ARG002
-    ) -> torch.Tensor:
-        from fairseq2.data import Collater  # type: ignore
-        from fairseq2.data.data_pipeline import read_sequence  # type: ignore
-        from fairseq2.data.text import read_text  # type: ignore
-
-        from sonar.inference_pipelines.utils import extract_sequence_batch  # type: ignore # isort: skip
-
-        tokenizer_encoder = self.tokenizer.create_encoder(lang=self.source_lang)  # type: ignore
-
-        pipeline = (
-            (read_text(input) if isinstance(input, (str, Path)) else read_sequence(input))
-            .map(tokenizer_encoder)
-            .bucket(batch_size)
-            .map(Collater(self.tokenizer.vocab_info.pad_idx))  # type: ignore
-            .map(lambda x: extract_sequence_batch(x, self.device))
-            .map(lambda x: truncate_seq_length(x, max_seq_len=514))
-            .map(self.model)
-            .and_return()
-        )
-
-        results = list(iter(pipeline))
-
-        sentence_embeddings = torch.cat([x.sentence_embeddings for x in results], dim=0)
+    ) -> np.ndarray:
+        sentence_embeddings = self.t2vec_model.predict(sentences, source_lang=self.source_lang, batch_size=batch_size)
         return sentence_embeddings.numpy()
 
 
 def get_sonar_model(source_lang: str) -> SonarTextToEmbeddingModelPipeline:
     try:
         return SonarTextToEmbeddingModelPipeline(
-            encoder_name="text_sonar_basic_encoder",
-            tokenizer_name="text_sonar_basic_encoder",
             source_lang=source_lang,
         )
     except ImportError:

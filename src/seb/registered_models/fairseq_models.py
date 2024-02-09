@@ -21,6 +21,8 @@ def truncate_seq_length(  # noqa: ANN201
 
 
 class SonarTextToEmbeddingModelPipeline(Encoder):
+    
+
     def __init__(
         self,
         source_lang: str,
@@ -44,7 +46,7 @@ class SonarTextToEmbeddingModelPipeline(Encoder):
     def to(self, device: Optional[torch.device]) -> "SonarTextToEmbeddingModelPipeline":
         if device is None:
             device = torch.device("cpu")
-        self.model = self.model.to(device)
+        self.model = self.t2vec_model.to(device)
         self.device = device
         return self
 

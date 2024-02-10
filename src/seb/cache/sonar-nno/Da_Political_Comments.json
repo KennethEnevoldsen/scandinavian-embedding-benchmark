@@ -1,0 +1,1 @@
+{"task_name":"Da Political Comments","task_description":"A dataset of Danish political comments rated for sentiment","task_version":"1.1.1","time_of_run":"2024-02-09T13:18:30.738117","scores":{"da":{"accuracy":0.3239733629300777,"f1":0.2838579691660169,"accuracy_stderr":0.03458725774439786,"f1_stderr":0.021244531883789598,"main_score":0.3239733629300777}},"main_score":"accuracy"}

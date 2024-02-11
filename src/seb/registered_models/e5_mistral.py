@@ -1,4 +1,5 @@
 from collections.abc import Iterable, Sequence
+from datetime import date
 from itertools import islice
 from typing import Any, Optional, TypeVar
 
@@ -128,12 +129,12 @@ class E5Mistral(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Optional[Task] = None,  # noqa
+        task: Optional[Task] = None,
         batch_size: int = 8,
         **kwargs: Any,  # noqa
     ) -> ArrayLike:
         batched_embeddings = []
-        if task is not None:
+        if task is not None:  # noqa
             instruction = task_to_instruction(task)
         else:
             instruction = ""
@@ -164,6 +165,8 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=4096,
+        model_type="Mistral",
+        release_date=date(2023, 12, 20),
     )
     return SebModel(
         encoder=LazyLoadEncoder(E5Mistral),

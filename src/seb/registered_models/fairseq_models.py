@@ -1,4 +1,5 @@
 from collections.abc import Sequence
+from datetime import date
 from functools import partial
 from pathlib import Path
 from typing import Any, Optional, Union
@@ -62,7 +63,7 @@ class SonarTextToEmbeddingModelPipeline(torch.nn.Module, Encoder):
         self,
         input: Union[Path, Sequence[str]],  # noqa: A002
         *,
-        task: Optional[Task] = None,
+        task: Optional[Task] = None,  # noqa: ARG002
         batch_size: int,
         **kwargs: Any,  # noqa: ARG002
     ) -> torch.Tensor:
@@ -112,6 +113,8 @@ def create_sonar_da() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
+        model_type="SONAR",
+        release_date=date(2023, 5, 17),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="dan_Latn")),
@@ -128,6 +131,8 @@ def create_sonar_sv() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=1024,
+        model_type="SONAR",
+        release_date=date(2023, 5, 17),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="swe_Latn")),
@@ -144,6 +149,8 @@ def create_sonar_nb() -> SebModel:
         languages=["nb"],
         open_source=True,
         embedding_size=1024,
+        model_type="SONAR",
+        release_date=date(2023, 5, 17),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="nob_Latn")),
@@ -160,6 +167,7 @@ def create_sonar_nn() -> SebModel:
         languages=["nn"],
         open_source=True,
         embedding_size=1024,
+        release_date=date(2023, 5, 17),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sonar_model, source_lang="nno_Latn")),

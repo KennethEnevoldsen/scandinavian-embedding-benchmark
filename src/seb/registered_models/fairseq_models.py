@@ -21,8 +21,6 @@ def truncate_seq_length(  # noqa: ANN201
 
 
 class SonarTextToEmbeddingModelPipeline(Encoder):
-    
-
     def __init__(
         self,
         source_lang: str,

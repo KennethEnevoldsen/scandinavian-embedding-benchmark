@@ -2,6 +2,27 @@
 
 
 
+## v0.11.4 (2024-02-12)
+
+### Fix
+
+* fix: Added model type and releae date to model meta
+
+This is to allow the tracking of improvement on SEB over time ([`49c9f1a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49c9f1aa9badaa702ae56361ef89cf50d22b0b38))
+
+### Unknown
+
+* Merge pull request #140 from KennethEnevoldsen/adding-architecture
+
+fix: Added model type and releae date to model meta ([`245e881`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/245e88118d3972fe123c6fda361ffdf1f025160d))
+
+* Merge pull request #131 from KennethEnevoldsen/mistral-instructions
+
+Added instructions for all tasks in Mistral E5 ([`006c253`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/006c25308b3018e82be142f5bb884091529ccc21))
+
+* Added instructions for all tasks in Mistral E5 ([`07c4c95`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/07c4c9572eff110605629dd6bbfab95df9c3786e))
+
+
 ## v0.11.3 (2024-02-06)
 
 ### Documentation

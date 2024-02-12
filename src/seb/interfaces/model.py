@@ -100,7 +100,6 @@ class LazyLoadEncoder(Encoder):
         sentences: list[str],
         *,
         task: Optional["Task"] = None,
-        batch_size: int = 32,
         **kwargs: Any,
     ) -> ArrayLike:
         """
@@ -115,17 +114,17 @@ class LazyLoadEncoder(Encoder):
         Returns:
             Embeddings for the given documents
         """
-        return self.model.encode(sentences, batch_size=batch_size, task=task, **kwargs)
+        return self.model.encode(sentences, **kwargs)
 
-    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa
+    def encode_queries(self, queries: list[str], **kwargs: Any): 
         try:
-            return self.model.encode_queries(queries, batch_size=batch_size, **kwargs)  # type: ignore
+            return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
-            return self.encode(queries, task=None, batch_size=batch_size, **kwargs)
+            return self.encode(queries, task=None, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs):  # noqa
         try:
-            return self.model.encode_corpus(corpus, batch_size=batch_size, **kwargs)  # type: ignore
+            return self.model.encode_corpus(corpus, **kwargs)  # type: ignore
         except AttributeError:
             sep = " "
             if isinstance(corpus, dict):
@@ -135,7 +134,7 @@ class LazyLoadEncoder(Encoder):
                 ]
             else:
                 sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
-            return self.encode(sentences, task=None, batch_size=batch_size, **kwargs)
+            return self.encode(sentences, task=None, **kwargs)
 
 
 @dataclass

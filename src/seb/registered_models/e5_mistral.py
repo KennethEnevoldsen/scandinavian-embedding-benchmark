@@ -1,6 +1,6 @@
 from collections.abc import Iterable, Sequence
 from itertools import islice
-from typing import Any, Optional, TypeVar
+from typing import Any, Optional, TypeVar, Literal
 
 import torch
 import torch.nn.functional as F
@@ -12,8 +12,13 @@ from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
-T = TypeVar("T")
+import logging
 
+logger = logging.getLogger(__name__)
+
+
+T = TypeVar("T")
+EncodeTypes = Literal["query", "passage"]
 
 def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     # batched('ABCDEFG', 3) --> ABC DEF G
@@ -83,16 +88,21 @@ def task_to_instruction(task: Task) -> str:
 
 class E5Mistral(Encoder):
     max_length = 4096
+    max_batch_size = 32
 
     def __init__(self):
+        logger.info("Started loading e5 Mistral")
         self.load_model()
+        logger.info("Finished loading e5 Mistral")
+
 
     def load_model(self):
         self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
 
-    def preprocess(self, sentences: Sequence[str], instruction: str) -> BatchEncoding:
-        sentences = [f"Instruction: {instruction} Query: {sentence}" for sentence in sentences]
+    def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
+        if encode_type == "query":
+            sentences = [f"Instruction: {instruction}\nQuery: {sentence}" for sentence in sentences]
         batch_dict = self.tokenizer(
             sentences,
             max_length=self.max_length - 1,
@@ -128,31 +138,46 @@ class E5Mistral(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Optional[Task] = None,  # noqa
-        batch_size: int = 8,
+        task: Optional[Task] = None,
+        batch_size: int = 32,
+        encode_type: EncodeTypes ="query",
         **kwargs: Any,  # noqa
     ) -> ArrayLike:
+
+        if batch_size > self.max_batch_size:
+            batch_size = self.max_batch_size
         batched_embeddings = []
         if task is not None:
             instruction = task_to_instruction(task)
         else:
             instruction = ""
         for batch in batched(sentences, batch_size):
-            batch_dict = self.preprocess(batch, instruction=instruction)
+            batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
 
-            outputs = self.model(**batch_dict)
-            embeddings = self.last_token_pool(
-                outputs.last_hidden_state,
-                batch_dict["attention_mask"],  # type: ignore
-            )
-
-            # normalize embeddings
-            embeddings = F.normalize(embeddings, p=2, dim=1)
-            scores = (embeddings[:2] @ embeddings[2:].T) * 100
-            batched_embeddings.append(scores)
+            #with torch.no_grad():
+            with torch.inference_mode():
+                outputs = self.model(**batch_dict)
+                embeddings = self.last_token_pool(
+                    outputs.last_hidden_state,
+                    batch_dict["attention_mask"],  # type: ignore
+                )
+            batched_embeddings.append(embeddings)
 
         return torch.cat(batched_embeddings)
 
+
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any):
+        if isinstance(corpus, dict):
+            sentences = [
+                (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
+                for i in range(len(corpus["text"]))  # type: ignore
+            ]
+        else:
+            sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
+        return self.encode(sentences, encode_type="passage", **kwargs)
+
+    def encode_queries(self, queries: list[str],  **kwargs: Any):
+        return self.encode(queries, encode_type="query", **kwargs)
 
 @models.register("intfloat/e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:

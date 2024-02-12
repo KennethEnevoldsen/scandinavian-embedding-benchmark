@@ -51,3 +51,7 @@ speed_test.py
 *.bin.gz
 *.bin.gz.part
 
+
+# ucloud
+run_sonar.py
+setup_ucloud.sh

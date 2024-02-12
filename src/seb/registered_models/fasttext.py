@@ -1,4 +1,5 @@
 from collections.abc import Sequence
+from datetime import date
 from functools import partial
 from typing import Any
 
@@ -49,6 +50,8 @@ def create_cc_da_300() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=300,
+        model_type="fastText",
+        release_date=date(2017, 1, 1),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.da.300.bin", lang="da")),
@@ -66,6 +69,8 @@ def create_cc_sv_300() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=300,
+        model_type="fastText",
+        release_date=date(2017, 1, 1),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.sv.300.bin", lang="sv")),
@@ -83,6 +88,8 @@ def create_cc_nb_300() -> SebModel:
         languages=["nb"],
         open_source=True,
         embedding_size=300,
+        model_type="fastText",
+        release_date=date(2017, 1, 1),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.no.300.bin", lang="no")),
@@ -100,6 +107,8 @@ def create_cc_nn_300() -> SebModel:
         languages=["nn"],
         open_source=True,
         embedding_size=300,
+        model_type="fastText",
+        release_date=date(2017, 1, 1),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(FastTextModel, model_name="cc.nn.300.bin", lang="nn")),

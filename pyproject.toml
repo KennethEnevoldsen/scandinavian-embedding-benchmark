@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seb"
-version = "0.11.3"
+version = "0.12.0"
 authors = [
   { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
 ]
@@ -51,7 +51,7 @@ openai = ["openai>=0.27.4"]
 cohere = ["cohere>=4.34"]
 sonar = [
   "fairseq2>=0.1.0",  # requires sudo apt-get update -y; sudo apt install libsndfile1
-  "sonar-space>=0.1.0",
+  "sonar-space>=0.2.1",
 ] # fairseq2 only works for linux at the moment
 
 fasttext = ["pybind11>=2.11.0", "fasttext-wheel>=0.9.0"]

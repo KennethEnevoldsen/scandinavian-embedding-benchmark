@@ -44,7 +44,6 @@ test-encode-task.json
 docs/model_results/*
 model_results/*
 docs/model_results.json
-speed_test.py
 
 # fasttext model
 *.bin
@@ -52,6 +51,7 @@ speed_test.py
 *.bin.gz.part
 
 
-# ucloud
+# Ucloud
+speed_test.py
 run_sonar.py
 setup_ucloud.sh

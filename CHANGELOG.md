@@ -2,13 +2,36 @@
 
 
 
+## v0.12.0 (2024-02-12)
+
+### Unknown
+
+* Merge pull request #137 from KennethEnevoldsen/update-sonar-models
+
+Update and rerun sonar models ([`28ff5e5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/28ff5e5bf8f68d6490b7dbc98cd1146f20eb974d))
+
+
 ## v0.11.4 (2024-02-12)
 
+### Feature
+
+* feat: Updated sonar models ([`f5f7374`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f5f7374ce31680aa6b8b3435035d9bd9e1c391c9))
+
 ### Fix
+
+* fix: Applied linter ([`702f804`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/702f8049d27277ef86f5b91c87cc51d4a718887a))
 
 * fix: Added model type and releae date to model meta
 
 This is to allow the tracking of improvement on SEB over time ([`49c9f1a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49c9f1aa9badaa702ae56361ef89cf50d22b0b38))
+
+* fix: Added results of the sonar models ([`d0988b6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d0988b6942626fcdb86e3d982aa9980601147a3d))
+
+* fix: ensure that sonar model are proberly moved to device ([`746934a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/746934aafc7c79324a0ba89bcda3627961bab3f4))
+
+* fix: updated sonar requirement to handle &gt;512 token sequences ([`792eb80`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/792eb802a2836c6ccb7d7f4d48307ad712ed7a53))
+
+* fix: removed cache of sonar models, due to new update ([`c140b9f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c140b9f234262311574d0bdded699773b7d34cb3))
 
 ### Unknown
 

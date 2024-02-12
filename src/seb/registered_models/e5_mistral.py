@@ -1,5 +1,6 @@
 from collections.abc import Iterable, Sequence
 from datetime import date
+from functools import partial
 from itertools import islice
 from typing import Any, Optional, TypeVar
 
@@ -85,15 +86,14 @@ def task_to_instruction(task: Task) -> str:
 class E5Mistral(Encoder):
     max_length = 4096
 
-    def __init__(self):
-        self.load_model()
-
-    def load_model(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
-        self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
+    def __init__(self, model_name: str):
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModel.from_pretrained(model_name)
 
     def preprocess(self, sentences: Sequence[str], instruction: str) -> BatchEncoding:
-        sentences = [f"Instruction: {instruction} Query: {sentence}" for sentence in sentences]
+        sentences = [
+            f"Instruction: {instruction} Query: {sentence}" for sentence in sentences
+        ]
         batch_dict = self.tokenizer(
             sentences,
             max_length=self.max_length - 1,
@@ -106,7 +106,9 @@ class E5Mistral(Encoder):
             [*input_ids, self.tokenizer.eos_token_id]
             for input_ids in batch_dict["input_ids"]  # type: ignore
         ]
-        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
+        batch_dict = self.tokenizer.pad(
+            batch_dict, padding=True, return_attention_mask=True, return_tensors="pt"
+        )
 
         return batch_dict
 
@@ -156,7 +158,7 @@ class E5Mistral(Encoder):
 
 
 @models.register("intfloat/e5-mistral-7b-instruct")
-def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
+def create_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
@@ -169,6 +171,25 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         release_date=date(2023, 12, 20),
     )
     return SebModel(
-        encoder=LazyLoadEncoder(E5Mistral),
+        encoder=LazyLoadEncoder(partial(E5Mistral, model_name=hf_name)),
+        meta=meta,
+    )
+
+
+@models.register("intfloat/multilingual-e5-large-instruct")
+def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
+    hf_name = "intfloat/multilingual-e5-large-instruct"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=4096,
+        model_type="Mistral",
+        release_date=date(2024, 2, 8),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(E5Mistral, model_name=hf_name)),
         meta=meta,
     )

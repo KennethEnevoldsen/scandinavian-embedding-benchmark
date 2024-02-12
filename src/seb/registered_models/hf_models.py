@@ -2,13 +2,14 @@
 All the models registered in the benchmark, along with their metadata.
 """
 import logging
+from datetime import date
 from functools import partial
 from typing import Any, Optional
 
 from numpy.typing import ArrayLike
 from sentence_transformers import SentenceTransformer
 
-from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
+from seb.interfaces.model import LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
@@ -56,6 +57,8 @@ def create_jina_base() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=768,
+        model_type="T5",
+        release_date=date(2023, 7, 7),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -74,6 +77,8 @@ def create_all_mini_lm_l6_v2() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
+        model_type="BERT",
+        release_date=date(2021, 6, 30),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -91,6 +96,8 @@ def create_multilingual_mini_lm_l12_v2() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=384,
+        model_type="BERT",
+        release_date=date(2021, 6, 2),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -108,6 +115,8 @@ def create_multilingual_mpnet_base_v2() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2021, 6, 2),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -125,6 +134,8 @@ def create_sentence_swedish_cased() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2021, 8, 8),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -142,6 +153,8 @@ def create_electra_small_nordic() -> SebModel:
         languages=["da", "nb", "sv", "nn"],
         open_source=True,
         embedding_size=256,
+        model_type="ELECTRA",
+        release_date=date(2022, 1, 31),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -159,6 +172,8 @@ def create_dansk_bert() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=768,
+        model_type="XLM-R",
+        release_date=date(2022, 11, 23),
     )
 
     return SebModel(
@@ -178,6 +193,7 @@ def create_dfm_encoder_large_v1() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
+        release_date=date(2023, 1, 4),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -195,6 +211,8 @@ def create_nb_bert_large() -> SebModel:
         languages=["nb", "nn"],
         open_source=True,
         embedding_size=1024,
+        model_type="BERT",
+        release_date=date(2021, 4, 29),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -212,6 +230,8 @@ def create_nb_bert_base() -> SebModel:
         languages=["nb", "nn"],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2021, 1, 13),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -265,6 +285,8 @@ def create_bert_base_swedish_cased() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2022, 6, 7),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name, max_seq_length=512)),  # type: ignore
@@ -282,6 +304,8 @@ def create_electra_small_swedish_cased_discriminator() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=256,
+        model_type="ELECTRA",
+        release_date=date(2022, 6, 7),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -299,6 +323,7 @@ def create_xlm_roberta_base() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
         embedding_size=768,
+        release_date=date(2019, 6, 29),
     )
 
     # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
@@ -317,6 +342,7 @@ def create_xlm_roberta_large() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
         embedding_size=1024,
+        model_type="XLM-R",
     )
 
     # Beware that this uses mean pooling currently, and we might want to change it to CLS in the future
@@ -335,6 +361,8 @@ def create_labse() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2020, 10, 12),
     )
 
     return SebModel(
@@ -354,6 +382,8 @@ def create_dfm_sentence_encoder_large() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
+        model_type="BERT",
+        release_date=date(2023, 11, 15),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -371,6 +401,7 @@ def create_dfm_sentence_encoder_large_exp() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
+        release_date=date(2023, 11, 15),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -405,6 +436,8 @@ def create_dfm_sentence_encoder_medium() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2023, 11, 15),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore
@@ -422,6 +455,8 @@ def create_dfm_sentence_encoder_large_exp2() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
+        model_type="BERT",
+        release_date=date(2023, 11, 15),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(get_sentence_transformer, model_name=hf_name)),  # type: ignore

@@ -95,7 +95,7 @@ def task_to_instruction(task: Task) -> str:
 
 class E5Mistral(Encoder):
     max_length = 4096
-    max_batch_size = 32
+    max_batch_size = 16
 
     def __init__(self):
         logger.info("Started loading e5 Mistral")

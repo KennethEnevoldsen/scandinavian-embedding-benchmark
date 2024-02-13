@@ -183,7 +183,7 @@ class E5Mistral(Encoder):
                 )
             batched_embeddings.append(embeddings)
 
-        return torch.cat(batched_embeddings)
+        return torch.cat(batched_embeddings).to("cpu")
 
     def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any):
         if isinstance(corpus, dict):

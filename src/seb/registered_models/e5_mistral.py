@@ -1,7 +1,8 @@
+import logging
 from collections.abc import Iterable, Sequence
 from datetime import date
 from itertools import islice
-from typing import Any, Optional, TypeVar, Literal
+from typing import Any, Literal, Optional, TypeVar
 
 import torch
 import torch.nn.functional as F
@@ -13,13 +14,12 @@ from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
-import logging
-
 logger = logging.getLogger(__name__)
 
 
 T = TypeVar("T")
 EncodeTypes = Literal["query", "passage"]
+
 
 def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     # batched('ABCDEFG', 3) --> ABC DEF G
@@ -28,6 +28,12 @@ def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     it = iter(iterable)
     while batch := tuple(islice(it, n)):
         yield batch
+
+
+def batch_to_device(
+    batch_data: dict[str, torch.Tensor], device: str = "cuda"
+) -> dict[str, torch.Tensor]:
+    return {key: data.to(device) for key, data in batch_data.items()}
 
 
 def task_to_instruction(task: Task) -> str:
@@ -93,17 +99,27 @@ class E5Mistral(Encoder):
 
     def __init__(self):
         logger.info("Started loading e5 Mistral")
-        self.load_model()
-        logger.info("Finished loading e5 Mistral")
-
-
-    def load_model(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            "intfloat/e5-mistral-7b-instruct"
+        )
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
+        logger.info("Finished loading e5 Mistral")
+        if torch.cuda.is_available():
+            logging.info("GPU available.")
+            self.device = "cuda"
+        else:
+            logging.info("GPU not available, using CPU.")
+            self.device = "cpu"
+        self.model.to(self.device)
 
-    def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
+    def preprocess(
+        self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes
+    ) -> BatchEncoding:
         if encode_type == "query":
-            sentences = [f"Instruction: {instruction}\nQuery: {sentence}" for sentence in sentences]
+            sentences = [
+                f"Instruction: {instruction}\nQuery: {sentence}"
+                for sentence in sentences
+            ]
         batch_dict = self.tokenizer(
             sentences,
             max_length=self.max_length - 1,
@@ -116,7 +132,9 @@ class E5Mistral(Encoder):
             [*input_ids, self.tokenizer.eos_token_id]
             for input_ids in batch_dict["input_ids"]  # type: ignore
         ]
-        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
+        batch_dict = self.tokenizer.pad(
+            batch_dict, padding=True, return_attention_mask=True, return_tensors="pt"
+        )
 
         return batch_dict
 
@@ -141,10 +159,9 @@ class E5Mistral(Encoder):
         *,
         task: Optional[Task] = None,
         batch_size: int = 32,
-        encode_type: EncodeTypes ="query",
+        encode_type: EncodeTypes = "query",
         **kwargs: Any,  # noqa
     ) -> ArrayLike:
-
         if batch_size > self.max_batch_size:
             batch_size = self.max_batch_size
         batched_embeddings = []
@@ -153,9 +170,11 @@ class E5Mistral(Encoder):
         else:
             instruction = ""
         for batch in batched(sentences, batch_size):
-            batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
-
-            #with torch.no_grad():
+            batch_dict = self.preprocess(
+                batch, instruction=instruction, encode_type=encode_type
+            )
+            batch_dict = batch_to_device(batch_dict, self.device)
+            # with torch.no_grad():
             with torch.inference_mode():
                 outputs = self.model(**batch_dict)
                 embeddings = self.last_token_pool(
@@ -166,7 +185,6 @@ class E5Mistral(Encoder):
 
         return torch.cat(batched_embeddings)
 
-
     def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any):
         if isinstance(corpus, dict):
             sentences = [
@@ -174,11 +192,17 @@ class E5Mistral(Encoder):
                 for i in range(len(corpus["text"]))  # type: ignore
             ]
         else:
-            sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
+            sentences = [
+                (doc["title"] + self.sep + doc["text"]).strip()
+                if "title" in doc
+                else doc["text"].strip()
+                for doc in corpus
+            ]
         return self.encode(sentences, encode_type="passage", **kwargs)
 
-    def encode_queries(self, queries: list[str],  **kwargs: Any):
+    def encode_queries(self, queries: list[str], **kwargs: Any):
         return self.encode(queries, encode_type="query", **kwargs)
+
 
 @models.register("intfloat/e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:

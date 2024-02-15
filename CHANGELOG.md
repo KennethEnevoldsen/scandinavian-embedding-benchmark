@@ -2,6 +2,23 @@
 
 
 
+## v0.12.1 (2024-02-15)
+
+### Documentation
+
+* docs: Added dataset disclaimer (#145) ([`6b3e71b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6b3e71b29ab12b46b1e31eac654a493123346cc9))
+
+### Fix
+
+* fix: Added get_documents to task interface ([`c4fb354`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c4fb3544710bc47781ccc6cd116eb54273b10e5c))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark ([`24644a7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/24644a7f1febd022ce88c6cd0526b5162271f405))
+
+* Fix: Added performance metrics for translate and embed ([`91a2b8a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/91a2b8addd67b66f9fd5d281c367e001842ee6f6))
+
+
 ## v0.12.0 (2024-02-12)
 
 ### Unknown

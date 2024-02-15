@@ -30,9 +30,7 @@ def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
         yield batch
 
 
-def batch_to_device(
-    batch_data: dict[str, torch.Tensor], device: str = "cuda"
-) -> dict[str, torch.Tensor]:
+def batch_to_device(batch_data: dict[str, torch.Tensor], device: str = "cuda") -> dict[str, torch.Tensor]:
     return {key: data.to(device) for key, data in batch_data.items()}
 
 
@@ -99,9 +97,7 @@ class E5Mistral(Encoder):
 
     def __init__(self):
         logger.info("Started loading e5 Mistral")
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            "intfloat/e5-mistral-7b-instruct"
-        )
+        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
         logger.info("Finished loading e5 Mistral")
         if torch.cuda.is_available():
@@ -112,14 +108,9 @@ class E5Mistral(Encoder):
             self.device = "cpu"
         self.model.to(self.device)
 
-    def preprocess(
-        self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes
-    ) -> BatchEncoding:
+    def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
         if encode_type == "query":
-            sentences = [
-                f"Instruction: {instruction}\nQuery: {sentence}"
-                for sentence in sentences
-            ]
+            sentences = [f"Instruction: {instruction}\nQuery: {sentence}" for sentence in sentences]
         batch_dict = self.tokenizer(
             sentences,
             max_length=self.max_length - 1,
@@ -132,9 +123,7 @@ class E5Mistral(Encoder):
             [*input_ids, self.tokenizer.eos_token_id]
             for input_ids in batch_dict["input_ids"]  # type: ignore
         ]
-        batch_dict = self.tokenizer.pad(
-            batch_dict, padding=True, return_attention_mask=True, return_tensors="pt"
-        )
+        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
 
         return batch_dict
 
@@ -170,10 +159,8 @@ class E5Mistral(Encoder):
         else:
             instruction = ""
         for batch in batched(sentences, batch_size):
-            batch_dict = self.preprocess(
-                batch, instruction=instruction, encode_type=encode_type
-            )
-            batch_dict = batch_to_device(batch_dict, self.device)
+            batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
+            batch_dict = batch_to_device(batch_dict, self.device)  # type: ignore
             # with torch.no_grad():
             with torch.inference_mode():
                 outputs = self.model(**batch_dict)
@@ -185,22 +172,18 @@ class E5Mistral(Encoder):
 
         return torch.cat(batched_embeddings).to("cpu")
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any):
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
+        sep = " "
         if isinstance(corpus, dict):
             sentences = [
-                (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
+                (corpus["title"][i] + sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
                 for i in range(len(corpus["text"]))  # type: ignore
             ]
         else:
-            sentences = [
-                (doc["title"] + self.sep + doc["text"]).strip()
-                if "title" in doc
-                else doc["text"].strip()
-                for doc in corpus
-            ]
+            sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         return self.encode(sentences, encode_type="passage", **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any):
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
         return self.encode(queries, encode_type="query", **kwargs)
 
 

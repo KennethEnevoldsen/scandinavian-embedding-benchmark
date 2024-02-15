@@ -1,6 +1,6 @@
 from typing import Literal, Protocol, TypedDict, runtime_checkable
 
-import nummy as np
+import numpy as np
 
 from seb.interfaces.language import Language
 

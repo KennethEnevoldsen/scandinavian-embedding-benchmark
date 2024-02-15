@@ -119,7 +119,7 @@ class LazyLoadEncoder(Encoder):
         """
         return self.model.encode(sentences, **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any): 
+    def encode_queries(self, queries: list[str], **kwargs: Any):
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:

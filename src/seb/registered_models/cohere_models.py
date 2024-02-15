@@ -4,6 +4,7 @@ The openai embedding api's evaluated on the SEB benchmark.
 
 
 import logging
+from datetime import date
 from functools import partial
 from typing import Any, Optional
 
@@ -76,6 +77,8 @@ def create_embed_multilingual_v3() -> SebModel:
         languages=[],
         open_source=False,
         embedding_size=1024,
+        model_type="API",
+        release_date=date(2023, 11, 2),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(CohereTextEmbeddingModel, model_name=model_name)),

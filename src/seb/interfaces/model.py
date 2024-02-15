@@ -1,5 +1,6 @@
 import json
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
@@ -53,6 +54,8 @@ class ModelMeta(BaseModel):
     languages: list[Language] = []
     open_source: bool = False
     embedding_size: Optional[int] = None
+    model_type: Optional[str] = None
+    release_date: Optional[date] = None
 
     def get_path_name(self) -> str:
         if self.huggingface_name is None:
@@ -114,15 +117,15 @@ class LazyLoadEncoder(Encoder):
         Returns:
             Embeddings for the given documents
         """
-        return self.model.encode(sentences, **kwargs)
+        return self.model.encode(sentences, task=task, **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any): 
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
             return self.encode(queries, task=None, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
         try:
             return self.model.encode_corpus(corpus, **kwargs)  # type: ignore
         except AttributeError:

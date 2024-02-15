@@ -1,8 +1,9 @@
 from datetime import datetime
 from typing import Any
 
+import numpy as np
 import seb
-from seb.registries import tasks
+from seb.registries import models, tasks
 
 
 @tasks.register("test-encode-task")
@@ -35,19 +36,13 @@ def create_test_encode_task() -> seb.Task:
     return DummyTask()
 
 
-import numpy as np
-
-import seb
-from seb.registries import models
-
-
 @models.register("test_model")
 def create_test_model() -> seb.Encoder:
     class TestEncoder:
         def encode(
             self,
             sentences: list[str],
-            batch_size: int,  # noqa: ARG002
+            batch_size: int = 32,  # noqa: ARG002
             **kwargs: dict,  # noqa: ARG002
         ) -> np.ndarray:
             # create random array of 100, pr text

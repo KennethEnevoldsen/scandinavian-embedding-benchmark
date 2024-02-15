@@ -1,6 +1,8 @@
+import logging
 from collections.abc import Iterable, Sequence
+from datetime import date
 from itertools import islice
-from typing import Any, Optional, TypeVar, Literal
+from typing import Any, Literal, Optional, TypeVar
 
 import torch
 import torch.nn.functional as F
@@ -22,6 +24,7 @@ logger = logging.getLogger(__name__)
 T = TypeVar("T")
 EncodeTypes = Literal["query", "passage"]
 
+
 def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     # batched('ABCDEFG', 3) --> ABC DEF G
     if n < 1:
@@ -29,6 +32,10 @@ def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     it = iter(iterable)
     while batch := tuple(islice(it, n)):
         yield batch
+
+
+def batch_to_device(batch_data: dict[str, torch.Tensor], device: str = "cuda") -> dict[str, torch.Tensor]:
+    return {key: data.to(device) for key, data in batch_data.items()}
 
 
 def task_to_instruction(task: Task) -> str:
@@ -94,11 +101,6 @@ class E5Mistral(Encoder):
 
     def __init__(self):
         logger.info("Started loading e5 Mistral")
-        self.load_model()
-        logger.info("Finished loading e5 Mistral")
-
-
-    def load_model(self):
         self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
         self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct", torch_dtype=torch.float16)
 
@@ -144,14 +146,13 @@ class E5Mistral(Encoder):
         *,
         task: Optional[Task] = None,
         batch_size: int = 32,
-        encode_type: EncodeTypes ="query",
+        encode_type: EncodeTypes = "query",
         **kwargs: Any,  # noqa
     ) -> ArrayLike:
-
         if batch_size > self.max_batch_size:
             batch_size = self.max_batch_size
         batched_embeddings = []
-        if task is not None:
+        if task is not None:  # noqa
             instruction = task_to_instruction(task)
         else:
             instruction = ""
@@ -166,21 +167,22 @@ class E5Mistral(Encoder):
                 )
             batched_embeddings.append(embeddings.detach().cpu())
 
-        return torch.cat(batched_embeddings)
+        return torch.cat(batched_embeddings).to("cpu")
 
-
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any):
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
+        sep = " "
         if isinstance(corpus, dict):
             sentences = [
-                (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
+                (corpus["title"][i] + sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
                 for i in range(len(corpus["text"]))  # type: ignore
             ]
         else:
-            sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
+            sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         return self.encode(sentences, encode_type="passage", **kwargs)
 
-    def encode_queries(self, queries: list[str],  **kwargs: Any):
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
         return self.encode(queries, encode_type="query", **kwargs)
+
 
 @models.register("intfloat/e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
@@ -192,6 +194,8 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=4096,
+        model_type="Mistral",
+        release_date=date(2023, 12, 20),
     )
     return SebModel(
         encoder=LazyLoadEncoder(E5Mistral),

@@ -30,7 +30,7 @@ class TranslateE5Model(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Optional[Task] = None,  # noqa: ARG002
+        task: Optional[Task] = None,
         batch_size: int = 32,
         **kwargs: Any,
     ) -> torch.Tensor:
@@ -55,6 +55,8 @@ def create_translate_e5_small() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
+        model_type="Translate-Embed",
+        release_date=None,
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
@@ -71,6 +73,8 @@ def create_translate_e5_base() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
+        model_type="Translate-Embed",
+        release_date=None,
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
@@ -87,6 +91,8 @@ def create_translate_e5_large() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
+        model_type="Translate-Embed",
+        release_date=None,
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore

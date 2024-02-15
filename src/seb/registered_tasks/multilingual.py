@@ -71,7 +71,7 @@ def create_scala() -> Task:
 
             return DatasetDict(ds)
 
-        def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+        def get_documents(self) -> list[str]:
             ds = self.load_data()
             texts = []
             splits = self.get_splits()
@@ -80,7 +80,10 @@ def create_scala() -> Task:
             for split in splits:
                 for text_column in self._text_columns:
                     texts += ds[split][text_column]
+            return texts
 
+        def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+            texts = self.get_documents()
             document_lengths = np.array([len(text) for text in texts])
 
             mean = np.mean(document_lengths)

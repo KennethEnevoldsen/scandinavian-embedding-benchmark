@@ -50,8 +50,10 @@ docs/model_results.json
 *.bin.gz
 *.bin.gz.part
 
-
 # Ucloud
 speed_test.py
 run_sonar.py
 setup_ucloud.sh
+
+# paper
+src/scripts/paper/*

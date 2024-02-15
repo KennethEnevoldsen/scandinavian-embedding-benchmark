@@ -55,3 +55,4 @@ speed_test.py
 # ucloud
 run_sonar.py
 setup_ucloud.sh
+run_e5.py

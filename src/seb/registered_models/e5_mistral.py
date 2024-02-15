@@ -12,6 +12,8 @@ from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
 
+from tqdm import tqdm
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -88,7 +90,7 @@ def task_to_instruction(task: Task) -> str:
 
 class E5Mistral(Encoder):
     max_length = 4096
-    max_batch_size = 32
+    max_batch_size = 4
 
     def __init__(self):
         logger.info("Started loading e5 Mistral")
@@ -98,7 +100,7 @@ class E5Mistral(Encoder):
 
     def load_model(self):
         self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
-        self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct")
+        self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct", torch_dtype=torch.float16)
 
     def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
         if encode_type == "query":
@@ -117,7 +119,9 @@ class E5Mistral(Encoder):
         ]
         batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
 
-        return batch_dict
+
+
+        return batch_dict.to(self.model.device)
 
     # but it does not work slightly better than this:
     # return sentences # noqa
@@ -151,17 +155,16 @@ class E5Mistral(Encoder):
             instruction = task_to_instruction(task)
         else:
             instruction = ""
-        for batch in batched(sentences, batch_size):
-            batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
+        for batch in tqdm(batched(sentences, batch_size)):
 
-            #with torch.no_grad():
             with torch.inference_mode():
+                batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
                 outputs = self.model(**batch_dict)
                 embeddings = self.last_token_pool(
                     outputs.last_hidden_state,
                     batch_dict["attention_mask"],  # type: ignore
                 )
-            batched_embeddings.append(embeddings)
+            batched_embeddings.append(embeddings.detach().cpu())
 
         return torch.cat(batched_embeddings)
 

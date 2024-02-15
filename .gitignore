@@ -58,7 +58,4 @@ run_sonar.py
 setup_ucloud.sh
 
 # paper
-src/scripts/paper/figure.r
-src/scripts/paper/speed_filtered.csv
-src/scripts/paper/speed.csv
-src/scripts/paper/tmp.csv
+src/scripts/paper/*

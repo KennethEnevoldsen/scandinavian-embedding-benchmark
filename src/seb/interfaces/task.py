@@ -1,6 +1,6 @@
 from typing import Literal, Protocol, TypedDict, runtime_checkable
 
-from attr import dataclass
+import nummy as np
 
 from seb.interfaces.language import Language
 
@@ -70,8 +70,26 @@ class Task(Protocol):
         """
         ...
 
-    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+    def get_documents(self) -> list[str]:
+        """
+        Get the documents for the task.
+
+        Returns:
+            A list of strings.
+        """
         ...
+
+    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
+        texts = self.get_documents()
+        document_lengths = np.array([len(text) for text in texts])
+
+        mean = float(np.mean(document_lengths))
+        std = float(np.std(document_lengths))
+        return DescriptiveDatasetStats(
+            mean_document_length=mean,
+            std_document_length=std,
+            num_documents=len(document_lengths),
+        )
 
     def name_to_path(self) -> str:
         """

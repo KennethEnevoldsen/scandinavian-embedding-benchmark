@@ -1,0 +1,1 @@
+{"task_name":"SNL Clustering","task_description":"Webscrabed articles from the Norwegian lexicon 'Det Store Norske Leksikon'. Uses articles categories as clusters.","task_version":"0.0.1","time_of_run":"2024-02-09T17:19:20.570666","scores":{"nb":{"v_measure":0.44400570339507106,"v_measure_std":0.017773208546860337}},"main_score":"v_measure"}

@@ -1,5 +1,6 @@
+from datetime import date
 from functools import partial
-from typing import Any, Optional
+from typing import Any
 
 from numpy.typing import ArrayLike
 from sentence_transformers import SentenceTransformer
@@ -53,6 +54,7 @@ def create_e5_small() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
+        release_date=date(2022, 12, 26),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
@@ -70,6 +72,7 @@ def create_e5_base() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=768,
+        release_date=date(2022, 12, 26),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
@@ -87,6 +90,7 @@ def create_e5_large() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=1024,
+        release_date=date(2022, 12, 26),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
@@ -105,6 +109,8 @@ def create_multilingual_e5_small() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=384,
+        model_type="BERT",
+        release_date=date(2023, 6, 30),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
@@ -122,6 +128,8 @@ def create_multilingual_e5_base() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=768,
+        model_type="BERT",
+        release_date=date(2023, 6, 30),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),
@@ -139,6 +147,8 @@ def create_multilingual_e5_large() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=1024,
+        model_type="BERT",
+        release_date=date(2023, 6, 30),
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(E5Wrapper, model_name=hf_name)),

@@ -34,3 +34,18 @@ The following tables contains description of all the dataset in the benchmark al
 | [Twitterhjerne](https://huggingface.co/datasets/sorenmulli/da-hashtag-twitterhjerne)                                                                     | Danish question asked on Twitter with the Hashtag #Twitterhjerne ('Twitter brain') and their corresponding answer.                                                                                                                                                                     | Ndcg_at_10   | da                     | Retrieval      | social                                                               |                   340 | 138.23 (std: 82.41)                     |
 | [VG Clustering](https://huggingface.co/datasets/navjordj/VG_summarization)                                                                               | Articles and their classes (e.g. sports) from VG news articles extracted from Norsk Aviskorpus.                                                                                                                                                                                        | V_measure    | nb                     | Clustering     | non-fiction, news                                                    |                  2048 | 1009.65 (std: 1597.60)                  |
 <!--END_TABLE-->
+
+
+## Dataset Disclaimer
+
+- We do not own or host any of the datasets which we use for this benchmark.
+- We only offer refer to existing dataset that we believe we are free to redistribute. If any doubt occurs about the legality of any of our file downloads we will take them off right away after contacting us.
+
+**Notice and take down policy**
+
+- Notice: Should you consider that data used by the dataset contains material that is owned by you and should therefore not be reproduced here, please: Clearly identify yourself, with detailed contact data such as an address, telephone number or email address at which you can be contacted.
+- Clearly identify the copyrighted work claimed to be infringed.
+- Clearly identify the material that is claimed to be infringing and information reasonably sufficient to allow us to locate the material.
+- And contact the 'Scandinavian Embedding Benchmark' at the following ticket service: https://frontoffice.chcaa.au.dk/hc/en-us/requests/new
+
+We will comply to legitimate requests by removing the affected sources from the next release of the benchmark.

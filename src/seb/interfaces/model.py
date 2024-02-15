@@ -117,15 +117,15 @@ class LazyLoadEncoder(Encoder):
         Returns:
             Embeddings for the given documents
         """
-        return self.model.encode(sentences, **kwargs)
+        return self.model.encode(sentences, task=task, **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any):
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
             return self.encode(queries, task=None, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
         try:
             return self.model.encode_corpus(corpus, **kwargs)  # type: ignore
         except AttributeError:

@@ -9,7 +9,7 @@ def create_test_model() -> seb.SebModel:
         def encode(
             self,
             sentences: list[str],
-            batch_size: int,  # noqa: ARG002
+            batch_size: int = 32,  # noqa: ARG002
             **kwargs: dict,  # noqa: ARG002
         ) -> np.ndarray:
             # create random array of 100, pr text

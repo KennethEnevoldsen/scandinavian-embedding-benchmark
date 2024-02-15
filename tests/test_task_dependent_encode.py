@@ -14,7 +14,7 @@ def create_test_model_with_task_dependent_encode() -> seb.SebModel:
             sentences: list[str],
             *,
             task: seb.Task,
-            batch_size: int,  # noqa: ARG002
+            batch_size: int = 32,  # noqa: ARG002
         ) -> np.ndarray:
             if task.task_type == "SNS":
                 return np.array([np.ones(100) for _ in sentences])

@@ -177,7 +177,7 @@ class E5Mistral(Encoder):
         return self.encode(queries, encode_type="query", **kwargs)
 
 
-@models.register("intfloat/e5-mistral-7b-instruct")
+@models.register("e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
     meta = ModelMeta(
@@ -187,7 +187,7 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=4096,
-        model_type="Mistral",
+        model_architecture="Mistral",
         release_date=date(2023, 12, 20),
     )
     return SebModel(

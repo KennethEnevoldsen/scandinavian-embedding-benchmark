@@ -81,7 +81,7 @@ def create_sonar_da() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=1024,
-        model_type="SONAR",
+        model_architecture="SONAR",
         release_date=date(2023, 5, 17),
     )
     return SebModel(
@@ -99,7 +99,7 @@ def create_sonar_sv() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=1024,
-        model_type="SONAR",
+        model_architecture="SONAR",
         release_date=date(2023, 5, 17),
     )
     return SebModel(
@@ -117,7 +117,7 @@ def create_sonar_nb() -> SebModel:
         languages=["nb"],
         open_source=True,
         embedding_size=1024,
-        model_type="SONAR",
+        model_architecture="SONAR",
         release_date=date(2023, 5, 17),
     )
     return SebModel(

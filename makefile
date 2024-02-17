@@ -26,6 +26,7 @@ pr:
 	make lint
 	make static-type-check
 	make test
+	python src/scripts/check_benchmark_is_up_to_date.py
 	@echo "Ready to make a PR"
 
 update-table-in-docs:

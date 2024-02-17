@@ -11,6 +11,16 @@ all_models = seb.get_all_models()
 openai_models = []
 
 
+def test_model_name():
+    """
+    Test if the models name is the same as the registered name
+    """
+    for model_name, mdl_getter in seb.models.get_all().items():
+        mdl = mdl_getter()
+        assert isinstance(mdl, seb.SebModel)
+        assert model_name == mdl.meta.name
+
+
 @pytest.mark.skip(
     reason="This test loads in all models. It is too heavy to have running as a CI",
 )
@@ -32,7 +42,7 @@ def test_embedding_match_what_is_stated(model: seb.SebModel):
     This test checks if the embedding size matches what is stated in the ModelMeta
     """
     output = model.encoder.encode(["test"])
-    output_embedding_size = output.shape[1] 
+    output_embedding_size = output.shape[1]
     assert output_embedding_size == model.meta.embedding_size
 
 

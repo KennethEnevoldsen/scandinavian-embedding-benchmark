@@ -4,19 +4,15 @@ from datetime import date
 from itertools import islice
 from typing import Any, Literal, Optional, TypeVar
 
+import numpy as np
 import torch
-import torch.nn.functional as F
-from numpy.typing import ArrayLike
 from torch import Tensor
+from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
 
 from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
-
-from tqdm import tqdm
-
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -146,7 +142,7 @@ class E5Mistral(Encoder):
         batch_size: int = 32,
         encode_type: EncodeTypes = "query",
         **kwargs: Any,  # noqa
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         if batch_size > self.max_batch_size:
             batch_size = self.max_batch_size
         batched_embeddings = []
@@ -164,9 +160,9 @@ class E5Mistral(Encoder):
                 )
             batched_embeddings.append(embeddings.detach().cpu())
 
-        return torch.cat(batched_embeddings).to("cpu")
+        return torch.cat(batched_embeddings).to("cpu").detach().numpy()
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
         sep = " "
         if isinstance(corpus, dict):
             sentences = [
@@ -177,7 +173,7 @@ class E5Mistral(Encoder):
             sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         return self.encode(sentences, encode_type="passage", **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
         return self.encode(queries, encode_type="query", **kwargs)
 
 

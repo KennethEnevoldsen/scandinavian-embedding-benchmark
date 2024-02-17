@@ -4,7 +4,7 @@ from datetime import date
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
-from numpy.typing import ArrayLike
+import numpy as np
 from pydantic import BaseModel
 
 from seb.interfaces.language import Language
@@ -26,7 +26,7 @@ class Encoder(Protocol):
         task: Optional["Task"] = None,
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         """Returns a list of embeddings for the given sentences.
 
         Args:
@@ -104,7 +104,7 @@ class LazyLoadEncoder(Encoder):
         *,
         task: Optional["Task"] = None,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         """
         Returns a list of embeddings for the given sentences.
         Args:
@@ -119,13 +119,13 @@ class LazyLoadEncoder(Encoder):
         """
         return self.model.encode(sentences, task=task, **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
             return self.encode(queries, task=None, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
         try:
             return self.model.encode_corpus(corpus, **kwargs)  # type: ignore
         except AttributeError:

@@ -5,10 +5,10 @@ from typing import Literal, Optional
 
 from radicli import Arg, get_list_converter
 
-from seb.registered_models.hf_models import get_sentence_transformer
+from seb.registered_models.sentence_transformer_models import get_sentence_transformer
 
 import seb
-from seb.registered_models.hf_models import SentenceTransformerWithTaskEncode
+from seb.registered_models.sentence_transformer_models import SentenceTransformerWithTaskEncode
 from seb.registries import get_all_models
 
 from .cli import cli

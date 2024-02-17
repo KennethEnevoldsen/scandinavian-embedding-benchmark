@@ -43,14 +43,8 @@ class CPUSpeedTask(Task):
             self._dataset = self.load_dataset()
         return self._dataset
 
-    def get_descriptive_stats(self) -> DescriptiveDatasetStats:
-        dataset = self.load_dataset()
-        lengths = np.array([len(x) for x in dataset])
-        return DescriptiveDatasetStats(
-            mean_document_length=float(np.mean(lengths)),
-            std_document_length=float(np.std(lengths)),
-            num_documents=len(dataset),
-        )
+    def get_documents(self) -> list[str]:
+        return self.load_dataset()
 
     def get_time_taken(self, model: Encoder) -> float:
         dataset = self.load_dataset()
@@ -68,10 +62,7 @@ class CPUSpeedTask(Task):
             model._model = model._model.to(self.device)  # type: ignore
 
         run_inference = not (self.device == "cuda" and not has_to_method)
-        if run_inference:
-            time_taken = self.get_time_taken(model)
-        else:
-            time_taken = np.nan
+        time_taken = self.get_time_taken(model) if run_inference else np.nan
 
         scores: dict[str, Union[str, float]] = {
             self.main_score: time_taken,

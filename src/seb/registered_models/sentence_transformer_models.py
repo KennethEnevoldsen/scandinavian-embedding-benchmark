@@ -6,12 +6,15 @@ from datetime import date
 from functools import partial
 from typing import Any, Optional
 
-from numpy.typing import ArrayLike
+import numpy as np
+import torch
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
+
+from .normalize_to_ndarray import normalize_to_ndarray
 
 
 def silence_warnings_from_sentence_transformers():
@@ -32,8 +35,9 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
         batch_size: int = 32,
         task: Optional[Task] = None,  # noqa: ARG002
         **kwargs: Any,
-    ) -> ArrayLike:
-        return super().encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
+    ) -> np.ndarray:
+        emb = super().encode(sentences, batch_size=batch_size, **kwargs)
+        return normalize_to_ndarray(emb)
 
 
 def get_sentence_transformer(

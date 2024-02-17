@@ -41,7 +41,7 @@ def test_embedding_match_what_is_stated(model: seb.SebModel):
 )
 @pytest.mark.parametrize("model", [seb.get_model("text-embedding-ada-002")])
 @pytest.mark.parametrize("task", [create_test_encode_task()])
-def test_openai_model(model: seb.SebModel, task: seb.Task):
+def test_specific_model(model: seb.SebModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """

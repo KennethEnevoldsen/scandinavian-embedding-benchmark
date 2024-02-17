@@ -2,13 +2,14 @@ from datetime import date
 from functools import partial
 from typing import Any
 
-from numpy.typing import ArrayLike
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from seb.registries import models
 
 from ..interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from ..interfaces.task import Task
+from .normalize_to_ndarray import normalize_to_ndarray
 
 
 class E5Wrapper(Encoder):
@@ -24,14 +25,15 @@ class E5Wrapper(Encoder):
         task: Task,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         return self.encode_queries(sentences, batch_size=batch_size, **kwargs)
 
-    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa
+    def encode_queries(self, queries: list[str], batch_size: int, **kwargs: Any) -> np.ndarray:
         sentences = ["query: " + sentence for sentence in queries]
-        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
+        emb = self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
+        return normalize_to_ndarray(emb)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs: Any) -> np.ndarray:
         if isinstance(corpus, dict):
             sentences = [
                 (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
@@ -40,7 +42,8 @@ class E5Wrapper(Encoder):
         else:
             sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
         sentences = ["passage: " + sentence for sentence in sentences]
-        return self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
+        emb = self.mdl.encode(sentences, batch_size=batch_size, **kwargs)
+        return normalize_to_ndarray(emb)
 
 
 # English

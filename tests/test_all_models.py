@@ -32,7 +32,7 @@ def test_embedding_match_what_is_stated(model: seb.SebModel):
     This test checks if the embedding size matches what is stated in the ModelMeta
     """
     output = model.encoder.encode(["test"])
-    output_embedding_size = output.shape[1]
+    output_embedding_size = output.shape[1] 
     assert output_embedding_size == model.meta.embedding_size
 
 

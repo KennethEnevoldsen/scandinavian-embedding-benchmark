@@ -1,4 +1,5 @@
 import json
+import logging
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -12,6 +13,9 @@ from seb.interfaces.language import Language
 
 if TYPE_CHECKING:
     from .task import Task
+
+
+logger = logging.getLogger(__name__)
 
 
 @runtime_checkable
@@ -42,10 +46,10 @@ class Encoder(Protocol):
         """
         ...
 
-    def to(self, device: torch.device):
-        ...
-
     # The following methods are optional and can be implemented if the model supports them.
+    # def to(self, device: torch.device):
+    #     ...
+
     # def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
     #     ...
 
@@ -109,7 +113,10 @@ class LazyLoadEncoder(Encoder):
 
     def to(self, device: torch.device):
         self.load_model()
-        self._model = self._model.to(device)  # type: ignore
+        try:
+            self._model = self._model.to(device)  # type: ignore
+        except AttributeError:
+            logging.debug(f"Model {self._model} does not have a to method")
 
     @property
     def model(self) -> Encoder:

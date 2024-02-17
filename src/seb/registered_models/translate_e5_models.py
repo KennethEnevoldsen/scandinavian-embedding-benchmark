@@ -1,14 +1,15 @@
-from collections.abc import Sequence
 from functools import partial
 from typing import Any, Optional
 
-import torch
+import numpy as np
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
 from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registered_models.e5_models import E5Wrapper
 from seb.registries import models
+
+from .normalize_to_ndarray import normalize_to_ndarray
 
 
 class TranslateE5Model(Encoder):
@@ -34,7 +35,7 @@ class TranslateE5Model(Encoder):
         task: Optional[Task] = None,
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> torch.Tensor:
+    ) -> np.ndarray:
         if task:
             try:
                 src_lang = task.languages[0]  # type: ignore
@@ -44,7 +45,7 @@ class TranslateE5Model(Encoder):
         else:
             src_lang = "da"
         sentences = [self.translate(sentence, src_lang) for sentence in sentences]
-        return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore
+        return normalize_to_ndarray(self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs))
 
 
 @models.register("translate-e5-large")

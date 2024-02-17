@@ -8,11 +8,14 @@ from datetime import date
 from functools import partial
 from typing import Any, Optional
 
+import numpy as np
 import torch
 
 from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
+
+from .normalize_to_ndarray import normalize_to_ndarray
 
 logger = logging.getLogger(__name__)
 
@@ -44,19 +47,19 @@ class CohereTextEmbeddingModel(Encoder):
         *,
         task: Optional[Task] = None,
         **kwargs: Any,  # noqa: ARG002
-    ) -> torch.Tensor:
+    ) -> np.ndarray:
         if task and task.task_type == "Classification":
             input_type = "classification"
         elif task and task.task_type == "Clustering":
             input_type = "clustering"
         else:
             input_type = "search_document"
-        return self._embed(sentences, input_type=input_type)
+        return self._embed(sentences, input_type=input_type).numpy()
 
-    def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa
-        return self._embed(queries, input_type="search_query")
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:  # noqa: ARG002
+        return self._embed(queries, input_type="search_query").numpy()
 
-    def encode_corpus(self, corpus: list[dict[str, str]], batch_size: int, **kwargs):  # noqa
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:  # noqa: ARG002
         if isinstance(corpus, dict):
             sentences = [
                 (corpus["title"][i] + self.sep + corpus["text"][i]).strip() if "title" in corpus else corpus["text"][i].strip()  # type: ignore
@@ -64,7 +67,7 @@ class CohereTextEmbeddingModel(Encoder):
             ]
         else:
             sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
-        return self._embed(sentences, input_type="search_document")
+        return self._embed(sentences, input_type="search_document").numpy()
 
 
 @models.register("embed-multilingual-v3.0")

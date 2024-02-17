@@ -1,6 +1,6 @@
 from datetime import date
 from functools import partial
-from typing import Any
+from typing import Any, Optional
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
@@ -22,7 +22,7 @@ class E5Wrapper(Encoder):
         self,
         sentences: list[str],
         *,
-        task: Task,  # noqa: ARG002
+        task: Optional[Task] = None,  # noqa
         batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:

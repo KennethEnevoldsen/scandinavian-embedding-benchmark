@@ -21,4 +21,4 @@ jobs:
           close-pr-label: "closed-by-stalebot"
           operations-per-run: 20
           exempt-pr-labels: "no-stale"
-          exempt-issue-labels: "no-stale"
+          exempt-issue-labels: "no-stale,not planned"

@@ -1,8 +1,9 @@
 from datetime import date
 from functools import partial
-from typing import Any
+from typing import Any, Optional
 
 import numpy as np
+import torch
 from sentence_transformers import SentenceTransformer
 
 from seb.registries import models
@@ -18,11 +19,14 @@ class E5Wrapper(Encoder):
         self.mdl = SentenceTransformer(model_name)
         self.sep = sep
 
+    def to(self, device: torch.device) -> None:
+        self.mdl.to(device)
+
     def encode(  # type: ignore
         self,
         sentences: list[str],
         *,
-        task: Task,  # noqa: ARG002
+        task: Optional[Task] = None,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:

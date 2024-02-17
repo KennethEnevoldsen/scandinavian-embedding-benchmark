@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
 import numpy as np
+import torch
 from pydantic import BaseModel
 
 from seb.interfaces.language import Language
@@ -40,6 +41,16 @@ class Encoder(Protocol):
             Embeddings for the given documents
         """
         ...
+
+    def to(self, device: torch.device):
+        ...
+
+    # The following methods are optional and can be implemented if the model supports them.
+    # def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
+    #     ...
+
+    # def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
+    #     ...
 
 
 class ModelMeta(BaseModel):
@@ -89,14 +100,24 @@ class LazyLoadEncoder(Encoder):
     loader: Callable[[], Encoder]
     _model: Optional[Encoder] = None
 
+    def load_model(self):
+        """
+        Load the model.
+        """
+        if self._model is None:
+            self._model = self.loader()
+
+    def to(self, device: torch.device):
+        self.load_model()
+        self._model = self._model.to(device)  # type: ignore
+
     @property
     def model(self) -> Encoder:
         """
         Dynimically load the model.
         """
-        if self._model is None:
-            self._model = self.loader()
-        return self._model
+        self.load_model()
+        return self._model  # type: ignore
 
     def encode(
         self,

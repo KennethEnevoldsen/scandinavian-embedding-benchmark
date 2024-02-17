@@ -25,29 +25,22 @@ class SonarTextToEmbeddingModelPipeline(Encoder):
     def __init__(
         self,
         source_lang: str,
-        device: Optional[torch.device] = None,
     ) -> None:
         """
         Args:
             encoder_name: Name of the encoder model
             tokenizer_name: Name of the tokenizer
-            device: Defaults to cpu
             source_lang: Set source_lang to '[dan|swe|nno|nob|]_Latn' for Danish, Swedish,
                 Norwegian Nynorsk, and Norwegian Bokmål, respectively.
         """
         from sonar.inference_pipelines.text import TextToEmbeddingModelPipeline  # type: ignore
 
         self.t2vec_model = TextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder")
-
-        self.to(device=device)
         self.source_lang = source_lang
 
-    def to(self, device: Optional[torch.device]) -> "SonarTextToEmbeddingModelPipeline":
-        if device is None:
-            device = torch.device("cpu")
+    def to(self, device: torch.device) -> None:
         self.model = self.t2vec_model.to(device)
         self.device = device
-        return self
 
     @torch.inference_mode()
     def encode(  # type: ignore

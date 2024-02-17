@@ -29,7 +29,7 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
         self,
         sentences: list[str],
         *,
-        batch_size: int,
+        batch_size: int = 32,
         task: Optional[Task] = None,  # noqa: ARG002
         **kwargs: Any,
     ) -> ArrayLike:

@@ -23,6 +23,7 @@ class TranslateE5Model(Encoder):
     def translate(self, sentence: str, src_lang: str) -> str:
         self.trans_tokenizer.src_lang = src_lang
         encoded_sent = self.trans_tokenizer(sentence, return_tensors="pt")
+        encoded_sent.to(self.trans_model.device)
         gen_tokens = self.trans_model.generate(**encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en"))
         return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[0]
 
@@ -44,42 +45,6 @@ class TranslateE5Model(Encoder):
             src_lang = "da"
         sentences = [self.translate(sentence, src_lang) for sentence in sentences]
         return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore
-
-
-@models.register("translate-e5-small")
-def create_translate_e5_small() -> SebModel:
-    hf_name = "intfloat/e5-small"
-    meta = ModelMeta(
-        name="translate-e5-small",
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=["en"],
-        open_source=True,
-        embedding_size=384,
-        model_type="Translate-Embed",
-        release_date=None,
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
-        meta=meta,
-    )
-
-
-@models.register("translate-e5-base")
-def create_translate_e5_base() -> SebModel:
-    hf_name = "intfloat/e5-base"
-    meta = ModelMeta(
-        name="translate-e5-base",
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=["en"],
-        open_source=True,
-        embedding_size=384,
-        model_type="Translate-Embed",
-        release_date=None,
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
-        meta=meta,
-    )
 
 
 @models.register("translate-e5-large")

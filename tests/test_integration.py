@@ -33,6 +33,9 @@ def create_test_encode_task() -> seb.Task:
         def get_descriptive_stats(self) -> dict:
             return {}
 
+        def get_documents(self) -> list[str]:
+            return []
+
     return DummyTask()
 
 
@@ -40,7 +43,6 @@ def create_test_encode_task() -> seb.Task:
     "model",
     [
         "intfloat/e5-small",
-        "translate-e5-small",
     ],
 )
 def test_integration_dummy(model: str):

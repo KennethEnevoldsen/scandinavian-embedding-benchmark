@@ -121,8 +121,6 @@ class E5Mistral(Encoder):
         ]
         batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
 
-
-
         return batch_dict.to(self.model.device)
 
     # but it does not work slightly better than this:
@@ -157,7 +155,6 @@ class E5Mistral(Encoder):
         else:
             instruction = ""
         for batch in tqdm(batched(sentences, batch_size)):
-
             with torch.inference_mode():
                 batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
                 outputs = self.model(**batch_dict)

@@ -47,42 +47,6 @@ class TranslateE5Model(Encoder):
         return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore
 
 
-@models.register("translate-e5-small")
-def create_translate_e5_small() -> SebModel:
-    hf_name = "intfloat/e5-small"
-    meta = ModelMeta(
-        name="translate-e5-small",
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=["en"],
-        open_source=True,
-        embedding_size=384,
-        model_type="Translate-Embed",
-        release_date=None,
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
-        meta=meta,
-    )
-
-
-@models.register("translate-e5-base")
-def create_translate_e5_base() -> SebModel:
-    hf_name = "intfloat/e5-base"
-    meta = ModelMeta(
-        name="translate-e5-base",
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=["en"],
-        open_source=True,
-        embedding_size=384,
-        model_type="Translate-Embed",
-        release_date=None,
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial(TranslateE5Model, model_name=hf_name)),  # type: ignore
-        meta=meta,
-    )
-
-
 @models.register("translate-e5-large")
 def create_translate_e5_large() -> SebModel:
     hf_name = "intfloat/e5-large"

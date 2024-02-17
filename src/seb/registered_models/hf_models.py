@@ -6,7 +6,8 @@ from datetime import date
 from functools import partial
 from typing import Any, Optional
 
-from numpy.typing import ArrayLike
+import numpy as np
+import torch
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import LazyLoadEncoder, ModelMeta, SebModel
@@ -32,8 +33,13 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
         batch_size: int = 32,
         task: Optional[Task] = None,  # noqa: ARG002
         **kwargs: Any,
-    ) -> ArrayLike:
-        return super().encode(sentences, batch_size=batch_size, **kwargs)  # type: ignore
+    ) -> np.ndarray:
+        emb = super().encode(sentences, batch_size=batch_size, **kwargs)
+        if isinstance(emb, list):
+            emb = np.array(emb)
+        if isinstance(emb, torch.Tensor):
+            emb = emb.cpu().detach().numpy()
+        return emb
 
 
 def get_sentence_transformer(

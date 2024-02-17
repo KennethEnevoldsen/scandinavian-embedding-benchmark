@@ -2,7 +2,7 @@ from datetime import date
 from functools import partial
 from typing import Any
 
-from numpy.typing import ArrayLike
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from seb.registries import models
@@ -24,7 +24,7 @@ class E5Wrapper(Encoder):
         task: Task,  # noqa: ARG002
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         return self.encode_queries(sentences, batch_size=batch_size, **kwargs)
 
     def encode_queries(self, queries: list[str], batch_size: int, **kwargs):  # noqa

@@ -2,6 +2,39 @@
 
 
 
+## v0.12.2 (2024-02-17)
+
+### Ci
+
+* ci: Added not planned as valid no stale label ([`a2dd834`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a2dd83476f24a2d2d064cf60225e40891c0a8a62))
+
+### Fix
+
+* fix: Removed translate-embed integration test ([`adb9cd6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/adb9cd6a22c103cfffb8c703041e8dc00d919da4))
+
+* fix: removing smaller translate then embed models ([`fbb9e97`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fbb9e9731d22671829a2e7048050b31cbd3b034a))
+
+* fix: removing smaller translate then embed models ([`91f6b79`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/91f6b791e0f084e29f8452469e43ebc23a8a8876))
+
+* fix: Add missing scores ([`3b92090`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3b92090432800cfecc470748a626d92c503b5df3))
+
+* fix: Added e5 mistral scores ([`7515e79`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7515e79710a4f518969d7b8b3f771f2592643138))
+
+### Style
+
+* style: ran linting ([`f729288`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f729288fefab8799eabac56efbb4896eb8c75bc9))
+
+### Unknown
+
+* Merge pull request #143 from KennethEnevoldsen/run-e5
+
+Updated e5-mistral model ([`0026c9c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0026c9c79f643bdc6384c70152ce0258240f15d2))
+
+* Merge branch &#39;run-e5&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into run-e5 ([`fdc19fb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fdc19fb0ddff979ca54bf1cf69d026ff94bb22cc))
+
+* Merge branch &#39;run-e5&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark into run-e5 ([`e691448`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e6914480d3570b3901f4930bb59abd91a73bf0d3))
+
+
 ## v0.12.1 (2024-02-15)
 
 ### Documentation
@@ -10,13 +43,37 @@
 
 ### Fix
 
+* fix: Updated tests ([`63d33c3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/63d33c33c6af4d585edc7f0a27e48b763429093a))
+
+* fix: Applied linter and static type checks ([`b1baee9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b1baee919a716431768160962305cf1d5f342c75))
+
 * fix: Added get_documents to task interface ([`c4fb354`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c4fb3544710bc47781ccc6cd116eb54273b10e5c))
 
+* fix: updated e5 model
+
+fixed passing of batch size, ensure it can run on DanFEVER and avoid collecting to gradient (which lead to OOM errors) ([`189751d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/189751dce23a9fcb09b240478074f1df8e94a815))
+
 ### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into run-e5 ([`64e4986`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/64e4986e578aac977d56de185d2d8599fa18958b))
 
 * Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark ([`24644a7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/24644a7f1febd022ce88c6cd0526b5162271f405))
 
 * Fix: Added performance metrics for translate and embed ([`91a2b8a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/91a2b8addd67b66f9fd5d281c367e001842ee6f6))
+
+* Added SwednClustering and Retrieval to cache ([`613ee8c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/613ee8cacda7efc58c081714b4dba3b63acea4f6))
+
+* Added NorQuad and SNL_retr to cache ([`fe823c7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fe823c79d24e247e015021b1f4a0b037dd689a61))
+
+* Added a couple of tasks from e5 Mistral ([`b94648c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b94648c3906e37cc46f576abb9e4a2d889917808))
+
+* Embeddings are sent back to the CPU, so they can be converted to numpy arrays ([`e154c39`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e154c393fe236068aba6df832f03316e5dc089b2))
+
+* Lowered maximum batch size to 16 ([`f9b68af`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f9b68af2e0ca8992bc6598de8a34998edcbc1854))
+
+* Added GPU inference to E5 Mistral ([`106084b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/106084b76fc230b23b43a5119ab50a99f4109741))
+
+* Merge branch &#39;main&#39; into run-e5 ([`2fb8807`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2fb88070cf291951816a22a5e438e4f45b3f1e00))
 
 
 ## v0.12.0 (2024-02-12)

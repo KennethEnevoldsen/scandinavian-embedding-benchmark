@@ -1,16 +1,21 @@
 import json
+import logging
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Optional, Protocol, runtime_checkable
 
-from numpy.typing import ArrayLike
+import numpy as np
+import torch
 from pydantic import BaseModel
 
 from seb.interfaces.language import Language
 
 if TYPE_CHECKING:
     from .task import Task
+
+
+logger = logging.getLogger(__name__)
 
 
 @runtime_checkable
@@ -26,7 +31,7 @@ class Encoder(Protocol):
         task: Optional["Task"] = None,
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         """Returns a list of embeddings for the given sentences.
 
         Args:
@@ -41,6 +46,16 @@ class Encoder(Protocol):
         """
         ...
 
+    # The following methods are optional and can be implemented if the model supports them.
+    # def to(self, device: torch.device):
+    #     ...
+
+    # def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
+    #     ...
+
+    # def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
+    #     ...
+
 
 class ModelMeta(BaseModel):
     """
@@ -54,7 +69,7 @@ class ModelMeta(BaseModel):
     languages: list[Language] = []
     open_source: bool = False
     embedding_size: Optional[int] = None
-    model_type: Optional[str] = None
+    model_architecture: Optional[str] = None
     release_date: Optional[date] = None
 
     def get_path_name(self) -> str:
@@ -89,14 +104,27 @@ class LazyLoadEncoder(Encoder):
     loader: Callable[[], Encoder]
     _model: Optional[Encoder] = None
 
+    def load_model(self):
+        """
+        Load the model.
+        """
+        if self._model is None:
+            self._model = self.loader()
+
+    def to(self, device: torch.device):
+        self.load_model()
+        try:
+            self._model = self._model.to(device)  # type: ignore
+        except AttributeError:
+            logging.debug(f"Model {self._model} does not have a to method")
+
     @property
     def model(self) -> Encoder:
         """
         Dynimically load the model.
         """
-        if self._model is None:
-            self._model = self.loader()
-        return self._model
+        self.load_model()
+        return self._model  # type: ignore
 
     def encode(
         self,
@@ -104,7 +132,7 @@ class LazyLoadEncoder(Encoder):
         *,
         task: Optional["Task"] = None,
         **kwargs: Any,
-    ) -> ArrayLike:
+    ) -> np.ndarray:
         """
         Returns a list of embeddings for the given sentences.
         Args:
@@ -119,13 +147,13 @@ class LazyLoadEncoder(Encoder):
         """
         return self.model.encode(sentences, task=task, **kwargs)
 
-    def encode_queries(self, queries: list[str], **kwargs: Any) -> ArrayLike:
+    def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
             return self.encode(queries, task=None, **kwargs)
 
-    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> ArrayLike:
+    def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
         try:
             return self.model.encode_corpus(corpus, **kwargs)  # type: ignore
         except AttributeError:

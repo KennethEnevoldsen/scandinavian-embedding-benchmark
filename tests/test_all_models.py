@@ -11,6 +11,16 @@ all_models = seb.get_all_models()
 openai_models = []
 
 
+def test_model_name():
+    """
+    Test if the models name is the same as the registered name
+    """
+    for model_name, mdl_getter in seb.models.get_all().items():
+        mdl = mdl_getter()
+        assert isinstance(mdl, seb.SebModel)
+        assert model_name == mdl.meta.name
+
+
 @pytest.mark.skip(
     reason="This test loads in all models. It is too heavy to have running as a CI",
 )
@@ -41,7 +51,7 @@ def test_embedding_match_what_is_stated(model: seb.SebModel):
 )
 @pytest.mark.parametrize("model", [seb.get_model("text-embedding-ada-002")])
 @pytest.mark.parametrize("task", [create_test_encode_task()])
-def test_openai_model(model: seb.SebModel, task: seb.Task):
+def test_specific_model(model: seb.SebModel, task: seb.Task):
     """
     Test if the models encodes as expected
     """

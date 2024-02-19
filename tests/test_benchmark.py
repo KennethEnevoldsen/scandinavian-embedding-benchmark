@@ -22,14 +22,14 @@ from .test_tasks import all_tasks_names
     ("model_names", "languages", "tasks"),
     [
         (
-            ["sentence-transformers/all-MiniLM-L6-v2"],
+            ["all-MiniLM-L6-v2"],
             None,
             [create_test_task()],
         ),
         (
             [
                 "test_model",
-                "sentence-transformers/all-MiniLM-L6-v2",
+                "all-MiniLM-L6-v2",
             ],
             None,
             [create_test_task(), create_test_encode_task()],
@@ -82,7 +82,7 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
     ("model_name", "languages", "tasks"),
     [
         (
-            "sentence-transformers/all-MiniLM-L6-v2",
+            "all-MiniLM-L6-v2",
             None,
             [create_test_encode_task()],
         ),

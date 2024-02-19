@@ -100,7 +100,7 @@ def create_openai_ada_002() -> SebModel:
         languages=[],
         open_source=False,
         embedding_size=1536,
-        model_type="API",
+        model_architecture="API",
         release_date=date(2022, 1, 25),
     )
     return SebModel(
@@ -119,7 +119,7 @@ def create_openai_3_small() -> SebModel:
         languages=[],
         open_source=False,
         embedding_size=1536,
-        model_type="API",
+        model_architecture="API",
         release_date=date(2024, 1, 25),
     )
     return SebModel(
@@ -138,7 +138,7 @@ def create_openai_3_large() -> SebModel:
         languages=[],
         open_source=False,
         embedding_size=3072,
-        model_type="API",
+        model_architecture="API",
         release_date=date(2024, 1, 25),
     )
     return SebModel(

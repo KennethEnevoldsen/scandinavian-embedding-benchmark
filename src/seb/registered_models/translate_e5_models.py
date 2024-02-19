@@ -1,7 +1,7 @@
-from collections.abc import Sequence
 from functools import partial
 from typing import Any, Optional
 
+import numpy as np
 import torch
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
@@ -27,6 +27,10 @@ class TranslateE5Model(Encoder):
         gen_tokens = self.trans_model.generate(**encoded_sent, forced_bos_token_id=self.trans_tokenizer.get_lang_id("en"))
         return self.trans_tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)[0]
 
+    def to(self, device: torch.device) -> None:
+        self.mdl.to(device)
+        self.trans_model.to(device)  # type: ignore
+
     def encode(
         self,
         sentences: list[str],
@@ -34,7 +38,7 @@ class TranslateE5Model(Encoder):
         task: Optional[Task] = None,
         batch_size: int = 32,
         **kwargs: Any,
-    ) -> torch.Tensor:
+    ) -> np.ndarray:
         if task:
             try:
                 src_lang = task.languages[0]  # type: ignore
@@ -44,7 +48,7 @@ class TranslateE5Model(Encoder):
         else:
             src_lang = "da"
         sentences = [self.translate(sentence, src_lang) for sentence in sentences]
-        return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)  # type: ignore
+        return self.mdl.encode(sentences, task=task, batch_size=batch_size, **kwargs)
 
 
 @models.register("translate-e5-large")
@@ -56,7 +60,7 @@ def create_translate_e5_large() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
-        model_type="Translate-Embed",
+        model_architecture="Translate-Embed",
         release_date=None,
     )
     return SebModel(

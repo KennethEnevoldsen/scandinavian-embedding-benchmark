@@ -2,6 +2,33 @@
 
 
 
+## v0.13.0 (2024-02-19)
+
+### Feature
+
+* feat: Ensure that all model names are consistent
+
+i.e. that they have the same name as they would have on the benchmark ([`c2299cd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2299cd2a4871ec2b49fbfa1f175dea4d2661f47))
+
+### Fix
+
+* fix: made the to method optional on the encoder ([`157a91c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/157a91c8d4846ab7155e625327d60f44b1f0763a))
+
+* fix: Add to method to lazyloadencoder ([`0b6d0be`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0b6d0bef30c4c7b32a5384cc44b49a0f1c1070eb))
+
+* fix: Ensure return type is always np.ndarray ([`e8d3994`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e8d3994604503ac168d334c2878b179aae52b739))
+
+* fix: Ensure return type is always np.ndarray ([`06c5cd8`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/06c5cd839735bc585145ac9a7b66626e510f512f))
+
+### Unknown
+
+* Merge pull request #153 from KennethEnevoldsen/ensure-consistent-names
+
+Ensure consistent names ([`83fd962`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/83fd962a0e84692052b6bdff9aa1e32fb44c4da2))
+
+* Merge branch &#39;ensure_return_type&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into ensure_return_type ([`7d09487`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7d09487f295a521d108fdea7f71f74a67e80bd13))
+
+
 ## v0.12.2 (2024-02-17)
 
 ### Ci

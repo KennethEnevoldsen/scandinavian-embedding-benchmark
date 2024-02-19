@@ -67,8 +67,7 @@ def create_mdl_name_w_reference(mdl: seb.ModelMeta) -> str:
 
 
 def get_speed_results(model_meta: seb.ModelMeta) -> Optional[float]:
-    hf_name = model_meta.huggingface_name
-    model = seb.get_model(hf_name) if hf_name else seb.get_model(model_meta.name)
+    model = seb.get_model(model_meta.name)
     TOKENS_IN_UGLY_DUCKLING = 3591
 
     speed_task = CPUSpeedTask()

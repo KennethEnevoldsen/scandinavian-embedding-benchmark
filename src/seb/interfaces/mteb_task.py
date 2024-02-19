@@ -106,6 +106,17 @@ class MTEBTask(Task):
         split = self.mteb_task.description["eval_splits"][0]
         # Infusing task into encode()
         original_encode = model.encode
+
+        has_encode_queries = hasattr(model, "encode_queries")
+        has_encode_corpus = hasattr(model, "encode_corpus")
+
+        if has_encode_queries:
+            original_encode_queries = model.encode_queries  # type: ignore
+            model.encode_queries = partial(model.encode_queries, task=self)  # type: ignore
+        if has_encode_corpus:
+            original_encode_corpus = model.encode_corpus  # type: ignore
+            model.encode_corpus = partial(model.encode_corpus, task=self)  # type: ignore
+
         try:
             model.encode = partial(model.encode, task=self)
             scores = self.mteb_task.evaluate(model, split=split)
@@ -114,6 +125,11 @@ class MTEBTask(Task):
         finally:
             # Resetting encode to original
             model.encode = original_encode
+            if has_encode_queries:
+                model.encode_queries = original_encode_queries  # type: ignore
+            if has_encode_corpus:
+                model.encode_corpus = original_encode_corpus  # type: ignore
+
         if scores is None:
             raise ValueError("MTEBTask evaluation failed.")
 

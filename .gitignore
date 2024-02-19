@@ -58,3 +58,4 @@ run_e5.py
 
 # paper
 src/scripts/paper/*
+run_model.py

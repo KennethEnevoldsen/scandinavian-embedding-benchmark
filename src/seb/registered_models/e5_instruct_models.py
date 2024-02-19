@@ -79,10 +79,10 @@ def task_to_instruction(task: Task) -> str:
     if task.task_type in ["Retrieval"]:
         task_name_to_instruct: dict[str, str] = {
             "Twitterhjerne": "Retrieve answers to questions asked in Danish tweets",
-            "SwednRetrieval": "Retrieve summaries of Swedish news articles",
-            "TV2Nord Retrieval": "Retrieve summaries of Danish news articles",
-            "DanFEVER": "Given a claim in Danish, retrieve documents that support or refute the claim",
-            "SNL Retrieval": "Given a lexicon article in Norwegian, retrieve its headline",
+            "SwednRetrieval": "Given a Swedish news headline retrieve summaries or news articles",
+            "TV2Nord Retrieval": "Given a summary of a Danish news article retrieve the corresponding news article",
+            "DanFEVER": "Given a claim in Danish, retrieve documents that support the claim",
+            "SNL Retrieval": "Given a lexicon headline in Norwegian, retrieve its article",
             "NorQuad": "Given a question in Norwegian, retrieve the answer from Wikipedia articles",
             "SweFAQ": "Retrieve answers given questions in Swedish",
             "ArguAna": "Given a claim, find documents that refute the claim",

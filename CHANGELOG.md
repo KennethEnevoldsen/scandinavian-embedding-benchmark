@@ -2,6 +2,23 @@
 
 
 
+## v0.13.2 (2024-02-19)
+
+### Fix
+
+* fix: Pass the task for encode_queries, and encode_corpus
+
+This yield notable performance improvements for the instruct models for retrieval tasks ([`9992e80`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9992e802ec62020806f1e1155a5ab5d9b74265a5))
+
+### Unknown
+
+* Merge pull request #156 from KennethEnevoldsen/fix_instruct_tuned_embed
+
+fix: Pass the task for encode_queries, and encode_corpus ([`13786fe`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/13786fe4aaed4de9e963fcb5a6d959bdedc1c16d))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into fix_instruct_tuned_embed ([`69b2ae2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/69b2ae208f3481c9a482a4f90afde90ff563f1e3))
+
+
 ## v0.13.1 (2024-02-19)
 
 ### Chore

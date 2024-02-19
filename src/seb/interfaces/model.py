@@ -69,7 +69,7 @@ class ModelMeta(BaseModel):
     languages: list[Language] = []
     open_source: bool = False
     embedding_size: Optional[int] = None
-    model_architecture: Optional[str] = None
+    architecture: Optional[str] = None
     release_date: Optional[date] = None
 
     def get_path_name(self) -> str:

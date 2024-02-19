@@ -60,7 +60,7 @@ def create_translate_e5_large() -> SebModel:
         languages=["en"],
         open_source=True,
         embedding_size=384,
-        model_architecture="Translate-Embed",
+        architecture="Translate-Embed",
         release_date=None,
     )
     return SebModel(

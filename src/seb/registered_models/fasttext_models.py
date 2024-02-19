@@ -50,7 +50,7 @@ def create_cc_da_300() -> SebModel:
         languages=["da"],
         open_source=True,
         embedding_size=300,
-        model_architecture="fastText",
+        architecture="fastText",
         release_date=date(2017, 1, 1),
     )
     return SebModel(
@@ -69,7 +69,7 @@ def create_cc_sv_300() -> SebModel:
         languages=["sv"],
         open_source=True,
         embedding_size=300,
-        model_architecture="fastText",
+        architecture="fastText",
         release_date=date(2017, 1, 1),
     )
     return SebModel(
@@ -88,7 +88,7 @@ def create_cc_nb_300() -> SebModel:
         languages=["nb"],
         open_source=True,
         embedding_size=300,
-        model_architecture="fastText",
+        architecture="fastText",
         release_date=date(2017, 1, 1),
     )
     return SebModel(
@@ -107,7 +107,7 @@ def create_cc_nn_300() -> SebModel:
         languages=["nn"],
         open_source=True,
         embedding_size=300,
-        model_architecture="fastText",
+        architecture="fastText",
         release_date=date(2017, 1, 1),
     )
     return SebModel(

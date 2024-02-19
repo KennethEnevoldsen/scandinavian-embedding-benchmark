@@ -77,7 +77,7 @@ def create_embed_multilingual_v3() -> SebModel:
         languages=[],
         open_source=False,
         embedding_size=1024,
-        model_architecture="API",
+        architecture="API",
         release_date=date(2023, 11, 2),
     )
     return SebModel(

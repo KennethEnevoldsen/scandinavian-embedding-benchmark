@@ -1,5 +1,5 @@
 from .cohere_models import *
-from .e5_mistral import *
+from .e5_instruct_models import *
 from .e5_models import *
 from .fairseq_models import *
 from .fasttext_models import *

@@ -116,7 +116,7 @@ def create_multilingual_e5_small() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=384,
-        model_architecture="BERT",
+        architecture="BERT",
         release_date=date(2023, 6, 30),
     )
     return SebModel(
@@ -135,7 +135,7 @@ def create_multilingual_e5_base() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=768,
-        model_architecture="BERT",
+        architecture="BERT",
         release_date=date(2023, 6, 30),
     )
     return SebModel(
@@ -154,7 +154,7 @@ def create_multilingual_e5_large() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=1024,
-        model_architecture="BERT",
+        architecture="BERT",
         release_date=date(2023, 6, 30),
     )
     return SebModel(

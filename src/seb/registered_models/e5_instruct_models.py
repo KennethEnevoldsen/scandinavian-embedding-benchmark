@@ -1,6 +1,7 @@
 import logging
 from collections.abc import Iterable, Sequence
 from datetime import date
+from functools import partial
 from itertools import islice
 from typing import Any, Literal, Optional, TypeVar
 
@@ -9,6 +10,7 @@ import torch
 from torch import Tensor
 from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer, BatchEncoding
+from transformers.modeling_outputs import ModelOutput
 
 from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
@@ -91,48 +93,35 @@ def task_to_instruction(task: Task) -> str:
     return ""
 
 
-class E5Mistral(Encoder):
-    max_length = 4096
-    max_batch_size = 4
-
-    def __init__(self):
-        logger.info("Started loading e5 Mistral")
-        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
-        self.model = AutoModel.from_pretrained("intfloat/e5-mistral-7b-instruct", torch_dtype=torch.float16)
+class E5Instruct(Encoder):
+    def __init__(self, model_name: str, max_length: int, max_batch_size: Optional[int] = None, **kwargs: Any):
+        logger.info("Started loading e5 instruct model")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModel.from_pretrained(model_name, **kwargs)
+        self.max_length = max_length
+        self.max_batch_size = max_batch_size
 
     def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
         if encode_type == "query":
             sentences = [f"Instruction: {instruction}\nQuery: {sentence}" for sentence in sentences]
+
         batch_dict = self.tokenizer(
-            sentences,
-            max_length=self.max_length - 1,
-            return_attention_mask=False,
-            padding=False,
+            sentences,  # type: ignore
+            max_length=512,
+            padding=True,
             truncation=True,
+            return_tensors="pt",
         )
-        # append eos_token_id to every input_ids
-        batch_dict["input_ids"] = [
-            [*input_ids, self.tokenizer.eos_token_id]
-            for input_ids in batch_dict["input_ids"]  # type: ignore
-        ]
-        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
 
         return batch_dict.to(self.model.device)
 
-    # but it does not work slightly better than this:
-    # return sentences # noqa
+    def get_embedding_from_output(self, output: ModelOutput, batch_dict: BatchEncoding) -> torch.Tensor:
+        return self.average_pool(output.last_hidden_state, batch_dict["attention_mask"])  # type: ignore
 
     @staticmethod
-    def last_token_pool(last_hidden_states: Tensor, attention_mask: Tensor) -> Tensor:
-        left_padding = attention_mask[:, -1].sum() == attention_mask.shape[0]
-        if left_padding:
-            return last_hidden_states[:, -1]
-        sequence_lengths = attention_mask.sum(dim=1) - 1
-        batch_size = last_hidden_states.shape[0]
-        return last_hidden_states[
-            torch.arange(batch_size, device=last_hidden_states.device),
-            sequence_lengths,
-        ]
+    def average_pool(last_hidden_states: torch.Tensor, attention_mask: torch.Tensor) -> Tensor:
+        last_hidden = last_hidden_states.masked_fill(~attention_mask[..., None].bool(), 0.0)
+        return last_hidden.sum(dim=1) / attention_mask.sum(dim=1)[..., None]
 
     def encode(
         self,
@@ -143,7 +132,7 @@ class E5Mistral(Encoder):
         encode_type: EncodeTypes = "query",
         **kwargs: Any,  # noqa
     ) -> np.ndarray:
-        if batch_size > self.max_batch_size:
+        if self.max_batch_size and batch_size > self.max_batch_size:
             batch_size = self.max_batch_size
         batched_embeddings = []
         if task is not None:  # noqa
@@ -154,10 +143,7 @@ class E5Mistral(Encoder):
             with torch.inference_mode():
                 batch_dict = self.preprocess(batch, instruction=instruction, encode_type=encode_type)
                 outputs = self.model(**batch_dict)
-                embeddings = self.last_token_pool(
-                    outputs.last_hidden_state,
-                    batch_dict["attention_mask"],  # type: ignore
-                )
+                embeddings = self.get_embedding_from_output(outputs, batch_dict)
             batched_embeddings.append(embeddings.detach().cpu())
 
         return torch.cat(batched_embeddings).to("cpu").detach().numpy()
@@ -177,6 +163,45 @@ class E5Mistral(Encoder):
         return self.encode(queries, encode_type="query", **kwargs)
 
 
+class E5Mistral(E5Instruct):
+    def __init__(self):
+        super().__init__("intfloat/e5-mistral-7b-instruct", max_length=4096, max_batch_size=4, torch_dtype=torch.float16)
+
+    @staticmethod
+    def last_token_pool(last_hidden_states: Tensor, attention_mask: Tensor) -> Tensor:
+        left_padding = attention_mask[:, -1].sum() == attention_mask.shape[0]
+        if left_padding:
+            return last_hidden_states[:, -1]
+        sequence_lengths = attention_mask.sum(dim=1) - 1
+        batch_size = last_hidden_states.shape[0]
+        return last_hidden_states[
+            torch.arange(batch_size, device=last_hidden_states.device),
+            sequence_lengths,
+        ]
+
+    def get_embbeding_from_output(self, output: ModelOutput, batch_dict: BatchEncoding) -> torch.Tensor:
+        return self.last_token_pool(output.last_hidden_state, batch_dict["attention_mask"])  # type: ignore
+
+    def preprocess(self, sentences: Sequence[str], instruction: str, encode_type: EncodeTypes) -> BatchEncoding:
+        if encode_type == "query":
+            sentences = [f"Instruction: {instruction}\nQuery: {sentence}" for sentence in sentences]
+        batch_dict: BatchEncoding = self.tokenizer(
+            sentences,  # type: ignore
+            max_length=self.max_length - 1,
+            return_attention_mask=False,
+            padding=False,
+            truncation=True,
+        )
+        # append eos_token_id to every input_ids
+        batch_dict["input_ids"] = [
+            [*input_ids, self.tokenizer.eos_token_id]
+            for input_ids in batch_dict["input_ids"]  # type: ignore
+        ]
+        batch_dict = self.tokenizer.pad(batch_dict, padding=True, return_attention_mask=True, return_tensors="pt")
+
+        return batch_dict.to(self.model.device)
+
+
 @models.register("e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
@@ -187,10 +212,30 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
         languages=[],
         open_source=True,
         embedding_size=4096,
-        model_architecture="Mistral",
+        architecture="Mistral",
         release_date=date(2023, 12, 20),
     )
     return SebModel(
         encoder=LazyLoadEncoder(E5Mistral),
+        meta=meta,
+    )
+
+
+@models.register("multilingual-e5-large-instruct")
+def create_multilingual_e5_large_instruct() -> SebModel:
+    hf_name = "intfloat/multilingual-e5-large-instruct"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=1024,
+        architecture="XLM-R",
+        release_date=date(2023, 12, 20),
+    )
+    partial_model = partial(E5Instruct, model_name=hf_name, max_length=512)
+    return SebModel(
+        encoder=LazyLoadEncoder(partial_model),
         meta=meta,
     )

@@ -2,6 +2,33 @@
 
 
 
+## v0.13.1 (2024-02-19)
+
+### Chore
+
+* chore: remove test file ([`14f9935`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/14f9935d5e08d1f0110525e9ffe887d0cecd4c17))
+
+### Documentation
+
+* docs: Updte docs script to handle new name format ([`aa171dd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/aa171ddbee4033d2e5881ccdbd7bc9c7c0459bcc))
+
+### Fix
+
+* fix: fix incorrect emb. size for e5 large instruct ([`7865ad7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7865ad7523e82b4bc3cfa0d1db3a9338117aec80))
+
+* fix: Added final for mult. e5 instruct, including speed test of ref. system ([`08e1779`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/08e17792985053163d54dd1ab0db8d151a3cd272))
+
+* fix: added multilingual-e5-large-instruct ([`56bfc16`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/56bfc16a4adcae0c4a565d7f1d711d901b4aa931))
+
+* fix: rename model_architecture to architecture to not take up protected attribute for pydantic ([`f845a49`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f845a4995f6360e2b2b2b10870ce07305df14517))
+
+### Unknown
+
+* Merge pull request #155 from KennethEnevoldsen/add-multilingual-instruct
+
+Add multilingual e5 instruct ([`c2cca49`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2cca4935bae0a5c4fb429d0e8337e18fbf22d33))
+
+
 ## v0.13.0 (2024-02-19)
 
 ### Feature

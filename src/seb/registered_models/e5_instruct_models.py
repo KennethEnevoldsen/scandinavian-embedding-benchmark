@@ -230,8 +230,8 @@ def create_multilingual_e5_large_instruct() -> SebModel:
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
         open_source=True,
-        embedding_size=4096,
-        architecture="Mistral",
+        embedding_size=1024,
+        architecture="XLM-R",
         release_date=date(2023, 12, 20),
     )
     partial_model = partial(E5Instruct, model_name=hf_name, max_length=512)

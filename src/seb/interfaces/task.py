@@ -46,6 +46,8 @@ class Task(Protocol):
         version: The version of the task.
         languages: The languages of the task.
         domain: The domains of the task. Should be one of the categories listed on https://universaldependencies.org
+        task_type: A list of task types, determines how the task is being evaluated. E.g. Classification.
+        task_subtypes: a list of subtypes e.g. Sentiment Classification.
         description: A description of the task.
     """
 
@@ -56,6 +58,7 @@ class Task(Protocol):
     languages: list[Language]
     domain: list[Domain]
     task_type: TaskType
+    task_subtypes: list[str]
     description: str
 
     def evaluate(self, model: Encoder) -> TaskResult:

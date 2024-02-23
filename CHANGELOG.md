@@ -2,6 +2,25 @@
 
 
 
+## v0.13.3 (2024-02-23)
+
+### Documentation
+
+* docs: Updated tables to include task subtypes ([`e119c58`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e119c58d5240cc39145b7072fc1bd32d22bb5e2e))
+
+### Fix
+
+* fix: Added task subtypes to tasks
+
+This follows the denotion in the paper. A task can have multiple task subtypes but only one task type. ([`7fc9ed5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7fc9ed52c322d87a12960efa3eca4aab58afaf33))
+
+### Unknown
+
+* Merge pull request #162 from KennethEnevoldsen/add-task-subtypes
+
+Added task subtypes ([`363ab09`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/363ab0980ac4587318821ddf9b056db2ba93ea34))
+
+
 ## v0.13.2 (2024-02-19)
 
 ### Fix

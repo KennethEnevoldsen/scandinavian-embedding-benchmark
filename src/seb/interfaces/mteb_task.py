@@ -25,6 +25,7 @@ class MTEBTask(Task):
         self.task_type = mteb_desc["type"]
         self.domain = []
         self._text_columns = ["text"]
+        self.task_subtypes = []
 
     def load_data(self) -> DatasetDict:
         self.mteb_task.load_data()

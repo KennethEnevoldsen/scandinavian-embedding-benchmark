@@ -10,6 +10,7 @@ def create_swerec() -> Task:
     task = MTEBTask(SweRecClassification())
     task.name = "SweReC"
     task.domain = ["reviews"]
+    task.task_subtypes = ["Sentiment Classification"]
     return task
 
 
@@ -20,6 +21,7 @@ def create_dalaj() -> Task:
     task = MTEBTask(DalajClassification())
     task.name = "DaLAJ"
     task.domain = ["fiction", "non-fiction"]
+    task.task_subtypes = ["Linguistic Acceptability"]
     return task
 
 
@@ -32,6 +34,7 @@ def create_swefaq() -> Task:
     task.version = "0.0.1"
     task.domain = ["non-fiction", "web"]
     task._text_columns = ["question", "candidate_answer", "correct_answer"]
+    task.task_subtypes = ["Question-answering"]
     return task
 
 
@@ -43,6 +46,7 @@ def create_swedn_retrieval() -> Task:
     task.name = "SwednRetrieval"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
+    task.task_subtypes = ["Article Retrieval"]
     return task
 
 
@@ -55,4 +59,5 @@ def create_swedn_clustering() -> Task:
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     task._text_columns = ["sentences"]
+    task.task_subtypes = ["Thematic Clustering"]
     return task

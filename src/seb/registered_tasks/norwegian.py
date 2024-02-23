@@ -11,6 +11,7 @@ def create_norec() -> Task:
     task = MTEBTask(NoRecClassification())
     task.name = "NoReC"
     task.domain = ["reviews"]
+    task.task_subtypes = ["Sentiment Classification"]
     return task
 
 
@@ -19,6 +20,7 @@ def create_norwegian_parliament() -> Task:
     task = MTEBTask(NorwegianParliamentClassification())
     task.name = "Norwegian parliament"
     task.domain = ["spoken"]
+    task.task_subtypes = ["Political Classification"]
     return task
 
 
@@ -28,6 +30,7 @@ def create_norwegian_courts() -> Task:
     task.name = "Norwegian courts"
     task.domain = ["legal", "non-fiction"]
     task._text_columns = ["sentence1", "sentence2"]
+    task.task_subtypes = ["Written form Pairing"]
     return task
 
 
@@ -40,6 +43,7 @@ def create_vg_clustering() -> Task:
     task.version = "0.0.1"
     task.domain = ["non-fiction", "news"]
     task._text_columns = ["sentences"]
+    task.task_subtypes = ["Thematic Clustering"]
     return task
 
 
@@ -52,6 +56,7 @@ def create_sts_clustering() -> Task:
     task.version = "0.0.1"
     task.domain = ["non-fiction", "wiki"]
     task._text_columns = ["sentences"]
+    task.task_subtypes = ["Thematic Clustering"]
     return task
 
 
@@ -74,4 +79,5 @@ def create_norquad() -> Task:
     task.name = "NorQuad"
     task.version = "0.0.1"
     task.domain = ["non-fiction", "wiki"]
+    task.task_subtypes = ["Question-answering"]
     return task

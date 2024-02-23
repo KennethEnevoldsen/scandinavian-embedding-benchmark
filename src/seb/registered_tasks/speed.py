@@ -11,7 +11,7 @@ import torch
 
 from seb.interfaces.language import languages_in_seb
 from seb.interfaces.model import Encoder
-from seb.interfaces.task import DescriptiveDatasetStats, Task
+from seb.interfaces.task import Task
 from seb.result_dataclasses import TaskResult
 
 logger = logging.getLogger(__name__)
@@ -30,6 +30,7 @@ class CPUSpeedTask(Task):
     description = "Time taken to encode the text 'The Ugly Duckling' split by paragraphs on a CPU."
     device = "cpu"
     _dataset: Optional[list[str]] = None
+    task_subtypes = []  # noqa
 
     def load_dataset(self) -> list[str]:
         file_path = Path(__file__).parent / "the_ugly_duckling.txt"

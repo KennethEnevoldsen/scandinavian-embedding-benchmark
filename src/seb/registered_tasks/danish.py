@@ -11,6 +11,7 @@ def create_angry_tweets() -> Task:
     task = MTEBTask(AngryTweetsClassification())
     task.name = "Angry Tweets"
     task.domain = ["social"]
+    task.task_subtypes = ["Sentiment Classification"]
     return task
 
 
@@ -30,6 +31,7 @@ def create_lcc() -> Task:
         "academic",
         "government",
     ]
+    task.task_subtypes = ["Sentiment Classification"]
     return task
 
 
@@ -41,6 +43,7 @@ def create_bornholm_parallel() -> Task:
     task.name = "Bornholm Parallel"
     task.domain = ["poetry", "wiki", "fiction", "web", "social"]
     task._text_columns = ["sentence1", "sentence2"]
+    task.task_subtypes = ["Dialect Pairing"]
     return task
 
 
@@ -51,6 +54,7 @@ def create_dkhate() -> Task:
     task = MTEBTask(DKHateClassification())
     task.name = "DKHate"
     task.domain = ["social"]
+    task.task_subtypes = ["Hate Speech Classification"]
     return task
 
 
@@ -62,6 +66,7 @@ def create_da_political_comments() -> Task:
     task.name = "Da Political Comments"
     task.domain = ["social"]
     task.reference = "https://huggingface.co/datasets/danish_political_comments"  # TODO: Make a PR for MTEB to add this reference
+    task.task_subtypes = ["Sentiment Classification"]
     return task
 
 
@@ -72,6 +77,7 @@ def create_dan_fever() -> Task:
     task = MTEBTask(DanFever())
     task.name = "DanFEVER"
     task.domain = ["wiki", "non-fiction"]
+    task.task_subtypes = ["Evidence Retrieval"]
     return task
 
 
@@ -82,6 +88,7 @@ def create_tv2nord_retrieval() -> Task:
     task = MTEBTask(TV2Nordretrieval())
     task.name = "TV2Nord Retrieval"
     task.domain = ["news", "non-fiction"]
+    task.task_subtypes = ["Article Retrieval"]
     return task
 
 
@@ -92,4 +99,5 @@ def create_twitterhjerne() -> Task:
     task = MTEBTask(TwitterHjerneRetrieval())
     task.name = "Twitterhjerne"
     task.domain = ["social"]
+    task.task_subtypes = ["Question-answering"]
     return task

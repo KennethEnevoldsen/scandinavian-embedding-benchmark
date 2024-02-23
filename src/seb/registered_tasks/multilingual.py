@@ -20,6 +20,7 @@ def create_massive_intent() -> Task:
     task.languages = ["da", "nb", "sv"]
     task.mteb_task.langs = ["da", "nb", "sv"]  # type: ignore
     task.domain = ["spoken"]
+    task.task_subtypes = ["Dialog Systems", "Intent Classification"]
     return task
 
 
@@ -32,6 +33,7 @@ def create_massive_scenario() -> Task:
     task.languages = ["da", "nb", "sv"]
     task.mteb_task.langs = ["da", "nb", "sv"]  # type: ignore
     task.domain = ["spoken"]
+    task.task_subtypes = ["Dialog Systems", "Scenario Classification"]
     return task
 
 
@@ -56,6 +58,7 @@ def create_scala() -> Task:
             self.domain = ["fiction", "news", "non-fiction", "spoken", "blog"]
             self._text_columns = ["text"]
             self.task_type = "Classification"
+            self.task_subtypes = ["Linguistic Acceptability"]
 
         def load_data(self) -> DatasetDict:
             ds = {}
@@ -136,5 +139,6 @@ def create_language_identification() -> Task:
     task = MTEBTask(NordicLangClassification())
     task.name = "Language Identification"
     task.domain = ["wiki"]
+    task.task_subtypes = ["Language Identification"]
 
     return task

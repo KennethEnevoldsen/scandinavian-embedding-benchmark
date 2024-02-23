@@ -114,8 +114,8 @@ def create_n_datasets_row_for_domains() -> pd.DataFrame:
 
 def create_n_datasets_row_for_task_types() -> pd.DataFrame:
     tasks: list[seb.Task] = seb.get_all_tasks()
-    task_type = sorted({t.task_type for t in tasks})
-    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type] for tt in task_type}
+    task_type = sorted({t_type for t in tasks for t_type in [t.task_type, *t.task_subtypes]})
+    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type or tt in t.task_subtypes] for tt in task_type}
     scores = []
     task_type_names = []
     n_datasets = []
@@ -158,8 +158,8 @@ def benchmark_result_to_task_type_row(
     langs: list[str],
 ) -> pd.DataFrame:
     tasks: list[seb.Task] = seb.get_all_tasks()
-    task_type = sorted({t.task_type for t in tasks})
-    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type] for tt in task_type}
+    task_type = sorted({t_type for t in tasks for t_type in [t.task_type, *t.task_subtypes]})
+    tasktype2tasks = {tt: [t.name for t in tasks if tt == t.task_type or tt in t.task_subtypes] for tt in task_type}
 
     scores = []
     task_type_names = []

@@ -202,6 +202,21 @@ class E5Mistral(E5Instruct):
         return batch_dict.to(self.model.device)
 
 
+class E5PEFTInstruct(E5Mistral):
+    def __init__(self, model_name: str, max_length: int = 4096, max_batch_size: Optional[int] = 4, **kwargs: Any):
+        from peft import PeftConfig, PeftModel  # type: ignore
+
+        repo_id = model_name
+        config = PeftConfig.from_pretrained(repo_id)
+
+        base_model = AutoModel.from_pretrained(config.base_model_name_or_path, torch_dtype=torch.float16)
+        self.model = PeftModel.from_pretrained(base_model, repo_id)
+        self.tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
+        self.model = AutoModel.from_pretrained(model_name, **kwargs)
+        self.max_length = max_length
+        self.max_batch_size = max_batch_size
+
+
 @models.register("e5-mistral-7b-instruct")
 def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     hf_name = "intfloat/e5-mistral-7b-instruct"
@@ -235,6 +250,46 @@ def create_multilingual_e5_large_instruct() -> SebModel:
         release_date=date(2023, 12, 20),
     )
     partial_model = partial(E5Instruct, model_name=hf_name, max_length=512)
+    return SebModel(
+        encoder=LazyLoadEncoder(partial_model),
+        meta=meta,
+    )
+
+
+@models.register("e5-munin-neuralbeagle")
+def create_e5_munin_neuralbeagle() -> SebModel:
+    hf_name = "KennethEnevoldsen/munin-neuralbeagle-7b-e5"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=1024,
+        architecture="Mistral",
+        release_date=date(2023, 2, 27),
+    )
+    partial_model = partial(E5PEFTInstruct, model_name=hf_name)
+    return SebModel(
+        encoder=LazyLoadEncoder(partial_model),
+        meta=meta,
+    )
+
+
+@models.register("e5-munin")
+def create_e5_munin() -> SebModel:
+    hf_name = "KennethEnevoldsen/munin-7b-e5"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=1024,
+        architecture="Mistral",
+        release_date=date(2023, 2, 27),
+    )
+    partial_model = partial(E5PEFTInstruct, model_name=hf_name)
     return SebModel(
         encoder=LazyLoadEncoder(partial_model),
         meta=meta,

@@ -47,6 +47,9 @@ docs = [
 mistral = [
   "transformers>=4.31.0", # lower bound required for mistral models (could potentially be lowered)
 ]
+peft = [
+  "peft>=0.8.2", # required for running peft-based models
+]
 openai = ["openai>=0.27.4"]
 cohere = ["cohere>=4.34"]
 sonar = [

@@ -113,11 +113,8 @@ class LazyLoadEncoder(Encoder):
 
     def to(self, device: torch.device):
         self.load_model()
-        try:
-            self._model = self._model.to(device)  # type: ignore
-        except AttributeError:
-            logging.debug(f"Model {self._model} does not have a to method")
-
+        self._model.to(device)  # type: ignore
+        
     @property
     def model(self) -> Encoder:
         """

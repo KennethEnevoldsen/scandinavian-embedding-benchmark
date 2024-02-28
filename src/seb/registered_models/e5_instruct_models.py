@@ -161,6 +161,10 @@ class E5Instruct(Encoder):
 
     def encode_queries(self, queries: list[str], **kwargs: Any) -> np.ndarray:
         return self.encode(queries, encode_type="query", **kwargs)
+    
+    def to(self, device: torch.device):
+        self.model.to(device)
+        
 
 
 class E5Mistral(E5Instruct):
@@ -211,7 +215,7 @@ class E5PEFTInstruct(E5Mistral):
 
         base_model = AutoModel.from_pretrained(config.base_model_name_or_path, torch_dtype=torch.float16)
         self.model = PeftModel.from_pretrained(base_model, repo_id)
-        self.tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
+        self.tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-mistral-7b-instruct")
         self.model = AutoModel.from_pretrained(model_name, **kwargs)
         self.max_length = max_length
         self.max_batch_size = max_batch_size

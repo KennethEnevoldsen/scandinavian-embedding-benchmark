@@ -94,7 +94,6 @@ def task_to_instruction(task: Task) -> str:
 
 
 
-
 def task_to_instruction_da(task: Task) -> str:
     if task.task_type in ["STS"]:
         return "Retrieve semantically similar text"
@@ -152,63 +151,61 @@ def task_to_instruction_da(task: Task) -> str:
     return ""
 
 
-# def task_to_instruction_da(task: Task) -> str:
-#     if task.task_type in ["STS"]:
-#         return "Find semantisk lignende tekst"
-#     if task.task_type in ["Summarization"]:
-#         return "Givet et nyhedssammendrag, find andre semantisk lignende sammendrag"
-#     if task.task_type in ["BitextMining"]:
-#         task_name_to_instruct: dict[str, str] = {
-#             "Bornholm Parallel": "Find parallelle sætninger på dansk og bornholmsk",
-#             "Norwegian courts": "Find parallelle sætninger på norsk bokmål og nynorsk",
-#         }
-#         default_instruction = "Find parallelle sætninger."
-#         return task_name_to_instruct.get(task.name, default_instruction)
-#     if task.task_type in ["Classification"]:
-#         task_name_to_instruct: dict[str, str] = {
-#             "Angry Tweets": "Klassificér danske tweets efter sentiment. (positivt, negativt, neutralt)",
-#             "DKHate": "Klassificér danske tweets baseret på stødende indhold (stødende, ikke stødende)",
-#             "Da Political Comments": "Klassificér danske politiske kommentarer for sentiment",
-#             "DaLAJ": "Klassificér tekster baseret på sproglig acceptabilitet på svensk",
-#             "LCC": "Klassificér tekster baseret på sentiment",
-#             "Language Identification": "Klassificér tekster baseret på sprog",
-#             "Massive Intent": "Givet en brugerudtalelse som forespørgsel, find brugerens intentioner",
-#             "Massive Scenario": "Givet en brugerudtalelse som forespørgsel, find brugerens scenarier",
-#             "NoReC": "Klassificér norske anmeldelser efter sentiment",
-#             "SweReC": "Klassificér svenske anmeldelser efter sentiment",
-#             "Norwegian parliament": "Klassificér taler i det norske parlament baseret på politisk tilhørsforhold",
-#             "ScaLA": "Klassificér passager på skandinaviske sprog baseret på sproglig acceptabilitet",
-#         }
-#         default_instruction = "Klassificér brugerpassager"
-#         return task_name_to_instruct.get(task.name, default_instruction)
-#     if task.task_type in ["Clustering"]:
-#         task_name_to_instruct: dict[str, str] = {
-#             "ArxivClusteringP2P": "Identificer hoved- og sekundærkategorien af Arxiv-papirer baseret på titler og resuméer",
-#             "VG Clustering": "Identificer kategorierne (f.eks. sport) af givne artikler på norsk",
-#             "SNL Clustering": "Identificer kategorier i et norsk leksikon",
-#             "SwednClustering": "Identificer nyhedskategorier i svenske passager",
-#         }
-#         default_instruction = "Identificer kategorier i brugerpassager"
-#         return task_name_to_instruct.get(task.name, default_instruction)
-#     if task.task_type in ["Reranking"]:
-#         return "Find semantisk lignende passager."
-#     if task.task_type in ["Retrieval"]:
-#         task_name_to_instruct: dict[str, str] = {
-#             "Twitterhjerne": "Find svar på spørgsmål stillet i danske tweets",
-#             "SwednRetrieval": "Givet en svensk nyhedsoverskrift find resuméer eller nyhedsartikler",
-#             "TV2Nord Retrieval": "Givet et resumé af en dansk nyhedsartikel find den tilsvarende nyhedsartikel",
-#             "DanFEVER": "Givet en påstand på dansk, find dokumenter der understøtter påstanden",
-#             "SNL Retrieval": "Givet en leksikonoverskrift på norsk, find dens artikel",
-#             "NorQuad": "Givet et spørgsmål på norsk, find svaret i Wikipedia-artikler",
-#             "SweFAQ": "Find svar givet spørgsmål på svensk",
-#             "ArguAna": "Givet en påstand, find dokumenter der modbeviser påstanden",
-#             "ClimateFEVER": "Givet en påstand om klimaændringer, find dokumenter der understøtter eller modbeviser påstanden",
-#         }
-#         default_instruction = "Find tekst baseret på
-
-#  brugerforespørgsel."
-#         return task_name_to_instruct.get(task.name, default_instruction)
-#     return ""
+def task_to_instruction_da(task: Task) -> str:
+    if task.task_type in ["STS"]:
+        return "Find semantisk lignende tekst"
+    if task.task_type in ["Summarization"]:
+        return "Givet et nyhedssammendrag, find andre semantisk lignende sammendrag"
+    if task.task_type in ["BitextMining"]:
+        task_name_to_instruct: dict[str, str] = {
+            "Bornholm Parallel": "retrieve parallelle sætninger på dansk og bornholmsk",
+            "Norwegian courts": "Find parallelle sætninger på norsk bokmål og nynorsk",
+        }
+        default_instruction = "Find parallelle sætninger."
+        return task_name_to_instruct.get(task.name, default_instruction)
+    if task.task_type in ["Classification"]:
+        task_name_to_instruct: dict[str, str] = {
+            "Angry Tweets": "Klassificér danske tweets efter sentiment. (positivt, negativt, neutralt)",
+            "DKHate": "Klassificér danske tweets baseret på stødende indhold (stødende, ikke stødende)",
+            "Da Political Comments": "Klassificér danske politiske kommentarer for sentiment",
+            "DaLAJ": "Klassificér tekster baseret på sproglig acceptabilitet på svensk",
+            "LCC": "Klassificér tekster baseret på sentiment",
+            "Language Identification": "Klassificér tekster baseret på sprog",
+            "Massive Intent": "Givet en brugerudtalelse som forespørgsel, find brugerens intentioner",
+            "Massive Scenario": "Givet en brugerudtalelse som forespørgsel, find brugerens scenarier",
+            "NoReC": "Klassificér norske anmeldelser efter sentiment",
+            "SweReC": "Klassificér svenske anmeldelser efter sentiment",
+            "Norwegian parliament": "Klassificér taler i det norske parlament baseret på politisk tilhørsforhold",
+            "ScaLA": "Klassificér passager på skandinaviske sprog baseret på sproglig acceptabilitet",
+        }
+        default_instruction = "Klassificér brugerpassager"
+        return task_name_to_instruct.get(task.name, default_instruction)
+    if task.task_type in ["Clustering"]:
+        task_name_to_instruct: dict[str, str] = {
+            "ArxivClusteringP2P": "Identificer hoved- og sekundærkategorien af Arxiv-papirer baseret på titler og resuméer",
+            "VG Clustering": "Identificer kategorierne (f.eks. sport) af givne artikler på norsk",
+            "SNL Clustering": "Identificer kategorier i et norsk leksikon",
+            "SwednClustering": "Identificer nyhedskategorier i svenske passager",
+        }
+        default_instruction = "Identificer kategorier i brugerpassager"
+        return task_name_to_instruct.get(task.name, default_instruction)
+    if task.task_type in ["Reranking"]:
+        return "Find semantisk lignende passager."
+    if task.task_type in ["Retrieval"]:
+        task_name_to_instruct: dict[str, str] = {
+            "Twitterhjerne": "Find svar på spørgsmål stillet i danske tweets",
+            "SwednRetrieval": "Givet en svensk nyhedsoverskrift find resuméer eller nyhedsartikler",
+            "TV2Nord Retrieval": "Givet et resumé af en dansk nyhedsartikel find den tilsvarende nyhedsartikel",
+            "DanFEVER": "Givet en påstand på dansk, find dokumenter der understøtter påstanden",
+            "SNL Retrieval": "Givet en leksikonoverskrift på norsk, find dens artikel",
+            "NorQuad": "Givet et spørgsmål på norsk, find svaret i Wikipedia-artikler",
+            "SweFAQ": "Find svar givet spørgsmål på svensk",
+            "ArguAna": "Givet en påstand, find dokumenter der modbeviser påstanden",
+            "ClimateFEVER": "Givet en påstand om klimaændringer, find dokumenter der understøtter eller modbeviser påstanden",
+        }
+        default_instruction = "Find tekst baseret på brugerforespørgsel."
+        return task_name_to_instruct.get(task.name, default_instruction)
+    return ""
 
 
 

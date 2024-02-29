@@ -285,8 +285,8 @@ class E5Instruct(Encoder):
 
 
 class E5Mistral(E5Instruct):
-    def __init__(self):
-        super().__init__("intfloat/e5-mistral-7b-instruct", max_length=4096, max_batch_size=4, torch_dtype=torch.float16)
+    def __init__(self, model_name="intfloat/e5-mistral-7b-instruct"):
+        super().__init__(model_name, max_length=4096, max_batch_size=4, torch_dtype=torch.float16)
 
     @staticmethod
     def last_token_pool(last_hidden_states: Tensor, attention_mask: Tensor) -> Tensor:
@@ -359,6 +359,26 @@ def create_multilingual_e5_mistral_7b_instruct() -> SebModel:
     )
 
 
+@models.register("e5-mistral-munin-merge")
+def create_e5_mistral_munin_merge() -> SebModel:
+    hf_name = "KennethEnevoldsen/munin-e5"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=4096,
+        architecture="Mistral",
+        release_date=date(2023, 12, 20),
+    )
+    partial_model = partial(E5Mistral, model_name = hf_name)
+    return SebModel(
+        encoder=LazyLoadEncoder(partial_model),
+        meta=meta,
+    )
+
+
 @models.register("multilingual-e5-large-instruct")
 def create_multilingual_e5_large_instruct() -> SebModel:
     hf_name = "intfloat/multilingual-e5-large-instruct"
@@ -377,6 +397,9 @@ def create_multilingual_e5_large_instruct() -> SebModel:
         encoder=LazyLoadEncoder(partial_model),
         meta=meta,
     )
+
+
+
 
 
 @models.register("e5-munin-neuralbeagle")

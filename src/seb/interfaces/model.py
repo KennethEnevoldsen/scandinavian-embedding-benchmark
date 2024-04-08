@@ -151,7 +151,7 @@ class LazyLoadEncoder(Encoder):
         try:
             return self.model.encode_queries(queries, **kwargs)  # type: ignore
         except AttributeError:
-            return self.encode(queries, task=None, **kwargs)
+            return self.encode(queries, **kwargs)
 
     def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:
         try:
@@ -165,7 +165,7 @@ class LazyLoadEncoder(Encoder):
                 ]
             else:
                 sentences = [(doc["title"] + sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
-            return self.encode(sentences, task=None, **kwargs)
+            return self.encode(sentences, **kwargs)
 
 
 @dataclass

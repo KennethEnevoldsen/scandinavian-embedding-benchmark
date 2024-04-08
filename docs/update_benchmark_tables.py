@@ -190,7 +190,7 @@ def convert_to_table(
     df = pd.concat(rows)
     df = df.sort_values(by="Average Score", ascending=False)
     df["Average Rank"] = compute_avg_rank(df)
-    # df["Average Rank (Bootstrapped)"] = compute_avg_rank_bootstrap(df)
+    # df["Average Rank (Bootstrapped)"] = compute_avg_rank_bootstrap(df) # noqa
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()

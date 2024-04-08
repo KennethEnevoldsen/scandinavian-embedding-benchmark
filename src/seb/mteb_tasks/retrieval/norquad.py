@@ -14,7 +14,7 @@ class NorQuadRetrieval(AbsTaskRetrieval):
     def description(self) -> dict[str, Any]:
         return {
             "name": "NorQuadRetrieval",
-            "hf_hub_name": "ScandEval/norquad-mini",
+            "hf_hub_name": "mteb/norquad_retrieval",
             "description": "Human-created question for Norwegian wikipedia passages.",
             "reference": "https://aclanthology.org/2023.nodalida-1.17/",
             "type": "Retrieval",
@@ -22,7 +22,6 @@ class NorQuadRetrieval(AbsTaskRetrieval):
             "eval_splits": ["test"],
             "eval_langs": ["nb"],
             "main_score": "ndcg_at_10",
-            "revision": "a47881440ce4b18ef61a99be66dc4badbf5aac6e",
         }
 
     def load_data(self, **kwargs: dict):  # noqa: ARG002

@@ -1,3 +1,5 @@
+from typing import Any
+
 from seb.interfaces.mteb_task import MTEBTask
 from seb.interfaces.task import Task
 from seb.mteb_tasks import NorwegianCourtsBitextMining, NorwegianParliamentClassification
@@ -8,7 +10,24 @@ from seb.registries import tasks
 def create_norec() -> Task:
     from mteb import NoRecClassification
 
-    task = MTEBTask(NoRecClassification())
+    class NoRecClassificationCustom(NoRecClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "NoRecClassification",
+                "hf_hub_name": "mteb/norec_classification",
+                "description": "A Norwegian dataset for sentiment classification on review",
+                "reference": "https://aclanthology.org/L18-1661/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["nb"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
+    task = MTEBTask(NoRecClassificationCustom())
     task.name = "NoReC"
     task.domain = ["reviews"]
     task.task_subtypes = ["Sentiment Classification"]

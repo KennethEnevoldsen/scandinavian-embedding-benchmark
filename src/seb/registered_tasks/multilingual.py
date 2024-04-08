@@ -1,5 +1,6 @@
 from datetime import datetime
 from functools import partial
+from typing import Any
 
 import numpy as np
 from datasets import DatasetDict, concatenate_datasets
@@ -41,13 +42,82 @@ def create_massive_scenario() -> Task:
 def create_scala() -> Task:
     from mteb import ScalaDaClassification, ScalaNbClassification, ScalaNnClassification, ScalaSvClassification, __version__
 
+    # this is a temporary fix until the mteb library is updated
+    class ScalaDaClassificationCustom(ScalaDaClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "ScalaDaClassification",
+                "hf_hub_name": "mteb/scala_da_classification",
+                "description": "A modified version of DDT modified for linguistic acceptability classification",
+                "reference": "https://aclanthology.org/2023.nodalida-1.20/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["da"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
+    class ScalaNbClassificationCustom(ScalaNbClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "ScalaNbClassification",
+                "hf_hub_name": "mteb/scala_nb_classification",
+                "description": "A Norwegian dataset for linguistic acceptability classification for Bokmål",
+                "reference": "https://aclanthology.org/2023.nodalida-1.20/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["no", "nb"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
+    class ScalaSvClassificationCustom(ScalaSvClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "ScalaSvClassification",
+                "hf_hub_name": "mteb/scala_sv_classification",
+                "description": "A Swedish dataset for linguistic acceptability classification",
+                "reference": "https://aclanthology.org/2023.nodalida-1.20/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["sv"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
+    class ScalaNnClassificationCustom(ScalaNnClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "ScalaNnClassification",
+                "hf_hub_name": "mteb/scala_nn_classification",
+                "description": "A Norwegian dataset for linguistic acceptability classification for Nynorsk",
+                "reference": "https://aclanthology.org/2023.nodalida-1.20/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["no", "nn"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
     class ScalaTask(Task):
         def __init__(self) -> None:
             self.mteb_tasks = {
-                "da": ScalaDaClassification(),
-                "nb": ScalaNbClassification(),
-                "sv": ScalaSvClassification(),
-                "nn": ScalaNnClassification(),
+                "da": ScalaDaClassificationCustom(),
+                "nb": ScalaNbClassificationCustom(),
+                "sv": ScalaSvClassificationCustom(),
+                "nn": ScalaNnClassificationCustom(),
             }
             self.main_score = "accuracy"
             self.name = "ScaLA"

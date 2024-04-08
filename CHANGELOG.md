@@ -2,6 +2,25 @@
 
 
 
+## v0.13.4 (2024-04-08)
+
+### Documentation
+
+* docs: minor updates to tables ([`9f7da4b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9f7da4ba0cbdbead8b1d2636b4a7c85860ab4619))
+
+### Fix
+
+* fix: updated ruff dependency ([`7e7a7ae`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7e7a7ae84b51f879b9abd66badfc3f070a651ab1))
+
+* fix: Fixed broken HF links to scandeval ([`b99e300`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b99e300ba4db11fca58b51f2d91b4ce9c5388f57))
+
+### Unknown
+
+* Merge pull request #174 from KennethEnevoldsen/minor-fixes
+
+fix: Fixing links for prs ([`5dc4ca3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5dc4ca332dacd19e1fa8892f812f31179bdad2d3))
+
+
 ## v0.13.3 (2024-02-23)
 
 ### Documentation

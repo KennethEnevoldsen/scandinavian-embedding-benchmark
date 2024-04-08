@@ -6,6 +6,7 @@ Example:
     python update_benchmark_tables.py --data-wrapper-api-token <token>
 """
 import argparse
+from collections import defaultdict
 from collections.abc import Sequence
 from typing import Optional
 
@@ -189,6 +190,7 @@ def convert_to_table(
     df = pd.concat(rows)
     df = df.sort_values(by="Average Score", ascending=False)
     df["Average Rank"] = compute_avg_rank(df)
+    # df["Average Rank (Bootstrapped)"] = compute_avg_rank_bootstrap(df)
 
     # ensure that the average and open source are the first column
     cols = df.columns.tolist()
@@ -217,11 +219,34 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
     """
     For each model in the dataset, for each task, compute the rank of the model and then compute the average rank.
     """
-    df = df.drop(columns=["Average Score", "Open Source", "Embedding Size"])
+    df = df.drop(columns=["Average Score", "Open Source", "Embedding Size", "Model name", "WPS (CPU)"])
 
     ranks = df.rank(axis=0, ascending=False, na_option="bottom")
     avg_ranks = ranks.mean(axis=1)
     return avg_ranks
+
+
+def compute_avg_rank_bootstrap(df: pd.DataFrame, n_samples: int = 100) -> pd.Series:
+    """
+    For all models bootstrap a set of tasks and compute the average rank. Repeat this n_samples times.
+    """
+    df = df.drop(columns=["Average Score", "Open Source", "Embedding Size", "Average Rank", "WPS (CPU)", "Model name"])
+    tasks = np.array(df.columns.tolist())
+    n_tasks = len(tasks)
+    model2rank = defaultdict(list)
+
+    for _ in range(n_samples):
+        bootstrap_tasks = np.random.choice(tasks, n_tasks, replace=True)
+        ranks = df[bootstrap_tasks].rank(axis=0, ascending=False, na_option="bottom")
+        avg_ranks = ranks.mean(axis=1)
+        for model, rank in avg_ranks.items():
+            model2rank[model].append(rank)
+
+    avg_ranks = {model: np.mean(ranks) for model, ranks in model2rank.items()}
+    ci = {model: np.percentile(ranks, [2.5, 97.5]) for model, ranks in model2rank.items()}
+    # create "{avg_rank} ({ci_low}-{ci_high})" string
+    avg_ranks_ = {model: f"{avg_ranks[model]:.1f} [{ci_low:.1f}, {ci_high:.1f}]" for model, (ci_low, ci_high) in ci.items()}
+    return pd.Series(avg_ranks_)
 
 
 def create_domain_table(

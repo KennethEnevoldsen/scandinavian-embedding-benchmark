@@ -19,7 +19,6 @@ Using 3 levels:
 As it does not change much we will use 4 batches of size 512.
 """
 
-
 import random
 from collections.abc import Iterable
 from itertools import islice
@@ -94,7 +93,7 @@ class SNLClustering(AbsTaskClustering):
             rng = random.Random(42)  # local only seed
             pairs = list(zip(documents, labels))
             rng.shuffle(pairs)
-            documents, labels = [list(collection) for collection in zip(*pairs)]
+            documents, labels = (list(collection) for collection in zip(*pairs))
 
             # reduce size of dataset to not have too large datasets in the clustering task
             documents_batched = list(batched(documents, 512))[:4]

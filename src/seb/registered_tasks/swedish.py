@@ -1,3 +1,5 @@
+from typing import Any
+
 from seb.interfaces.mteb_task import MTEBTask
 from seb.interfaces.task import Task
 from seb.registries import tasks
@@ -7,7 +9,24 @@ from seb.registries import tasks
 def create_swerec() -> Task:
     from mteb import SweRecClassification
 
-    task = MTEBTask(SweRecClassification())
+    class SweRecClassificationCustom(SweRecClassification):
+        @property
+        def description(self) -> dict[str, Any]:
+            return {
+                "name": "SweRecClassification",
+                "hf_hub_name": "mteb/swerec_classification",
+                "description": "A Swedish dataset for sentiment classification on review",
+                "reference": "https://aclanthology.org/2023.nodalida-1.20/",
+                "type": "Classification",
+                "category": "s2s",
+                "eval_splits": ["test"],
+                "eval_langs": ["sv"],
+                "main_score": "accuracy",
+                "n_experiments": 10,
+                "samples_per_label": 16,
+            }
+
+    task = MTEBTask(SweRecClassificationCustom())
     task.name = "SweReC"
     task.domain = ["reviews"]
     task.task_subtypes = ["Sentiment Classification"]

@@ -2,7 +2,6 @@
 The openai embedding api's evaluated on the SEB benchmark.
 """
 
-
 import logging
 from collections.abc import Sequence
 from datetime import date

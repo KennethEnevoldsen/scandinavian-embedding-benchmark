@@ -1,6 +1,7 @@
 """
 All the models registered in the benchmark, along with their metadata.
 """
+
 import logging
 from datetime import date
 from functools import partial

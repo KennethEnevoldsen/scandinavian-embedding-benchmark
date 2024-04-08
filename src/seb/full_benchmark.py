@@ -2,7 +2,6 @@
 This is the specification for the full benchmark. Running the code here will reproduce the results.
 """
 
-
 import logging
 from pathlib import Path
 from typing import Optional

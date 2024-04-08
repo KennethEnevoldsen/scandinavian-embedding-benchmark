@@ -102,7 +102,7 @@ def pretty_print_benchmark(df: pd.DataFrame, highlight: list[str]):
             column,
             justify=justify,
             overflow="ellipsis",
-            min_width=MIN_WIDTHS.get(column, None),
+            min_width=MIN_WIDTHS.get(column, None),  # noqa
             no_wrap=NO_WRAP.get(column, False),
         )
     if highlight:
@@ -123,12 +123,11 @@ def pretty_print_benchmark(df: pd.DataFrame, highlight: list[str]):
         values = []
         for val in row:
             if isinstance(val, float):
-                val = f"{val:.2f}"
+                val = f"{val:.2f}"  # noqa
             if not isinstance(val, str):
-                val = str(val)
+                val = str(val)  # noqa
             values.append(val)
         table.add_row(*values, style=style)
         if (rank == 3) and highlight:
             table.add_section()
-    # console.clear()
     console.print(table)

@@ -33,7 +33,7 @@ file = "LICENSE"
 name = "MIT"
 
 [project.optional-dependencies]
-dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff>=0.0.281"]
+dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff>=0.3.0"]
 tests = ["pytest>=7.1.3", "pytest-cov>=3.0.0"]
 docs = [
   "mkdocs-jupyter==0.24.6",
@@ -75,10 +75,10 @@ exclude = [".*venv*"]
 pythonPlatform = "Darwin"
 
 [tool.ruff]
+# extend-include = ["*.ipynb"]
 line-length = 150
-extend-include = ["*.ipynb"]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
-select = [
+lint.select = [
   "A",
   "ANN",
   "ARG",
@@ -106,7 +106,7 @@ select = [
   "SIM",
   "W",
 ]
-ignore = [
+lint.ignore = [
   "ANN101",
   "ANN102",
   "ANN401",
@@ -118,11 +118,11 @@ ignore = [
   "RET504",
   "COM812",
 ]
-ignore-init-module-imports = true
+lint.ignore-init-module-imports = true
 # Allow autofix for all enabled rules (when `--fix`) is provided.
-unfixable = ["ERA"]
+lint.unfixable = ["ERA"]
 # Exclude a variety of commonly ignored directories.
-exclude = [
+lint.exclude = [
   ".bzr",
   ".direnv",
   ".eggs",
@@ -146,17 +146,17 @@ exclude = [
   "docs/conf.py",
 ]
 # Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 target-version = "py39"
 
-[tool.ruff.flake8-annotations]
+[tool.ruff.lint.flake8-annotations]
 mypy-init-return = true
 suppress-none-returning = true
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
 

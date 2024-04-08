@@ -5,6 +5,7 @@ Example:
 
     python update_benchmark_tables.py --data-wrapper-api-token <token>
 """
+
 import argparse
 from collections import defaultdict
 from collections.abc import Sequence

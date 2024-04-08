@@ -2,7 +2,6 @@
 The openai embedding api's evaluated on the SEB benchmark.
 """
 
-
 import logging
 from datetime import date
 from functools import partial

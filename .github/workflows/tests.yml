@@ -20,7 +20,7 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         python-version: ["3.9"] # , "3.10"]
 
     # This allows a subsequently queued workflow run to interrupt previous runs

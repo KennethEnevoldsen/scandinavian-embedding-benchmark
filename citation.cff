@@ -1,3 +1,6 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
 title: Scandinavian Embedding Benchmark
 message: >-
@@ -17,6 +20,22 @@ authors:
   - given-names: Márton
     family-names: Kardos
     affiliation: Center for Humanities Computing
+abstract: >-
+  The evaluation of English text embeddings has transitioned
+  from evaluating a handful of datasets to broad coverage
+  across many tasks through benchmarks such as MTEB.
+  However, this is not the case for multilingual text
+  embeddings due to a lack of available benchmarks. To
+  address this problem, we introduce the Scandinavian
+  Embedding Benchmark (SEB). SEB is a comprehensive
+  framework that enables text embedding evaluation for
+  Scandinavian languages across 24 tasks, 10 subtasks, and 4
+  task categories. Building on SEB, we evaluate more than 26
+  models, uncovering significant performance disparities
+  between public and commercial solutions not previously
+  captured by MTEB. We open-source SEB and integrate it with
+  MTEB, thus bridging the text embedding evaluation gap for
+  Scandinavian languages.
 keywords:
   - benchmark
   - mteb
@@ -24,3 +43,19 @@ keywords:
   - embedding
   - nlp
 date-released: '2023-06-01'
+preferred-citation:
+  type: article
+  title: "The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding"
+  url: "https://arxiv.org/abs/2406.02396"
+  year: 2024
+  authors:
+    - family-names: "Enevoldsen"
+      given-names: "Kenneth"
+      orcid: "https://orcid.org/0000-0001-8733-0966"
+    - family-names: "Marton"
+      given-names: "Kardos"
+    - family-names: "Muennighoff"
+      given-names: "Niklas"
+    - family-names: "Nielbo"
+      given-names: "Kristoffer L."
+      orcid: "https://orcid.org/0000-0002-5116-5070"

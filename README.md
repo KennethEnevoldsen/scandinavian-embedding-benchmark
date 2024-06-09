@@ -70,15 +70,13 @@ Enevoldsen, K., Kardos, M., Muennighoff, N., & Nielbo, K. (2024). The Scandinavi
 
 or use the following BibTeX:
 ```
-@article{enevoldsenScandinavianEmbeddingBenchmarks2024,
-	title = {The {Scandinavian} {Embedding} {Benchmarks}: {Comprehensive} {Assessment} of {Multilingual} and {Monolingual} {Text} {Embedding}},
-	shorttitle = {The {Scandinavian} {Embedding} {Benchmarks}},
-	url = {https://openreview.net/forum?id=pJl_i7HIA72},
-	language = {en},
-	urldate = {2024-04-12},
-	author = {Enevoldsen, Kenneth and Kardos, Márton and Muennighoff, Niklas and Nielbo, Kristoffer},
-	month = feb,
-	year = {2024},
+@misc{enevoldsen2024scandinavian,
+      title={The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding}, 
+      author={Kenneth Enevoldsen and Márton Kardos and Niklas Muennighoff and Kristoffer Laigaard Nielbo},
+      year={2024},
+      eprint={2406.02396},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
-
+```
 

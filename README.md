@@ -62,7 +62,7 @@ To see more examples, see the [documentation].
 
 ## Citation
 
-To cite this work please refer to the following article:
+To cite this work please refer to the following [article](https://arxiv.org/abs/2406.02396):
 
 ```
 Enevoldsen, K., Kardos, M., Muennighoff, N., & Nielbo, K. (2024). The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding. https://openreview.net/forum?id=pJl_i7HIA72

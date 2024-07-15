@@ -1,0 +1,1 @@
+{"task_name":"MuniIntent","task_description":"An intent classification dataset used for the MUNI chatbot.","task_version":"0.0.1","time_of_run":"2024-07-15T16:56:52.872122","scores":{"da":{"accuracy":0.843994140625,"f1":0.8340484285661054,"accuracy_stderr":0.00340573984227965,"f1_stderr":0.003646867925912076,"main_score":0.843994140625}},"main_score":"accuracy"}

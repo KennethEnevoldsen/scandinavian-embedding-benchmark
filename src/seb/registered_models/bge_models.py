@@ -33,7 +33,10 @@ class BGEWrapper:
         if "task" in kwargs:
             kwargs.pop("task")
 
-        return np.asarray(self.mdl.encode(sentences, batch_size=batch_size, **kwargs))
+        if "convert_to_tensor" in kwargs:
+            kwargs.pop("convert_to_tensor")
+
+        return np.asarray(self.mdl.encode(sentences, batch_size=batch_size, convert_to_numpy=True, **kwargs))
 
     def encode_queries(self, queries: list[str], batch_size: int = 32, **kwargs: Any) -> np.ndarray:
         if "task" in kwargs:
@@ -61,17 +64,17 @@ class BGEWrapper:
         return emb  # type: ignore
 
 
-@models.register("BAAI/bge-m3")
+@models.register("bge-m3")
 def create_bge_m3() -> SebModel:
     hf_name = "BAAI/bge-m3"
     meta = ModelMeta(
-        name=hf_name,
+        name="bge-m3",
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         languages=[],
-        open_source=False,
+        open_source=True,
         embedding_size=1024,
-        architecture="API",
+        architecture="XLM-R",
         release_date=date(2024, 5, 28),
     )
     return SebModel(

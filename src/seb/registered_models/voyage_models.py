@@ -72,7 +72,7 @@ class VoyageWrapper(Encoder):
         model_name: str,
         max_retries: int = 5,
         max_rpm: int = 300,
-        max_tpm: int = 1_000_000,
+        max_tpm: int = 120_000,
         **kwargs: Any,  # noqa: ARG002
     ) -> None:
         try:
@@ -115,12 +115,13 @@ class VoyageWrapper(Encoder):
         batch_size: int,
         input_type: Literal["query", "document"],
     ) -> np.ndarray:
+        batch_size = 32  # The used version on MTEB accidentally overwrites the batch_size parameter
         embeddings, index = [], 0
 
-        while index < len(sentences) - 1:
+        while index <= len(sentences) - 1:
             batch, batch_tokens = [], 0
             while index < len(sentences) and len(batch) < batch_size and batch_tokens < self._max_tpm:
-                batch_tokens += len(self._client.tokenize([sentences[index]]))
+                batch_tokens += len(self._client.tokenize([sentences[index]], model=self._model_name))
                 batch.append(sentences[index])
                 index += 1
 
@@ -156,4 +157,4 @@ def create_voyage_multilingual_2() -> SebModel:
 
 if __name__ == "__main__":
     model = create_voyage_multilingual_2()
-    test = model.encoder.encode(["Hello world", "test"])
+    test = model.encoder.encode(["Hello world"])

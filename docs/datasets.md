@@ -61,7 +61,7 @@ The following tables contains description of all the dataset in the benchmark al
 | [SwednClustering](https://spraakbanken.gu.se/en/resources/swedn)                                                                                         | CC-BY-4.0    |
 | [SwednRetrieval](https://spraakbanken.gu.se/en/resources/swedn)                                                                                          | CC-BY-4.0    |
 | [TV2Nord Retrieval](https://huggingface.co/datasets/alexandrainst/nordjylland-news-summarization)                                                        | Apache 2.0   |
-| [Twitterhjerne](https://huggingface.co/datasets/sorenmulli/da-hashtag-twitterhjerne)                                                                     | Upcoming     |
+| [Twitterhjerne](https://huggingface.co/datasets/sorenmulli/da-hashtag-twitterhjerne)                                                                     | CC BY 4.0    |
 | [VG Clustering](https://huggingface.co/datasets/navjordj/VG_summarization)                                                                               | CC-BY-NC     |
 
 ## Dataset Disclaimer

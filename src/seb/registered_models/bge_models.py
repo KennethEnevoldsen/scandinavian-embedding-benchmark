@@ -51,6 +51,7 @@ class BGEWrapper:
         batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:
+        batch_size = 1
         if "task" in kwargs:
             kwargs.pop("task")
         if isinstance(corpus, dict):

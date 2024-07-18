@@ -495,7 +495,7 @@ def create_use_cmlm_multilingual() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
-            embedding_size=768,
+        embedding_size=768,
         architecture="BERT",
         release_date=date(2022, 4, 14),
     )

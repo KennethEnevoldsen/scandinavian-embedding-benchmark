@@ -76,7 +76,7 @@ class VoyageWrapper(Encoder):
         **kwargs: Any,  # noqa: ARG002
     ) -> None:
         try:
-            import voyageai
+            import voyageai  # type: ignore
         except ImportError as e:
             raise ImportError("Please install voyageai to use this model using `pip install 'seb[voyageai]'`") from e
 
@@ -115,13 +115,15 @@ class VoyageWrapper(Encoder):
         batch_size: int,
         input_type: Literal["query", "document"],
     ) -> np.ndarray:
-        batch_size = 32  # The used version on MTEB accidentally overwrites the batch_size parameter
         embeddings, index = [], 0
 
         while index <= len(sentences) - 1:
             batch, batch_tokens = [], 0
             while index < len(sentences) and len(batch) < batch_size and batch_tokens < self._max_tpm:
-                batch_tokens += len(self._client.tokenize([sentences[index]], model=self._model_name))
+                n_tokens = len(self._client.tokenize([sentences[index]], model=self._model_name)[0])
+                if batch_tokens + n_tokens > self._max_tpm:
+                    break
+                batch_tokens += n_tokens
                 batch.append(sentences[index])
                 index += 1
 
@@ -130,6 +132,7 @@ class VoyageWrapper(Encoder):
                     texts=batch,
                     model=self._model_name,
                     input_type=input_type,
+                    truncation=True,
                 ).embeddings
             )
 

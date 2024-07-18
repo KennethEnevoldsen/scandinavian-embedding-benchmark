@@ -76,7 +76,7 @@ class VoyageWrapper(Encoder):
         **kwargs: Any,  # noqa: ARG002
     ) -> None:
         try:
-            import voyageai
+            import voyageai  # type: ignore
         except ImportError as e:
             raise ImportError("Please install voyageai to use this model using `pip install 'seb[voyageai]'`") from e
 

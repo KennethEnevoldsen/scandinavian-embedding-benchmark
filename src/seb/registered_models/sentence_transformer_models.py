@@ -508,6 +508,7 @@ def create_use_cmlm_multilingual() -> SebModel:
 
 if __name__ == "__main__":
     import seb
+
     model = seb.get_model("mxbai-embed-large-v1")
     test = model.encoder.encode(["Hello world", "test"])
     test.shape

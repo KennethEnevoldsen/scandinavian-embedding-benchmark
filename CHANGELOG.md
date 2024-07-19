@@ -2,6 +2,71 @@
 
 
 
+## v0.13.5 (2024-07-19)
+
+### Ci
+
+* ci: remove macos due to it being slow ([`452bfe2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/452bfe25d2b7e3531c6fddb80dea0314b79895d3))
+
+### Documentation
+
+* docs: Added license for twitterhjerne ([`6d03507`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6d0350733c77e3ff8612e20781c7072a0f08a80e))
+
+* docs: Added licenses ([`c76535c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c76535c76565e2cbec8695b9024742a055705919))
+
+### Fix
+
+* fix: Added results from bge-m3 ([`3703bac`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3703bac01ffa9d9b05bf136b3ea684a054787031))
+
+* fix: type checking ignore voyage ([`cd1da36`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/cd1da36aee6055ae4ed7583a39f5df7e8de496fd))
+
+* fix: format ([`b77caf9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b77caf90440ca15cf7bc3647648143e4fe9c7831))
+
+* fix: Added models results for voyage ([`fc19796`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fc1979634784d0c28f742119784cac0ef0a563b0))
+
+* fix: Added models results for newly added models ([`2b0cba5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2b0cba5240a9b1306c8d9f6f4322bd0f77d3bf11))
+
+* fix: Added new models ([`ea830fd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ea830fd903b2d3bd9760f235cd848db6cf6c0b40))
+
+### Unknown
+
+* Merge pull request #178 from KennethEnevoldsen/add-models-and-muni-code
+
+fix: Added bge, voyage, cmlm-multilingual and mxbai models ([`3e600a3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3e600a3beec802a05316aa543e0144a8f225198b))
+
+* fix typeerrror ([`43da9ca`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/43da9ca565a0412813a921b3e4adf970899686a2))
+
+* format ([`e695520`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e695520628ce7a3b1c9b88040ca7c2503a99c386))
+
+* Merge branch &#39;add-models-and-muni-code&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-models-and-muni-code ([`e3c1d89`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e3c1d8996031028801edec0b2f046ec601ccb408))
+
+* Aded bge results ([`41e6904`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/41e69045f1c7d9ad56874e6dc2d5cd1116b6820a))
+
+* minor fixes ([`ec0df26`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ec0df26e7d16a02fdc501cff60eeaa49e2b4ecd3))
+
+* minor fixes ([`d14d6a9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d14d6a97c78416ced29d70358d36d3a8874b1a42))
+
+* Added speed estimates ([`74323ee`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/74323ee9fea8fa7d208a1a3efcc1ec896e2932d7))
+
+* Merge branch &#39;add-models-and-muni-code&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-models-and-muni-code ([`8f523f1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8f523f16e435e4b97273c16bbcb869f031936d0d))
+
+* Added MuniIntent classification ([`274d7fa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/274d7fae2310746ea987ff3f7b88601ce7ff0c42))
+
+* Update README.md ([`920241c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/920241c55f5002bb3102a24c396fdc29cac7c57b))
+
+* Update README.md ([`5cff1b2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5cff1b2e8a06b9c8beeeef5389505ddf33ed0c81))
+
+* Update citation.cff ([`84360d4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/84360d4681c5784cc88495fb11015fa94733e668))
+
+* Merge pull request #175 from KennethEnevoldsen/add-licenses
+
+docs: Added licenses ([`c8376f9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c8376f967d1294419be1d3eb41217d04cd3a65d3))
+
+* fix docs dependencies ([`c351935`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c3519357dd4eb13121e9b102c6d0e45bc2563e94))
+
+* Update README.md ([`ff101ce`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ff101ce19da016190af4274f32889ccd7f2a7ae6))
+
+
 ## v0.13.4 (2024-04-08)
 
 ### Documentation

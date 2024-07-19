@@ -24,7 +24,7 @@ class BGEWrapper:
         self.mdl.to(device)
 
     @staticmethod
-    def reduce_max_len(sentences: list[str], max_len: int= 10_000) -> list[str]:
+    def reduce_max_len(sentences: list[str], max_len: int = 10_000) -> list[str]:
         _sentences = []
         for sent in sentences:
             _sentences.append(sent[:max_len])

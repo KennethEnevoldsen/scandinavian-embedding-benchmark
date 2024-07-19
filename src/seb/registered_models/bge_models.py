@@ -72,7 +72,7 @@ class BGEWrapper:
             kwargs.pop("convert_to_tensor")
 
         emb = self.mdl.encode(self.reduce_max_len(sentences), batch_size=batch_size, normalize_embeddings=True, convert_to_numpy=True, **kwargs)
-        return emb.astype("float16")
+        return emb.astype("float16")  # type: ignore
 
 
 @models.register("bge-m3")

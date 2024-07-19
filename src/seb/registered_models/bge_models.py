@@ -23,6 +23,13 @@ class BGEWrapper:
     def to(self, device: torch.device) -> None:
         self.mdl.to(device)
 
+    @staticmethod
+    def reduce_max_len(sentences: list[str], max_len: int= 10_000) -> list[str]:
+        _sentences = []
+        for sent in sentences:
+            _sentences.append(sent[:max_len])
+        return _sentences
+
     def encode(  # type: ignore
         self,
         sentences: list[str],
@@ -33,17 +40,18 @@ class BGEWrapper:
         if "task" in kwargs:
             kwargs.pop("task")
 
-        if "convert_to_tensor" in kwargs:
-            kwargs.pop("convert_to_tensor")
-
-        return np.asarray(self.mdl.encode(sentences, batch_size=batch_size, convert_to_numpy=True, **kwargs))
+        return np.asarray(self.mdl.encode(self.reduce_max_len(sentences), batch_size=batch_size, **kwargs))
 
     def encode_queries(self, queries: list[str], batch_size: int = 32, **kwargs: Any) -> np.ndarray:
         if "task" in kwargs:
             kwargs.pop("task")
         sentences = ["Represent this sentence for searching relevant passages: " + sentence for sentence in queries]
-        emb = self.mdl.encode(sentences, batch_size=batch_size, normalize_embeddings=True, **kwargs)
-        return emb  # type: ignore
+
+        if "convert_to_tensor" in kwargs:
+            kwargs.pop("convert_to_tensor")
+
+        emb = self.mdl.encode(self.reduce_max_len(sentences), batch_size=batch_size, normalize_embeddings=True, convert_to_numpy=True, **kwargs)
+        return emb.astype("float16")  # type: ignore
 
     def encode_corpus(
         self,
@@ -51,7 +59,6 @@ class BGEWrapper:
         batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:
-        batch_size = 1
         if "task" in kwargs:
             kwargs.pop("task")
         if isinstance(corpus, dict):
@@ -61,8 +68,11 @@ class BGEWrapper:
             ]
         else:
             sentences = [(doc["title"] + self.sep + doc["text"]).strip() if "title" in doc else doc["text"].strip() for doc in corpus]
-        emb = self.mdl.encode(sentences, batch_size=batch_size, normalize_embeddings=True, **kwargs)
-        return emb  # type: ignore
+        if "convert_to_tensor" in kwargs:
+            kwargs.pop("convert_to_tensor")
+
+        emb = self.mdl.encode(self.reduce_max_len(sentences), batch_size=batch_size, normalize_embeddings=True, convert_to_numpy=True, **kwargs)
+        return emb.astype("float16")
 
 
 @models.register("bge-m3")

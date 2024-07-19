@@ -6,3 +6,5 @@ from .fasttext_models import *
 from .sentence_transformer_models import *
 from .openai_models import *
 from .translate_e5_models import *
+from .voyage_models import *
+from .bge_models import *

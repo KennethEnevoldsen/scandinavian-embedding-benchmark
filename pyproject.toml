@@ -24,6 +24,7 @@ dependencies = [
   "pydantic>=2.1.0",
   "catalogue>=2.0.8",
   "radicli>=0.0.25",
+  "datasets<2.20.0",   # will need to update the mteb version (current implementation of MTEB does not pass the "trust_remote_code" argument.
 
 ]
 
@@ -49,6 +50,7 @@ mistral = [
   "transformers>=4.31.0", # lower bound required for mistral models (could potentially be lowered)
 ]
 openai = ["openai>=0.27.4"]
+voyageai = ["voyageai>=0.2.3"]
 cohere = ["cohere>=4.34"]
 sonar = [
   "fairseq2>=0.1.0",    # requires sudo apt-get update -y; sudo apt install libsndfile1

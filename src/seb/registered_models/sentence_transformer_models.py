@@ -8,7 +8,6 @@ from functools import partial
 from typing import Any, Optional
 
 import numpy as np
-import torch
 from sentence_transformers import SentenceTransformer
 
 from seb.interfaces.model import LazyLoadEncoder, ModelMeta, SebModel
@@ -467,3 +466,48 @@ def create_dfm_sentence_encoder_large_exp2() -> SebModel:
         encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
         meta=meta,
     )
+
+
+@models.register("mxbai-embed-large-v1")
+def create_mxbai_embed_large_v1() -> SebModel:
+    hf_name = "mixedbread-ai/mxbai-embed-large-v1"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["da"],
+        open_source=True,
+        embedding_size=1024,
+        architecture="BERT",
+        release_date=date(2024, 4, 12),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("use-cmlm-multilingual")
+def create_use_cmlm_multilingual() -> SebModel:
+    hf_name = "sentence-transformers/use-cmlm-multilingual"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=768,
+        architecture="BERT",
+        release_date=date(2022, 4, 14),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        meta=meta,
+    )
+
+
+if __name__ == "__main__":
+    import seb
+
+    model = seb.get_model("mxbai-embed-large-v1")
+    test = model.encoder.encode(["Hello world", "test"])
+    test.shape

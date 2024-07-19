@@ -494,7 +494,6 @@ def create_use_cmlm_multilingual() -> SebModel:
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
-        languages=["da"],
         open_source=True,
         embedding_size=768,
         architecture="BERT",

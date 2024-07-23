@@ -513,6 +513,7 @@ def create_xlmroberta_en_da_sv_nb() -> SebModel:
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
         open_source=True,
+        languages=["da", "nb", "sv", "en"],
         embedding_size=768,
         architecture="XLM-R",
         release_date=date(2024, 2, 22),

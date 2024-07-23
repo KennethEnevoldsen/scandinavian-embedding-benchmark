@@ -2,6 +2,33 @@
 
 
 
+## v0.13.6 (2024-07-23)
+
+### Documentation
+
+* docs: fix sizes of tables ([`07a7ec3`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/07a7ec31ad642703cfaee242ba97505e1de0343c))
+
+### Fix
+
+* fix: Added language to KFST ([`c89856a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c89856a5be9381e3d50b3c84eb7b7e17901c2c45))
+
+### Unknown
+
+* Merge pull request #182 from KennethEnevoldsen/add_kfst_model
+
+fix: Added language to KFST ([`324dde4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/324dde438d941c5eb4272b6901df96062b85676d))
+
+* Merge pull request #180 from KennethEnevoldsen/add_kfst_model
+
+docs: fix sizes of tables ([`e8848e2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e8848e2c34dc4a101f763307ee349020edad32d7))
+
+* Merge pull request #179 from KennethEnevoldsen/add_kfst_model
+
+Added kfst model ([`542511d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/542511de9ac2a450c1d5693b2bd1b896aae5e760))
+
+* Added kfst model ([`88dce65`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/88dce65ea8e5399ac07faa97b6446af94e0632cd))
+
+
 ## v0.13.5 (2024-07-19)
 
 ### Ci

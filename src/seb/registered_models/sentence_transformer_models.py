@@ -505,9 +505,26 @@ def create_use_cmlm_multilingual() -> SebModel:
     )
 
 
+@models.register("XLMRoberta-en-da-sv-nb")
+def create_xlmroberta_en_da_sv_nb() -> SebModel:
+    hf_name = "KFST/XLMRoberta-en-da-sv-nb"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        embedding_size=768,
+        architecture="XLM-R",
+        release_date=date(2024, 2, 22),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        meta=meta,
+    )
+
+
 if __name__ == "__main__":
     import seb
 
     model = seb.get_model("mxbai-embed-large-v1")
     test = model.encoder.encode(["Hello world", "test"])
-    test.shape

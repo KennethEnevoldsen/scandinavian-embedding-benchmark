@@ -101,3 +101,14 @@ def create_twitterhjerne() -> Task:
     task.domain = ["social"]
     task.task_subtypes = ["Question-answering"]
     return task
+
+
+@tasks.register("HistoricalDanishClustering")
+def create_historical() -> Task:
+    from seb.mteb_tasks import HistoricalDanishClustering
+
+    task = MTEBTask(HistoricalDanishClustering())
+    task.name = "HistoricalDanishClustering"
+    task.domain = ["poetry", "fiction"]
+    task.task_subtypes = ["Thematic Clustering"]
+    return task

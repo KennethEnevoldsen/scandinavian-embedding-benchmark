@@ -28,7 +28,7 @@ class HistoricalDanishClustering(AbsTaskClustering):
             "reference": "https://huggingface.co/datasets/MiMe-MeMo/Corpus-v1.1",
             "type": "Clustering",
             "category": "p2p",
-            "eval_splits": ["test"],
+            "eval_splits": ["train"],
             "eval_langs": ["da"],
             "main_score": "v_measure",
             "revision": "3312e730dfa51f9e411dd4f178e242d00063b363",

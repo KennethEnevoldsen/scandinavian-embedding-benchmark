@@ -34,7 +34,7 @@ file = "LICENSE"
 name = "MIT"
 
 [project.optional-dependencies]
-dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff>=0.3.0"]
+dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff>=0.3.0, <0.6.0"]
 tests = ["pytest>=7.1.3", "pytest-cov>=3.0.0"]
 docs = [
   "mkdocs==1.5.1",

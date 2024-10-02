@@ -1,0 +1,1 @@
+{"task_name":"HistoricalDanishClustering","task_description":"Subset of the MeMo corpus for clustering historical texts.","task_version":"1.1.1","time_of_run":"2024-08-23T18:07:11.104079","scores":{"da":{"v_measure":0.3512972310075347,"v_measure_std":0.0}},"main_score":"v_measure"}

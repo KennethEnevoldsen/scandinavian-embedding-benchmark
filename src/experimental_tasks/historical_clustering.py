@@ -6,6 +6,11 @@ from typing import Any, TypeVar
 import datasets
 from mteb.abstasks import AbsTaskClustering
 
+from seb.interfaces.task import Task
+from seb.registries import tasks
+
+from ..interfaces.mteb_task import MTEBTask
+
 T = TypeVar("T")
 
 
@@ -77,3 +82,14 @@ class HistoricalDanishClustering(AbsTaskClustering):
                 }
             )
         self.dataset = datasets.DatasetDict(ds)
+
+
+@tasks.register("HistoricalDanishClustering")
+def create_historical() -> Task:
+    from seb.mteb_tasks import HistoricalDanishClustering
+
+    task = MTEBTask(HistoricalDanishClustering())
+    task.name = "HistoricalDanishClustering"
+    task.domain = ["poetry", "fiction"]
+    task.task_subtypes = ["Thematic Clustering"]
+    return task

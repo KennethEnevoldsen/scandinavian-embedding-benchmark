@@ -25,6 +25,7 @@ dependencies = [
   "catalogue>=2.0.8",
   "radicli>=0.0.25",
   "datasets<2.20.0",   # will need to update the mteb version (current implementation of MTEB does not pass the "trust_remote_code" argument.
+  "fsspec<=2023.9.2",  # can be removed updated along with the datasets limit when MTEB is updated
 
 ]
 
@@ -58,6 +59,7 @@ sonar = [
 ] # fairseq2 only works for linux at the moment
 
 fasttext = ["pybind11>=2.11.0", "fasttext-wheel>=0.9.0"]
+jina = ["einops", "numpy<2.0.0"]
 
 
 [project.readme]

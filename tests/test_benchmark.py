@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 import pytest
+
 import seb
 
 from .dummy_model import create_test_model

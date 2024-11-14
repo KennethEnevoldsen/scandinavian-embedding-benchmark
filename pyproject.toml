@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seb"
-version = "0.13.6"
+version = "0.13.7"
 authors = [
   { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
 ]
@@ -41,7 +41,7 @@ docs = [
   "mkdocs==1.5.1",
   "mkdocs-jupyter==0.24.6",
   "mkdocs-material==9.1.21",
-  "mkdocstrings[python]==0.22.0",
+  "mkdocstrings[python-legacy]==0.22.0",
   # for managing tables
   "datawrapper>=0.5.3",
   # for tutorials
@@ -123,7 +123,6 @@ lint.ignore = [
   "RET504",
   "COM812",
 ]
-lint.ignore-init-module-imports = true
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 lint.unfixable = ["ERA"]
 # Exclude a variety of commonly ignored directories.

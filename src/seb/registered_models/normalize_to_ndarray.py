@@ -10,5 +10,5 @@ def normalize_to_ndarray(embeddings: Union[torch.Tensor, np.ndarray, list[np.nda
             return torch.cat(embeddings).detach().cpu().numpy()  # type: ignore
         return np.concatenate(embeddings)
     if isinstance(embeddings, torch.Tensor):
-        return embeddings.detach().cpu().numpy()
+        return embeddings.detach().cpu().float().numpy()
     return embeddings

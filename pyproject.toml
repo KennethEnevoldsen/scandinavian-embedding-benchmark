@@ -123,7 +123,6 @@ lint.ignore = [
   "RET504",
   "COM812",
 ]
-lint.ignore-init-module-imports = true
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 lint.unfixable = ["ERA"]
 # Exclude a variety of commonly ignored directories.

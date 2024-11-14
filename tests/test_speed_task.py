@@ -1,4 +1,5 @@
 import pytest
+
 import seb
 from seb.registered_tasks.speed import CPUSpeedTask, GPUSpeedTask
 

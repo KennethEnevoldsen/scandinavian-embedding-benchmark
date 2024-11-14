@@ -13,8 +13,9 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-import seb
 from datawrapper import Datawrapper
+
+import seb
 from seb.full_benchmark import BENCHMARKS
 from seb.registered_tasks.speed import CPUSpeedTask
 

@@ -44,7 +44,7 @@ class Jinav3EncoderWithTaskEncode(SentenceTransformer):
         if task_prompt is None:
             emb = super().encode(sentences, batch_size=batch_size, **kwargs)
         else:
-            emb = super().encode(sentences, batch_size=batch_size, prompt=task_prompt, **kwargs)
+            emb = super().encode(sentences, batch_size=batch_size, task=task_prompt, prompt_name=task_prompt, **kwargs)
         return normalize_to_ndarray(emb)
 
     def encode_corpus(self, corpus: list[dict[str, str]], **kwargs: Any) -> np.ndarray:

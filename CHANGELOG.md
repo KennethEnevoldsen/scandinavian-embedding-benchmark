@@ -2,6 +2,29 @@
 
 
 
+## v0.13.7 (2024-11-14)
+
+### Fix
+
+* fix: Add Jina
+
+* fix: Add Jina
+
+I am still running the model
+
+* Add results for Jina
+
+* Add results for Jina
+
+* format fixes
+
+* Update mkdocs to legacy python
+
+---------
+
+Co-authored-by: Your Name &lt;you@example.com&gt; ([`84c2f91`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/84c2f912588d16d346b838b8e0e87a1df1733f4f))
+
+
 ## v0.13.6 (2024-07-23)
 
 ### Documentation

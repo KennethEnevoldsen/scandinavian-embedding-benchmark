@@ -1,4 +1,3 @@
-import logging
 from datetime import date
 from functools import partial
 from typing import Any, Literal, Optional

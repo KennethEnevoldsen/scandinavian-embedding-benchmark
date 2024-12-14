@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import pytest
+
 import seb
 from seb.cli import run_benchmark_cli
 from seb.registries import tasks

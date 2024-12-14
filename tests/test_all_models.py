@@ -3,6 +3,7 @@ This section contains big tests which are too heavy to run as part of the CI, bu
 """
 
 import pytest
+
 import seb
 
 from .dummy_task import create_test_encode_task

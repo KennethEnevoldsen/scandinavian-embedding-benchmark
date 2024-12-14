@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import pandas as pd
-from seb import registries
 from tqdm import tqdm
+
+from seb import registries
 
 
 def insert_table(file: Path, table: str) -> None:

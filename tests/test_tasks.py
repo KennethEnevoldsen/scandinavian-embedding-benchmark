@@ -2,6 +2,7 @@ from datetime import datetime
 from pathlib import Path
 
 import pytest
+
 import seb
 from seb.result_dataclasses import TaskResult
 
@@ -9,7 +10,7 @@ all_tasks = seb.get_all_tasks()
 all_tasks_names = [task.name for task in all_tasks if not task.name.startswith("test ")]  # ignore tasks intended for testing
 
 
-@pytest.fixture()
+@pytest.fixture
 def task_result() -> seb.TaskResult:
     task_result = seb.TaskResult(
         task_name="test",

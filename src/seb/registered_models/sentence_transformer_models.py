@@ -40,12 +40,9 @@ class SentenceTransformerWithTaskEncode(SentenceTransformer):
         return normalize_to_ndarray(emb)
 
 
-def wrap_sentence_transformer(
-    model_name: str,
-    max_seq_length: Optional[int] = None,
-) -> SentenceTransformerWithTaskEncode:
+def wrap_sentence_transformer(model_name: str, max_seq_length: Optional[int] = None, **kwargs: Any) -> SentenceTransformerWithTaskEncode:
     silence_warnings_from_sentence_transformers()
-    mdl = SentenceTransformerWithTaskEncode(model_name)
+    mdl = SentenceTransformerWithTaskEncode(model_name, **kwargs)
     if max_seq_length is not None:
         mdl.max_seq_length = max_seq_length
     return mdl
@@ -86,6 +83,25 @@ def create_all_mini_lm_l6_v2() -> SebModel:
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        meta=meta,
+    )
+
+
+@models.register("jina-embeddings-v3")
+def create_jina_embeddings_v3() -> SebModel:
+    hf_name = "jinaai/jina-embeddings-v3"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=[],
+        open_source=True,
+        embedding_size=1024,
+        architecture="XLM-R",
+        release_date=date(2024, 8, 5),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name, trust_remote_code=True)),  # type: ignore
         meta=meta,
     )
 

@@ -87,24 +87,6 @@ def create_all_mini_lm_l6_v2() -> SebModel:
     )
 
 
-@models.register("jina-embeddings-v3")
-def create_jina_embeddings_v3() -> SebModel:
-    hf_name = "jinaai/jina-embeddings-v3"
-    meta = ModelMeta(
-        name=hf_name.split("/")[-1],
-        huggingface_name=hf_name,
-        reference=f"https://huggingface.co/{hf_name}",
-        languages=[],
-        open_source=True,
-        embedding_size=1024,
-        architecture="XLM-R",
-        release_date=date(2024, 8, 5),
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name, trust_remote_code=True)),  # type: ignore
-        meta=meta,
-    )
-
 
 @models.register("paraphrase-multilingual-MiniLM-L12-v2")
 def create_multilingual_mini_lm_l12_v2() -> SebModel:

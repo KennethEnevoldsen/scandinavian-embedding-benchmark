@@ -43,7 +43,7 @@ docs = [
   "mkdocs-material==9.1.21",
   "mkdocstrings[python-legacy]==0.22.0",
   # for managing tables
-  "datawrapper>=0.5.3",
+  "datawrapper>=0.5.3,<0.6.0",
   # for tutorials
   "jupyter>=1.0.0",
 ]

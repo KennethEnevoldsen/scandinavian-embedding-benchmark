@@ -679,7 +679,7 @@ wheels = [
 
 [[package]]
 name = "datawrapper"
-version = "0.6.1"
+version = "0.5.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "importlib-metadata" },
@@ -688,9 +688,9 @@ dependencies = [
     { name = "requests" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/85/6c/28ddff3217c44d2a2eb33337b0e62db632480daaf020ac25fd5d010255a1/datawrapper-0.6.1.tar.gz", hash = "sha256:3926727cb8f7e2873f9791ee6b241fbf0e9525750bd3a914a015821124e5b3a3", size = 176006 }
+sdist = { url = "https://files.pythonhosted.org/packages/32/dc/02b2f96c890580eae8b4fe42c8e063c3d1b54280cd88b63eeafe5945b802/datawrapper-0.5.6.tar.gz", hash = "sha256:0a0a1734c5eeee046b5a0235aa4028f29c07cb3bd1827885946e8e5de258176b", size = 161688 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3e/59/7f240469e75459f5e2e94587f4069c026ba6de3a97f264268c6b20c68ce2/datawrapper-0.6.1-py3-none-any.whl", hash = "sha256:2d5705a87cf26609eff18c9b243d1369e2e2cce5b8323b7f65224ee30c0f1fda", size = 14554 },
+    { url = "https://files.pythonhosted.org/packages/c0/bd/94016a1189a58629e6267ec7ac3296501622fccab05b0ded97a02ba0c321/datawrapper-0.5.6-py3-none-any.whl", hash = "sha256:d9df761adc8a9f078eacda027a9153cca9fcd9e67f272aa356d29129f180d669", size = 10304 },
 ]
 
 [[package]]
@@ -3963,7 +3963,7 @@ requires-dist = [
     { name = "cohere", marker = "extra == 'cohere'", specifier = ">=4.34" },
     { name = "cruft", marker = "extra == 'dev'", specifier = ">=2.0.0" },
     { name = "datasets", specifier = "<2.20.0" },
-    { name = "datawrapper", marker = "extra == 'docs'", specifier = ">=0.5.3" },
+    { name = "datawrapper", marker = "extra == 'docs'", specifier = ">=0.5.3,<0.6.0" },
     { name = "einops", marker = "extra == 'jina'" },
     { name = "fairseq2", marker = "extra == 'sonar'", specifier = ">=0.1.0" },
     { name = "fasttext-wheel", marker = "extra == 'fasttext'", specifier = ">=0.9.0" },

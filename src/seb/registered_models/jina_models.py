@@ -34,7 +34,7 @@ class Jinav3EncoderWithTaskEncode(SentenceTransformer):
             if task.task_type in ["Classification"]:
                 task_prompt = "classification"
             if task.task_type in ["Clustering"]:
-                task_prompt = "seperation"
+                task_prompt = "separation"
             if task.task_type in ["Retrieval"] and encode_type == "query":
                 task_prompt = "retrieval.query"
             if task.task_type in ["Retrieval"] and encode_type == "passage":
@@ -83,7 +83,9 @@ def create_jina_embeddings_v3() -> SebModel:
         release_date=date(2024, 8, 5),
     )
     return SebModel(
-        encoder=LazyLoadEncoder(partial(wrap_jina_sentence_transformer, model_name=hf_name, trust_remote_code=True)),  # type: ignore
+        encoder=LazyLoadEncoder(
+            partial(wrap_jina_sentence_transformer, model_name=hf_name, trust_remote_code=True)
+        ),
         meta=meta,
     )
 

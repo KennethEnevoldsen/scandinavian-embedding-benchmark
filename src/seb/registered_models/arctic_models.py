@@ -13,7 +13,7 @@ from .normalize_to_ndarray import normalize_to_ndarray
 from .sentence_transformer_models import silence_warnings_from_sentence_transformers, wrap_sentence_transformer
 
 
-class Jinav3EncoderWithTaskEncode(SentenceTransformer):
+class ArcticEncoderWithTaskEncode(SentenceTransformer):
     """
     A sentence transformer wrapper that allows for encoding with a task.
     """
@@ -28,17 +28,8 @@ class Jinav3EncoderWithTaskEncode(SentenceTransformer):
         **kwargs: Any,
     ) -> np.ndarray:
         task_prompt = None
-        if task is not None:
-            if task.task_type in ["STS", "BitextMining"]:
-                task_prompt = "text-matching"
-            if task.task_type in ["Classification"]:
-                task_prompt = "classification"
-            if task.task_type in ["Clustering"]:
-                task_prompt = "separation"
-            if task.task_type in ["Retrieval"] and encode_type == "query":
-                task_prompt = "retrieval.query"
-            if task.task_type in ["Retrieval"] and encode_type == "passage":
-                task_prompt = "retrieval.passage"
+        if task is not None and task.task_type in ["Retrieval"] and encode_type == "query":
+            task_prompt = "query"
 
         if task_prompt is None:
             emb = super().encode(sentences, batch_size=batch_size, **kwargs)
@@ -61,17 +52,17 @@ class Jinav3EncoderWithTaskEncode(SentenceTransformer):
         return self.encode(queries, encode_type="query", **kwargs)
 
 
-def wrap_jina_sentence_transformer(model_name: str, max_seq_length: Optional[int] = None, **kwargs: Any) -> Jinav3EncoderWithTaskEncode:
+def wrap_arctic_sentence_transformer(model_name: str, max_seq_length: Optional[int] = None, **kwargs: Any) -> ArcticEncoderWithTaskEncode:
     silence_warnings_from_sentence_transformers()
-    mdl = Jinav3EncoderWithTaskEncode(model_name, **kwargs)
+    mdl = ArcticEncoderWithTaskEncode(model_name, **kwargs)
     if max_seq_length is not None:
         mdl.max_seq_length = max_seq_length
     return mdl
 
 
-@models.register("jina-embeddings-v3")
-def create_jina_embeddings_v3() -> SebModel:
-    hf_name = "jinaai/jina-embeddings-v3"
+@models.register("snowflake-arctic-embed-l-v2.0")
+def create_artic_embed_l_v2() -> SebModel:
+    hf_name = "Snowflake/snowflake-arctic-embed-l-v2.0"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
@@ -80,30 +71,28 @@ def create_jina_embeddings_v3() -> SebModel:
         open_source=True,
         embedding_size=1024,
         architecture="XLM-R",
-        release_date=date(2024, 8, 5),
+        release_date=date(2024, 11, 8),
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(wrap_jina_sentence_transformer, model_name=hf_name, trust_remote_code=True)
-        ),
+        encoder=LazyLoadEncoder(partial(wrap_arctic_sentence_transformer, model_name=hf_name, trust_remote_code=True)),  # type: ignore
         meta=meta,
     )
 
 
-@models.register("jina-embedding-b-en-v1")
-def create_jina_base() -> SebModel:
-    hf_name = "jinaai/jina-embedding-b-en-v1"
+@models.register("snowflake-arctic-embed-m-v2.0")
+def create_artic_embed_m_v2() -> SebModel:
+    hf_name = "Snowflake/snowflake-arctic-embed-m-v2.0"
     meta = ModelMeta(
         name=hf_name.split("/")[-1],
         huggingface_name=hf_name,
         reference=f"https://huggingface.co/{hf_name}",
-        languages=["en"],
+        languages=[],
         open_source=True,
         embedding_size=768,
-        architecture="T5",
-        release_date=date(2023, 7, 7),
+        architecture="GTE",
+        release_date=date(2024, 11, 8),
     )
     return SebModel(
-        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        encoder=LazyLoadEncoder(partial(wrap_arctic_sentence_transformer, model_name=hf_name, trust_remote_code=True)),  # type: ignore
         meta=meta,
     )

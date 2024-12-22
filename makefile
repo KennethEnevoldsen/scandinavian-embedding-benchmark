@@ -1,8 +1,14 @@
+add-uv:
+	@echo "--- 🚀 Installing UV ---"	
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+	# windows:
+	# powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
 install:
 	@echo "--- 🚀 Installing project ---"
-	pip install pip --upgrade
-	pip install -e ".[dev, docs, openai, cohere, tests, mistral, fasttext, jina]" 
-	# uv sync --extra jina --extra dev --extra docs --extra tests
+	# pip install pip --upgrade
+	#pip install -e ".[dev, docs, openai, cohere, tests, mistral, fasttext, jina]" 
+	uv sync --extra jina --extra dev --extra docs --extra tests
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"

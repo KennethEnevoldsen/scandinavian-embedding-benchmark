@@ -57,7 +57,7 @@ sonar = [
   "fairseq2>=0.1.0",    # requires sudo apt-get update -y; sudo apt install libsndfile1
   "sonar-space>=0.2.1",
 ] # fairseq2 only works for linux at the moment
-arctic = ["xformers>=0.0.28"] # --prerelease=allow
+arctic = ["xformers>=0.0.10"] # --prerelease=allow
 fasttext = ["pybind11>=2.11.0", "fasttext-wheel>=0.9.0"]
 jina = ["einops", "numpy<2.0.0"]
 
@@ -173,9 +173,5 @@ build_command = "python -m pip install build; python -m build"
 include-package-data = true
 
 [tool.uv]
-conflicts = [
-    [
-      { extra = "sonar" },
-      { extra = "arctic" },
-    ],
-]
+conflicts = [[{ extra = "sonar" }, { extra = "arctic" }]]
+no-build-isolation-package = ["xformers"]

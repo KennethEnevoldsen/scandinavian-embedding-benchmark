@@ -6,7 +6,7 @@ add-uv:
 
 install:
 	@echo "--- 🚀 Installing project ---"
-	uv sync --extra dev --extra docs --extra tests --extra jina --extra arctic --prerelease=allow
+	uv sync --extra dev --extra docs --extra tests
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"

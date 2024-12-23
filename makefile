@@ -6,9 +6,7 @@ add-uv:
 
 install:
 	@echo "--- 🚀 Installing project ---"
-	# pip install pip --upgrade
-	#pip install -e ".[dev, docs, openai, cohere, tests, mistral, fasttext, jina]" 
-	uv sync --extra jina --extra dev --extra docs --extra tests
+	uv sync --extra dev --extra docs --extra tests --extra jina --extra arctic --prerelease=allow
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"

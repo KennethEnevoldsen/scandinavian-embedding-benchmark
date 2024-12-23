@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and Deploy
         if: github.event_name == 'push'
-        run: mkdocs gh-deploy --force
+        run: uv run mkdocs gh-deploy --force
       
       - name: Build
         if: github.event_name == 'pull_request'

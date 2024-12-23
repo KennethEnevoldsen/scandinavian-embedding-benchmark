@@ -522,6 +522,25 @@ def create_xlmroberta_en_da_sv_nb() -> SebModel:
     )
 
 
+@models.register("MeMo-BERT-03")
+def create_memo_bert_03() -> SebModel:
+    hf_name = "MiMe-MeMo/MeMo-BERT-03"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        open_source=True,
+        languages=["da"],
+        embedding_size=768,
+        architecture="BERT",
+        release_date=date(2023, 7, 31),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),  # type: ignore
+        meta=meta,
+    )
+
+
 if __name__ == "__main__":
     import seb
 

@@ -71,6 +71,7 @@ def task_to_instruction(task: Task) -> str:
             "VG Clustering": "Identify the categories (e.g. sports) of given articles in Norwegian",
             "SNL Clustering": "Identify categories in a Norwegian lexicon",
             "SwednClustering": "Identify news categories in Swedish passages",
+            "HistoricalDanishClustering": "Identify the author of a given passage from historical Danish fiction.",
         }
         default_instruction = "Identify categories in user passages"
         return task_name_to_instruct.get(task.name, default_instruction)

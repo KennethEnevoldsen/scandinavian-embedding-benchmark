@@ -24,7 +24,7 @@ lint-check:
 
 test:
 	@echo "--- 🧪 Running tests ---"
-	pytest tests/
+	uv run pytest tests/
 
 pr:
 	@echo "--- 🚀 Running PR checks ---"

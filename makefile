@@ -66,5 +66,5 @@ run-benchmark:
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"
 
-	python src/scripts/check_benchmark_is_up_to_date.py
+	uv run python src/scripts/check_benchmark_is_up_to_date.py
 

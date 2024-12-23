@@ -87,7 +87,6 @@ def create_all_mini_lm_l6_v2() -> SebModel:
     )
 
 
-
 @models.register("paraphrase-multilingual-MiniLM-L12-v2")
 def create_multilingual_mini_lm_l12_v2() -> SebModel:
     hf_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"

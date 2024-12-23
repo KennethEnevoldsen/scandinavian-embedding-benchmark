@@ -83,9 +83,7 @@ def create_jina_embeddings_v3() -> SebModel:
         release_date=date(2024, 8, 5),
     )
     return SebModel(
-        encoder=LazyLoadEncoder(
-            partial(wrap_jina_sentence_transformer, model_name=hf_name, trust_remote_code=True)
-        ),
+        encoder=LazyLoadEncoder(partial(wrap_jina_sentence_transformer, model_name=hf_name, trust_remote_code=True)),
         meta=meta,
     )
 

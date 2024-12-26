@@ -1,8 +1,12 @@
+add-uv:
+	@echo "--- 🚀 Installing UV ---"	
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+	# windows:
+	# powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
 install:
 	@echo "--- 🚀 Installing project ---"
-	pip install pip --upgrade
-	pip install -e ".[dev, docs, openai, cohere, tests, mistral, fasttext, jina]" 
-	# uv sync --extra jina --extra dev --extra docs --extra tests
+	uv sync --extra dev --extra docs --extra tests
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"
@@ -10,17 +14,17 @@ static-type-check:
 
 lint:
 	@echo "--- 🧹 Running linters ---"
-	ruff format . 						            # running ruff formatting
-	ruff check **/*.py --fix						# running ruff linting
+	uv run ruff format . 						            # running ruff formatting
+	uv run ruff check **/*.py --fix						# running ruff linting
 
 lint-check:
 	@echo "--- 🧹 Check is project is linted ---"
-	ruff format . --check						    # running ruff formatting
-	ruff check **/*.py 						        # running ruff linting
+	uv run ruff format . --check						    # running ruff formatting
+	uv run ruff check **/*.py 						        # running ruff linting
 
 test:
 	@echo "--- 🧪 Running tests ---"
-	pytest tests/
+	uv run pytest tests/
 
 pr:
 	@echo "--- 🚀 Running PR checks ---"
@@ -38,11 +42,11 @@ build-docs:
 	@echo "--- 📚 Building docs ---"
 	@echo "Builds the docs and puts them in the 'site' folder"
 	@echo "You might need to also update the table with the desc. stats you can do this by running 'make update-table-in-docs'"
-	mkdocs build
+	uv run mkdocs build
 
 view-docs:
 	@echo "--- 👀 Viewing docs ---"
-	mkdocs serve
+	uv run mkdocs serve
 	
 update-from-template:
 	@echo "--- 🔄 Updating from template ---"
@@ -62,5 +66,5 @@ run-benchmark:
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"
 
-	python src/scripts/check_benchmark_is_up_to_date.py
+	uv run python src/scripts/check_benchmark_is_up_to_date.py
 

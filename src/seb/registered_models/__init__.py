@@ -8,3 +8,5 @@ from .openai_models import *
 from .translate_e5_models import *
 from .voyage_models import *
 from .bge_models import *
+from .jina_models import *
+from .arctic_models import *

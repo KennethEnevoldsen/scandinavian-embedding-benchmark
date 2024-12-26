@@ -2,6 +2,81 @@
 
 
 
+## v0.13.8 (2024-12-26)
+
+### Ci
+
+* ci: update docs ci for UV ([`f69313f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f69313fd11fbbcc826480811a735916dacbbe72c))
+
+* ci: update docs ci for UV ([`0c99b3b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/0c99b3bf093efffc4609e427e90b89e8112b044e))
+
+* ci: fix remaining ci ([`6459ea1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6459ea17e8a1ac28bde85c5b3740be2311daddfa))
+
+* ci: Update ci to work with uv ([`46c4af6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/46c4af67917663e251eac541257330fffa63f735))
+
+* ci: Update ci to use UV ([`b59f6e9`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b59f6e93a9a5eb3f4e1ec7cca32525e0285a2a27))
+
+### Fix
+
+* fix: update uv ([`a18205c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a18205c1c42638284d31373074dcf9af5fe8b632))
+
+### Unknown
+
+* Merge pull request #189 from KennethEnevoldsen/add-jina
+
+fix: re-add jina and add arctic ([`61d3255`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/61d3255e0af4d559071f4f6f535f3b4b555c2832))
+
+* Merge branch &#39;add-jina&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-jina ([`77a7362`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/77a73625d8314a8610ae94725d9f78022940cbd5))
+
+* format ([`af596d5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/af596d5adea598c82aabfce2db3b469676d5aca9))
+
+* updated uv file ([`d6298dd`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d6298ddc422819217385300369df137367275079))
+
+* Merge branch &#39;main&#39; into add-jina ([`e898adf`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e898adff3b5f2e4eba835ff3e5ec30c99f5b765b))
+
+* finally got batching to work correcrtly ([`ff8d2db`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ff8d2db12346bf8cc3fe3a871ede7ae59c9c0a65))
+
+* add results ([`3a8ecfa`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3a8ecfa533e7e76ec9ce711498faa50f68954276))
+
+* convert makefile to uv ([`9c9e7c6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9c9e7c674f156bd237550c582a0777a39968d361))
+
+* Merge branch &#39;add-jina&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-jina ([`60cc806`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/60cc806d30c233f2727538e2789b72ba3cd2e1e4))
+
+* Update makefile ([`5128f41`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5128f41046682e5b991e06a7154591d2e6a9ccfb))
+
+* Merge pull request #184 from KennethEnevoldsen/historical_task
+
+fix: Historical task ([`17e35a0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/17e35a007cfe595b1639ab90a8c6cf340edf2457))
+
+* Added results for jina ([`ba4e15d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ba4e15d06fe48383fbe6468e09c6c15e6ec4304f))
+
+* fixed bugs revealed by type checker ([`c226638`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c2266381b33cf8ef597c0e5de28b6455018188d8))
+
+* fixed ruff ([`acbaa3f`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/acbaa3fc85e25dd39343f6b480c9556d76a52fd3))
+
+* fix import ([`f521344`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f52134428fd6c35f3e6f3819eecfb96cdf05ba5b))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into historical_task ([`e813b35`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e813b35936f4c1a44c33c2d3ce467f01e00d78b5))
+
+* Added jina results ([`c986df4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c986df408516fb5f07ff97922e7826e14b63ec42))
+
+* added arctic model ([`9d87597`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9d87597dc860d2cbdd33fcf82b8e9aff88caac62))
+
+* added results ([`b597013`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b5970134fe2cb8d6b834948ae8f01b20c0fc12ad))
+
+* Merge branch &#39;add-jina&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-jina ([`2222d52`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/2222d52ae4acdf657ec1be2b0d532656cf1c5ce4))
+
+* delete all prev scores
+
+with the exception of LCC which have been overwritten with new scores ([`369fb76`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/369fb76d4cc77fe1459bf2fd43602fc09f0bf5d5))
+
+* added a few fixes to the jina implementation ([`a496071`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a4960717b265bcdd983d685bedbb3404ffdfa9fd))
+
+* Merge branch &#39;add-jina&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-jina ([`83af9cb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/83af9cb0ebe8112d0920e815f2cf188f458019be))
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark into add-jina ([`ccb84b1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/ccb84b1024262fc695d1dbeff012af30b0242164))
+
+
 ## v0.13.7 (2024-11-14)
 
 ### Fix
@@ -23,6 +98,38 @@ I am still running the model
 ---------
 
 Co-authored-by: Your Name &lt;you@example.com&gt; ([`84c2f91`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/84c2f912588d16d346b838b8e0e87a1df1733f4f))
+
+* fix: Add Jina
+
+I am still running the model ([`702ba9d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/702ba9d937b66e7eb75c43d0990f2ddcf7c8b901))
+
+### Unknown
+
+* Update mkdocs to legacy python ([`a04774d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a04774dea5c556475e72eb9f2eb5099fbfed9cb6))
+
+* format fixes ([`6419b28`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6419b287c0d4a5264828ffc9f0d7ad8c66db857e))
+
+* Add results for Jina ([`85ed45e`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/85ed45e72dcdfdfdc8c2909bc80ef976fe864112))
+
+* Add results for Jina ([`67818c2`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/67818c23496293ba7fcaecb261921978ffeb65e4))
+
+* Moved historical task to experimental_tasks ([`e915f78`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/e915f78f57b965fbd7d967149c6a5a9180199aa9))
+
+* Added results on the historical task ([`74b589b`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/74b589b36102507c25324e0290b879cdd8052425))
+
+* Added MiMe_Memo results ([`c494605`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/c494605b38698dc02b1dde04401ab3344747b2b0))
+
+* Fixed historical clustering ([`979a282`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/979a282322a48d77ef592a384a52b0477f79d4e3))
+
+* Fixed ruff version ([`b3c78cc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/b3c78cce40b1cdd782fbc857aeb2eba823bbc5d7))
+
+* Added Memo-bert-03 model ([`5c60d65`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5c60d65c886ec45b6ee1b2cf445816deacdbc472))
+
+* Added instruction for new task on instruct models ([`6eb88ec`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/6eb88ec3feb18b838699ba576f4f98cfa394bc8c))
+
+* Added new task to registry ([`1677dda`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1677dda5e5bf84377569e5a5c87389ccfd6de613))
+
+* Added historical danish clustering task ([`5e9a0b5`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5e9a0b58595e6acb7149474ba1d7d5969dabaea3))
 
 
 ## v0.13.6 (2024-07-23)

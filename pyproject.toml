@@ -60,6 +60,11 @@ sonar = [
 arctic = ["xformers>=0.0.10"] # --prerelease=allow
 fasttext = ["pybind11>=2.11.0", "fasttext-wheel>=0.9.0"]
 jina = ["einops", "numpy<2.0.0"]
+llm2vec = [
+  "ninja>=1.10.0", # recommended by pip flash-attn docs to speed up install significantly
+  "llm2vec>=0.2.2",
+  "flash-attn>=2.0.1",
+]
 
 
 [project.readme]

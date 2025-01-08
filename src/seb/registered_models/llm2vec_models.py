@@ -158,7 +158,7 @@ def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
     peft_model = "jealk/TTC-supervised-1"
     meta = ModelMeta(
-        name="llm2vec-da-mntp-ttc-supervised",
+        name="ttc-supervised-da-1",
         huggingface_name=peft_model,
         reference=f"https://huggingface.co/{base_model}, https://huggingface.co/{peft_model}",
         languages=["da"],
@@ -184,7 +184,7 @@ def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
     peft_model = "jealk/TTC-unsupervised-1"
     meta = ModelMeta(
-        name="llm2vec-da-mntp-ttc-unsupervised",
+        name="ttc-unsupervised-da-1",
         huggingface_name=peft_model,
         reference=f"https://huggingface.co/{base_model}, https://huggingface.co/{peft_model}",
         languages=["da"],

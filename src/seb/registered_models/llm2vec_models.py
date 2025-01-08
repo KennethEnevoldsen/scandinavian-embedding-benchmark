@@ -114,6 +114,8 @@ class LLM2VecModel(Encoder):
             peft_model_name_or_path=peft_model_name_or_path,
             **extra_kwargs,
             **kwargs,
+            device_map="auto",
+            torch_dtype=torch.bfloat16,
         )
         self.max_length = max_length
         self.max_batch_size = max_batch_size
@@ -129,7 +131,7 @@ class LLM2VecModel(Encoder):
         sentences: list[str],
         *,
         task: Optional[Task] = None,
-        batch_size: int = 128,
+        batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:
 
@@ -169,7 +171,7 @@ def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
         LLM2VecModel,
         base_model_name_or_path=base_model,
         peft_model_name_or_path=peft_model,
-        max_length=512,
+        max_length=8192,
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial_model),
@@ -195,7 +197,7 @@ def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
         LLM2VecModel,
         base_model_name_or_path=base_model,
         peft_model_name_or_path=peft_model,
-        max_length=512,
+        max_length=8192,
     )
     return SebModel(
         encoder=LazyLoadEncoder(partial_model),

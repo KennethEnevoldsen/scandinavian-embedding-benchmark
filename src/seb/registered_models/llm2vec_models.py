@@ -120,7 +120,7 @@ class LLM2VecModel(Encoder):
         self.max_batch_size = max_batch_size
 
     def preprocess(self, sentences, instruction) -> Union[List[str], List[List[str]]]:
-        # llm2vec.encode supports both [[instruction1, text1], [instruction2, text2]] or [text1, text2]
+    def preprocess(self, sentences, instruction) -> list[str] | list[list[str]]:
         if instruction is not None:
             sentences = [[instruction, sentence] for sentence in sentences]
         return sentences

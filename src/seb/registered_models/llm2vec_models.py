@@ -83,7 +83,6 @@ def batched(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
         yield batch
 
 
-# Custom SEB Encoder Model
 class LLM2VecModel(Encoder):
     def __init__(
         self,

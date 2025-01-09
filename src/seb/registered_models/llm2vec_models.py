@@ -152,14 +152,14 @@ class LLM2VecModel(Encoder):
         return torch.cat(batched_embeddings).numpy()
 
 
-@models.register("TTC-supervised-da-1")
+@models.register("TTC-L2V-supervised-da-1")
 def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
     peft_model = "jealk/TTC-supervised-1"
     meta = ModelMeta(
-        name="ttc-supervised-da-1",
+        name="TTC-L2V-supervised-da-1",
         huggingface_name=peft_model,
-        reference=f"https://huggingface.co/{base_model}, https://huggingface.co/{peft_model}",
+        reference=f"https://huggingface.co/{peft_model}",
         languages=["da"],
         open_source=True,
         embedding_size=4096,
@@ -178,14 +178,14 @@ def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
     )
 
 
-@models.register("TTC-unsupervised-da-1")
+@models.register("TTC-L2V-unsupervised-da-1")
 def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
     peft_model = "jealk/TTC-unsupervised-1"
     meta = ModelMeta(
-        name="ttc-unsupervised-da-1",
+        name="TTC-L2V-unsupervised-da-1",
         huggingface_name=peft_model,
-        reference=f"https://huggingface.co/{base_model}, https://huggingface.co/{peft_model}",
+        reference=f"https://huggingface.co/{peft_model}",
         languages=["da"],
         open_source=True,
         embedding_size=4096,

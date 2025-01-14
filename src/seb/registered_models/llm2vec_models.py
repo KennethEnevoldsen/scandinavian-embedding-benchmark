@@ -119,7 +119,6 @@ class LLM2VecModel(Encoder):
         self.max_length = max_length
         self.max_batch_size = max_batch_size
 
-    def preprocess(self, sentences, instruction) -> Union[List[str], List[List[str]]]:
     def preprocess(self, sentences, instruction) -> list[str] | list[list[str]]:
         if instruction is not None:
             sentences = [[instruction, sentence] for sentence in sentences]
@@ -155,7 +154,7 @@ class LLM2VecModel(Encoder):
 @models.register("TTC-L2V-supervised-da-1")
 def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
-    peft_model = "jealk/TTC-supervised-1"
+    peft_model = "jealk/TTC-L2V-supervised-1"
     meta = ModelMeta(
         name="TTC-L2V-supervised-da-1",
         huggingface_name=peft_model,
@@ -181,7 +180,7 @@ def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
 @models.register("TTC-L2V-unsupervised-da-1")
 def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp"
-    peft_model = "jealk/TTC-unsupervised-1"
+    peft_model = "jealk/TTC-L2V-unsupervised-1"
     meta = ModelMeta(
         name="TTC-L2V-unsupervised-da-1",
         huggingface_name=peft_model,

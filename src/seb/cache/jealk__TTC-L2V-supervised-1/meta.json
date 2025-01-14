@@ -1,0 +1,1 @@
+{"name":"llm2vec-da-mntp-ttc-supervised","description":null,"huggingface_name":"jealk/TTC-supervised-1","reference":"https://huggingface.co/jealk/llm2vec-da-mntp, https://huggingface.co/jealk/TTC-supervised-1","languages":["da"],"open_source":true,"embedding_size":4096,"architecture":"LLM2Vec","release_date":"2024-12-20"}

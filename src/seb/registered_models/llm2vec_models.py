@@ -1,3 +1,4 @@
+from __future__ import annotations
 import logging
 from datetime import date
 from functools import partial
@@ -96,9 +97,7 @@ class LLM2VecModel(Encoder):
         try:
             from llm2vec import LLM2Vec
         except ImportError:
-            raise ImportError(
-                "To use the LLM2Vec models `llm2vec` is required. Please install it with `pip seb[llm2vec]."
-            )
+            raise ImportError("To use the LLM2Vec models `llm2vec` is required. Please install it with `pip seb[llm2vec].")
         extra_kwargs = {}
         try:
             import flash_attn  # noqa
@@ -132,7 +131,6 @@ class LLM2VecModel(Encoder):
         batch_size: int = 32,
         **kwargs: Any,
     ) -> np.ndarray:
-
         if self.max_batch_size and batch_size > self.max_batch_size:
             batch_size = self.max_batch_size
 

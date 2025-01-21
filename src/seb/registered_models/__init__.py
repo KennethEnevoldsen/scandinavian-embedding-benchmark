@@ -10,3 +10,4 @@ from .voyage_models import *
 from .bge_models import *
 from .jina_models import *
 from .arctic_models import *
+from .llm2vec_models import *

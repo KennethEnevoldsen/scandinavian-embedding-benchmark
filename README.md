@@ -62,21 +62,20 @@ To see more examples, see the [documentation].
 
 ## Citation
 
-To cite this work please refer to the following [article](https://arxiv.org/abs/2406.02396):
+To cite this work please refer to the following [work accepted at neurips](https://neurips.cc/virtual/2024/poster/97869):
 
 ```
-Enevoldsen, K., Kardos, M., Muennighoff, N., & Nielbo, K. (2024). The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding. https://openreview.net/forum?id=pJl_i7HIA72
+Enevoldsen, K., Kardos, M., Muennighoff, N., & Nielbo, K. (2024). The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding. In Advances in Neural Information Processing Systems
 ```
 
 or use the following BibTeX:
 ```
-@misc{enevoldsen2024scandinavian,
-      title={The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding}, 
-      author={Kenneth Enevoldsen and Márton Kardos and Niklas Muennighoff and Kristoffer Laigaard Nielbo},
-      year={2024},
-      eprint={2406.02396},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{enevoldsen2024scandinavian,
+  title={The Scandinavian Embedding Benchmarks: Comprehensive Assessment of Multilingual and Monolingual Text Embedding},
+  author={Enevoldsen, Kenneth and Kardos, M{\'a}rton and Muennighoff, Niklas and Nielbo, Kristoffer},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2024},
+  url={https://nips.cc/virtual/2024/poster/97869}
 }
 ```
 

@@ -1,1395 +1,0 @@
-nohup: ignoring input
-INFO:seb.cli.run:Model registered in SEB. Loading from registry.
-Running Benchmark:   0%|          | 0/1 [00:00<?, ?it/s]Running TTC-L2V-unsupervised-da-1:   0%|          | 0/1 [00:00<?, ?it/s]
-Running TTC-L2V-unsupervised-da-1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running TTC-L2V-unsupervised-da-1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-unsupervised-da-1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running TTC-L2V-unsupervised-da-1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-unsupervised-da-1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-unsupervised-da-1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running TTC-L2V-unsupervised-da-1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-unsupervised-da-1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running TTC-L2V-unsupervised-da-1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running TTC-L2V-unsupervised-da-1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                            [ARunning TTC-L2V-unsupervised-da-1: 100%|██████████| 1/1 [00:00<00:00, 535.74it/s]
-Running Benchmark:   0%|          | 0/52 [00:00<?, ?it/s]Running TTC-L2V-unsupervised-da-1:   0%|          | 0/52 [00:00<?, ?it/s]
-Running TTC-L2V-unsupervised-da-1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running TTC-L2V-unsupervised-da-1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-unsupervised-da-1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running TTC-L2V-unsupervised-da-1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-unsupervised-da-1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-unsupervised-da-1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running TTC-L2V-unsupervised-da-1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-unsupervised-da-1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running TTC-L2V-unsupervised-da-1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running TTC-L2V-unsupervised-da-1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-unsupervised-da-1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-unsupervised-da-1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                            [ARunning embed-multilingual-v3.0:   0%|          | 0/52 [00:00<?, ?it/s]  
-Running embed-multilingual-v3.0:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running embed-multilingual-v3.0 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running embed-multilingual-v3.0 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running embed-multilingual-v3.0 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running embed-multilingual-v3.0 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running embed-multilingual-v3.0 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running embed-multilingual-v3.0 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running embed-multilingual-v3.0 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running embed-multilingual-v3.0 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running embed-multilingual-v3.0 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running embed-multilingual-v3.0 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running embed-multilingual-v3.0 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running embed-multilingual-v3.0 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running embed-multilingual-v3.0 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                          [ARunning e5-mistral-7b-instruct:   0%|          | 0/52 [00:00<?, ?it/s] 
-Running e5-mistral-7b-instruct:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running e5-mistral-7b-instruct on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-mistral-7b-instruct on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running e5-mistral-7b-instruct on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-mistral-7b-instruct on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-mistral-7b-instruct on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running e5-mistral-7b-instruct on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-mistral-7b-instruct on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running e5-mistral-7b-instruct on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-mistral-7b-instruct on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running e5-mistral-7b-instruct on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-mistral-7b-instruct on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-mistral-7b-instruct on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-mistral-7b-instruct on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning multilingual-e5-large-instruct:   0%|          | 0/52 [00:00<?, ?it/s]
-Running multilingual-e5-large-instruct:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running multilingual-e5-large-instruct on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-large-instruct on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running multilingual-e5-large-instruct on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-large-instruct on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-large-instruct on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running multilingual-e5-large-instruct on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-large-instruct on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running multilingual-e5-large-instruct on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large-instruct on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running multilingual-e5-large-instruct on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large-instruct on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large-instruct on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large-instruct on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                 [ARunning e5-small:   0%|          | 0/52 [00:00<?, ?it/s]                      
-Running e5-small:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running e5-small on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-small on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running e5-small on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-small on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-small on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running e5-small on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-small on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running e5-small on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-small on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running e5-small on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-small on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-small on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-small on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                           [ARunning e5-base:   0%|          | 0/52 [00:00<?, ?it/s] 
-Running e5-base:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running e5-base on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-base on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running e5-base on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-base on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-base on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running e5-base on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-base on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running e5-base on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-base on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running e5-base on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-base on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-base on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-base on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                          [ARunning e5-large:   0%|          | 0/52 [00:00<?, ?it/s]
-Running e5-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running e5-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running e5-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running e5-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running e5-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running e5-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running e5-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running e5-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running e5-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running e5-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                           [ARunning multilingual-e5-small:   0%|          | 0/52 [00:00<?, ?it/s]
-Running multilingual-e5-small:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running multilingual-e5-small on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-small on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running multilingual-e5-small on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-small on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-small on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running multilingual-e5-small on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-small on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running multilingual-e5-small on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-small on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running multilingual-e5-small on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-small on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-small on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-small on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                        [ARunning multilingual-e5-base:   0%|          | 0/52 [00:00<?, ?it/s] 
-Running multilingual-e5-base:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running multilingual-e5-base on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-base on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running multilingual-e5-base on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-base on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-base on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running multilingual-e5-base on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-base on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running multilingual-e5-base on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-base on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running multilingual-e5-base on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-base on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-base on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-base on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                       [ARunning multilingual-e5-large:   0%|          | 0/52 [00:00<?, ?it/s]
-Running multilingual-e5-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running multilingual-e5-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running multilingual-e5-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running multilingual-e5-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running multilingual-e5-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running multilingual-e5-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running multilingual-e5-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running multilingual-e5-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running multilingual-e5-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running multilingual-e5-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                        [ARunning sonar-dan:   0%|          | 0/52 [00:00<?, ?it/s]            
-Running sonar-dan:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running sonar-dan on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-dan on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running sonar-dan on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-dan on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-dan on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running sonar-dan on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-dan on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running sonar-dan on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-dan on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running sonar-dan on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-dan on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-dan on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-dan on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                            [ARunning sonar-swe:   0%|          | 0/52 [00:00<?, ?it/s]
-Running sonar-swe:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running sonar-swe on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-swe on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running sonar-swe on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-swe on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-swe on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running sonar-swe on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-swe on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running sonar-swe on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-swe on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running sonar-swe on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-swe on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-swe on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-swe on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                            [ARunning sonar-nob:   0%|          | 0/52 [00:00<?, ?it/s]
-Running sonar-nob:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running sonar-nob on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-nob on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running sonar-nob on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-nob on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-nob on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running sonar-nob on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-nob on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running sonar-nob on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nob on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running sonar-nob on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nob on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nob on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nob on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                            [ARunning sonar-nno:   0%|          | 0/52 [00:00<?, ?it/s]
-Running sonar-nno:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running sonar-nno on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-nno on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running sonar-nno on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-nno on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sonar-nno on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running sonar-nno on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sonar-nno on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running sonar-nno on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nno on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running sonar-nno on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nno on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sonar-nno on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sonar-nno on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                            [ARunning fasttext-cc-da-300:   0%|          | 0/52 [00:00<?, ?it/s]
-Running fasttext-cc-da-300:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running fasttext-cc-da-300 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-da-300 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running fasttext-cc-da-300 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-da-300 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-da-300 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running fasttext-cc-da-300 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-da-300 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running fasttext-cc-da-300 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-da-300 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running fasttext-cc-da-300 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-da-300 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-da-300 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-da-300 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning fasttext-cc-sv-300:   0%|          | 0/52 [00:00<?, ?it/s]
-Running fasttext-cc-sv-300:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running fasttext-cc-sv-300 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-sv-300 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running fasttext-cc-sv-300 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-sv-300 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-sv-300 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running fasttext-cc-sv-300 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-sv-300 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running fasttext-cc-sv-300 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-sv-300 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running fasttext-cc-sv-300 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-sv-300 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-sv-300 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-sv-300 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning fasttext-cc-nb-300:   0%|          | 0/52 [00:00<?, ?it/s]
-Running fasttext-cc-nb-300:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running fasttext-cc-nb-300 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-nb-300 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running fasttext-cc-nb-300 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-nb-300 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-nb-300 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running fasttext-cc-nb-300 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-nb-300 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running fasttext-cc-nb-300 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nb-300 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running fasttext-cc-nb-300 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nb-300 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nb-300 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nb-300 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning fasttext-cc-nn-300:   0%|          | 0/52 [00:00<?, ?it/s]
-Running fasttext-cc-nn-300:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running fasttext-cc-nn-300 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-nn-300 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running fasttext-cc-nn-300 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-nn-300 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running fasttext-cc-nn-300 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running fasttext-cc-nn-300 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running fasttext-cc-nn-300 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running fasttext-cc-nn-300 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nn-300 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running fasttext-cc-nn-300 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nn-300 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running fasttext-cc-nn-300 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running fasttext-cc-nn-300 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning jina-embedding-b-en-v1:   0%|          | 0/52 [00:00<?, ?it/s]
-Running jina-embedding-b-en-v1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running jina-embedding-b-en-v1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running jina-embedding-b-en-v1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running jina-embedding-b-en-v1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running jina-embedding-b-en-v1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running jina-embedding-b-en-v1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running jina-embedding-b-en-v1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running jina-embedding-b-en-v1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running jina-embedding-b-en-v1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embedding-b-en-v1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running jina-embedding-b-en-v1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embedding-b-en-v1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embedding-b-en-v1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embedding-b-en-v1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning all-MiniLM-L6-v2:   0%|          | 0/52 [00:00<?, ?it/s]      
-Running all-MiniLM-L6-v2:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running all-MiniLM-L6-v2 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running all-MiniLM-L6-v2 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running all-MiniLM-L6-v2 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running all-MiniLM-L6-v2 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running all-MiniLM-L6-v2 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running all-MiniLM-L6-v2 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running all-MiniLM-L6-v2 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running all-MiniLM-L6-v2 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running all-MiniLM-L6-v2 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running all-MiniLM-L6-v2 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running all-MiniLM-L6-v2 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running all-MiniLM-L6-v2 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running all-MiniLM-L6-v2 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                   [ARunning paraphrase-multilingual-MiniLM-L12-v2:   0%|          | 0/52 [00:00<?, ?it/s]
-Running paraphrase-multilingual-MiniLM-L12-v2:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-MiniLM-L12-v2 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                        [ARunning paraphrase-multilingual-mpnet-base-v2:   0%|          | 0/52 [00:00<?, ?it/s]
-Running paraphrase-multilingual-mpnet-base-v2:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running paraphrase-multilingual-mpnet-base-v2 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running paraphrase-multilingual-mpnet-base-v2 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running paraphrase-multilingual-mpnet-base-v2 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running paraphrase-multilingual-mpnet-base-v2 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running paraphrase-multilingual-mpnet-base-v2 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running paraphrase-multilingual-mpnet-base-v2 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running paraphrase-multilingual-mpnet-base-v2 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running paraphrase-multilingual-mpnet-base-v2 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-mpnet-base-v2 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running paraphrase-multilingual-mpnet-base-v2 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-mpnet-base-v2 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running paraphrase-multilingual-mpnet-base-v2 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running paraphrase-multilingual-mpnet-base-v2 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                        [ARunning sentence-bert-swedish-cased:   0%|          | 0/52 [00:00<?, ?it/s]          
-Running sentence-bert-swedish-cased:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running sentence-bert-swedish-cased on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sentence-bert-swedish-cased on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running sentence-bert-swedish-cased on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sentence-bert-swedish-cased on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running sentence-bert-swedish-cased on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running sentence-bert-swedish-cased on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running sentence-bert-swedish-cased on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running sentence-bert-swedish-cased on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sentence-bert-swedish-cased on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running sentence-bert-swedish-cased on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sentence-bert-swedish-cased on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running sentence-bert-swedish-cased on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running sentence-bert-swedish-cased on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                              [ARunning electra-small-nordic:   0%|          | 0/52 [00:00<?, ?it/s]       
-Running electra-small-nordic:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running electra-small-nordic on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running electra-small-nordic on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running electra-small-nordic on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running electra-small-nordic on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running electra-small-nordic on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running electra-small-nordic on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running electra-small-nordic on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running electra-small-nordic on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-nordic on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running electra-small-nordic on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-nordic on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-nordic on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-nordic on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                       [ARunning DanskBERT:   0%|          | 0/52 [00:00<?, ?it/s]           
-Running DanskBERT:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running DanskBERT on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running DanskBERT on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running DanskBERT on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running DanskBERT on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running DanskBERT on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running DanskBERT on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running DanskBERT on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running DanskBERT on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running DanskBERT on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running DanskBERT on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running DanskBERT on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running DanskBERT on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running DanskBERT on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                            [ARunning dfm-encoder-large-v1:   0%|          | 0/52 [00:00<?, ?it/s]
-Running dfm-encoder-large-v1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-encoder-large-v1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-large-v1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-encoder-large-v1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-large-v1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-large-v1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-encoder-large-v1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-large-v1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-encoder-large-v1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-encoder-large-v1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                       [ARunning nb-bert-large:   0%|          | 0/52 [00:00<?, ?it/s]       
-Running nb-bert-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running nb-bert-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running nb-bert-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running nb-bert-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running nb-bert-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running nb-bert-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running nb-bert-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running nb-bert-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running nb-bert-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running nb-bert-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                [ARunning nb-bert-base:   0%|          | 0/52 [00:00<?, ?it/s] 
-Running nb-bert-base:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running nb-bert-base on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running nb-bert-base on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running nb-bert-base on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running nb-bert-base on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running nb-bert-base on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running nb-bert-base on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running nb-bert-base on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running nb-bert-base on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-base on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running nb-bert-base on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-base on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running nb-bert-base on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running nb-bert-base on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                               [ARunning bert-base-swedish-cased:   0%|          | 0/52 [00:00<?, ?it/s]
-Running bert-base-swedish-cased:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running bert-base-swedish-cased on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running bert-base-swedish-cased on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running bert-base-swedish-cased on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running bert-base-swedish-cased on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running bert-base-swedish-cased on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running bert-base-swedish-cased on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running bert-base-swedish-cased on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running bert-base-swedish-cased on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bert-base-swedish-cased on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running bert-base-swedish-cased on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bert-base-swedish-cased on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bert-base-swedish-cased on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bert-base-swedish-cased on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                          [ARunning electra-small-swedish-cased-discriminator:   0%|          | 0/52 [00:00<?, ?it/s]
-Running electra-small-swedish-cased-discriminator:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running electra-small-swedish-cased-discriminator on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running electra-small-swedish-cased-discriminator on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running electra-small-swedish-cased-discriminator on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running electra-small-swedish-cased-discriminator on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running electra-small-swedish-cased-discriminator on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running electra-small-swedish-cased-discriminator on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running electra-small-swedish-cased-discriminator on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running electra-small-swedish-cased-discriminator on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-swedish-cased-discriminator on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running electra-small-swedish-cased-discriminator on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-swedish-cased-discriminator on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running electra-small-swedish-cased-discriminator on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running electra-small-swedish-cased-discriminator on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                            [ARunning xlm-roberta-base:   0%|          | 0/52 [00:00<?, ?it/s]                         
-Running xlm-roberta-base:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running xlm-roberta-base on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running xlm-roberta-base on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running xlm-roberta-base on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running xlm-roberta-base on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running xlm-roberta-base on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running xlm-roberta-base on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running xlm-roberta-base on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running xlm-roberta-base on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-base on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running xlm-roberta-base on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-base on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-base on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-base on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                   [ARunning xlm-roberta-large:   0%|          | 0/52 [00:00<?, ?it/s]
-Running xlm-roberta-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running xlm-roberta-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running xlm-roberta-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running xlm-roberta-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running xlm-roberta-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running xlm-roberta-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running xlm-roberta-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running xlm-roberta-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running xlm-roberta-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running xlm-roberta-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running xlm-roberta-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running xlm-roberta-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                    [ARunning LaBSE:   0%|          | 0/52 [00:00<?, ?it/s]            
-Running LaBSE:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running LaBSE on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running LaBSE on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running LaBSE on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running LaBSE on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running LaBSE on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running LaBSE on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running LaBSE on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running LaBSE on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running LaBSE on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running LaBSE on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running LaBSE on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running LaBSE on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running LaBSE on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                        [ARunning dfm-encoder-large-v1 (SimCSE):   0%|          | 0/52 [00:00<?, ?it/s]
-Running dfm-encoder-large-v1 (SimCSE):   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-encoder-large-v1 (SimCSE) on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-large-v1 (SimCSE) on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-encoder-large-v1 (SimCSE) on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-large-v1 (SimCSE) on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-large-v1 (SimCSE) on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-encoder-large-v1 (SimCSE) on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-large-v1 (SimCSE) on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-encoder-large-v1 (SimCSE) on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 (SimCSE) on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-encoder-large-v1 (SimCSE) on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 (SimCSE) on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-large-v1 (SimCSE) on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-large-v1 (SimCSE) on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                [ARunning dfm-sentence-encoder-large-exp1:   0%|          | 0/52 [00:00<?, ?it/s]
-Running dfm-sentence-encoder-large-exp1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-sentence-encoder-large-exp1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-large-exp1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-sentence-encoder-large-exp1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-large-exp1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-large-exp1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-sentence-encoder-large-exp1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-large-exp1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-sentence-encoder-large-exp1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-sentence-encoder-large-exp1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                  [ARunning dfm-encoder-small-v1 (SimCSE):   0%|          | 0/52 [00:00<?, ?it/s]  
-Running dfm-encoder-small-v1 (SimCSE):   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-encoder-small-v1 (SimCSE) on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-small-v1 (SimCSE) on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-encoder-small-v1 (SimCSE) on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-small-v1 (SimCSE) on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-encoder-small-v1 (SimCSE) on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-encoder-small-v1 (SimCSE) on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-encoder-small-v1 (SimCSE) on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-encoder-small-v1 (SimCSE) on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-small-v1 (SimCSE) on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-encoder-small-v1 (SimCSE) on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-small-v1 (SimCSE) on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-encoder-small-v1 (SimCSE) on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-encoder-small-v1 (SimCSE) on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                [ARunning dfm-sentence-encoder-medium (SimCSE):   0%|          | 0/52 [00:00<?, ?it/s]
-Running dfm-sentence-encoder-medium (SimCSE):   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-sentence-encoder-medium (SimCSE) on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-medium (SimCSE) on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-sentence-encoder-medium (SimCSE) on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-medium (SimCSE) on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-medium (SimCSE) on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-sentence-encoder-medium (SimCSE) on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-medium (SimCSE) on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-sentence-encoder-medium (SimCSE) on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-medium (SimCSE) on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-sentence-encoder-medium (SimCSE) on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-medium (SimCSE) on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-medium (SimCSE) on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-medium (SimCSE) on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                       [ARunning dfm-sentence-encoder-large-exp2-no-lang-align:   0%|          | 0/52 [00:00<?, ?it/s]
-Running dfm-sentence-encoder-large-exp2-no-lang-align:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running dfm-sentence-encoder-large-exp2-no-lang-align on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                                [ARunning mxbai-embed-large-v1:   0%|          | 0/52 [00:00<?, ?it/s]                         
-Running mxbai-embed-large-v1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running mxbai-embed-large-v1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running mxbai-embed-large-v1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running mxbai-embed-large-v1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running mxbai-embed-large-v1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running mxbai-embed-large-v1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running mxbai-embed-large-v1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running mxbai-embed-large-v1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running mxbai-embed-large-v1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running mxbai-embed-large-v1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running mxbai-embed-large-v1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running mxbai-embed-large-v1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running mxbai-embed-large-v1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running mxbai-embed-large-v1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                       [ARunning use-cmlm-multilingual:   0%|          | 0/52 [00:00<?, ?it/s]
-Running use-cmlm-multilingual:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running use-cmlm-multilingual on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running use-cmlm-multilingual on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running use-cmlm-multilingual on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running use-cmlm-multilingual on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running use-cmlm-multilingual on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running use-cmlm-multilingual on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running use-cmlm-multilingual on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running use-cmlm-multilingual on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running use-cmlm-multilingual on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running use-cmlm-multilingual on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running use-cmlm-multilingual on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running use-cmlm-multilingual on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running use-cmlm-multilingual on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                        [ARunning XLMRoberta-en-da-sv-nb:   0%|          | 0/52 [00:00<?, ?it/s]
-Running XLMRoberta-en-da-sv-nb:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running XLMRoberta-en-da-sv-nb on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running XLMRoberta-en-da-sv-nb on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running XLMRoberta-en-da-sv-nb on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running XLMRoberta-en-da-sv-nb on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running XLMRoberta-en-da-sv-nb on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running XLMRoberta-en-da-sv-nb on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running XLMRoberta-en-da-sv-nb on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running XLMRoberta-en-da-sv-nb on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running XLMRoberta-en-da-sv-nb on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running XLMRoberta-en-da-sv-nb on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running XLMRoberta-en-da-sv-nb on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running XLMRoberta-en-da-sv-nb on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running XLMRoberta-en-da-sv-nb on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning MeMo-BERT-03:   0%|          | 0/52 [00:00<?, ?it/s]          
-Running MeMo-BERT-03:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running MeMo-BERT-03 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running MeMo-BERT-03 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running MeMo-BERT-03 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running MeMo-BERT-03 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running MeMo-BERT-03 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running MeMo-BERT-03 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running MeMo-BERT-03 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running MeMo-BERT-03 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running MeMo-BERT-03 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running MeMo-BERT-03 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running MeMo-BERT-03 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running MeMo-BERT-03 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running MeMo-BERT-03 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                               [ARunning text-embedding-ada-002:   0%|          | 0/52 [00:00<?, ?it/s]
-Running text-embedding-ada-002:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running text-embedding-ada-002 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-ada-002 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running text-embedding-ada-002 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-ada-002 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-ada-002 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running text-embedding-ada-002 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-ada-002 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running text-embedding-ada-002 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-ada-002 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running text-embedding-ada-002 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-ada-002 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-ada-002 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-ada-002 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning text-embedding-3-small:   0%|          | 0/52 [00:00<?, ?it/s]
-Running text-embedding-3-small:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running text-embedding-3-small on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-3-small on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running text-embedding-3-small on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-3-small on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-3-small on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running text-embedding-3-small on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-3-small on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running text-embedding-3-small on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-small on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running text-embedding-3-small on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-small on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-small on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-small on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning text-embedding-3-large:   0%|          | 0/52 [00:00<?, ?it/s]
-Running text-embedding-3-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running text-embedding-3-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-3-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running text-embedding-3-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-3-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running text-embedding-3-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running text-embedding-3-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running text-embedding-3-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running text-embedding-3-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running text-embedding-3-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running text-embedding-3-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running text-embedding-3-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                         [ARunning translate-e5-large:   0%|          | 0/52 [00:00<?, ?it/s]    
-Running translate-e5-large:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running translate-e5-large on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running translate-e5-large on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running translate-e5-large on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running translate-e5-large on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running translate-e5-large on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running translate-e5-large on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running translate-e5-large on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running translate-e5-large on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running translate-e5-large on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running translate-e5-large on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running translate-e5-large on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running translate-e5-large on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running translate-e5-large on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning voyage-multilingual-2:   0%|          | 0/52 [00:00<?, ?it/s]
-Running voyage-multilingual-2:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running voyage-multilingual-2 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running voyage-multilingual-2 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running voyage-multilingual-2 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running voyage-multilingual-2 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running voyage-multilingual-2 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running voyage-multilingual-2 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running voyage-multilingual-2 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running voyage-multilingual-2 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running voyage-multilingual-2 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running voyage-multilingual-2 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running voyage-multilingual-2 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running voyage-multilingual-2 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running voyage-multilingual-2 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                        [ARunning bge-m3:   0%|          | 0/52 [00:00<?, ?it/s]               
-Running bge-m3:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running bge-m3 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running bge-m3 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running bge-m3 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running bge-m3 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running bge-m3 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running bge-m3 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running bge-m3 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running bge-m3 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bge-m3 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running bge-m3 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bge-m3 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running bge-m3 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running bge-m3 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                         [ARunning jina-embeddings-v3:   0%|          | 0/52 [00:00<?, ?it/s]
-Running jina-embeddings-v3:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running jina-embeddings-v3 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running jina-embeddings-v3 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running jina-embeddings-v3 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running jina-embeddings-v3 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running jina-embeddings-v3 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running jina-embeddings-v3 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running jina-embeddings-v3 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running jina-embeddings-v3 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embeddings-v3 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running jina-embeddings-v3 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embeddings-v3 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running jina-embeddings-v3 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running jina-embeddings-v3 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                     [ARunning snowflake-arctic-embed-l-v2.0:   0%|          | 0/52 [00:00<?, ?it/s]
-Running snowflake-arctic-embed-l-v2.0:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running snowflake-arctic-embed-l-v2.0 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running snowflake-arctic-embed-l-v2.0 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running snowflake-arctic-embed-l-v2.0 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running snowflake-arctic-embed-l-v2.0 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running snowflake-arctic-embed-l-v2.0 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running snowflake-arctic-embed-l-v2.0 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running snowflake-arctic-embed-l-v2.0 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running snowflake-arctic-embed-l-v2.0 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-l-v2.0 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running snowflake-arctic-embed-l-v2.0 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-l-v2.0 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-l-v2.0 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-l-v2.0 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                [ARunning snowflake-arctic-embed-m-v2.0:   0%|          | 0/52 [00:00<?, ?it/s]
-Running snowflake-arctic-embed-m-v2.0:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running snowflake-arctic-embed-m-v2.0 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running snowflake-arctic-embed-m-v2.0 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running snowflake-arctic-embed-m-v2.0 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running snowflake-arctic-embed-m-v2.0 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running snowflake-arctic-embed-m-v2.0 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running snowflake-arctic-embed-m-v2.0 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running snowflake-arctic-embed-m-v2.0 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running snowflake-arctic-embed-m-v2.0 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-m-v2.0 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running snowflake-arctic-embed-m-v2.0 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-m-v2.0 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running snowflake-arctic-embed-m-v2.0 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running snowflake-arctic-embed-m-v2.0 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                                [ARunning TTC-L2V-supervised-da-1:   0%|          | 0/52 [00:00<?, ?it/s]      
-Running TTC-L2V-supervised-da-1:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on Angry Tweets:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on LCC:   0%|          | 0/24 [00:00<?, ?it/s]         [A
-Running TTC-L2V-supervised-da-1 on Bornholm Parallel:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on DKHate:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-supervised-da-1 on Da Political Comments:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on DanFEVER:   0%|          | 0/24 [00:00<?, ?it/s]             [A
-Running TTC-L2V-supervised-da-1 on TV2Nord Retrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on Twitterhjerne:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-supervised-da-1 on Massive Intent:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on Massive Scenario:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on ScaLA:   0%|          | 0/24 [00:00<?, ?it/s]           [A
-Running TTC-L2V-supervised-da-1 on Language Identification:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on NoReC:   0%|          | 0/24 [00:00<?, ?it/s]                  [A
-Running TTC-L2V-supervised-da-1 on Norwegian parliament:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on Norwegian courts:   0%|          | 0/24 [00:00<?, ?it/s]    [A
-Running TTC-L2V-supervised-da-1 on VG Clustering:   0%|          | 0/24 [00:00<?, ?it/s]   [A
-Running TTC-L2V-supervised-da-1 on SNL Clustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on SNL Retrieval:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-supervised-da-1 on NorQuad:   0%|          | 0/24 [00:00<?, ?it/s]      [A
-Running TTC-L2V-supervised-da-1 on SweReC:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-supervised-da-1 on DaLAJ:   0%|          | 0/24 [00:00<?, ?it/s] [A
-Running TTC-L2V-supervised-da-1 on SweFAQ:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on SwednRetrieval:   0%|          | 0/24 [00:00<?, ?it/s][A
-Running TTC-L2V-supervised-da-1 on SwednClustering:   0%|          | 0/24 [00:00<?, ?it/s][A
-                                                                                          [ARunning TTC-L2V-supervised-da-1: 100%|██████████| 52/52 [00:00<00:00, 606.60it/s]
-                                   Benchmark Results                            
-┏━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳┳━┳┳━┳┳━┳┳━┳┳━┳┳━┳┳━┳┳━┳┳━┳┳━
-┃      ┃                                ┃ Average ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ 
-┃ Rank ┃ Model                          ┃   Score ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ ┃┃ 
-┡━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇╇━╇╇━╇╇━╇╇━╇╇━╇╇━╇╇━╇╇━╇╇━╇╇━
-│    1 │ multilingual-e5-large-instruct │    0.67 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-│    2 │ text-embedding-3-large         │    0.65 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-│    3 │ embed-multilingual-v3.0        │    0.64 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-├──────┼────────────────────────────────┼─────────┼┼─┼┼─┼┼─┼┼─┼┼─┼┼─┼┼─┼┼─┼┼─┼┼─
-│   17 │ snowflake-arctic-embed-m-v2.0  │    0.53 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-│   18 │ NEW: TTC-L2V-unsupervised-da-1 │    0.53 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-│   19 │ XLMRoberta-en-da-sv-nb         │    0.53 ││ ││ ││ ││ ││ ││ ││ ││ ││ ││ 
-└──────┴────────────────────────────────┴─────────┴┴─┴┴─┴┴─┴┴─┴┴─┴┴─┴┴─┴┴─┴┴─┴┴─

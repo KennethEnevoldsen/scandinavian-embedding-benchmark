@@ -2,6 +2,52 @@
 
 
 
+## v0.13.9 (2025-02-14)
+
+### Fix
+
+* fix: remove unused files
+Remove unused files ([`5ee9d47`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5ee9d47c0b5ff5cbb75fa3897f23d21b63dec0ab))
+
+### Unknown
+
+* Merge pull request #195 from KennethEnevoldsen/clean
+
+fix: remove unused files ([`8adb888`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8adb888994c005ed3ea67ae00de1a00686d3b8a6))
+
+* Merge pull request #192 from KennethEnevoldsen/KennethEnevoldsen-patch-2
+
+Update README.md ([`312431d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/312431d688461b26e1522333eb32e1d291fa4f81))
+
+* Update README.md ([`4dd9e2c`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/4dd9e2c2da1be870b98a6741a18a11ea8e6d45b7))
+
+* Merge pull request #191 from jalkestrup/main
+
+implement llm2vec models ([`a14d091`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/a14d0918031fa7e04c4eef76b6522a06d1a1480e))
+
+* Ran Make Lint ([`322f917`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/322f9172f3799a33fe16abf81735ec41c4a8cb3f))
+
+* Ran eval on all languages, and deleted cached jsons that for some reason was saved with space delimeter ([`87ed38a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/87ed38a068c58aa6fcea778e5729288ecc55a57b))
+
+* Updated cache with results and renamed model to TTC-L2V ([`8e28735`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/8e28735764785f2e8a344aedc4ffbe72724ee151))
+
+* updated model name and meta ([`025719a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/025719ab54fa7771b415c0fc7a8e3b2a1eae3f29))
+
+* Update src/seb/registered_models/llm2vec_models.py
+
+Co-authored-by: Kenneth Enevoldsen &lt;kennethcenevoldsen@gmail.com&gt; ([`da24115`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/da241154a2f05440d05c783e84c4bb8fdb31e0bf))
+
+* Update src/seb/registered_models/llm2vec_models.py
+
+Co-authored-by: Kenneth Enevoldsen &lt;kennethcenevoldsen@gmail.com&gt; ([`d7b4ea7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/d7b4ea7e4886b175c93459542368cb9dbbcf6b83))
+
+* Updated model names for shorter ([`7a35bc1`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7a35bc1f1fc4c59bbe2059260598e6610ec46d46))
+
+* Updated torch dtype and device map according to MTEB llm2vec implementation ([`7d25f1d`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/7d25f1d8f2b7913b2d5357926965e95911ac4e6c))
+
+* Added support for llm2vec models and optional seb[llm2vec] dependency install ([`49088ff`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/49088ffcec39c6b1a4187da7e7f316dec29f6e1e))
+
+
 ## v0.13.8 (2024-12-26)
 
 ### Ci

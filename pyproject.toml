@@ -17,7 +17,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.9,<3.13"
 
 dependencies = [
   "mteb[beir]==1.1.1",
@@ -35,18 +35,6 @@ file = "LICENSE"
 name = "MIT"
 
 [project.optional-dependencies]
-dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff==0.6.0"]
-tests = ["pytest>=7.1.3", "pytest-cov>=3.0.0"]
-docs = [
-  "mkdocs==1.5.1",
-  "mkdocs-jupyter==0.24.6",
-  "mkdocs-material==9.1.21",
-  "mkdocstrings[python-legacy]==0.22.0",
-  # for managing tables
-  "datawrapper>=0.5.3,<0.6.0",
-  # for tutorials
-  "jupyter>=1.0.0",
-]
 mistral = [
   "transformers>=4.31.0", # lower bound required for mistral models (could potentially be lowered)
 ]
@@ -181,3 +169,17 @@ include-package-data = true
 [tool.uv]
 conflicts = [[{ extra = "sonar" }, { extra = "arctic" }]]
 no-build-isolation-package = ["xformers", "flash-attn"]
+
+[dependency-groups]
+dev = ["cruft>=2.0.0", "pyright==1.1.348", "ruff==0.6.0"]
+tests = ["pytest>=7.1.3", "pytest-cov>=3.0.0"]
+docs = [
+  "mkdocs==1.5.1",
+  "mkdocs-jupyter==0.24.6",
+  "mkdocs-material==9.1.21",
+  "mkdocstrings[python-legacy]==0.22.0",
+  # for managing tables
+  "datawrapper>=0.5.3,<0.6.0",
+  # for tutorials
+  "jupyter>=1.0.0",
+]

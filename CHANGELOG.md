@@ -2,6 +2,21 @@
 
 
 
+## v0.13.10 (2025-05-15)
+
+### Fix
+
+* fix: Remove SNL (#198)
+
+* fix: Remove SNL
+
+fixes #197
+
+This PR removed SNL which is has been taken down. To maintain the leaderboard we decided to remove the tasks, but expect to replace them with alternatives in v2 of the leaderboard.
+
+* doc fix ([`26e0690`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/26e06902eecc0c223720407fd46f95011624bd92))
+
+
 ## v0.13.9 (2025-02-14)
 
 ### Fix

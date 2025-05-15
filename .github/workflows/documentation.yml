@@ -19,16 +19,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: true
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
       
       - name: Dependencies
         run: make install
-
       - name: Build and Deploy
         if: github.event_name == 'push'
         run: uv run mkdocs gh-deploy --force

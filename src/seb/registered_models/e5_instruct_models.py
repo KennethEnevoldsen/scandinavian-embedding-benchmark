@@ -69,7 +69,6 @@ def task_to_instruction(task: Task) -> str:
         task_name_to_instruct: dict[str, str] = {
             "ArxivClusteringP2P": "Identify the main and secondary category of Arxiv papers based on the titles and abstracts",
             "VG Clustering": "Identify the categories (e.g. sports) of given articles in Norwegian",
-            "SNL Clustering": "Identify categories in a Norwegian lexicon",
             "SwednClustering": "Identify news categories in Swedish passages",
             "HistoricalDanishClustering": "Identify the author of a given passage from historical Danish fiction.",
         }
@@ -83,7 +82,6 @@ def task_to_instruction(task: Task) -> str:
             "SwednRetrieval": "Given a Swedish news headline retrieve summaries or news articles",
             "TV2Nord Retrieval": "Given a summary of a Danish news article retrieve the corresponding news article",
             "DanFEVER": "Given a claim in Danish, retrieve documents that support the claim",
-            "SNL Retrieval": "Given a lexicon headline in Norwegian, retrieve its article",
             "NorQuad": "Given a question in Norwegian, retrieve the answer from Wikipedia articles",
             "SweFAQ": "Retrieve answers given questions in Swedish",
             "ArguAna": "Given a claim, find documents that refute the claim",

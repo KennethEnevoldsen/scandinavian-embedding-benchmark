@@ -66,30 +66,6 @@ def create_vg_clustering() -> Task:
     return task
 
 
-@tasks.register("SNL Clustering")
-def create_sts_clustering() -> Task:
-    from seb.mteb_tasks import SNLClustering
-
-    task = MTEBTask(SNLClustering())
-    task.name = "SNL Clustering"
-    task.version = "0.0.1"
-    task.domain = ["non-fiction", "wiki"]
-    task._text_columns = ["sentences"]
-    task.task_subtypes = ["Thematic Clustering"]
-    return task
-
-
-@tasks.register("SNL Retrieval")
-def create_sts_retrieval() -> Task:
-    from seb.mteb_tasks import SNLRetrieval
-
-    task = MTEBTask(SNLRetrieval())
-    task.name = "SNL Retrieval"
-    task.version = "0.0.1"
-    task.domain = ["non-fiction", "wiki"]
-    return task
-
-
 @tasks.register("NorQuad")
 def create_norquad() -> Task:
     from seb.mteb_tasks import NorQuadRetrieval

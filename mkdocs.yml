@@ -51,6 +51,7 @@ nav:
       - CLI: cli.md
       - API: api.md
 plugins:
+  - autorefs
   - mkdocs-jupyter:
       execute: false
       # execute: true

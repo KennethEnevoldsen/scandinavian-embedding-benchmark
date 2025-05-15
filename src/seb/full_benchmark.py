@@ -8,7 +8,7 @@ from typing import Optional
 
 from .benchmark import Benchmark
 from .interfaces.model import SebModel
-from .registered_tasks.speed import CPUSpeedTask, GPUSpeedTask
+from .registered_tasks.speed import CPUSpeedTask
 from .registries import get_all_models
 from .result_dataclasses import BenchmarkResults
 
@@ -62,7 +62,7 @@ def run_speed_benchmark(
     tasks = [CPUSpeedTask()]  # type: ignore
 
     if use_cache:
-        logger.warn(
+        logger.warning(
             "Running the speed benchmark with use_cache=True will load speed results from the cache, this might lead to incomparable results."
         )
 

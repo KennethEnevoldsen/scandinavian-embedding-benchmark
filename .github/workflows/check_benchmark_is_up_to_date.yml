@@ -15,11 +15,6 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
 
-      - name: Install dependencies
-        shell: bash
-        run: |
-          make install
-
       - name: Check benchmark is up to date
         shell: bash
         run: |

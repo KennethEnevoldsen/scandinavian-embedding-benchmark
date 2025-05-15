@@ -930,7 +930,7 @@ name = "exceptiongroup"
 version = "1.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.12' or (python_full_version == '3.12.*' and extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar') or (python_full_version == '3.12.*' and extra != 'extra-3-seb-arctic' and extra != 'extra-3-seb-sonar') or (python_full_version >= '3.13' and extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11' or (extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0b/9f/a65090624ecf468cdca03533906e7c69ed7588582240cfe7cc9e770b50eb/exceptiongroup-1.3.0.tar.gz", hash = "sha256:b241f5885f560bc56a59ee63ca4c6a8bfa46ae4ad651af316d4e81817bb9fd88", size = 29749 }
 wheels = [
@@ -2312,7 +2312,6 @@ dependencies = [
     { name = "click", version = "8.2.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10' or (extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
     { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
     { name = "ghp-import" },
-    { name = "importlib-metadata", version = "7.2.1", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar'" },
     { name = "importlib-metadata", version = "8.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10' or (extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
     { name = "jinja2" },
     { name = "markdown" },
@@ -2334,16 +2333,16 @@ wheels = [
 
 [[package]]
 name = "mkdocs-autorefs"
-version = "1.4.1"
+version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "markdown" },
     { name = "markupsafe" },
     { name = "mkdocs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c2/44/140469d87379c02f1e1870315f3143718036a983dd0416650827b8883192/mkdocs_autorefs-1.4.1.tar.gz", hash = "sha256:4b5b6235a4becb2b10425c2fa191737e415b37aa3418919db33e5d774c9db079", size = 4131355 }
+sdist = { url = "https://files.pythonhosted.org/packages/52/f4/77e3cf5e7ba54dca168bc718688127844721982ae88b08684669c5b5752d/mkdocs_autorefs-1.3.1.tar.gz", hash = "sha256:a6d30cbcccae336d622a66c2418a3c92a8196b69782774529ad441abb23c0902", size = 2056416 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f8/29/1125f7b11db63e8e32bcfa0752a4eea30abff3ebd0796f808e14571ddaa2/mkdocs_autorefs-1.4.1-py3-none-any.whl", hash = "sha256:9793c5ac06a6ebbe52ec0f8439256e66187badf4b5334b5fde0b128ec134df4f", size = 5782047 },
+    { url = "https://files.pythonhosted.org/packages/db/19/f20edc082c1de2987dbaf30fcc514ed7a908d465a15aba7cba595c3b245a/mkdocs_autorefs-1.3.1-py3-none-any.whl", hash = "sha256:18c504ae4d3ee7f344369bb26cb31d4105569ee252aab7d75ec2734c2c8b0474", size = 2837887 },
 ]
 
 [[package]]
@@ -2397,7 +2396,6 @@ name = "mkdocstrings"
 version = "0.22.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "importlib-metadata", version = "7.2.1", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar'" },
     { name = "importlib-metadata", version = "8.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10' or (extra == 'extra-3-seb-arctic' and extra == 'extra-3-seb-sonar')" },
     { name = "jinja2" },
     { name = "markdown" },

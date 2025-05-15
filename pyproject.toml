@@ -26,7 +26,7 @@ dependencies = [
   "radicli>=0.0.25",
   "datasets<2.20.0",   # will need to update the mteb version (current implementation of MTEB does not pass the "trust_remote_code" argument.
   "fsspec<=2023.9.2",  # can be removed updated along with the datasets limit when MTEB is updated
-
+  "psutil>=7.0.0",
 ]
 
 
@@ -167,6 +167,7 @@ build_command = "python -m pip install build; python -m build"
 include-package-data = true
 
 [tool.uv]
+default-groups = ["dev", "tests", "docs"]
 conflicts = [[{ extra = "sonar" }, { extra = "arctic" }]]
 no-build-isolation-package = ["xformers", "flash-attn"]
 

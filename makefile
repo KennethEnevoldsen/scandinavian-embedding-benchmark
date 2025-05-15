@@ -6,7 +6,7 @@ add-uv:
 
 install:
 	@echo "--- 🚀 Installing project ---"
-	uv sync --extra dev --extra docs --extra tests
+	uv sync
 
 static-type-check:
 	@echo "--- 🔍 Running static type check ---"
@@ -61,7 +61,7 @@ run-benchmark:
 	# additionally this expect that API keys required for specific models are set as env variables
 
 	# run benchmark
-	seb run
+	uv run seb run
 
 check-benchmark-is-up-to-date:
 	@echo "--- 🔄 Checking benchmark is up to date ---"

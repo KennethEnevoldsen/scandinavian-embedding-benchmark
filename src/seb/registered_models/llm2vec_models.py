@@ -200,6 +200,7 @@ def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
         meta=meta,
     )
 
+
 @models.register("TTC-L2V-supervised-2")
 def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
     base_model = "jealk/llm2vec-da-mntp-2"

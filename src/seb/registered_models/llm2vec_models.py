@@ -199,3 +199,28 @@ def create_llm2vec_da_mntp_ttc_unsupervised() -> SebModel:
         encoder=LazyLoadEncoder(partial_model),
         meta=meta,
     )
+
+@models.register("TTC-L2V-supervised-2")
+def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
+    base_model = "jealk/llm2vec-da-mntp-2"
+    peft_model = "jealk/TTC-L2V-supervised-2"
+    meta = ModelMeta(
+        name="TTC-L2V-supervised-2",
+        huggingface_name=peft_model,
+        reference=f"https://huggingface.co/{peft_model}",
+        languages=["da", "sv", "no"],
+        open_source=True,
+        embedding_size=4096,
+        architecture="LLM2Vec",
+        release_date=date(2025, 05, 16),
+    )
+    partial_model = partial(
+        LLM2VecModel,
+        base_model_name_or_path=base_model,
+        peft_model_name_or_path=peft_model,
+        max_length=8192,
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial_model),
+        meta=meta,
+    )

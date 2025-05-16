@@ -208,11 +208,11 @@ def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
         name="TTC-L2V-supervised-2",
         huggingface_name=peft_model,
         reference=f"https://huggingface.co/{peft_model}",
-        languages=["da", "sv", "no"],
+        languages=["da", "sv", "nb"],
         open_source=True,
         embedding_size=4096,
         architecture="LLM2Vec",
-        release_date=date(2025, 05, 16),
+        release_date=date(2025, 5, 16),
     )
     partial_model = partial(
         LLM2VecModel,

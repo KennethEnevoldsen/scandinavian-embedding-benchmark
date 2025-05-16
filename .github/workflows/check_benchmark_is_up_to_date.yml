@@ -15,17 +15,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
         with:
-          enable-cache: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        shell: bash
-        run: |
-          make install
+          enable-cache: false
 
       - name: Check benchmark is up to date
         shell: bash

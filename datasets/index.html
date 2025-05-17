@@ -1,0 +1,1014 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../speed_performance/">
+      
+      
+        <link rel="next" href="../installation/">
+      
+      <link rel="icon" href="../_static/logo.png">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Datasets - The Scandinavian Embedding Benchmark</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datasets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="The Scandinavian Embedding Benchmark" class="md-header__button md-logo" aria-label="The Scandinavian Embedding Benchmark" data-md-component="logo">
+      
+  <img src="../_static/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Scandinavian Embedding Benchmark
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Datasets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link md-tabs__link--active">
+        The Benchmark
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        Package
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="The Scandinavian Embedding Benchmark" class="md-nav__button md-logo" aria-label="The Scandinavian Embedding Benchmark" data-md-component="logo">
+      
+  <img src="../_static/logo.png" alt="logo">
+
+    </a>
+    The Scandinavian Embedding Benchmark
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="..">The Benchmark</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          The Benchmark
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domains/" class="md-nav__link">
+        Domains
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task_type/" class="md-nav__link">
+        Task Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speed_performance/" class="md-nav__link">
+        Speed and Performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Datasets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Datasets
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descriptions" class="md-nav__link">
+    Descriptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-licenses" class="md-nav__link">
+    Dataset Licenses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-disclaimer" class="md-nav__link">
+    Dataset Disclaimer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark/blob/main/docs/datasets.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark/raw/main/docs/datasets.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h1>
+<h2 id="descriptions">Descriptions<a class="headerlink" href="#descriptions" title="Permanent link">&para;</a></h2>
+<p>The following tables contains description of all the dataset in the benchmark along with with their main score, what type of task it as, what languages it covers and some statistics for each dataset. The domains follows the categories used in the <a href="https://universaldependencies.org">Universal Dependencies project</a>.</p>
+<!-- This dataset is autogenerated. If you want to update it please update the dataset metadata instead. -->
+
+<!--START_TABLE-->
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Main Score</th>
+<th style="text-align: left;">Languages</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Domains</th>
+<th style="text-align: right;">Number of Documents</th>
+<th style="text-align: left;">Mean Length of Documents (characters)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2021.nodalida-main.53/">Angry Tweets</a></td>
+<td style="text-align: left;">A sentiment dataset with 3 classes (positiv, negativ, neutral) for Danish tweets</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">social</td>
+<td style="text-align: right;">1047</td>
+<td style="text-align: left;">156.15 (std: 82.02)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/W19-6138/">Bornholm Parallel</a></td>
+<td style="text-align: left;">Danish Bornholmsk Parallel Corpus. Bornholmsk is a Danish dialect spoken on the island of Bornholm, Denmark. Historically it is a part of east Danish which was also spoken in Scania and Halland, Sweden.</td>
+<td style="text-align: left;">F1</td>
+<td style="text-align: left;">da, da-bornholm</td>
+<td style="text-align: left;">BitextMining</td>
+<td style="text-align: left;">poetry, wiki, fiction, web, social</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: left;">44.36 (std: 41.22)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2020.lrec-1.430/">DKHate</a></td>
+<td style="text-align: left;">Danish Tweets annotated for Hate Speech either being Offensive or not</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">social</td>
+<td style="text-align: right;">329</td>
+<td style="text-align: left;">88.18 (std: 168.30)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/danish_political_comments">Da Political Comments</a></td>
+<td style="text-align: left;">A dataset of Danish political comments rated for sentiment</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">social</td>
+<td style="text-align: right;">7206</td>
+<td style="text-align: left;">69.60 (std: 62.85)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/superlim">DaLAJ</a></td>
+<td style="text-align: left;">A Swedish dataset for linguistic acceptability. Available as a part of Superlim.</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">fiction, non-fiction</td>
+<td style="text-align: right;">888</td>
+<td style="text-align: left;">120.77 (std: 67.95)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2021.nodalida-main.47/">DanFEVER</a></td>
+<td style="text-align: left;">A Danish dataset intended for misinformation research. It follows the same format as the English FEVER dataset.</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">wiki, non-fiction</td>
+<td style="text-align: right;">8897</td>
+<td style="text-align: left;">124.84 (std: 168.53)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://github.com/fnielsen/lcc-sentiment">LCC</a></td>
+<td style="text-align: left;">The leipzig corpora collection, annotated for sentiment</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">legal, web, news, social, fiction, non-fiction, academic, government</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: left;">118.73 (std: 57.82)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2021.vardial-1.8/">Language Identification</a></td>
+<td style="text-align: left;">A dataset for Nordic language identification.</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da, sv, nb, nn, is, fo</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">wiki</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: left;">78.23 (std: 48.54)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://arxiv.org/abs/2204.08582#:~:text=MASSIVE%20contains%201M%20realistic%2C%20parallel,diverse%20languages%20from%2029%20genera.">Massive Intent</a></td>
+<td style="text-align: left;">MASSIVE: A 1M-Example Multilingual Natural Language Understanding Dataset with 51 Typologically-Diverse Languages</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da, nb, sv</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">spoken</td>
+<td style="text-align: right;">15021</td>
+<td style="text-align: left;">34.65 (std: 16.99)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://arxiv.org/abs/2204.08582#:~:text=MASSIVE%20contains%201M%20realistic%2C%20parallel,diverse%20languages%20from%2029%20genera.">Massive Scenario</a></td>
+<td style="text-align: left;">MASSIVE: A 1M-Example Multilingual Natural Language Understanding Dataset with 51 Typologically-Diverse Languages</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da, nb, sv</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">spoken</td>
+<td style="text-align: right;">15021</td>
+<td style="text-align: left;">34.65 (std: 16.99)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/L18-1661/">NoReC</a></td>
+<td style="text-align: left;">A Norwegian dataset for sentiment classification on review</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">nb</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">reviews</td>
+<td style="text-align: right;">2048</td>
+<td style="text-align: left;">89.62 (std: 61.21)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.17/">NorQuad</a></td>
+<td style="text-align: left;">Human-created question for Norwegian wikipedia passages.</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">nb</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">non-fiction, wiki</td>
+<td style="text-align: right;">2602</td>
+<td style="text-align: left;">502.19 (std: 875.23)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://opus.nlpl.eu/ELRC-Courts_Norway-v1.php">Norwegian courts</a></td>
+<td style="text-align: left;">Nynorsk and Bokmål parallel corpus from Norwegian courts. Norway has two standardised written languages. Bokmål is a variant closer to Danish, while Nynorsk was created to resemble regional dialects of Norwegian.</td>
+<td style="text-align: left;">F1</td>
+<td style="text-align: left;">nb, nn</td>
+<td style="text-align: left;">BitextMining</td>
+<td style="text-align: left;">legal, non-fiction</td>
+<td style="text-align: right;">456</td>
+<td style="text-align: left;">82.11 (std: 49.48)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/NbAiLab/norwegian_parliament">Norwegian parliament</a></td>
+<td style="text-align: left;">Norwegian parliament speeches annotated with the party of the speaker (<code>Sosialistisk Venstreparti</code> vs <code>Fremskrittspartiet</code>)</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">nb</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">spoken</td>
+<td style="text-align: right;">2400</td>
+<td style="text-align: left;">1897.51 (std: 1988.62)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.20/">ScaLA</a></td>
+<td style="text-align: left;">A linguistic acceptability task for Danish, Norwegian Bokmål Norwegian Nynorsk and Swedish.</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">da, nb, sv, nn</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">fiction, news, non-fiction, spoken, blog</td>
+<td style="text-align: right;">8192</td>
+<td style="text-align: left;">102.45 (std: 55.49)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/superlim">SweFAQ</a></td>
+<td style="text-align: left;">A Swedish QA dataset derived from FAQ</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">non-fiction, web</td>
+<td style="text-align: right;">1024</td>
+<td style="text-align: left;">195.44 (std: 209.33)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.20/">SweReC</a></td>
+<td style="text-align: left;">A Swedish dataset for sentiment classification on review</td>
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">Classification</td>
+<td style="text-align: left;">reviews</td>
+<td style="text-align: right;">2048</td>
+<td style="text-align: left;">318.83 (std: 499.57)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/swedn">SwednClustering</a></td>
+<td style="text-align: left;">The SWE-DN corpus is based on 1,963,576 news articles from the Swedish newspaper Dagens Nyheter (DN) during the years 2000--2020. The articles are filtered to resemble the CNN/DailyMail dataset both regarding textual structure. This dataset uses the category labels as clusters.</td>
+<td style="text-align: left;">V_measure</td>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">Clustering</td>
+<td style="text-align: left;">non-fiction, news</td>
+<td style="text-align: right;">2048</td>
+<td style="text-align: left;">1619.71 (std: 2220.36)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/swedn">SwednRetrieval</a></td>
+<td style="text-align: left;">News Article Summary Semantic Similarity Estimation.</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">non-fiction, news</td>
+<td style="text-align: right;">3070</td>
+<td style="text-align: left;">1946.35 (std: 3071.98)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/alexandrainst/nordjylland-news-summarization">TV2Nord Retrieval</a></td>
+<td style="text-align: left;">News Article and corresponding summaries extracted from the Danish newspaper TV2 Nord.</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">news, non-fiction</td>
+<td style="text-align: right;">4096</td>
+<td style="text-align: left;">784.11 (std: 982.97)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/sorenmulli/da-hashtag-twitterhjerne">Twitterhjerne</a></td>
+<td style="text-align: left;">Danish question asked on Twitter with the Hashtag #Twitterhjerne ('Twitter brain') and their corresponding answer.</td>
+<td style="text-align: left;">Ndcg_at_10</td>
+<td style="text-align: left;">da</td>
+<td style="text-align: left;">Retrieval</td>
+<td style="text-align: left;">social</td>
+<td style="text-align: right;">340</td>
+<td style="text-align: left;">138.23 (std: 82.41)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/navjordj/VG_summarization">VG Clustering</a></td>
+<td style="text-align: left;">Articles and their classes (e.g. sports) from VG news articles extracted from Norsk Aviskorpus.</td>
+<td style="text-align: left;">V_measure</td>
+<td style="text-align: left;">nb</td>
+<td style="text-align: left;">Clustering</td>
+<td style="text-align: left;">non-fiction, news</td>
+<td style="text-align: right;">2048</td>
+<td style="text-align: left;">1009.65 (std: 1597.60)</td>
+</tr>
+</tbody>
+</table>
+<!--END_TABLE-->
+
+<h2 id="dataset-licenses">Dataset Licenses<a class="headerlink" href="#dataset-licenses" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2021.nodalida-main.53/">Angry Tweets</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/W19-6138/">Bornholm Parallel</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2020.lrec-1.430/">DKHate</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/danish_political_comments">Da Political Comments</a></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/superlim">DaLAJ</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2021.nodalida-main.47/">DanFEVER</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://github.com/fnielsen/lcc-sentiment">LCC</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://arxiv.org/abs/2204.08582#:~:text=MASSIVE%20contains%201M%20realistic%2C%20parallel,diverse%20languages%20from%2029%20genera.">Massive Scenario</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/L18-1661/">NoReC</a></td>
+<td style="text-align: left;">CC-BY-NC-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.17/">NorQuad</a></td>
+<td style="text-align: left;">CC0-1.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://opus.nlpl.eu/ELRC-Courts_Norway-v1.php">Norwegian courts</a></td>
+<td style="text-align: left;">MIT</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/NbAiLab/norwegian_parliament">Norwegian parliament</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.20/">ScaLA</a></td>
+<td style="text-align: left;">CC-BY-SA-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/superlim">SweFAQ</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://aclanthology.org/2023.nodalida-1.20/">SweReC</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/swedn">SwednClustering</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://spraakbanken.gu.se/en/resources/swedn">SwednRetrieval</a></td>
+<td style="text-align: left;">CC-BY-4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/alexandrainst/nordjylland-news-summarization">TV2Nord Retrieval</a></td>
+<td style="text-align: left;">Apache 2.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/sorenmulli/da-hashtag-twitterhjerne">Twitterhjerne</a></td>
+<td style="text-align: left;">CC BY 4.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://huggingface.co/datasets/navjordj/VG_summarization">VG Clustering</a></td>
+<td style="text-align: left;">CC-BY-NC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dataset-disclaimer">Dataset Disclaimer<a class="headerlink" href="#dataset-disclaimer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We do not own or host any of the datasets which we use for this benchmark.</li>
+<li>We only offer refer to existing dataset that we believe we are free to redistribute. If any doubt occurs about the legality of any of our file downloads we will take them off right away after contacting us.</li>
+</ul>
+<p><strong>Notice and take down policy</strong></p>
+<ul>
+<li>Notice: Should you consider that data used by the dataset contains material that is owned by you and should therefore not be reproduced here, please: Clearly identify yourself, with detailed contact data such as an address, telephone number or email address at which you can be contacted.</li>
+<li>Clearly identify the copyrighted work claimed to be infringed.</li>
+<li>Clearly identify the material that is claimed to be infringing and information reasonably sufficient to allow us to locate the material.</li>
+<li>And contact the 'Scandinavian Embedding Benchmark' at the following ticket service: https://frontoffice.chcaa.au.dk/hc/en-us/requests/new</li>
+</ul>
+<p>We will comply to legitimate requests by removing the affected sources from the next release of the benchmark.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../speed_performance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Speed and Performance" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Speed and Performance
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Kenneth Enevoldsen
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/KennethEnevoldsen/Scandinavian-Embedding-Benchmark" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "content.tooltips", "navigation.footer", "navigation.indexes", "toc.follow"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -2,6 +2,43 @@
 
 
 
+## v0.13.11 (2025-05-17)
+
+### Chore
+
+* chore: moved dev tooling to dependency group ([`f2bbe03`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/f2bbe03b761c71aef31c3c3e25ceda7f642d30b9))
+
+### Ci
+
+* ci: Add uv lock ([`085cd5a`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/085cd5a688070a7de6740aaaaaac46aff77d5f2e))
+
+* ci: disable cache ([`fb940f4`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fb940f4749c9bef45250a6373559c0bb999e1943))
+
+* ci: fixes ([`9c9fbeb`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9c9fbebe4c7195bc8d1c596434588f2063a1036e))
+
+* ci: minor updates ([`9ad3bcc`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/9ad3bccfa005523ca987e0f7fc3f66d118ac0a1f))
+
+* ci: minor updates ([`3beb1e7`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/3beb1e7bda49b9eefa51448cb08a3295cfeece2c))
+
+* ci: rerunning ci ([`164ec91`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/164ec9160c9ff2aa7f730be59173193d4753ad80))
+
+* ci: simplified CI ([`5abc2a0`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/5abc2a0e7e2409819b6a22b6ea8b00e97d21c3dd))
+
+### Fix
+
+* fix: Added model benchmark for TTC-L2V-supervised-2, new SOTA embedding model (#199)
+
+* feat: Added new model and cached results, TTC-L2V-supervised-2
+
+* feat: Added model benchmark for TTC-L2V-supervised-2, new SOTA embedding model
+
+* fix: ran linting ([`fdd4bb6`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/fdd4bb65c2e2b28abfd438cf958ae22b361a4e98))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark ([`1dcd4ce`](https://github.com/KennethEnevoldsen/scandinavian-embedding-benchmark/commit/1dcd4ce157d0860ac9580fd65860d3d13fd5b3a1))
+
+
 ## v0.13.10 (2025-05-15)
 
 ### Fix

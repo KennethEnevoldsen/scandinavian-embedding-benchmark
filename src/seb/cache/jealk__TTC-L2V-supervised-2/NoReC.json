@@ -1,0 +1,1 @@
+{"task_name":"NoReC","task_description":"A Norwegian dataset for sentiment classification on review","task_version":"1.1.1","time_of_run":"2025-05-16T10:12:35.271340","scores":{"nb":{"accuracy":0.664501953125,"f1":0.6590845533667542,"accuracy_stderr":0.02208030272027524,"f1_stderr":0.020741752202469838,"main_score":0.664501953125}},"main_score":"accuracy"}

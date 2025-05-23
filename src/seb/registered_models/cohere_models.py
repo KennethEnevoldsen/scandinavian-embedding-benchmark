@@ -27,7 +27,7 @@ class CohereTextEmbeddingModel(Encoder):
         return v.shape[1]
 
     def _embed(self, sentences: list[str], input_type: str) -> torch.Tensor:
-        import cohere
+        import cohere  # type: ignore[import]
 
         client = cohere.Client()
         response = client.embed(

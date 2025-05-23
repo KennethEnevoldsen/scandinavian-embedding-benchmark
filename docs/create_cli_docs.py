@@ -2,6 +2,7 @@
 # intended to be used for anything other than a starting point.
 # at least we would need this issue fixed first:
 # https://github.com/explosion/radicli/issues/30
+from __future__ import annotations
 
 from pathlib import Path
 

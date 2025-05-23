@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from datetime import datetime
 from typing import Any
 
@@ -52,9 +54,7 @@ def create_test_encode_task() -> seb.Task:
 
 
 def create_test_raise_error_task() -> seb.Task:
-    """
-    Note this task is not registered as it will cause errrors in other tests.
-    """
+    """Note this task is not registered as it will cause errrors in other tests."""
 
     class TestTaskWithError(TestTask):
         name = "test raise error task"

@@ -1,10 +1,10 @@
-"""
-Script for running the benchmark and pushing the results to Datawrapper.
+"""Script for running the benchmark and pushing the results to Datawrapper.
 
 Example:
-
     python update_benchmark_tables.py --data-wrapper-api-token <token>
 """
+
+from __future__ import annotations
 
 import argparse
 from collections import defaultdict
@@ -69,7 +69,7 @@ def create_mdl_name_w_reference(mdl: seb.ModelMeta) -> str:
     return mdl_name
 
 
-def get_speed_results(model_meta: seb.ModelMeta) -> Optional[float]:
+def get_speed_results(model_meta: seb.ModelMeta) -> float | None:
     model = seb.get_model(model_meta.name)
     TOKENS_IN_UGLY_DUCKLING = 3591
 
@@ -218,9 +218,7 @@ def push_to_datawrapper(df: pd.DataFrame, chart_id: str, token: str):
 
 
 def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
-    """
-    For each model in the dataset, for each task, compute the rank of the model and then compute the average rank.
-    """
+    """For each model in the dataset, for each task, compute the rank of the model and then compute the average rank."""
     df = df.drop(columns=["Average Score", "Open Source", "Embedding Size", "Model name", "WPS (CPU)"])
 
     ranks = df.rank(axis=0, ascending=False, na_option="bottom")
@@ -229,9 +227,7 @@ def compute_avg_rank(df: pd.DataFrame) -> pd.Series:
 
 
 def compute_avg_rank_bootstrap(df: pd.DataFrame, n_samples: int = 100) -> pd.Series:
-    """
-    For all models bootstrap a set of tasks and compute the average rank. Repeat this n_samples times.
-    """
+    """For all models bootstrap a set of tasks and compute the average rank. Repeat this n_samples times."""
     df = df.drop(columns=["Average Score", "Open Source", "Embedding Size", "Average Rank", "WPS (CPU)", "Model name"])
     tasks = np.array(df.columns.tolist())
     n_tasks = len(tasks)

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from datetime import datetime
 
 import pytest
@@ -47,9 +49,7 @@ def create_test_encode_task() -> seb.Task:
     ],
 )
 def test_integration_dummy(model: str):
-    """Runs all sorts of models on a dummy task to see if they can run without breaking.
-    Cache is ignored so that the models are actually run.
-    """
+    """Runs all sorts of models on a dummy task to see if they can run without breaking. Cache is ignored so that the models are actually run."""
     tasks = ["test-encode-task"]
     run_benchmark_cli(models=[model], tasks=tasks, ignore_cache=True)
 

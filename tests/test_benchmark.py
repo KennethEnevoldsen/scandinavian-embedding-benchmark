@@ -1,6 +1,6 @@
-"""
-The test specifications for the benchmark.
-"""
+"""The test specifications for the benchmark."""
+
+from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
@@ -39,13 +39,11 @@ from .test_tasks import all_tasks_names
 )
 def test_run_benchmark(
     model_names: list[str],
-    languages: Optional[list[str]],
-    tasks: Optional[Union[list[str], list[seb.Task]]],
+    languages: list[str] | None,
+    tasks: list[str] | list[seb.Task] | None,
     tmp_path: Path,
 ):
-    """
-    Test that the benchmark runs without errors.
-    """
+    """Test that the benchmark runs without errors."""
     models = [seb.get_model(model_name) for model_name in model_names]
 
     if tasks is None:
@@ -66,11 +64,8 @@ def test_run_benchmark(
             ensure_correct_task_result(task_result)
 
 
-def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]):
-    """
-    Ensure that the task result is correct.
-    """
-
+def ensure_correct_task_result(task_result: seb.TaskResult | seb.TaskError):
+    """Ensure that the task result is correct."""
     assert isinstance(task_result, seb.TaskResult)
     assert isinstance(task_result.task_name, str)
     assert isinstance(task_result.languages, list)
@@ -91,13 +86,11 @@ def ensure_correct_task_result(task_result: Union[seb.TaskResult, seb.TaskError]
 )
 def test_cache_dir_is_reused(
     model_name: str,
-    languages: Optional[list[str]],
-    tasks: Optional[Union[list[str], list[seb.Task]]],
+    languages: list[str] | None,
+    tasks: list[str] | list[seb.Task] | None,
     tmp_path: Path,
 ):
-    """
-    Check that the cache dir is reused.
-    """
+    """Check that the cache dir is reused."""
     model = seb.get_model(model_name)
     benchmark: seb.Benchmark = seb.Benchmark(
         languages=languages,
@@ -129,9 +122,7 @@ def test_cache_dir_is_reused(
 
 
 def test_benchmark_skip_on_error_raised(tmp_path: Path):
-    """
-    Test that the benchmark skips a model if an error is raised.
-    """
+    """Test that the benchmark skips a model if an error is raised."""
     task = create_test_raise_error_task()
     model = seb.get_model("test_model")
     benchmark: seb.Benchmark = seb.Benchmark(
@@ -158,7 +149,7 @@ def test_benchmark_skip_on_error_raised(tmp_path: Path):
 
 @pytest.mark.parametrize("languages", [None, ["nb", "nn"], ["sv", "nb", "nn"], ["sv", "nb", "nn", "da"]])
 @pytest.mark.parametrize("tasks", [None, ["DKHate", "ScaLA"]])
-def test_benchmark_init(languages: Optional[list[str]], tasks: Optional[list[str]]):
+def test_benchmark_init(languages: list[str] | None, tasks: list[str] | None):
     benchmark = seb.Benchmark(languages=languages, tasks=tasks)
 
     if languages:

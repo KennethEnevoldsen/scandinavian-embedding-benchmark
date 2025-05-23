@@ -1,19 +1,20 @@
 from __future__ import annotations
+
 import logging
+from collections.abc import Iterable, Sequence
 from datetime import date
 from functools import partial
-import torch
-from typing import Any, Optional, TypeVar, Union, List
-from collections.abc import Iterable, Sequence
-from tqdm import tqdm
 from itertools import islice
+from typing import Any, List, Optional, TypeVar, Union
+
 import numpy as np
+import torch
+from tqdm import tqdm
 
 import seb
-from seb.interfaces.model import LazyLoadEncoder, ModelMeta, SebModel, Encoder
+from seb.interfaces.model import Encoder, LazyLoadEncoder, ModelMeta, SebModel
 from seb.interfaces.task import Task
 from seb.registries import models
-
 
 logger = logging.getLogger(__name__)
 T = TypeVar("T")
@@ -95,12 +96,12 @@ class LLM2VecModel(Encoder):
     ):
         logger.info("Started loading LLM2Vec model")
         try:
-            from llm2vec import LLM2Vec
+            from llm2vec import LLM2Vec  # type: ignore[import]
         except ImportError:
             raise ImportError("To use the LLM2Vec models `llm2vec` is required. Please install it with `pip seb[llm2vec].")
         extra_kwargs = {}
         try:
-            import flash_attn  # noqa
+            import flash_attn  # type: ignore[import]
 
             extra_kwargs["attn_implementation"] = "flash_attention_2"
         except ImportError:
@@ -147,32 +148,6 @@ class LLM2VecModel(Encoder):
             batched_embeddings.append(embedded_batch)
 
         return torch.cat(batched_embeddings).numpy()
-
-
-@models.register("TTC-L2V-supervised-da-1")
-def create_llm2vec_da_mntp_ttc_supervised() -> SebModel:
-    base_model = "jealk/llm2vec-da-mntp"
-    peft_model = "jealk/TTC-L2V-supervised-1"
-    meta = ModelMeta(
-        name="TTC-L2V-supervised-da-1",
-        huggingface_name=peft_model,
-        reference=f"https://huggingface.co/{peft_model}",
-        languages=["da"],
-        open_source=True,
-        embedding_size=4096,
-        architecture="LLM2Vec",
-        release_date=date(2024, 12, 20),
-    )
-    partial_model = partial(
-        LLM2VecModel,
-        base_model_name_or_path=base_model,
-        peft_model_name_or_path=peft_model,
-        max_length=8192,
-    )
-    return SebModel(
-        encoder=LazyLoadEncoder(partial_model),
-        meta=meta,
-    )
 
 
 @models.register("TTC-L2V-unsupervised-da-1")

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Literal, Protocol, TypedDict, runtime_checkable
 
 import numpy as np
@@ -36,8 +38,7 @@ class DescriptiveDatasetStats(TypedDict):
 
 @runtime_checkable
 class Task(Protocol):
-    """
-    A task is a specific evaluation task for a sentence embedding model.
+    """A task is a specific evaluation task for a sentence embedding model.
 
     Attributes:
         name: The name of the task.
@@ -62,8 +63,7 @@ class Task(Protocol):
     description: str
 
     def evaluate(self, model: Encoder) -> TaskResult:
-        """
-        Evaluates a Sentence Embedding Model on the task.
+        """Evaluates a Sentence Embedding Model on the task.
 
         Args:
             model: A model with the encode method implemented.
@@ -74,8 +74,7 @@ class Task(Protocol):
         ...
 
     def get_documents(self) -> list[str]:
-        """
-        Get the documents for the task.
+        """Get the documents for the task.
 
         Returns:
             A list of strings.
@@ -95,8 +94,6 @@ class Task(Protocol):
         )
 
     def name_to_path(self) -> str:
-        """
-        Convert a name to a path.
-        """
+        """Convert a name to a path."""
         name = self.name.replace("/", "__").replace(" ", "_")
         return name

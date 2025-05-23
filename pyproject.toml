@@ -8,6 +8,7 @@ version = "0.13.11"
 authors = [
   { name = "Kenneth Enevoldsen", email = "Kennethcenevoldsen@gmail.com" },
 ]
+license = { file = "LICENSE" }
 description = "Scandinavian Embedding Benchmark"
 classifiers = [
   "Operating System :: POSIX :: Linux",
@@ -28,11 +29,6 @@ dependencies = [
   "fsspec<=2023.9.2",  # can be removed updated along with the datasets limit when MTEB is updated
   "psutil>=7.0.0",
 ]
-
-
-[project.license]
-file = "LICENSE"
-name = "MIT"
 
 [project.optional-dependencies]
 mistral = [
@@ -73,21 +69,25 @@ exclude = [".*venv*"]
 pythonPlatform = "Darwin"
 
 [tool.ruff]
-# extend-include = ["*.ipynb"]
 line-length = 150
+target-version = "py39"
 
-# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
-lint.select = [
+[tool.ruff.lint]
+select = [
+  "F",      # pyflakes rules,
+  "I",      # sorting for imports
+  "E",      # formatting for docs
+  "D",      # formatting for docs
+  "UP",     # upgrade to latest syntax if possible
+  "FA",     # Future annotations
+  "C4",     # cleaner comprehensions
   "A",
   "ANN",
   "ARG",
   "B",
-  "C4",
   "COM",
   "D417",
-  "E",
   "ERA",
-  "F",
   "I",
   "ICN",
   "NPY001",
@@ -105,7 +105,7 @@ lint.select = [
   "SIM",
   "W",
 ]
-lint.ignore = [
+ignore = [
   "ANN101",
   "ANN102",
   "ANN401",
@@ -116,36 +116,19 @@ lint.ignore = [
   "F841",
   "RET504",
   "COM812",
+  "D100",   # Missing docstring in public module
+  "D101",   # Missing docstring in public class
+  "D102",   # Missing docstring in public method
+  "D103",   # Missing docstring in public function
+  "D105",   # Missing docstring in magic method
+  "D104",   # Missing docstring in public package
+  "D107",   # Missing docstring in __init__
 ]
 # Allow autofix for all enabled rules (when `--fix`) is provided.
-lint.unfixable = ["ERA"]
-# Exclude a variety of commonly ignored directories.
-lint.exclude = [
-  ".bzr",
-  ".direnv",
-  ".eggs",
-  ".git",
-  ".hg",
-  ".nox",
-  ".pants.d",
-  ".pytype",
-  ".ruff_cache",
-  ".svn",
-  ".tox",
-  ".venv",
-  "__pypackages__",
-  "_build",
-  "buck-out",
-  "build",
-  "dist",
-  "node_modules",
-  "venv",
-  "__init__.py",
-  "docs/conf.py",
-]
+unfixable = ["ERA"]
+exclude = [".venv"]
 # Allow unused variables when underscore-prefixed.
-lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-target-version = "py39"
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.flake8-annotations]
 mypy-init-return = true
@@ -154,9 +137,8 @@ suppress-none-returning = true
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.lint.mccabe]
-# Unlike Flake8, default to a complexity level of 10.
-max-complexity = 10
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
 
 [tool.semantic_release]
 branch = "main"
@@ -167,8 +149,8 @@ build_command = "python -m pip install build; python -m build"
 include-package-data = true
 
 [tool.uv]
-default-groups = ["dev", "tests", "docs"]
 conflicts = [[{ extra = "sonar" }, { extra = "arctic" }]]
+default-groups = ["dev", "tests", "docs"]
 no-build-isolation-package = ["xformers", "flash-attn"]
 
 [dependency-groups]

@@ -1,0 +1,2 @@
+[console_scripts]
+seb = seb.cli.cli:setup_cli

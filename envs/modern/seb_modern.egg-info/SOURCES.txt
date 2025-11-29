@@ -1,0 +1,7 @@
+pyproject.toml
+seb_modern.egg-info/PKG-INFO
+seb_modern.egg-info/SOURCES.txt
+seb_modern.egg-info/dependency_links.txt
+seb_modern.egg-info/entry_points.txt
+seb_modern.egg-info/requires.txt
+seb_modern.egg-info/top_level.txt

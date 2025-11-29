@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: seb_modern
+Version: 0.0.1
+Summary: Scandinavian Embedding Benchmark
+Author-email: Kenneth Enevoldsen <Kennethcenevoldsen@gmail.com>
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: <3.13,>=3.9
+Requires-Dist: seb
+Requires-Dist: mteb[beir]==1.1.1
+Requires-Dist: pydantic>=2.1.0
+Requires-Dist: catalogue>=2.0.8
+Requires-Dist: radicli>=0.0.25
+Requires-Dist: datasets<2.20.0
+Requires-Dist: fsspec<=2023.9.2
+Requires-Dist: psutil>=7.0.0
+Requires-Dist: accelerate>=1.10.1
+Provides-Extra: qwen
+Requires-Dist: sentence-transformers>=3.1; extra == "qwen"
+Requires-Dist: transformers>=4.53.0; extra == "qwen"

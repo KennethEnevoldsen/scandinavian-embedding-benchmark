@@ -3,6 +3,14 @@
 
 This is the documentation for the Scandinavian Embedding Benchmark. This benchmark is intended to evaluate the sentence/document embeddings of language models for mainland Scandinavian Languages.
 
+
+!!! info
+    The Scandinavian Embedding Benchmark has moved to MTEB. You can find the Scandinavian Leaderboard under the [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard). To run the benchmark, add results etc. please refer to the [MTEB documentation](https://embeddings-benchmark.github.io/mteb/).
+    The reason for the change is that 1) encourage others to evaluate on scandinavian tasks, 2) avoid duplication of effort, and 3) make it easier for users to compare models across languages. My hope is that this will lead to better models for Scandinavian languages.
+
+    **Missing a model or information?** That is great we would love to add it to MTEB. Please file an issue on MTEB and we will help get it added.
+
+
 Intended uses for this benchmark:
 
 - Evaluating document embeddings of Scandinavian language models
